@@ -8,7 +8,7 @@ var session = require('express-session');
 //var MongoStore = require('connect-mongo')(session);
 //var mongoose = require('./db/mongoose');
 
-var apiRoutes = require('./routes/api');
+
 var users = require('./routes/users');
 var index = require('./routes/index');
 
@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/file', express.static(path.join(__dirname, 'storage')));
 app.use('/', index);
-app.use('/api', apiRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
