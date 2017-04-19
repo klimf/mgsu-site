@@ -10,7 +10,7 @@ router.get('/*', function(req, res, next) {
         next();
         }
     else {
-       res.send("MGSU ENDAWMENT");
+       res.sendFile('index.html')
     }
 });
 
