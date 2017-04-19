@@ -1,6 +1,9 @@
 const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+
 module.exports = {
-  entry: path.resolve(__dirname, 'index.js'),
+  entry: "./index.js",
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../public/js/'),
@@ -17,9 +20,25 @@ module.exports = {
       query: {
         presets: ['es2015', 'react']
       }
-    }]
+    },
+    {
+       test: /\.scss$/,
+       use:  ExtractTextPlugin.extract({
+         fallback: "style-loader",
+         use: ["css-loader", "sass-loader"]
+        }),
+    }],
   },
   resolve: {
-    extensions: ['.json', '.js', '.jsx', '.css']
-  }
+    extensions: ['.json', '.js', '.jsx', '.css', '.scss']
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "../public/"),
+    compress: true,
+    port: 4000
+  },
+  plugins: [
+    new ExtractTextPlugin({filename: 'styles/style.css', allChunks: true})
+  ],
+  devtool: 'source-map'
 };
