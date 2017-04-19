@@ -10,5 +10,5 @@ ReactDOM.render(
 );
 
 
-require('./styles/main.scss');
-require('./styles/libs/foundation.css')
+require("./styles/libs/foundation.css")
+require('./styles/main.scss')
