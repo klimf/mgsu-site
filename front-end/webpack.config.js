@@ -6,7 +6,7 @@ module.exports = {
   entry: "./index.js",
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '../public/js/'),
+    path: path.resolve(__dirname, '../public/'),
   },
   module: {
     rules: [{
@@ -27,7 +27,17 @@ module.exports = {
          fallback: "style-loader",
          use: ["css-loader", "sass-loader"]
         }),
-    }],
+    },
+    {
+       test: /\.css$/,
+       use:  ExtractTextPlugin.extract({
+         use: [{
+          loader: 'css-loader',
+          options: { minimize: true }
+        }]
+      }),
+    }
+    ],
   },
   resolve: {
     extensions: ['.json', '.js', '.jsx', '.css', '.scss']
@@ -38,7 +48,7 @@ module.exports = {
     port: 4000
   },
   plugins: [
-    new ExtractTextPlugin({filename: 'styles/style.css', allChunks: true})
+    new ExtractTextPlugin({filename: 'style.css', allChunks: true})
   ],
   devtool: 'source-map'
 };
