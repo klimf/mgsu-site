@@ -50,3 +50,5 @@ module.exports.ppsCreds = {
     login: 'pps12gpb3241',
     pass: 'TXYXcpTD8TaUZWT'
 }
+
+module.exports.sessionSecret = '5cbb9978b6edc51e82930a15914964fe51df3e789d281fde4f04cfd1b8be4304';
