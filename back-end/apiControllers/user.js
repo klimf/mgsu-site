@@ -1,5 +1,5 @@
 var User = require('../db/mongoose').models.User;
-var sendConfirmationEmail = require('./mailer').sendConfirmationEmail;
+// var sendConfirmationEmail = require('./mailer').sendConfirmationEmail;
 
 module.exports = {
     login: login,
@@ -91,24 +91,21 @@ function create(req, res, next) {
 
     if(!req.body.email) {
         res.send(400, 'email is required')
-    };
+    } else {
 
-    var pass = req.body.email.split('@')[0] + Math.round(Math.random());
-
-    User.createInstance(req.body, {role: 0, hashPassword: pass}, function(err, data) {
+    User.createInstance(req.body, {role: 0, hashPassword: req.body.password}, function(err, data) {
         if(err) {
             console.error(err);
             res.statusCode = 400;
-            res.send('validation error');
+            res.send(err);
         } else {
-            res.send(data._id);
+            res.send(data);
             var token = data.createConfirmationToken();
             data.save();
-            sendConfirmationEmail(data.email, data.firstName, pass, token, function (err, data) {
-                console.log(err || data);
-            })
         }
     });
+
+    }
 
 }
 

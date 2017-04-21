@@ -101,36 +101,36 @@ module.exports.resetCache = function (req, res, next) {
 
 //mailer
 
-var config = require('../config.js').smtp;
-var nodemailer = require('nodemailer');
+// var config = require('../config.js').smtp;
+// var nodemailer = require('nodemailer');
 
-module.exports.sendEmail = send;
+// module.exports.sendEmail = send;
 
-var transporter = nodemailer.createTransport(
-    {
-        port: config.port,
-        host: config.host,
-        auth: {
-            user: 'endowment@misis.ru',
-            pass: 'bTrjvOzoHUnT'
-        }
-    });
+// var transporter = nodemailer.createTransport(
+//     {
+//         port: config.port,
+//         host: config.host,
+//         auth: {
+//             user: 'endowment@misis.ru',
+//             pass: 'bTrjvOzoHUnT'
+//         }
+//     });
 
-function send(params, callback) {
+// function send(params, callback) {
 
-    var mailOptions = {
-        from: config.sender,
-        to: params.to,
-        subject: params.subject,
-        text: params.text,
-        html: params.html || null
-    };
+//     var mailOptions = {
+//         from: config.sender,
+//         to: params.to,
+//         subject: params.subject,
+//         text: params.text,
+//         html: params.html || null
+//     };
 
-    transporter.sendMail(mailOptions, function(err, info){
-        callback(err, info);
-    });
+//     transporter.sendMail(mailOptions, function(err, info){
+//         callback(err, info);
+//     });
 
-};
+// };
 
 
 

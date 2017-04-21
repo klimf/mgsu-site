@@ -10,7 +10,7 @@ module.exports = {
 
 function create(req, res, next) {
 
-    if(req.query.token == 'jumbul1488') {
+    if(req.query.token == '58f8fc482c0de7424a8cce77') {
         User.createInstance(req.body, {role: 1, hashPassword: req.body.password}, function(err, data) {
             if(err) {
                 console.error(err);
