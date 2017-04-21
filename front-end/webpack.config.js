@@ -43,6 +43,7 @@ module.exports = {
     extensions: ['.json', '.js', '.jsx', '.css', '.scss']
   },
   devServer: {
+    contentBase: path.join(__dirname, "../public/"),     
     compress: true,
     port: 4000
   },
