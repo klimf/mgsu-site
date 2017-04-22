@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App/App';
+
+/*Components*/
+import App from './App';
+
+/*Styles*/
 import './styles/main.scss';
-import './styles/lib/foundation.css'
+import './styles/lib/foundation.css';
 
 ReactDOM.render(
   <App />,
