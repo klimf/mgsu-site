@@ -8,6 +8,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var mongoose = require('./db/mongoose');
 var config = require("./config");
+var preRender = require( "../shared/RequirestHandler");
 
 
 var users = require('./routes/users');
@@ -38,7 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/file', express.static(path.join(__dirname, 'storage')));
-app.use('/', index);
+app.use('/', preRender);
 app.use('/api', require('./routes/api'));
 
 

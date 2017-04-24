@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import {Link} from "react-router-dom";
+
 
 
 
@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 function projectItem({project}) {
     console.log(arguments)
     return (
-        <div>
+          <div>
                 <h3>{project.description}</h3>
            </div>
         )
