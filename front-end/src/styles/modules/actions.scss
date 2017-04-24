@@ -1,0 +1,18 @@
+.hexagon {
+  fill: transparent;
+  stroke: #FFF;
+  stroke-width: 4px;
+  width: 25%;
+  margin: 0 0 -7.5% 0;
+  transition: 0.3s;
+}
+
+.hexagon:nth-child(4n+5){
+  margin-left: 12.5%;
+}
+
+.hexagon:hover {
+  fill: #D8666E;
+  stroke-width: 0;
+}
+

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "Open Sans";
+  src: local(Roboto Light), url(../media/fonts/open-sans/OpenSans-Light.ttf) format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: local(Roboto Regular), url(../media/fonts/open-sans/OpenSans-Regular.ttf) format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: local(Roboto Semibold), url(../media/fonts/open-sans/OpenSans-Semibold.ttf) format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: local(Roboto Bold), url(../media/fonts/open-sans/OpenSans-Bold.ttf) format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../media/fonts/icons/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(../media/fonts/icons/MaterialIcons-Regular.woff2) format('woff2'),
+  url(../media/fonts/icons/MaterialIcons-Regular.woff) format('woff'),
+  url(../media/fonts/icons/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+HtML {
+  font-family: "Open Sans", "PT Sans Caption", sans-serif;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h1.white, h2.white, h3.white, h4.white, h5.white, p.white {
+  color: $white;
+}
+
+h1.uppercase, h2.uppercase, h3.uppercase, h4.uppercase, h5.uppercase, p.uppercase {
+  text-transform: uppercase;
+}
+
+h1.center, h2.center, h3.center, h4.center, h5.center, p.center {
+  text-align: center;
+}
