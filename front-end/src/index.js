@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './App/App';
+import {store} from './App/Store';
 
-/*Components*/
-import App from './App';
 
-/*Styles*/
-import './styles/main.scss';
-import './styles/lib/foundation.css';
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+     <App />
+  </Provider>,
   document.getElementById('root')
 );
+
+import './styles/main.scss';
+import './styles/lib/foundation.css';
