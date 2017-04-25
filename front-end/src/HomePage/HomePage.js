@@ -1,7 +1,5 @@
 import React, {Component} from "react";
-
-/*Components*/
-import Slider from "./components/Slider";
+import Slider from './components/Slider';
 
 class HomePage extends Component {
     render() {
@@ -20,46 +18,64 @@ class HomePage extends Component {
                             {/*<li className="nav-item inline uppercase underline h2 white pointer">Спорт</li>*/}
                             {/*<li className="nav-item inline uppercase underline h2 white pointer">Проффессора и преподаватели</li>*/}
                             <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                    <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <polygon
+                                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns no-margin">Образование</h3>
+                                <h3 className="small-12 absolute uppercase center white columns no-margin">
+                                    Образование</h3>
                             </div>
                             <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                    <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <polygon
+                                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
                                 <h3 className="small-12 absolute uppercase center white columns no-margin">Наука</h3>
                             </div>
                             <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                    <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <polygon
+                                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
                                 <h3 className="small-12 absolute uppercase center white columns no-margin">Студенты</h3>
                             </div>
                             <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                    <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <polygon
+                                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns no-margin">Стипендии</h3>
+                                <h3 className="small-12 absolute uppercase center white columns no-margin">
+                                    Стипендии</h3>
                             </div>
                             <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                    <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <polygon
+                                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns no-margin">Инфраструктура</h3>
+                                <h3 className="small-12 absolute uppercase center white columns no-margin">
+                                    Инфраструктура</h3>
                             </div>
                             <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                    <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <polygon
+                                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
                                 <h3 className="small-12 absolute uppercase center white columns no-margin">Спорт</h3>
                             </div>
                             <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                                    <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <polygon
+                                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns  no-margin">Проффессора и преподаватели</h3>
+                                <h3 className="small-12 absolute uppercase center white columns  no-margin">Проффессора
+                                    и преподаватели</h3>
                             </div>
                         </div>
                     </div>
