@@ -1,6 +1,6 @@
 import {createStore} from "redux";
 import buildApp from "./AppBuilder";
-import redusers from "../../src/common/appReducers";
+import redusers from "../../src/common/reducers/appReducers";
 import generateIndex from "./indexPageGenerator";
 
 
