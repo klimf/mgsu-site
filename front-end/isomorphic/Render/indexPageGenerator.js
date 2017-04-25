@@ -1,6 +1,6 @@
 const assets = {
-    css: '/css/main.a75d8211.css',
-    js: 'js/main.4e7e0096.js'
+    css: '/static/css/main.css',
+    js: '/static/js/main.js'
 }
 
 export default function(app, preloadedState) {

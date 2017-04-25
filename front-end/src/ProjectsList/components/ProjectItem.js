@@ -5,7 +5,6 @@ import React, { Component, PropTypes } from 'react'
 
 
 function projectItem({project}) {
-    console.log(arguments)
     return (
           <div>
                 <h3>{project.description}</h3>

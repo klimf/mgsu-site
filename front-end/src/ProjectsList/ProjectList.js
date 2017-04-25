@@ -3,6 +3,7 @@ import ProjectItem from './components/ProjectItem';
 import {Link} from "react-router-dom";
 
 
+
 const propTypes = {
   
 }
@@ -28,13 +29,12 @@ class ProjectsList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          
+
         }
 
     }
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <ul>
