@@ -1,17 +1,17 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const projectItem = ({project}) => (
+const ProjectItem = ({project}) => (
     <div>
         <h3>{project.description}</h3>
     </div>
 );
 
-projectItem.PropTypes = {
+ProjectItem.PropTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     onCLick: PropTypes.func.isRequired
 };
 
-export default projectItem;
+export default ProjectItem;

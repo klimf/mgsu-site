@@ -6,12 +6,12 @@ const defaultProps = {
     projects: [
         {
             _id: 1,
-            title: "Project title",
+            title: "ProjectDetail title",
             description: "Description"
         },
         {
             _id: 2,
-            title: "Project title 2",
+            title: "ProjectDetail title 2",
             description: "description"
         }
 
