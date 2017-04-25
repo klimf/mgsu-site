@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Slider from './components/Slider';
+import Slider from "./components/Slider";
 
 class HomePage extends Component {
     render() {
@@ -98,6 +98,7 @@ class HomePage extends Component {
                 <br/>
                 <br/>
                 <br/>
+                <Slider/>
             </div>
         );
     }
