@@ -1,5 +1,10 @@
+import {readFile} from "fs";
+import path from "path";
+import {appBuild as buildPath} from "../../config/paths"
 
 export default function(app, preloadedState) {
+
+    
     return `
             <!doctype html>
             <html>

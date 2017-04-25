@@ -8,7 +8,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var mongoose = require('./db/mongoose');
 var config = require("./config");
-var preRender = require( "../shared/RequirestHandler");
+var preRender = require( "../shared/prerender");
 
 
 var users = require('./routes/users');
