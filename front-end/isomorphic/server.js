@@ -1,9 +1,14 @@
 import express from "express";
-import RequestHandler from "./RequestHandler";
+import {prerender, handleErrors, notFoundCatch} from "./Render/RequestHandlers";
+import path from "path";
 
 const app = express();
 
-app.use(RequestHandler);
+
+app.use(express.static(path.resolve(__dirname, './build/static')));
+
+app.use(prerender);
+
 
 const PORT = 2000
 

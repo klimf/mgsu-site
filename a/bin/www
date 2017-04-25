@@ -5,24 +5,14 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('WebApp:server');
+var debug = require('debug')('a:server');
 var http = require('http');
-var crypto = require('crypto');
-var fs = require('fs');
-
-// var privateKey = fs.readFileSync('~/etc/nginx/ssl/ef.key').toString();
-// var certificate = fs.readFileSync('~/etc/nginx/ssl/ef.ctr').toString();
-
-// var sslOptions = {
-//   key: privateKey,
-//   cert: certificate
-// }
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '4000');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -30,12 +20,10 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-//var sslServer = http.createServer(sslOptions, app).listen(443);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 
 server.listen(port);
 server.on('error', onError);

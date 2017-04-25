@@ -67,6 +67,7 @@ function getServedPath(appPackageJson) {
 module.exports = {
   appBuild: resolveApp('./isomorphic/build'),
   appPublic: resolveApp('public'),
+  indexTemplate: resolveApp('./isomorphic/views/index.html'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),
   appPackageJson: resolveApp('package.json'),

@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ejs": "^2.5.6",
     "express": "^4.15.2",
     "immutable": "^3.8.1",
+    "jade": "^1.11.0",
     "node-sass": "^4.5.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
