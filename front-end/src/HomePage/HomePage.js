@@ -8,80 +8,88 @@ class HomePage extends Component {
         return (
             <div className="page row expanded">
                 <div className="wide-img small-12 expanded">
-                    <div className="blackout"></div>
+                    <div className="blackout"/>
+                    <div className="main-progress">
+                        <div className="bar primary">
+                        </div>
+                        <div className="bar" style={{width:100 - 60+"%"}}>
+                            <h1 className="uppercase bar-text bar-left">256 000 000₽</h1>
+                            <h1 className="uppercase bar-text bar-right">320 000 000₽  </h1>
+                            <p className="uppercase bar-text bar-left">Размер фонда</p>
+                            <p className="uppercase bar-text bar-right">Цель  </p>
+                            <h1> </h1>
+                        </div>
+                    </div>
                     <div className="content small-12 row">
                         <h1 className="white uppercase center">Направления для поддержки</h1>
                         <div className="small-12 columns">
-                            {/*<li className="nav-item inline uppercase underline h2 white pointer">Образование</li>*/}
-                            {/*<li className="nav-item inline uppercase underline h2 white pointer">Наука</li>*/}
-                            {/*<li className="nav-item inline uppercase underline h2 white pointer">Студенты</li>*/}
-                            {/*<li className="nav-item inline uppercase underline h2 white pointer">Стипендии</li>*/}
-                            {/*<li className="nav-item inline uppercase underline h2 white pointer">Инфраструктура</li>*/}
-                            {/*<li className="nav-item inline uppercase underline h2 white pointer">Спорт</li>*/}
-                            {/*<li className="nav-item inline uppercase underline h2 white pointer">Проффессора и преподаватели</li>*/}
-                            <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div className="small-3 columns end hexagon-container active delay-1 delay-0">
+                                <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns no-margin">Образование</h3>
+                                <h3>Образование</h3>
                             </div>
-                            <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div className="small-3 columns end hexagon-container active delay-4 delay-0">
+                                <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns no-margin">Наука</h3>
+                                <h3>Наука</h3>
                             </div>
-                            <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div className="small-3 columns end hexagon-container active delay-0 delay-0">
+                                <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns no-margin">Студенты</h3>
+                                <h3>Студенты</h3>
                             </div>
-                            <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div className="small-3 columns end hexagon-container active delay-2 delay-0">
+                                <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns no-margin">Стипендии</h3>
+                                <h3>Стипендии</h3>
                             </div>
-                            <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div className="small-3 columns end hexagon-container active delay-3 delay-0">
+                                <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns no-margin">Инфраструктура</h3>
+                                <h3>Инфраструктура</h3>
                             </div>
-                            <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div className="small-3 columns end hexagon-container active delay-6 delay-0">
+                                <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns no-margin">Спорт</h3>
+                                <h3>Спорт</h3>
                             </div>
-                            <div className="small-3 columns center hexagon-container relative">
-                                <svg className="hexagon active delay-0 delay-0" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <div className="small-3 columns end hexagon-container active delay-5 delay-0">
+                                <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <polygon points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                 </svg>
-                                <h3 className="small-12 absolute uppercase center white columns  no-margin">Проффессора и преподаватели</h3>
+                                <h3 className="small-12 absolute uppercase white columns  no-margin">Проффессора и преподаватели</h3>
                             </div>
                         </div>
                     </div>
                 </div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+                <div className="content small-12 row">
+                    <h1>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </h1>
+                </div>
                 {/*<Slider/>*/}
             </div>
         );
