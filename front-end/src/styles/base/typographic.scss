@@ -1,24 +1,24 @@
 @font-face {
   font-family: "Open Sans";
-  src: local(Roboto Light), url(../media/fonts/open-sans/OpenSans-Light.ttf) format("truetype");
+  src: local(Roboto Light), url($font + "open-sans/OpenSans-Light.ttf") format("truetype");
   font-weight: 200;
 }
 
 @font-face {
   font-family: "Open Sans";
-  src: local(Roboto Regular), url(../media/fonts/open-sans/OpenSans-Regular.ttf) format("truetype");
+  src: local(Roboto Regular), url($font + "open-sans/OpenSans-Regular.ttf") format("truetype");
   font-weight: 300;
 }
 
 @font-face {
   font-family: "Open Sans";
-  src: local(Roboto Semibold), url(../media/fonts/open-sans/OpenSans-Semibold.ttf) format("truetype");
+  src: local(Roboto Semibold), url($font + "open-sans/OpenSans-Semibold.ttf") format("truetype");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "Open Sans";
-  src: local(Roboto Bold), url(../media/fonts/open-sans/OpenSans-Bold.ttf) format("truetype");
+  src: local(Roboto Bold), url($font + "open-sans/OpenSans-Bold.ttf") format("truetype");
   font-weight: 700;
 }
 
@@ -26,34 +26,42 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(../media/fonts/icons/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: url($font + "icons/MaterialIcons-Regular.eot"); /* For IE6-8 */
   src: local('Material Icons'),
   local('MaterialIcons-Regular'),
-  url(../media/fonts/icons/MaterialIcons-Regular.woff2) format('woff2'),
-  url(../media/fonts/icons/MaterialIcons-Regular.woff) format('woff'),
-  url(../media/fonts/icons/MaterialIcons-Regular.ttf) format('truetype');
+  url($font + "icons/MaterialIcons-Regular.woff2") format('woff2'),
+  url($font + "icons/MaterialIcons-Regular.woff") format('woff'),
+  url($font + "icons/MaterialIcons-Regular.ttf") format('truetype');
 }
 
-HtML {
+HTML {
   font-family: "Open Sans", "PT Sans Caption", sans-serif;
+  color: $black;
 }
 
-h1 {
+h1, .h1 {
   font-size: 36px;
 }
 
-h2 {
+h2, .h2 {
   font-size: 20px;
 }
 
-h1.white, h2.white, h3.white, h4.white, h5.white, p.white {
-  color: $white;
+h3, .h3 {
+  font-size: 18px;
 }
 
-h1.uppercase, h2.uppercase, h3.uppercase, h4.uppercase, h5.uppercase, p.uppercase {
-  text-transform: uppercase;
-}
-
-h1.center, h2.center, h3.center, h4.center, h5.center, p.center {
-  text-align: center;
+h1, h2, h3, h4, h5, p, .h1, .h2, .h3, .h4, .h5, .p {
+  &.white {
+    color: $white;
+  }
+  &.uppercase {
+    text-transform: uppercase;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.underline {
+    text-decoration: underline;
+  }
 }

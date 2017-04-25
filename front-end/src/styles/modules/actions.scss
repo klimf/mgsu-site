@@ -1,18 +1,95 @@
+.login-btn-white{
+  background: url($image + "icon-login.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: $header-content-height;
+  width: $header-content-height;
+}
+
+.donate-btn-white {
+  padding: 15px 0;
+  margin-right: 20px;
+  height: $header-content-height;
+}
+
+
+.navigation {
+  padding: 0;
+  margin:0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: $header-content-height;
+}
+
+.nav-item {
+  white-space: nowrap;
+  margin: 0 4px;
+}
+
+.hexagon-container {
+  padding: 0 !important;
+  margin: 0 0 -7% 0;
+}
+
+.hexagon-container:nth-child(7n+5) {
+  margin-left: 12.5%;
+}
+.hexagon-container:nth-child(7n+7) {
+  margin-right: 12.5%;
+}
+
 .hexagon {
   fill: transparent;
   stroke: #FFF;
   stroke-width: 4px;
-  width: 25%;
-  margin: 0 0 -7.5% 0;
-  transition: 0.3s;
+  width: 100%;
+  transition: $medium-delay;
+  transform: scale(0);
+  opacity: 0;
 }
 
-.hexagon:nth-child(4n+5){
-  margin-left: 12.5%;
-}
 
 .hexagon:hover {
   fill: #D8666E;
   stroke-width: 0;
 }
 
+.hexagon.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.hexagon.expand {
+  transform: scale(10) !important;
+  fill: $white;
+}
+
+@media screen and (max-width: 639px) {
+  .hexagon {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 0;
+    width: calc(100% - 20px);
+    background-color: transparent;
+    border: $border solid $white;
+    height: 64px;
+    margin: 10px;
+    transition: $medium-delay;
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  .hexagon:hover {
+    fill: transparent;
+  }
+
+  .hexagon:nth-child(4n+5) {
+    margin-left: 10px;
+  }
+}
+@media only screen and (min-width: 640px) and (max-width: 1023px) {}
+@media only screen and (min-width: 1024px) {}
