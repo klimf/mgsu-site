@@ -1,27 +1,18 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
-import {BrowserRouter as Router, Route, Link} from "react-router-dom"
-import MainPage from "../MainPage/MainPage";
-import ProjectsList from "../ProjectsList/ProjectList";
-import Project from "../Project/Project";
-import Routes from "./Routes"
+import React, {Component} from "react";
+import Routes from "./Routes";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 class App extends Component {
-  render() {
-    return (
-      <div>
-       <header>
-         <ul>
-           <li><Link to="/">Home</Link></li>
-           <li><Link to="/projects">Projects</Link></li>
-         </ul>
-       </header>
-         <Routes></Routes>
-       <footer>dqnsjdqn</footer>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <Header/>
+                <Routes/>
+                <Footer/>
+            </div>
+        );
+    }
 }
 
 export default App;

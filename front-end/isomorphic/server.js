@@ -5,7 +5,7 @@ import path from "path";
 const app = express();
 
 
-app.use(express.static(path.resolve(__dirname, './build/static')));
+app.use(express.static(path.resolve(__dirname, 'build')));
 
 app.use(prerender);
 

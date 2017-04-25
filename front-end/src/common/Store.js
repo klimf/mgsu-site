@@ -1,9 +1,4 @@
-import { createStore } from 'redux';
-import {bindAll} from "redux-act";
-import * as actions from  './appActions';
-import  Reduser from "./appReducers";
-
+import {createStore} from "redux";
+import Reduser from "./reducers/appReducers";
 
 export const store = createStore(Reduser);
-
-
