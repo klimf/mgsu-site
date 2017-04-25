@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import {BrowserRouter as Router, Route, Link} from "react-router-dom"
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import MainPage from "../MainPage/MainPage";
 import ProjectsList from "../ProjectsList/ProjectList";
 import Project from "../Project/Project";
-import Routes from "./Routes"
+import Routes from "./Routes";
 
 class App extends Component {
   render() {

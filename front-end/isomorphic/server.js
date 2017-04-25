@@ -9,7 +9,6 @@ app.use(express.static(path.resolve(__dirname, './build/static')));
 
 app.use(prerender);
 
-
-const PORT = 2000
+const PORT = 2000;
 
 app.listen(PORT, () => console.log('isomorphic server started on port ' + PORT));

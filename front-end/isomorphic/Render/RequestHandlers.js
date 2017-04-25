@@ -9,7 +9,7 @@ export function prerender(req, res, next) {
 
     const store = createStore(redusers);
 
-    const context = {}
+    const context = {};
 
     const app = buildApp(store, req.url, context);
 
@@ -30,5 +30,5 @@ export function handleErrors(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(err);
 };
