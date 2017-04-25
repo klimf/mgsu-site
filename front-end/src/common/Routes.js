@@ -1,7 +1,5 @@
-import React from 'react'
-import { Route, IndexRoute } from 'react-router'
-
-import App from '../common/App';
+import React from "react";
+import {Route} from "react-router";
 import HomePage from "../HomePage/HomePage";
 import ProjectsList from "../ProjectsList/ProjectList";
 import Project from "../Project/Project";
