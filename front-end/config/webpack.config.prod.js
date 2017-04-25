@@ -151,7 +151,11 @@ module.exports = {
       {
         test: /\.scss$/,
         include: paths.appSrc,
-        loaders: ["style", "css", "sass"]
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css?importLoaders=1!postcss',
+          extractTextPluginOptions
+        )
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
@@ -196,6 +200,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+      
       minify: {
         removeComments: true,
         collapseWhitespace: true,

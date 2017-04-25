@@ -28,7 +28,7 @@ class ProjectsList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+          
         }
 
     }
@@ -42,7 +42,7 @@ class ProjectsList extends Component {
                 {
                     this.props.projects.map((project) => (
 
-                        <li key={project.id}>
+                        <li key={project.id} >
                             <Link to={`${this.props.match.url}/${project._id}`}>
                                  <ProjectItem project={project} />
                             </Link>
