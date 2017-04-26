@@ -22,10 +22,20 @@ footer {
   position: relative;
 }
 
-.blackout {
+
+.overlay {
   position: absolute;
-  background-color: $dark;
+  z-index: 9999;
   top:0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background-color: $white;
+
+}
+
+.blackout {
+  @extend .overlay;
+  z-index: auto;
+  background-color: $dark;
 }

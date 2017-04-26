@@ -2,6 +2,9 @@
 
 .absolute { position: absolute; }
 .relative { position: relative; }
+.hide { opacity: 0; pointer-events: none; }
+.remove { display: none; }
+.cover { -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 
 .right { float: right; }
 .left { float: left; }

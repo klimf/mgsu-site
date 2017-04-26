@@ -42,7 +42,7 @@ class HomePage extends Component {
             setTimeout(() => {
                 this['tempDiv' + index].classList.add('expand');
                 setTimeout(() => {
-                    this.props.history.push('/projects')
+                    //this.props.history.push('/projects')
                 }, 400)
             }, 200)
         });
