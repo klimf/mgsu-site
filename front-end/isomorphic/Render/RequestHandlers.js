@@ -1,20 +1,26 @@
-import {createStore} from "redux";
+import {initStore} from "../../src/common/Store";
 import buildApp from "./AppBuilder";
-import redusers from "../../src/common/reducers/appReducers";
 import generateIndex from "./indexPageGenerator";
 
 
 
 export function prerender(req, res, next) {
 
-    const store = createStore(redusers);
+    const store = initStore();
 
     const context = {};
 
-    const app = buildApp(store, req.url, context);
+    if(context.url) {
 
-    res.send(generateIndex(app, store.getState()));
- 
+        res.redirect(301, context.url);
+
+    } else {
+
+        const app = buildApp(store, req.url, context);
+        res.send(generateIndex(app, store.getState()));
+
+    }
+
 }
 
 export function notFoundCatch(req, res, next) {

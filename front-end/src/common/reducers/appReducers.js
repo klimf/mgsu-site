@@ -1,11 +1,10 @@
 import {createReducer} from "redux-act";
-import {User} from "../actions/appActions";
 import {combineReducers} from "redux";
+import {ProjectsList} from "../../ProjectsList/state"
+import {User} from "./UserState"
 
-const UserReducer = createReducer({
-    [User.change]: (state, payload) => payload
-}, null);
 
 export default combineReducers({
-    UserReducer
+    User,
+    ProjectsList
 })
