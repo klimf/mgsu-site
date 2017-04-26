@@ -1,3 +1,19 @@
+.menu-btn-icon-white {
+  @extend .border-small-white,
+  .inline,
+  .right,
+  .pointer,
+  .transition-1,
+  .hover-primary;
+  background: url($image + "icon-menu-white.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: $header-content-height;
+  width: $header-content-height;
+}
+
 .login-btn-icon-white {
   @extend .border-small-white,
   .inline,
@@ -5,7 +21,7 @@
   .pointer,
   .transition-1,
   .hover-primary;
-  background: url($image + "icon-login.png") no-repeat;
+  background: url($image + "icon-login-white.png") no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -60,7 +76,7 @@
   .white,
   .pointer;
   white-space: nowrap;
-  margin: 0 4px;
+  margin: 0 0.9*$o;
 }
 
 .hexagon-container h3 {
@@ -94,7 +110,7 @@
 .hexagon {
   fill: transparent;
   stroke: #FFF;
-  stroke-width: 4px;
+  stroke-width: $border;
   width: 100%;
   transition: $medium-delay;
 }
