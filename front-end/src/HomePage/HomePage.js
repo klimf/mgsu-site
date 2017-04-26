@@ -1,9 +1,6 @@
 import React, {Component} from "react";
 import Slider from "./components/Slider";
 
-/*Components*/
-import Slider from "./components/Slider";
-
 class HomePage extends Component {
     constructor(props) {
         super(props);
