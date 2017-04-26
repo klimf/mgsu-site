@@ -1,7 +1,7 @@
 import React from "react";
 import {Route, Switch} from "react-router";
 import HomePage from "../HomePage/HomePage";
-import ProjectsList from "../ProjectsList/ProjectList";
+import ProjectsList from "../ProjectsList/ProjectsList";
 import Project from "../ProjectDetail/ProjectDetail";
 import NotFound from "../NotFound/NotFound";
 
