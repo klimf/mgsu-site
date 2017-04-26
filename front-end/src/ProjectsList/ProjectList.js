@@ -6,12 +6,12 @@ const defaultProps = {
     projects: [
         {
             _id: 1,
-            title: "ProjectDetail title",
+            title: "Project title",
             description: "Description"
         },
         {
             _id: 2,
-            title: "ProjectDetail title 2",
+            title: "Project title 2",
             description: "description"
         }
 
@@ -24,14 +24,13 @@ class ProjectsList extends Component {
             <div>
                 <ul>
                     {
-                        this.props.projects.map((project) =>
-                            <li key={project.id}>
+                        this.props.projects.map((project, index) =>
+                            <li key={index}>
                                 <Link to={`${this.props.match.url}/${project._id}`}>
                                     <ProjectItem project={project}/>
                                 </Link>
                             </li>
                         )
-
                     }
                 </ul>
             </div>
