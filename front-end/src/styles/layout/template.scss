@@ -1,16 +1,16 @@
 header {
   position: relative;
-  height: 100px;
+  height: 8*$o;
   margin: 0;
-  padding: 20px 60px;
+  padding: 2*$o 3*$o;
   z-index: 100;
 }
 
 footer {
   position: relative;
-  height: 100px;
+  height: 8*$o;
   margin: 0;
-  padding: 0;
+  padding: 2*$o 3*$o;
   z-index: 100;
 }
 
@@ -20,4 +20,12 @@ footer {
 
 .content {
   position: relative;
+}
+
+.blackout {
+  position: absolute;
+  background-color: $dark;
+  top:0;
+  width: 100%;
+  height: 100%;
 }

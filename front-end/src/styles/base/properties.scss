@@ -1,14 +1,7 @@
-.blackout {
-  position: absolute;
-  background-color: rgba(0,0,0,0.5);
-  top:0;
-  width: 100%;
-  height: 100%;
-}
-
 .inline { display: inline-block; }
 
 .absolute { position: absolute; }
+.relative { position: relative; }
 
 .right { float: right; }
 .left { float: left; }
@@ -32,11 +25,19 @@
   border: 0;
 }
 
+.hover-border:hover {
+  border: $o/3 solid $white;
+}
+
+.primary {
+  background-color: $primary !important;
+}
+
 @mixin delay($delay){
   transition-delay: $delay/20+s !important;
 }
 @mixin transition($transition){
-  transition: $transition/10+s !important;
+  transition: $transition/10+s ease !important;
 }
 @mixin width($width){
   width: $width+px !important;

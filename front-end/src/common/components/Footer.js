@@ -5,7 +5,7 @@ class Footer extends Component {
         return (
             <footer>
                 <div className="logo-white inline left"/>
-                <div className="login-btn-white border-small-white inline right"/>
+                <div className="login-btn-icon-white border-small-white inline right"/>
             </footer>
         );
     }
