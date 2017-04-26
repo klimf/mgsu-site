@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Slider from "./components/Slider";
+import {getRandomInt, formatMoney} from "../common/helpers";
 
 class HomePage extends Component {
     constructor(props) {
@@ -37,9 +38,12 @@ class HomePage extends Component {
 
     handlerHexaClick(index) {
         this.setState({hexaStyle: ''}, () => {
-            this['tempDiv'+index].classList.add('active', 'delay-0');
+            this['tempDiv' + index].classList.add('active', 'delay-0');
             setTimeout(() => {
-                this['tempDiv'+index].classList.add('expand');
+                this['tempDiv' + index].classList.add('expand');
+                setTimeout(() => {
+                    this.props.history.push('/projects')
+                }, 400)
             }, 200)
         });
     }
@@ -55,11 +59,11 @@ class HomePage extends Component {
                         <div className="bar" style={{width: 100 - 60 + "%"}}>
                             <h1 className="uppercase bar-text bar-left">
                                 <p className="uppercase">Размер фонда</p>
-                                256 000 000₽
+                                {formatMoney(256000000)}₽
                             </h1>
                             <h1 className="uppercase bar-text bar-right">
                                 <p className="uppercase">Цель </p>
-                                320 000 000₽
+                                {formatMoney(320000000)}₽
                             </h1>
                         </div>
                     </div>
@@ -69,8 +73,8 @@ class HomePage extends Component {
                             {
                                 this.hexaNames.map((name, index) =>
                                     <div key={index}
-                                         ref={(div) => this['tempDiv'+index] = div}
-                                         className={`small-3 columns end hexagon-container delay-1 ${this.state.hexaStyle}`}
+                                         ref={(div) => this['tempDiv' + index] = div}
+                                         className={`small-3 columns end hexagon-container delay-${getRandomInt(0, 7)} ${this.state.hexaStyle}`}
                                          onClick={this.handlerHexaClick.bind(this, index)}>
                                         <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1"
                                              xmlns="http://www.w3.org/2000/svg">
