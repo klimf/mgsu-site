@@ -7,7 +7,7 @@ export const UserActions = {
     logout: createAction("logout user"), 
 }
 
-export const User = createReducer({
+export const UserReducer = createReducer({
     [UserActions.change]: (state, payload) => payload
 }, null);
 

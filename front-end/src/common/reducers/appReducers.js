@@ -1,10 +1,12 @@
 import {createReducer} from "redux-act";
 import {combineReducers} from "redux";
-import {ProjectsList} from "../../ProjectsList/state"
-import {User} from "./UserState"
+import {ProjectsListReducer} from "../../ProjectsList/state";
+import {UserReducer} from "./UserState";
+import {NewsReducer} from "../../News/state"
 
 
 export default combineReducers({
-    User,
-    ProjectsList
+    UserReducer,
+    ProjectsListReducer,
+    NewsReducer
 })
