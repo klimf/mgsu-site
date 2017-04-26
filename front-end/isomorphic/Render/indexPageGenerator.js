@@ -1,6 +1,6 @@
 const assets = {
-    css: '/css/main.a75d8211.css',
-    js: 'js/main.4e7e0096.js'
+    css: '/static/css/main.css',
+    js: '/static/js/main.js'
 }
 
 export default function(app, preloadedState) {
@@ -23,6 +23,7 @@ export default function(app, preloadedState) {
                 // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
                 window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
                 </script>
+                <script src=${assets.js} charset="utf-8"></script>
                 
             </body>
             </html>`
