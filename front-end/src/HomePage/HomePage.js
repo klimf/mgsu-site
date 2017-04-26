@@ -1,7 +1,8 @@
 import React, {Component} from "react";
+import Slider from './components/Slider';
 
 /*Components*/
-//import Slider from "./components/Slider";
+import Slider from "./components/Slider";
 
 class HomePage extends Component {
     constructor(props) {
@@ -136,7 +137,6 @@ class HomePage extends Component {
                         <br/>
                     </h1>
                 </div>
-                {/*<Slider/>*/}
             </div>
         );
     }

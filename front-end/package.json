@@ -8,6 +8,7 @@
     "immutable": "^3.8.1",
     "jade": "^1.11.0",
     "node-sass": "^4.5.2",
+    "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
@@ -61,7 +62,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "PUBLIC_URL=./build node scripts/build.js",
+    "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "iso": "NODE_ENV=development  node ./isomorphic/main.js"
   },
