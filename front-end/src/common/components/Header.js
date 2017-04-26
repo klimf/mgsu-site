@@ -18,15 +18,15 @@ class Header extends Component {
         return (
             <div>
             <div className={`overlay large-0" ${this.state.menuIsOpen ? "" : "hide"}`}>
-                <div className="small-12 small-navigation columns">
+                <div className="menu-btn-icon border right"
+                     onClick={this.handlerMenuClick.bind(this)}/>
+                <div className="small-navigation">
                     <NavLink className="small-nav-item" to="/news">Новости</NavLink>
                     <NavLink className="small-nav-item" to="/about">О фонде</NavLink>
                     <NavLink className="small-nav-item" to="/contacts">Контакты</NavLink>
                     <NavLink className="small-nav-item" to="/projects">Проекты</NavLink>
                     <NavLink className="small-nav-item" to="/sponsors">Благотворители</NavLink>
                     <NavLink className="small-nav-item" to="/club">Клуб выпускников</NavLink>
-                    <div className="menu-btn-icon"
-                         onClick={this.handlerMenuClick.bind(this)}/>
                 </div>
             </div>
             <header>

@@ -10,29 +10,25 @@
 }
 
 .menu-btn-icon {
-  @extend
-  .border-small,
+  @extend .border-small,
   .header-icon;
   background: url($image + "icon-menu.png") no-repeat;
 }
 
 .login-btn-icon {
-  @extend
-  .border-small,
+  @extend .border-small,
   .header-icon;
   background: url($image + "icon-login.png") no-repeat;
 }
 
 .login-btn-icon-white {
-  @extend
-  .border-small-white,
+  @extend .border-small-white,
   .header-icon;
   background: url($image + "icon-login-white.png") no-repeat;
 }
 
 .menu-btn-icon-white {
-  @extend
-  .border-small-white,
+  @extend .border-small-white,
   .header-icon;
   background: url($image + "icon-menu-white.png") no-repeat;
 }
@@ -75,16 +71,6 @@
   height: $header-content-height;
 }
 
-.small-navigation {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  height: $header-content-height;
-}
-
 .nav-item {
   @extend .inline,
   .uppercase,
@@ -94,6 +80,26 @@
   .pointer;
   white-space: nowrap;
   margin: 0 0.9*$o;
+}
+
+.small-navigation {
+  @extend .navigation,
+  .transition-3;
+  align-items: flex-start;
+}
+
+.small-nav-item {
+  @extend .uppercase,
+  .underline,
+  .h2,
+  .black,
+  .center,
+  .pointer;
+  white-space: nowrap;
+  margin: 0 2*$o 2*$o 0;
+  padding: $o;
+  width: 100%;
+  border: $border solid $primary;
 }
 
 .hexagon-container h3 {
