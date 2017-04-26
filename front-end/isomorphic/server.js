@@ -3,7 +3,7 @@ import {prerender, handleErrors, notFoundCatch} from "./Render/RequestHandlers";
 import path from "path";
 
 const app = express();
-
+var remotedev = require('remotedev-server');
 
 app.use(express.static(path.resolve(__dirname, 'build')));
 

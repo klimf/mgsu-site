@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
 const defaultProps = {
     projects: [
@@ -40,4 +41,9 @@ class ProjectsList extends Component {
 
 ProjectsList.defaultProps = defaultProps;
 
-export default ProjectsList
+const mapStateToProps = state => {
+    const { proejcts, direction } = state.projectList;
+    return { proejcts, direction }
+}
+
+export default connect(mapStateToProps)(ProjectsList)
