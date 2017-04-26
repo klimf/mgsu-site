@@ -110,7 +110,11 @@
 }
 
 .hexagon-container.expand {
-  transform: scale(10) !important;
+  transform: scale(2) !important;
+}
+
+.hexagon-container.expand .hexagon {
+  transform: scale(5) !important;
   fill: $white;
 }
 
