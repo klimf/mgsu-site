@@ -98,6 +98,7 @@ class HomePage extends Component {
                 <br/>
                 <br/>
                 <br/>
+                <Slider/>
             </div>
         );
     }
