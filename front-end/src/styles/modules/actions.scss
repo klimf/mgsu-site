@@ -1,4 +1,4 @@
-.login-btn-white {
+.login-btn-icon-white {
   @extend .border-small-white,
   .inline,
   .right,
@@ -29,6 +29,17 @@
   padding: 15px 0;
   margin-right: 20px;
   height: $header-content-height;
+}
+
+.donate-btn-icon-white {
+  @extend .border-small-white,
+  .pointer,
+  .transition-1,
+  .hover-border;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+  margin-right: 20px;
 }
 
 .navigation {
@@ -69,7 +80,7 @@
   margin: 0 0 -7% 0;
   transform: scale(0);
   opacity: 0;
-  transition: $medium-delay;
+  transition: $medium-delay ease;
 }
 
 .hexagon-container:nth-child(7n+5) {
@@ -130,6 +141,9 @@
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
+  .hexagon-container h3 {
+    font-size: 1.2*$o;
+  }
 }
 
 @media only screen and (min-width: 1024px) {

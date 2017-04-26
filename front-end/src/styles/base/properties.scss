@@ -25,6 +25,10 @@
   border: 0;
 }
 
+.hover-border:hover {
+  border: $o/3 solid $white;
+}
+
 .primary {
   background-color: $primary !important;
 }

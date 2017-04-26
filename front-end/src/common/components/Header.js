@@ -5,7 +5,7 @@ class Header extends Component {
         return (
             <header>
                 <div className="logo-white"/>
-                <div className="login-btn-white"/>
+                <div className="login-btn-icon-white"/>
                 <div className="donate-btn-white">Сделать вклад</div>
                 <ul className="navigation">
                     <li className="nav-item">Новости</li>
