@@ -28,6 +28,10 @@ class HomePage extends Component {
         }, 600)
     }
 
+    handlerHexaClick(e){
+        console.dir(e)
+    }
+
     render() {
         return (
             <div className="page row expanded">
