@@ -13,11 +13,14 @@ class HomePage extends Component {
                         <div className="bar primary">
                         </div>
                         <div className="bar" style={{width:100 - 60+"%"}}>
-                            <h1 className="uppercase bar-text bar-left">256 000 000₽</h1>
-                            <h1 className="uppercase bar-text bar-right">320 000 000₽  </h1>
-                            <p className="uppercase bar-text bar-left">Размер фонда</p>
-                            <p className="uppercase bar-text bar-right">Цель  </p>
-                            <h1> </h1>
+                            <h1 className="uppercase bar-text bar-left">
+                                <p className="uppercase">Размер фонда</p>
+                                256 000 000₽
+                            </h1>
+                            <h1 className="uppercase bar-text bar-right">
+                                <p className="uppercase">Цель      </p>
+                                320 000 000₽  
+                            </h1>
                         </div>
                     </div>
                     <div className="content small-12 row">
