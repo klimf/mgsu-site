@@ -1,11 +1,11 @@
 import React from "react";
 import Validation from "react-validation";
-import validator from "validator";
+import {isEmpty, isEmail, isInt} from "validator";
 
 Object.assign(Validation.rules, {
     required: {
         rule: value => {
-            return !validator.isEmpty(value);
+            return !isEmpty(value);
         },
         hint: value => {
             return <span>Обязательное поле</span>
@@ -13,7 +13,7 @@ Object.assign(Validation.rules, {
     },
     email: {
         rule: value => {
-            return validator.isEmail(value);
+            return isEmail(value);
         },
         hint: value => {
             return <span>{value} не Email.</span>
@@ -21,7 +21,7 @@ Object.assign(Validation.rules, {
     },
     year: {
         rule: value => {
-            return validator.isInt(value, {min: 1900, max: 2030});
+            return isInt(value, {min: 1900, max: 2030});
         },
         hint: value => {
             return <span>{value} не корректный год.</span>
@@ -29,7 +29,7 @@ Object.assign(Validation.rules, {
     },
     currency: {
         rule: value => {
-            return validator.isInt(value, {min: 1, max: 9000000000});
+            return isInt(value, {min: 1, max: 9000000000});
         },
         hint: value => {
             return <span>{value} не корректное значение.</span>

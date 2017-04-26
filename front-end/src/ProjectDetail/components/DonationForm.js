@@ -1,5 +1,5 @@
 import Validation from 'react-validation';
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 
 export default class Registration extends Component {
     render() {
