@@ -1,7 +1,4 @@
 import React, {Component} from "react";
-import Slider from './components/Slider';
-
-/*Components*/
 import Slider from "./components/Slider";
 
 class HomePage extends Component {
@@ -117,26 +114,27 @@ class HomePage extends Component {
                 </div>
                 <div className="content small-12 row">
                     <h1>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
                     </h1>
                 </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <Slider/>
             </div>
         );
     }
