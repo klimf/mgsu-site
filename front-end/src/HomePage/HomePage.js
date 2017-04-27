@@ -9,8 +9,8 @@ import {headerActions} from "../common/components/state"
 
 class HomePage extends Component {
     constructor(props) {
-
         super(props);
+
         this.hexaNames = [
             'Образование',
             'Наука',
@@ -20,6 +20,7 @@ class HomePage extends Component {
             'Спорт',
             'Проффессора и преподаватели'
         ];
+
         this.styles = {
             startShowing: 'active',
             resetDelays: 'active delay-0'
@@ -134,4 +135,4 @@ const mapStateToProps = state => {
     return { key }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage))
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

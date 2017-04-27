@@ -50,4 +50,4 @@ const mapStateToProps = (state) => {
     return  props;
 }
 
-export default withRouter(connect(mapStateToProps)(ProjectsList))
+export default connect(mapStateToProps)(ProjectsList)
