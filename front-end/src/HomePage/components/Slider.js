@@ -28,7 +28,7 @@ class Slider extends Component {
                 padding: '40px',
                 width: '80%',
                 color: '#333',
-                background: '#864444'
+                background: 'transparent'
             }}>
                 <ReactSlider {...this.sliderSetings}>
                     <div><h3 style={{backgroundColor: "#005CA1", height: "90px"}}>1</h3></div>

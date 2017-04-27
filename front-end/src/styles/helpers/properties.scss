@@ -10,6 +10,8 @@
 .left { float: left; }
 .center { display: flex; justify-content: center; align-items: center; text-align: center; }
 
+
+
 .no-padding { padding: 0 !important; }
 .no-margin { margin: 0 !important; }
 
@@ -96,5 +98,13 @@ img.block {}
 @media only screen and (min-width: 1024px) {
   .large-0 {
     display: none;
+  }
+  .padding-left {
+    padding-right: 0.9375rem;
+    padding-left: 0;
+  }
+  .padding-right {
+    padding-left: 0.9375rem;
+    padding-right: 0;
   }
 }

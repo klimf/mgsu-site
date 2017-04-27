@@ -40,6 +40,15 @@ HTML {
   color: $black;
 }
 
+a {
+  text-decoration: none;
+  color: $accent;
+}
+
+a:hover, a.active {
+  color: $primary;
+}
+
 h1, .h1 {
   font-size: 3*$o;
 }
@@ -48,7 +57,7 @@ h2, .h2 {
   font-size: 2*$o;
 }
 
-h3, .h3 {
+h3, p, .h3, .p {
   font-size: 1.5*$o;
 }
 
@@ -67,6 +76,9 @@ h1, h2, h3, h4, h5, p, .h1, .h2, .h3, .h4, .h5, .p {
   }
   &.underline {
     text-decoration: underline;
+  }
+  &.no-decor {
+    text-decoration: none;
   }
 }
 

@@ -94,7 +94,26 @@ class HomePage extends Component {
                     <img src={require ("../media/blocks/how-it-works.png")} className="small-12"/>
                 </div>
                 <div className="content small-12 row">
-
+                    <div className="small-12 medium-12 large-7 columns padding-left">
+                        <div className="home-news small-12 columns">
+                            <div className="bg-img"/>
+                            <div className="blackout"/>
+                            <h2>Альбом выпускников</h2>
+                            <p>
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                            </p>
+                        </div>
+                    </div>
+                    <div className="small-12 medium-12 large-5 columns padding-right">
+                        <div className="home-event small-12 columns">
+                            <div className="bg-border"/>
+                            <h1>29</h1>
+                            <h2>Апреля</h2>
+                            <p>
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <Slider/>
