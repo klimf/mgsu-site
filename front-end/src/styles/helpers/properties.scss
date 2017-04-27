@@ -54,15 +54,21 @@ img.block {}
 @mixin width($width){
   width: $width+px !important;
 }
-.delay {
-  &-1 { @include delay(1); }
-  &-2 { @include delay(2); }
-  &-3 { @include delay(3); }
-  &-4 { @include delay(4); }
-  &-5 { @include delay(5); }
-  &-6 { @include delay(6); }
 
-  &-0 { @include delay(0); }
+.space {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      min-height: $i*$o;
+    }
+  }
+}
+
+.delay {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      @include delay($i);
+    }
+  }
 }
 .w {
   &-200 { @include width(200); }
@@ -70,17 +76,9 @@ img.block {}
 }
 
 .transition {
-  &-1 { @include transition(1); }
-  &-2 { @include transition(2); }
-  &-3 { @include transition(3); }
-  &-4 { @include transition(4); }
-  &-5 { @include transition(5); }
-  &-6 { @include transition(6); }
-  &-7 { @include transition(7); }
-  &-8 { @include transition(8); }
-  &-9 { @include transition(9); }
-
-  &-0 { @include transition(0); }
+  @for $i from 0 through 6 {
+    &-#{$i} {@include transition($i);}
+  }
 }
 
 @media screen and (max-width: 639px) {

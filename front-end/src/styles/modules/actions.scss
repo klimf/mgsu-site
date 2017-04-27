@@ -96,6 +96,18 @@
   height: $header-content-height;
 }
 
+.navigation-white {
+  @extend .navigation;
+}
+
+.navigation .nav-item {
+  color: $black;
+}
+
+.navigation-white .nav-item {
+  color: $white;
+}
+
 .nav-item {
   @extend .inline,
   .uppercase,

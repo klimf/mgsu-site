@@ -24,19 +24,37 @@ class Slider extends Component {
     render() {
         return (
             <div style={{
-                margin: '0 auto',
-                padding: '40px',
-                width: '80%',
-                color: '#333',
+                margin: '0',
+                padding: '0',
+                width: '100%',
                 background: 'transparent'
             }}>
                 <ReactSlider {...this.sliderSetings}>
-                    <div><h3 style={{backgroundColor: "#005CA1", height: "90px"}}>1</h3></div>
-                    <div><h3 style={{backgroundColor: "#D8666E", height: "90px"}}>2</h3></div>
-                    <div><h3 style={{backgroundColor: "#005CA1", height: "90px"}}>3</h3></div>
-                    <div><h3 style={{backgroundColor: "#D8666E", height: "90px"}}>4</h3></div>
-                    <div><h3 style={{backgroundColor: "#005CA1", height: "90px"}}>5</h3></div>
-                    <div><h3 style={{backgroundColor: "#D8666E", height: "90px"}}>6</h3></div>
+                    <div className="sponsor small-6 medium-4 large-3 columns">
+                        <div className="small-12 sponsor-img columns"/>
+                        <h2 className="small-12">Паша Техник</h2>
+                        <p className="small-12">Спонсор</p>
+                    </div>
+                    <div className="sponsor small-6 medium-4 large-3 columns">
+                        <div className="small-12 sponsor-img columns"/>
+                        <h2 className="small-12">Паша Техник</h2>
+                        <p className="small-12">Спонсор</p>
+                    </div>
+                    <div className="sponsor small-6 medium-4 large-3 columns">
+                        <div className="small-12 sponsor-img columns"/>
+                        <h2 className="small-12">Паша Техник</h2>
+                        <p className="small-12">Спонсор</p>
+                    </div>
+                    <div className="sponsor small-6 medium-4 large-3 columns">
+                        <div className="small-12 sponsor-img columns"/>
+                        <h2 className="small-12">Паша Техник</h2>
+                        <p className="small-12">Спонсор</p>
+                    </div>
+                    <div className="sponsor small-6 medium-4 large-3 columns">
+                        <div className="small-12 sponsor-img columns"/>
+                        <h2 className="small-12">Паша Техник</h2>
+                        <p className="small-12">Спонсор</p>
+                    </div>
                 </ReactSlider>
             </div>
         );
