@@ -2,10 +2,15 @@
 
 .absolute { position: absolute; }
 .relative { position: relative; }
+.hide { opacity: 0; pointer-events: none; }
+.remove { display: none; }
+.cover { -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 
 .right { float: right; }
 .left { float: left; }
 .center { display: flex; justify-content: center; align-items: center; text-align: center; }
+
+
 
 .no-padding { padding: 0 !important; }
 .no-margin { margin: 0 !important; }
@@ -20,13 +25,20 @@
 
 .pointer { cursor: pointer; }
 
+img.block {}
+
 .hover-primary:hover {
   background-color: $primary;
   border: 0;
 }
+.hover-primary-invert:hover {
+  background-color: invert($primary);
+  filter: invert(100%);
+  border: 0;
+}
 
 .hover-border:hover {
-  border: $o/3 solid $white;
+  border: $small-border solid $white;
 }
 
 .primary {
@@ -71,3 +83,28 @@
   &-0 { @include transition(0); }
 }
 
+@media screen and (max-width: 639px) {
+  .small-0 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+  .medium-0 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .large-0 {
+    display: none;
+  }
+  .padding-left {
+    padding-right: 0.9375rem;
+    padding-left: 0;
+  }
+  .padding-right {
+    padding-left: 0.9375rem;
+    padding-right: 0;
+  }
+}

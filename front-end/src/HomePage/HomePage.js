@@ -50,7 +50,7 @@ class HomePage extends Component {
             setTimeout(() => {
                 this['tempDiv' + index].classList.add('expand');
                 setTimeout(() => {
-                    this.props.history.push('/projects')
+                    //this.props.history.push('/projects')
                 }, 400)
             }, 200)
         });
@@ -78,15 +78,15 @@ class HomePage extends Component {
                     </div>
                     <div className="content small-12 row">
                         <h1 className="small-12 white uppercase center columns">Направления для поддержки</h1>
-                        <div className="small-12 columns">
+                        <div className="hexagon-grid small-12 columns">
                             {
                                 this.hexaNames.map((name, index) =>
                                     <div key={index}
                                          ref={(div) => this['tempDiv' + index] = div}
-                                         className={`small-3 columns end hexagon-container delay-${getRandomInt(0, 7)} ${this.state.hexaStyle}`}
+                                         className={`small-3 columns end hexagon-container delay-${index} ${this.state.hexaStyle}`}
                                          onClick={this.handlerHexaClick.bind(this, index)}>
                                         <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1"
-                                             xmlns="http://www.w3.org/2000/svg">
+                                             xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
                                             <polygon
                                                 points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                         </svg>
@@ -98,27 +98,33 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="content small-12 row">
-                    <h1>
-                    </h1>
+                    <br/>
+                    <br/>
+                    <img src={require ("../media/blocks/how-it-works.png")} className="small-12"/>
                 </div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+                <div className="content small-12 row">
+                    <div className="small-12 medium-12 large-7 columns padding-left">
+                        <div className="home-news small-12 columns">
+                            <div className="bg-img"/>
+                            <div className="blackout"/>
+                            <h2>Альбом выпускников</h2>
+                            <p>
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                            </p>
+                        </div>
+                    </div>
+                    <div className="small-12 medium-12 large-5 columns padding-right">
+                        <div className="home-event small-12 columns">
+                            <div className="bg-border"/>
+                            <h1>29</h1>
+                            <h2>Апреля</h2>
+                            <p>
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <Slider/>
             </div>
         );
