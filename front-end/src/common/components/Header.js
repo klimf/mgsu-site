@@ -71,8 +71,5 @@ const mapStateToProps = (state) => {
     return {white}
 };
 
-    const { white } = state.Header
-    return { white }
-}
 
 export default connect(mapStateToProps)(Header);
