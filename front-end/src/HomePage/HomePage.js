@@ -174,6 +174,7 @@ class HomePage extends Component {
 
                 </div>
                 <div className="content small-12 row">
+                    <h1 className="uppercase center">Спонсоры</h1>
                     <Slider/>
                 </div>
 

@@ -141,3 +141,21 @@
   font-weight: 400;
   color: $dark;
 }
+
+.slick-arrow:before {
+  color: $black;
+}
+
+.slick-prev, .slick-next {
+  top:-6*$o;
+}
+
+.slick-next {
+  right:$o;
+}
+.slick-prev {
+  left: $o;
+}
+.slick-slider {
+  top: 2*$o;
+}
