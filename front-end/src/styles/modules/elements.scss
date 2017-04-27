@@ -5,6 +5,7 @@
 
 .how-it-works {
   @include block("how-it-works.png");
+  min-height: 520px;
 }
 
 .logo-white {

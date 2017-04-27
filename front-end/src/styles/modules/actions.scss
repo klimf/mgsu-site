@@ -147,6 +147,8 @@
   .no-margin;
   width: 100%;
   pointer-events: none;
+  top: calc(50% - 12px);
+  left: 0;
 }
 
 .hexagon-container {

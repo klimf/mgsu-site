@@ -89,27 +89,32 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="content small-12 row">
+                    {/*<img href="./media/blocks/how-it-works.png" className="small-12"/>*/}
+                    <br/>
+                    <br/>
+                    <div className="how-it-works"/>
                     <h1>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                     </h1>
                 </div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+
                 <Slider/>
             </div>
         );
