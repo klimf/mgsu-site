@@ -5,28 +5,23 @@ import {connect} from "react-redux";
 class Header extends Component {
     constructor(props) {
         super(props);
-
-
-        this.links = [
-             { 
-                name: 'проекты',
-                pathname: '/projects',
-                state: {Header: {white: false}}
-             }
-        ]
-
-        this.HomePageLocation = {
-                name: "Главная",
-                pathname: '/',
-                state: {Header: {white: true}}
-            }
+        this.state = {
+            headerIsWhite: this.props.location.pathname === '/'
+        };
     }
- 
+
+    componentDidUpdate() {
+        if (this.state.headerIsWhite !== (this.props.location.pathname === '/')) {
+            this.setState({
+                headerIsWhite: this.props.location.pathname === '/'
+            });
+        }
+    }
+
     render() {
         return (
-            <header className={this.props.white && 'header--white'}>
-                <NavLink to={this.HomePageLocation}
-                         activeClassName="selected">
+            <header className={this.state.headerIsWhite ? 'header--white' : null}>
+                <NavLink to='/'>
                     <div className="logo-white"/>
                 </NavLink>
                 <div className="login-btn-icon-white"/>
@@ -35,9 +30,8 @@ class Header extends Component {
                     <li className="nav-item">Новости</li>
                     <li className="nav-item">О фонде</li>
                     <li className="nav-item">Контакты</li>
-                    <NavLink to={this.links[0]}
-                             activeClassName="selected">
-                        <li className="nav-item">{this.links[0].name}</li>
+                    <NavLink to="/projects">
+                        <li className="nav-item">Проекты</li>
                     </NavLink>
                     <li className="nav-item">Благотворители</li>
                     <li className="nav-item">Клуб выпускников</li>
@@ -49,9 +43,8 @@ class Header extends Component {
 
 
 const mapStateToProps = (state) => {
-
-    const { white } = state.Header
-    return { white }
-}
+    const {white} = state.Header;
+    return {white}
+};
 
 export default withRouter(connect(mapStateToProps)(Header));

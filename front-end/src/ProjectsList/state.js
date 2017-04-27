@@ -1,4 +1,4 @@
-import {createAction, createReducer} from "redux-act"
+import {createAction, createReducer} from "redux-act";
 
 
 const actions = {
@@ -8,7 +8,7 @@ const actions = {
 }
 
 export const reduser = createReducer({
-    [actions.getByDirection]: (state) => ({loading: true , ...state,}),
+    [actions.getByDirection]: (state) => ({loading: true, ...state,}),
     [actions.getSuccess]: (state, result) => ({oading: false, result}),
     [actions.getFailed]: (state, message) => ({loading: false, message}),
 }, []);
