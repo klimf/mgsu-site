@@ -20,9 +20,7 @@ const defaultProps = {
 };
 
 class ProjectsList extends Component {
-   
     render() {
-        console.log(this.props)
         return (
             <div>
                 <ul>
@@ -47,7 +45,7 @@ const mapStateToProps = (state) => {
     const props = {
         projects: state.ProjectsList
     }
-    return  props;
+    return props;
 }
 
 export default connect(mapStateToProps)(ProjectsList)

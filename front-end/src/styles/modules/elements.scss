@@ -1,25 +1,27 @@
+.logo {
+  @extend .inline,
+  .left,
+  .pointer,
+  .cover;
+  background: url($image + "logo.png") no-repeat;
+  height: $header-content-height;
+  width: $header-content-height*3.65;
+}
 .logo-white {
   @extend .inline,
   .left,
-  .pointer;
-  float: left;
-  display: inline-block;
+  .pointer,
+  .cover;
   background: url($image + "logo-white.png") no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   height: $header-content-height;
   width: $header-content-height*3.65;
 }
 
 .wide-img {
+  @extend .cover;
+  overflow: hidden;
   position: relative;
   background: url($image + "home-bg.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   margin-top: -8*$o;
   padding: 8*$o 0 20*$o 0;
 }
@@ -67,4 +69,75 @@
 
 .main-progress .bar-right {
   right: 0;
+}
+
+.home-news {
+  height: 15*$o;
+  padding: 0 3*$o;
+  margin-bottom: 2*$o;
+  color: $white;
+  overflow: hidden;
+}
+
+.home-news h2 {
+  @extend .underline,
+  .uppercase;
+}
+
+.home-news p {
+  height: 7*$o;
+  overflow: hidden;
+}
+
+.home-event {
+  height: 15*$o;
+  margin-bottom: 2*$o;
+  padding: 0 3*$o;
+  overflow: hidden;
+}
+
+.home-event h1 {
+  @extend .inline,
+  .uppercase;
+  margin: $o 0 0 0;
+  color: $primary;
+}
+
+.home-event h2 {
+  @extend .inline,
+  .uppercase;
+  margin: 0 0 0 $o;
+  color: $primary;
+}
+
+.home-event p {
+  margin:0.8*$o 0 0 0;
+  height: 7*$o;
+  overflow: hidden;
+}
+
+.sponsor-img {
+  @include image("placeholder.png");
+
+  width:80%;
+  margin: 0 10% $o 10%;
+  padding: calc(40% - 4px) 0;
+  border: $border solid $primary;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.sponsor {
+  text-align: center;
+}
+.sponsor h2 {
+  font-weight: 400;
+  margin: 0;
+
+}
+
+.sponsor p {
+  margin: 0;
+  font-weight: 400;
+  color: $dark;
 }

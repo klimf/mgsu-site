@@ -20,5 +20,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-import './styles/main.scss';
 import './styles/lib/foundation.css';
+import './styles/main.scss';

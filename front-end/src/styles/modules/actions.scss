@@ -1,34 +1,68 @@
-.login-btn-icon-white {
-  @extend .border-small-white,
+.header-icon {
+  @extend .cover,
   .inline,
   .right,
   .pointer,
   .transition-1,
   .hover-primary;
-  background: url($image + "icon-login.png") no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   height: $header-content-height;
   width: $header-content-height;
 }
 
-.donate-btn-white {
-  @extend .border-small-white,
-  .inline,
+.header-btn {
+  @extend .inline,
   .right,
   .pointer,
-  .h3,
   .uppercase,
   .center,
-  .white,
   .transition-1,
   .hover-primary;
+  height: $header-content-height;
+}
+
+.menu-btn-icon {
+  @extend .border-small,
+  .header-icon,
+  .hover-primary-invert;
+  background: url($image + "icon-menu.png") no-repeat;
+}
+
+.login-btn-icon {
+  @extend .border-small,
+  .header-icon;
+  background: url($image + "icon-login.png") no-repeat;
+}
+
+.login-btn-icon-white {
+  @extend .border-small-white,
+  .header-icon;
+  background: url($image + "icon-login-white.png") no-repeat;
+}
+
+.menu-btn-icon-white {
+  @extend .border-small-white,
+  .header-icon;
+  background: url($image + "icon-menu-white.png") no-repeat;
+}
+
+.donate-btn-white {
+  @extend .border-small-white,
+  .white,
+  .h3,
+  .header-btn;
   width: 200px;
   padding: 15px 0;
   margin-right: 20px;
-  height: $header-content-height;
+}
+
+.donate-btn {
+  @extend .border-small,
+  .black,
+  .h3,
+  .header-btn;
+  width: 200px;
+  padding: 15px 0;
+  margin-right: 20px;
 }
 
 .donate-btn-icon-white {
@@ -42,6 +76,16 @@
   margin-right: 20px;
 }
 
+.overlay-btn {
+  @extend .header-btn,
+  .hover-primary-invert,
+  .h2,
+  .black,
+  .border;
+  width: calc(50% - 54px);
+  margin: 0 2*$o 2*$o 0;
+}
+
 .navigation {
   padding: 0;
   margin: 0;
@@ -52,6 +96,18 @@
   height: $header-content-height;
 }
 
+.navigation-white {
+  @extend .navigation;
+}
+
+.navigation .nav-item {
+  color: $black;
+}
+
+.navigation-white .nav-item {
+  color: $white;
+}
+
 .nav-item {
   @extend .inline,
   .uppercase,
@@ -59,11 +115,40 @@
   .h3,
   .pointer;
   white-space: nowrap;
-  color: $primary;
-  margin: 0 4px;
+  margin: 0 0.9*$o;
 }
 
+.small-navigation {
+  @extend .navigation,
+  .transition-3;
+  position: relative;
+  top: 2*$o;
+  width: 100%;
+  align-items: flex-start;
+}
 
+.small-nav-item {
+  @extend .uppercase,
+  .underline,
+  .h2,
+  .black,
+  .pointer,
+  .transition-3;
+  padding: $o*0.7 2*$o;
+  margin: 0 2*$o 2*$o 0;
+  width: 100%;
+  min-height: 5*$o;
+  border: $border solid $transparent;
+}
+
+.small-nav-item.active {
+  @extend .center;
+  border: $border solid $primary;
+}
+
+.small-nav-item:hover {
+  border: $border solid $primary;
+}
 
 .hexagon-container h3 {
   @extend .absolute,
@@ -73,6 +158,8 @@
   .no-margin;
   width: 100%;
   pointer-events: none;
+  top: calc(50% - 12px);
+  left: 0;
 }
 
 .hexagon-container {
@@ -94,9 +181,10 @@
 }
 
 .hexagon {
+  @extend .pointer;
   fill: transparent;
   stroke: #FFF;
-  stroke-width: 4px;
+  stroke-width: $border;
   width: 100%;
   transition: $medium-delay;
 }
@@ -112,23 +200,37 @@
 }
 
 .hexagon-container.expand {
-  transform: scale(10) !important;
+  transform: scale(3) !important;
+}
+
+.hexagon-container.expand .hexagon {
+  transform: scale(5) !important;
   fill: $white;
 }
 
 @media screen and (max-width: 639px) {
+  .small-nav-item {
+    margin: 0 0 2*$o 0;
+  }
+
+  .overlay-btn {
+    width: 100%;
+    margin: 2*$o 0 0 0;
+  }
+
   .hexagon-container {
     height: 64px;
-    margin: 10px;
+    margin: $o 2*$o;
     fill: transparent;
     stroke: transparent;
-    width: calc(100% - 20px) !important;
+    width: calc(100% - 48px) !important;
     border: $border solid $white;
     transition: $medium-delay;
     transform: scale(0);
     opacity: 0;
   }
   .hexagon {
+    display: none;
     stroke-width: 0;
     background-color: transparent;
   }
@@ -138,7 +240,7 @@
   }
 
   .hexagon-container:nth-child(4n+5) {
-    margin-left: 10px;
+    margin-left: 2*$o;
   }
 }
 
@@ -146,7 +248,14 @@
   .hexagon-container h3 {
     font-size: 1.2*$o;
   }
+
+  .small-nav-item {
+    width: calc(50% - 24px);
+  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .small-nav-item {
+    width: calc(50% - 24px);
+  }
 }

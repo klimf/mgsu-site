@@ -2,10 +2,15 @@
 
 .absolute { position: absolute; }
 .relative { position: relative; }
+.hide { opacity: 0; pointer-events: none; }
+.remove { display: none; }
+.cover { -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 
 .right { float: right; }
 .left { float: left; }
 .center { display: flex; justify-content: center; align-items: center; text-align: center; }
+
+
 
 .no-padding { padding: 0 !important; }
 .no-margin { margin: 0 !important; }
@@ -20,13 +25,20 @@
 
 .pointer { cursor: pointer; }
 
+img.block {}
+
 .hover-primary:hover {
   background-color: $primary;
   border: 0;
 }
+.hover-primary-invert:hover {
+  background-color: invert($primary);
+  filter: invert(100%);
+  border: 0;
+}
 
 .hover-border:hover {
-  border: $o/3 solid $white;
+  border: $small-border solid $white;
 }
 
 .primary {
@@ -42,15 +54,21 @@
 @mixin width($width){
   width: $width+px !important;
 }
-.delay {
-  &-1 { @include delay(1); }
-  &-2 { @include delay(2); }
-  &-3 { @include delay(3); }
-  &-4 { @include delay(4); }
-  &-5 { @include delay(5); }
-  &-6 { @include delay(6); }
 
-  &-0 { @include delay(0); }
+.space {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      min-height: $i*$o;
+    }
+  }
+}
+
+.delay {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      @include delay($i);
+    }
+  }
 }
 .w {
   &-200 { @include width(200); }
@@ -58,16 +76,33 @@
 }
 
 .transition {
-  &-1 { @include transition(1); }
-  &-2 { @include transition(2); }
-  &-3 { @include transition(3); }
-  &-4 { @include transition(4); }
-  &-5 { @include transition(5); }
-  &-6 { @include transition(6); }
-  &-7 { @include transition(7); }
-  &-8 { @include transition(8); }
-  &-9 { @include transition(9); }
-
-  &-0 { @include transition(0); }
+  @for $i from 0 through 6 {
+    &-#{$i} {@include transition($i);}
+  }
 }
 
+@media screen and (max-width: 639px) {
+  .small-0 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+  .medium-0 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .large-0 {
+    display: none;
+  }
+  .padding-left {
+    padding-right: 0.9375rem;
+    padding-left: 0;
+  }
+  .padding-right {
+    padding-left: 0.9375rem;
+    padding-right: 0;
+  }
+}

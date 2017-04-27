@@ -1,4 +1,4 @@
-import {createAction, createReducer} from "redux-act"
+import {createAction, createReducer} from "redux-act";
 
 
 const actions = {
