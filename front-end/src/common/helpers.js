@@ -20,7 +20,7 @@ export function resolveApi(path, action, query) {
     var queryArr = [];
 
 
- 	for(key in query) {
+ 	for(var key in query) {
  		queryArr.push(key + '=' + query[key])
  	}
     

@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import {Route, Switch} from "react-router";
-import AdminAccount from "./components/AdminAccount";
-import FormsSection from "./components/FormsSection";
-
-
+import Donators from "./forms/Donators"
+import Docs from "./forms/Docs"
 const propTypes = {}
 
 const defaultProps = {}
@@ -18,8 +16,8 @@ class AdminSection extends Component {
     render() {
         return (
             <Switch>
-                <Route exact path={`${this.props.match.url}/`} component={AdminAccount}/>
-                <Route  path={`${this.props.match.url}/forms`} component={FormsSection}/>
+                <Route exact  path={`${this.props.match.url}/donators`} component={Donators}/>
+                <Route  exact path={`${this.props.match.url}/docs`} component={Docs}/>
             </Switch>
         )
     }

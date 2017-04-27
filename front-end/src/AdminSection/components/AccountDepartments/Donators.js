@@ -15,7 +15,7 @@ class Donators extends Component {
     render() {
         return (
             <div>
-                <h1>Donators</h1>
+                <h1>Благотвориетли</h1>
             </div>
         )
     }
