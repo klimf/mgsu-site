@@ -69,3 +69,7 @@ h1, h2, h3, h4, h5, p, .h1, .h2, .h3, .h4, .h5, .p {
     text-decoration: underline;
   }
 }
+
+.overlay h1 {
+  margin: $o/2 0;
+}

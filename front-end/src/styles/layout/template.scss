@@ -24,7 +24,8 @@ footer {
 
 
 .overlay {
-  position: absolute;
+  @extend .transition-2;
+  position: fixed;
   z-index: 9999;
   top:0;
   left: 0;
@@ -32,10 +33,12 @@ footer {
   height: 100%;
   background-color: $white;
   padding: 2*$o 3*$o;
+  opacity: 1;
 }
 
 .blackout {
   @extend .overlay;
+  position: absolute;
   z-index: auto;
   background-color: $dark;
 }

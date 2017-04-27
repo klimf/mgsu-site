@@ -9,6 +9,17 @@
   width: $header-content-height;
 }
 
+.header-btn {
+  @extend .inline,
+  .right,
+  .pointer,
+  .uppercase,
+  .center,
+  .transition-1,
+  .hover-primary;
+  height: $header-content-height;
+}
+
 .menu-btn-icon {
   @extend .border-small,
   .header-icon,
@@ -36,19 +47,22 @@
 
 .donate-btn-white {
   @extend .border-small-white,
-  .inline,
-  .right,
-  .pointer,
-  .h3,
-  .uppercase,
-  .center,
   .white,
-  .transition-1,
-  .hover-primary;
+  .h3,
+  .header-btn;
   width: 200px;
   padding: 15px 0;
   margin-right: 20px;
-  height: $header-content-height;
+}
+
+.donate-btn {
+  @extend .border-small,
+  .black,
+  .h3,
+  .header-btn;
+  width: 200px;
+  padding: 15px 0;
+  margin-right: 20px;
 }
 
 .donate-btn-icon-white {
@@ -60,6 +74,16 @@
   height: 65px;
   padding: 15px 0;
   margin-right: 20px;
+}
+
+.overlay-btn {
+  @extend .header-btn,
+  .hover-primary-invert,
+  .h2,
+  .black,
+  .border;
+  width: calc(50% - 54px);
+  margin: 0 2*$o 2*$o  0;
 }
 
 .navigation {
@@ -86,6 +110,9 @@
 .small-navigation {
   @extend .navigation,
   .transition-3;
+  position: relative;
+  top: 2*$o;
+  width: 100%;
   align-items: flex-start;
 }
 
@@ -169,18 +196,28 @@
 }
 
 @media screen and (max-width: 639px) {
+  .small-nav-item {
+    margin: 0 0 2*$o 0;
+  }
+
+  .overlay-btn {
+    width: 100%;
+    margin: 2*$o 0 0 0;
+  }
+
   .hexagon-container {
     height: 64px;
-    margin: 10px;
+    margin: $o 2*$o;
     fill: transparent;
     stroke: transparent;
-    width: calc(100% - 20px) !important;
+    width: calc(100% - 48px) !important;
     border: $border solid $white;
     transition: $medium-delay;
     transform: scale(0);
     opacity: 0;
   }
   .hexagon {
+    display: none;
     stroke-width: 0;
     background-color: transparent;
   }
@@ -190,7 +227,7 @@
   }
 
   .hexagon-container:nth-child(4n+5) {
-    margin-left: 10px;
+    margin-left: 2*$o;
   }
 }
 

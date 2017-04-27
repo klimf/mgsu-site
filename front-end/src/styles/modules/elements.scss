@@ -1,14 +1,20 @@
+@mixin block($url) {
+  @extend .cover;
+  background: url($block + $url) no-repeat center center;
+}
+
+.how-it-works {
+  @include block("how-it-works.png");
+}
+
 .logo-white {
   @extend .inline,
   .left,
-  .pointer;
+  .pointer,
+  .cover;
   float: left;
   display: inline-block;
   background: url($image + "logo-white.png") no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   height: $header-content-height;
   width: $header-content-height*3.65;
 }

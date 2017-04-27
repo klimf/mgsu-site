@@ -74,10 +74,10 @@ class HomePage extends Component {
                                 this.hexaNames.map((name, index) =>
                                     <div key={index}
                                          ref={(div) => this['tempDiv' + index] = div}
-                                         className={`small-3 columns end hexagon-container delay-${getRandomInt(0, 7)} ${this.state.hexaStyle}`}
+                                         className={`small-3 columns end hexagon-container delay-${index} ${this.state.hexaStyle}`}
                                          onClick={this.handlerHexaClick.bind(this, index)}>
                                         <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1"
-                                             xmlns="http://www.w3.org/2000/svg">
+                                             xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
                                             <polygon
                                                 points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                         </svg>
