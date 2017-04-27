@@ -6,6 +6,12 @@ header {
   z-index: 100;
 }
 
+.header--white {
+  .nav-item {
+    color: #fff;
+  }
+}
+
 footer {
   position: relative;
   height: 8*$o;

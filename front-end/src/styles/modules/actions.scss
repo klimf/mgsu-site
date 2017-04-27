@@ -57,11 +57,13 @@
   .uppercase,
   .underline,
   .h3,
-  .white,
   .pointer;
   white-space: nowrap;
+  color: $primary;
   margin: 0 4px;
 }
+
+
 
 .hexagon-container h3 {
   @extend .absolute,
