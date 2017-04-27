@@ -1,10 +1,12 @@
 import React, {Component} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
 class Header extends Component {
     render() {
+        var props = this.props;
         return (
-            <header>
+            <header className={props.white && 'header--white'}>
                 <NavLink to="/"
                          activeClassName="selected">
                     <div className="logo-white"/>
@@ -28,4 +30,9 @@ class Header extends Component {
 }
 
 
-export default Header;
+const mapStateToProps = (state) => {
+    const { white } = state.Header
+    return { white }
+}
+
+export default withRouter(connect(mapStateToProps)(Header));

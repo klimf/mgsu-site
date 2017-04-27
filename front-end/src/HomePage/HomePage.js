@@ -1,6 +1,10 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
 import Slider from "./components/Slider";
 import {getRandomInt, formatMoney} from "../common/helpers";
+import {headerActions} from "../common/components/state"
+
 
 class HomePage extends Component {
     constructor(props) {
@@ -21,6 +25,7 @@ class HomePage extends Component {
         this.state = {
             hexaStyle: ''
         }
+         
     }
 
     componentDidMount() {
@@ -49,6 +54,7 @@ class HomePage extends Component {
     }
 
     render() {
+        headerActions.dyeWhite();
         return (
             <div className="page row expanded">
                 <div className="wide-img small-12 expanded">
@@ -116,4 +122,9 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage;
+const mapStateToProps = state => {
+    const { key } = state
+    return { key }
+}
+
+export default withRouter(connect(mapStateToProps)(HomePage))
