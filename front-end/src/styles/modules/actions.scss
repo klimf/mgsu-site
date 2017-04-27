@@ -11,7 +11,8 @@
 
 .menu-btn-icon {
   @extend .border-small,
-  .header-icon;
+  .header-icon,
+  .hover-primary-invert;
   background: url($image + "icon-menu.png") no-repeat;
 }
 
@@ -62,7 +63,7 @@
 }
 
 .navigation {
-  padding: $o/6;
+  padding: 0;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
@@ -93,12 +94,21 @@
   .underline,
   .h2,
   .black,
-  .center,
-  .pointer;
-  white-space: nowrap;
+  .pointer,
+  .transition-3;
+  padding: $o*0.7 2*$o;
   margin: 0 2*$o 2*$o 0;
-  padding: $o;
   width: 100%;
+  min-height: 5*$o;
+  border: $border solid $transparent;
+}
+
+.small-nav-item.active {
+  @extend .center;
+  border: $border solid $primary;
+}
+
+.small-nav-item:hover {
   border: $border solid $primary;
 }
 
@@ -188,7 +198,14 @@
   .hexagon-container h3 {
     font-size: 1.2*$o;
   }
+
+  .small-nav-item {
+    width: calc(50% - 24px);
+  }
 }
 
 @media only screen and (min-width: 1024px) {
+  .small-nav-item {
+    width: calc(50% - 24px);
+  }
 }

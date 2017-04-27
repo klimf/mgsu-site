@@ -21,12 +21,14 @@ class Header extends Component {
                 <div className="menu-btn-icon border right"
                      onClick={this.handlerMenuClick.bind(this)}/>
                 <div className="small-navigation">
-                    <NavLink className="small-nav-item" to="/news">Новости</NavLink>
+                    <NavLink className="small-nav-item active" to="/sponsors">Сделать вклад</NavLink>
+                    <NavLink className="small-nav-item active" to="/club">Войти</NavLink>
                     <NavLink className="small-nav-item" to="/about">О фонде</NavLink>
-                    <NavLink className="small-nav-item" to="/contacts">Контакты</NavLink>
                     <NavLink className="small-nav-item" to="/projects">Проекты</NavLink>
                     <NavLink className="small-nav-item" to="/sponsors">Благотворители</NavLink>
                     <NavLink className="small-nav-item" to="/club">Клуб выпускников</NavLink>
+                    <NavLink className="small-nav-item" to="/news">Новости</NavLink>
+                    <NavLink className="small-nav-item" to="/contacts">Контакты</NavLink>
                 </div>
             </div>
             <header>
@@ -39,12 +41,12 @@ class Header extends Component {
                      onClick={this.handlerMenuClick.bind(this)}/>
                 <div className="donate-btn-white small-0 medium-0">Сделать вклад</div>
                 <div className="navigation small-0 medium-0">
-                    <NavLink className="nav-item" to="/news">Новости</NavLink>
                     <NavLink className="nav-item" to="/about">О фонде</NavLink>
-                    <NavLink className="nav-item" to="/contacts">Контакты</NavLink>
                     <NavLink className="nav-item" to="/projects">Проекты</NavLink>
                     <NavLink className="nav-item" to="/sponsors">Благотворители</NavLink>
                     <NavLink className="nav-item" to="/club">Клуб выпускников</NavLink>
+                    <NavLink className="nav-item" to="/news">Новости</NavLink>
+                    <NavLink className="nav-item" to="/contacts">Контакты</NavLink>
                 </div>
             </header>
             </div>

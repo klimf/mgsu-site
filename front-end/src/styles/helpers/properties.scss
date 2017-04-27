@@ -27,9 +27,14 @@
   background-color: $primary;
   border: 0;
 }
+.hover-primary-invert:hover {
+  background-color: invert($primary);
+  filter: invert(100%);
+  border: 0;
+}
 
 .hover-border:hover {
-  border: $o/3 solid $white;
+  border: $small-border solid $white;
 }
 
 .primary {
