@@ -1,22 +1,22 @@
 import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
 const defaultProps = {
-    projects: [
-        {
-            _id: 1,
-            title: "Project title",
-            description: "Description"
-        },
-        {
-            _id: 2,
-            title: "Project title 2",
-            description: "description"
-        }
+    // projects: [
+    //     {
+    //         _id: 1,
+    //         title: "Project title",
+    //         description: "Description"
+    //     },
+    //     {
+    //         _id: 2,
+    //         title: "Project title 2",
+    //         description: "description"
+    //     }
 
-    ]
+    // ]
 };
 
 class ProjectsList extends Component {
@@ -41,9 +41,11 @@ class ProjectsList extends Component {
 
 ProjectsList.defaultProps = defaultProps;
 
-const mapStateToProps = state => {
-    const { proejcts, direction } = state.projectList;
-    return { proejcts, direction }
+const mapStateToProps = (state) => {
+    const props = {
+        projects: state.ProjectsList
+    }
+    return props;
 }
 
-export default connect(mapStateToProps)(ProjectsList)
+export default withRouter(connect(mapStateToProps)(ProjectsList))

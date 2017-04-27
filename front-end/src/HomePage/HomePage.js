@@ -1,6 +1,11 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
+import {bindAll} from "redux-act";
+import {withRouter} from "react-router-dom";
 import Slider from "./components/Slider";
 import {getRandomInt, formatMoney} from "../common/helpers";
+import {headerActions} from "../common/components/state";
+
 
 class HomePage extends Component {
     constructor(props) {
@@ -21,6 +26,7 @@ class HomePage extends Component {
         this.state = {
             hexaStyle: ''
         }
+
     }
 
     componentDidMount() {
@@ -34,6 +40,8 @@ class HomePage extends Component {
                 hexaStyle: this.styles.resetDelays
             });
         }, 600)
+
+        this.props.headerAct.dyeWhite();
     }
 
     handlerHexaClick(index) {
@@ -49,6 +57,7 @@ class HomePage extends Component {
     }
 
     render() {
+
         return (
             <div className="page row expanded">
                 <div className="wide-img small-12 expanded">
@@ -122,4 +131,12 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage;
+const mapDispatchToProps = dispatch => ({headerAct: bindAll(headerActions, dispatch)});
+
+
+const mapStateToProps = state => {
+    const {key} = state
+    return {key}
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage))

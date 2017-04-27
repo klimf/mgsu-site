@@ -61,12 +61,15 @@ h3, p, .h3, .p {
   font-size: 1.5*$o;
 }
 
-h1, h2, h3, h4, h5, p, .h1, .h2, .h3, .h4, .h5, .p {
+h1, h2, h3, h4, h5, p, .h1, .h2, .h3, .h4, .h5, .p, li {
   &.white {
     color: $white;
   }
   &.black {
     color: $black;
+  }
+   &.primary {
+    color: $primary;
   }
   &.uppercase {
     text-transform: uppercase;

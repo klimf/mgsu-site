@@ -1,5 +1,44 @@
-import React, {Component} from "react";
-import {NavLink} from "react-router-dom";
+
+import {NavLink, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+
+class Header extends Component {
+    render() {
+        return (
+            <header>
+                <NavLink to="/"
+                         activeClassName="selected">
+                    <div className="logo-white"/>
+                </NavLink>
+                <div className="login-btn-icon-white"/>
+                <div className="donate-btn-white">Сделать вклад</div>
+                <ul className="navigation">
+                    <li className="nav-item">Новости</li>
+                    <li className="nav-item">О фонде</li>
+                    <li className="nav-item">Контакты</li>
+                    <NavLink to="/projects"
+                             activeClassName="selected">
+                        <li className="nav-item">Проекты</li>
+                    </NavLink>
+                    <li className="nav-item">Благотворители</li>
+                    <li className="nav-item">Клуб выпускников</li>
+                </ul>
+            </header>
+            </div>
+        );
+    }
+}
+
+
+const mapStateToProps = (state) => {
+    const {white} = state.Header;
+    return {white}
+};
+
+export default withRouter(connect(mapStateToProps)(Header));
+
+import {NavLink, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
 class Header extends Component {
     constructor(props) {
@@ -15,6 +54,9 @@ class Header extends Component {
 
     render() {
         return (
+            <header>
+                <NavLink to="/"
+                         activeClassName="selected">
             <div>
             <div className={`overlay large-0" ${this.state.menuIsOpen ? "" : "hide"}`}>
                 <h1 className="inline medium-0 large-0">Меню</h1>
@@ -36,6 +78,19 @@ class Header extends Component {
                          activeClassName="selected">
                     <div className="logo-white"/>
                 </NavLink>
+                <div className="login-btn-icon-white"/>
+                <div className="donate-btn-white">Сделать вклад</div>
+                <ul className="navigation">
+                    <li className="nav-item">Новости</li>
+                    <li className="nav-item">О фонде</li>
+                    <li className="nav-item">Контакты</li>
+                    <NavLink to="/projects"
+                             activeClassName="selected">
+                        <li className="nav-item">Проекты</li>
+                    </NavLink>
+                    <li className="nav-item">Благотворители</li>
+                    <li className="nav-item">Клуб выпускников</li>
+                </ul>
                 <div className="login-btn-icon-white small-0 medium-0"/>
                 <div className="menu-btn-icon-white large-0"
                      onClick={this.handlerMenuClick.bind(this)}/>
@@ -55,4 +110,9 @@ class Header extends Component {
 }
 
 
-export default Header;
+const mapStateToProps = (state) => {
+    const {white} = state.Header;
+    return {white}
+};
+
+export default withRouter(connect(mapStateToProps)(Header));
