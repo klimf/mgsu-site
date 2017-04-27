@@ -69,7 +69,7 @@ class HomePage extends Component {
                     </div>
                     <div className="content small-12 row">
                         <h1 className="small-12 white uppercase center columns">Направления для поддержки</h1>
-                        <div className="small-12 columns">
+                        <div className="hexagon-grid small-12 columns">
                             {
                                 this.hexaNames.map((name, index) =>
                                     <div key={index}
@@ -89,30 +89,12 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="content small-12 row">
-                    {/*<img href="./media/blocks/how-it-works.png" className="small-12"/>*/}
                     <br/>
                     <br/>
-                    <div className="how-it-works"/>
-                    <h1>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                    </h1>
+                    <img src={require ("../media/blocks/how-it-works.png")} className="small-12"/>
+                </div>
+                <div className="content small-12 row">
+
                 </div>
 
                 <Slider/>

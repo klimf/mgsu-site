@@ -3,10 +3,7 @@
   background: url($block + $url) no-repeat center center;
 }
 
-.how-it-works {
-  @include block("how-it-works.png");
-  min-height: 520px;
-}
+
 
 .logo-white {
   @extend .inline,
