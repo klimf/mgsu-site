@@ -42,16 +42,16 @@ class Header extends Component {
                         <NavLink className="small-nav-item" to="/contacts">Контакты</NavLink>
                     </div>
                 </div>
-                <header className={this.state.headerIsWhite ? 'header--white' : null}>
+                <header>
                     <NavLink to="/"
                              activeClassName="selected">
-                        <div className="logo-white"/>
+                        <div className={`logo${this.state.headerIsWhite ? "-white" : ""}`}/>
                     </NavLink>
-                    <div className="login-btn-icon-white small-0 medium-0"/>
-                    <div className="menu-btn-icon-white large-0"
+                    <div className={`login-btn-icon${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`}/>
+                    <div className={`menu-btn-icon${this.state.headerIsWhite ? "-white" : ""} large-0`}
                          onClick={this.handlerMenuClick.bind(this)}/>
-                    <div className="donate-btn-white small-0 medium-0">Сделать вклад</div>
-                    <div className="navigation small-0 medium-0">
+                    <div className={`donate-btn${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`}>Сделать вклад</div>
+                    <div className={`navigation${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`}>
                         <NavLink className="nav-item" to="/about">О фонде</NavLink>
                         <NavLink className="nav-item" to="/projects">Проекты</NavLink>
                         <NavLink className="nav-item" to="/sponsors">Благотворители</NavLink>

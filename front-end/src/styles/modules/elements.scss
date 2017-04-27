@@ -1,3 +1,12 @@
+.logo {
+  @extend .inline,
+  .left,
+  .pointer,
+  .cover;
+  background: url($image + "logo.png") no-repeat;
+  height: $header-content-height;
+  width: $header-content-height*3.65;
+}
 .logo-white {
   @extend .inline,
   .left,
@@ -10,6 +19,7 @@
 
 .wide-img {
   @extend .cover;
+  overflow: hidden;
   position: relative;
   background: url($image + "home-bg.jpg") no-repeat center center fixed;
   margin-top: -8*$o;
@@ -64,6 +74,7 @@
 .home-news {
   height: 15*$o;
   padding: 0 3*$o;
+  margin-bottom: 2*$o;
   color: $white;
   overflow: hidden;
 }
@@ -80,6 +91,7 @@
 
 .home-event {
   height: 15*$o;
+  margin-bottom: 2*$o;
   padding: 0 3*$o;
   overflow: hidden;
 }
@@ -102,4 +114,30 @@
   margin:0.8*$o 0 0 0;
   height: 7*$o;
   overflow: hidden;
+}
+
+.sponsor-img {
+  @include image("placeholder.png");
+
+  width:80%;
+  margin: 0 10% $o 10%;
+  padding: calc(40% - 4px) 0;
+  border: $border solid $primary;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.sponsor {
+  text-align: center;
+}
+.sponsor h2 {
+  font-weight: 400;
+  margin: 0;
+
+}
+
+.sponsor p {
+  margin: 0;
+  font-weight: 400;
+  color: $dark;
 }
