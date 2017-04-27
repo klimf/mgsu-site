@@ -1,23 +1,46 @@
 import React, {Component} from "react";
-import {Link} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+
+
+        this.links = [
+             { 
+                name: 'проекты',
+                pathname: '/projects',
+                state: {Header: {white: false}}
+             }
+        ]
+
+        this.HomePageLocation = {
+                name: "Главная",
+                pathname: '/',
+                state: {Header: {white: true}}
+            }
+    }
+ 
     render() {
         return (
-            <header>
-                <Link to="/"><div className="logo-white inline left pointer"/></Link>
-                <div className="login-btn-white border-small-white inline right pointer transition-1 hover-primary"/>
-                <div
-                    className="donate-btn-white w-200 border-small-white inline right pointer h3 uppercase center white transition-1 hover-primary">
-                    Сделать вклад
-                </div>
+            <header className={this.props.white && 'header--white'}>
+                <NavLink to={this.HomePageLocation}
+                         activeClassName="selected">
+                    <div className="logo-white"/>
+                </NavLink>
+                <div className="login-btn-icon-white"/>
+                <div className="donate-btn-white">Сделать вклад</div>
                 <ul className="navigation">
-                    <li className="nav-item inline uppercase underline h3 white pointer">Новости</li>
-                    <li className="nav-item inline uppercase underline h3 white pointer">О фонде</li>
-                    <li className="nav-item inline uppercase underline h3 white pointer">Контакты</li>
-                    <li className="nav-item inline uppercase underline h3 white pointer"><Link to="/projects">Проекты</Link></li>
-                    <li className="nav-item inline uppercase underline h3 white pointer">Благотворители</li>
-                    <li className="nav-item inline uppercase underline h3 white pointer">Клуб выпускников</li>
+                    <li className="nav-item">Новости</li>
+                    <li className="nav-item">О фонде</li>
+                    <li className="nav-item">Контакты</li>
+                    <NavLink to={this.links[0]}
+                             activeClassName="selected">
+                        <li className="nav-item">{this.links[0].name}</li>
+                    </NavLink>
+                    <li className="nav-item">Благотворители</li>
+                    <li className="nav-item">Клуб выпускников</li>
                 </ul>
             </header>
         );
@@ -25,4 +48,10 @@ class Header extends Component {
 }
 
 
-export default Header;
+const mapStateToProps = (state) => {
+
+    const { white } = state.Header
+    return { white }
+}
+
+export default withRouter(connect(mapStateToProps)(Header));

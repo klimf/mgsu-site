@@ -1,4 +1,10 @@
-.login-btn-white{
+.login-btn-icon-white {
+  @extend .border-small-white,
+  .inline,
+  .right,
+  .pointer,
+  .transition-1,
+  .hover-primary;
   background: url($image + "icon-login.png") no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -9,15 +15,36 @@
 }
 
 .donate-btn-white {
+  @extend .border-small-white,
+  .inline,
+  .right,
+  .pointer,
+  .h3,
+  .uppercase,
+  .center,
+  .white,
+  .transition-1,
+  .hover-primary;
+  width: 200px;
   padding: 15px 0;
   margin-right: 20px;
   height: $header-content-height;
 }
 
+.donate-btn-icon-white {
+  @extend .border-small-white,
+  .pointer,
+  .transition-1,
+  .hover-border;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+  margin-right: 20px;
+}
 
 .navigation {
   padding: 0;
-  margin:0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -26,18 +53,42 @@
 }
 
 .nav-item {
+  @extend .inline,
+  .uppercase,
+  .underline,
+  .h3,
+  .pointer;
   white-space: nowrap;
+  color: $primary;
   margin: 0 4px;
 }
 
+
+
+.hexagon-container h3 {
+  @extend .absolute,
+  .uppercase,
+  .center,
+  .white,
+  .no-margin;
+  width: 100%;
+  pointer-events: none;
+}
+
 .hexagon-container {
+  @extend .center,
+  .relative;
   padding: 0 !important;
   margin: 0 0 -7% 0;
+  transform: scale(0);
+  opacity: 0;
+  transition: $medium-delay ease;
 }
 
 .hexagon-container:nth-child(7n+5) {
   margin-left: 12.5%;
 }
+
 .hexagon-container:nth-child(7n+7) {
   margin-right: 12.5%;
 }
@@ -48,48 +99,54 @@
   stroke-width: 4px;
   width: 100%;
   transition: $medium-delay;
-  transform: scale(0);
-  opacity: 0;
 }
-
 
 .hexagon:hover {
   fill: #D8666E;
   stroke-width: 0;
 }
 
-.hexagon.active {
+.hexagon-container.active {
   transform: scale(1);
   opacity: 1;
 }
 
-.hexagon.expand {
+.hexagon-container.expand {
   transform: scale(10) !important;
   fill: $white;
 }
 
 @media screen and (max-width: 639px) {
-  .hexagon {
-    fill: transparent;
-    stroke: transparent;
-    stroke-width: 0;
-    width: calc(100% - 20px);
-    background-color: transparent;
-    border: $border solid $white;
+  .hexagon-container {
     height: 64px;
     margin: 10px;
+    fill: transparent;
+    stroke: transparent;
+    width: calc(100% - 20px) !important;
+    border: $border solid $white;
     transition: $medium-delay;
     transform: scale(0);
     opacity: 0;
+  }
+  .hexagon {
+    stroke-width: 0;
+    background-color: transparent;
   }
 
   .hexagon:hover {
     fill: transparent;
   }
 
-  .hexagon:nth-child(4n+5) {
+  .hexagon-container:nth-child(4n+5) {
     margin-left: 10px;
   }
 }
-@media only screen and (min-width: 640px) and (max-width: 1023px) {}
-@media only screen and (min-width: 1024px) {}
+
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+  .hexagon-container h3 {
+    font-size: 1.2*$o;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+}

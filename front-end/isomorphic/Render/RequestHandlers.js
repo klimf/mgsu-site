@@ -1,4 +1,4 @@
-import {initStore} from "../../src/common/Store";
+import {initStoreServer as initStore} from "../../src/common/Store";
 import buildApp from "./AppBuilder";
 import generateIndex from "./indexPageGenerator";
 
@@ -8,7 +8,7 @@ export function prerender(req, res, next) {
 
     const store = initStore();
 
-    const context = {}
+    const context = {};
 
     if(context.url) {
 
@@ -36,5 +36,5 @@ export function handleErrors(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(err);
 };
