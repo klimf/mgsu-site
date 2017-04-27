@@ -3,35 +3,19 @@ import {Route, Switch} from "react-router";
 import {NavLink} from "react-router-dom";
 import Donators from "./AccountDepartments/Donators"
 
-const propTypes = {}
 
-const defaultProps = {}
-
-class AdminSection extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
-    }
-
-    render() {
-        return (
-            <div>
+const AdminAccount = props => (
+             <div>
                 <ul>
                     <li>
-                        <NavLink to={`${this.props.match.url}/donators`}>Благотворители</NavLink>
+                        <NavLink to={`${props.match.url}/donators`}>Благотворители</NavLink>
                     </li>
                 </ul>
                 <Switch>
-                    <Route exact path={`${this.props.match.url}/`} component={Donators}/>
+                    <Route exact path={`${props.match.url}/`} component={Donators}/>
                  </Switch>
             </div>
-        )
-    }
-}
+)
 
-AdminSection.propTypes = propTypes
 
-AdminSection.defaultProps = defaultProps
-
-export default AdminSection
+export default AdminAccount
