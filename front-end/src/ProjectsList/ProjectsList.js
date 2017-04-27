@@ -4,23 +4,25 @@ import {Link, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
 const defaultProps = {
-    projects: [
-        {
-            _id: 1,
-            title: "Project title",
-            description: "Description"
-        },
-        {
-            _id: 2,
-            title: "Project title 2",
-            description: "description"
-        }
+    // projects: [
+    //     {
+    //         _id: 1,
+    //         title: "Project title",
+    //         description: "Description"
+    //     },
+    //     {
+    //         _id: 2,
+    //         title: "Project title 2",
+    //         description: "description"
+    //     }
 
-    ]
+    // ]
 };
 
 class ProjectsList extends Component {
+   
     render() {
+        console.log(this.props)
         return (
             <div>
                 <ul>
@@ -42,8 +44,10 @@ class ProjectsList extends Component {
 ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-    
-    return state;
+    const props = {
+        projects: state.ProjectsList
+    }
+    return  props;
 }
 
 export default withRouter(connect(mapStateToProps)(ProjectsList))

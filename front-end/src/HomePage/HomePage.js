@@ -1,13 +1,15 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {bindAll} from "redux-act";
 import {withRouter} from "react-router-dom";
-import Slider from "./components/Slider";
+import Slider from "./components/Slider"
 import {getRandomInt, formatMoney} from "../common/helpers";
 import {headerActions} from "../common/components/state"
 
 
 class HomePage extends Component {
     constructor(props) {
+
         super(props);
         this.hexaNames = [
             'Образование',
@@ -39,6 +41,8 @@ class HomePage extends Component {
                 hexaStyle: this.styles.resetDelays
             });
         }, 600)
+
+        this.props.headerAct.dyeWhite();
     }
 
     handlerHexaClick(index) {
@@ -54,7 +58,7 @@ class HomePage extends Component {
     }
 
     render() {
-        headerActions.dyeWhite();
+        
         return (
             <div className="page row expanded">
                 <div className="wide-img small-12 expanded">
@@ -122,9 +126,12 @@ class HomePage extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => ({ headerAct: bindAll(headerActions, dispatch)});
+
+
 const mapStateToProps = state => {
     const { key } = state
     return { key }
 }
 
-export default withRouter(connect(mapStateToProps)(HomePage))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage))
