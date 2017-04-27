@@ -13,7 +13,6 @@ export default class extends Component {
                     Событие*
                     <Validation.components.Teaxtarea type="text" value='' name="description" validations={['required']}/>
                 </label>
-
             </div>
             <div>
                 <Validation.components.Button>Submit</Validation.components.Button>
