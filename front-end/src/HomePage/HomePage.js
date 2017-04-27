@@ -173,10 +173,12 @@ class HomePage extends Component {
                     </div>
 
                 </div>
+                <div className="space-2"></div>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Спонсоры</h1>
                     <Slider/>
                 </div>
+                <div className="space-12"></div>
 
             </div>
         );

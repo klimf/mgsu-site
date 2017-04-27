@@ -10,7 +10,7 @@
 .left { float: left; }
 .center { display: flex; justify-content: center; align-items: center; text-align: center; }
 
-
+.no-float { float: none !important; }
 
 .no-padding { padding: 0 !important; }
 .no-margin { margin: 0 !important; }
@@ -56,7 +56,7 @@ img.block {}
 }
 
 .space {
-  @for $i from 0 through 6 {
+  @for $i from 0 through 12 {
     &-#{$i} {
       min-height: $i*$o;
     }

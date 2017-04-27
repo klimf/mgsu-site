@@ -1,20 +1,36 @@
-.logo {
+.logo-base {
   @extend .inline,
-  .left,
   .pointer,
   .cover;
-  background: url($image + "logo.png") no-repeat;
   height: $header-content-height;
   width: $header-content-height*3.65;
 }
-.logo-white {
-  @extend .inline,
+
+.logo {
+  @extend
   .left,
-  .pointer,
-  .cover;
+  .logo-base;
+  background: url($image + "logo.png") no-repeat;
+}
+.logo-white {
+  @extend
+  .left,
+  .logo-base;
   background: url($image + "logo-white.png") no-repeat;
-  height: $header-content-height;
-  width: $header-content-height*3.65;
+}
+
+.mgsu-logo {
+  @extend
+  .right,
+  .logo-base;
+  background: url($image + "mgsu-logo.png") no-repeat;
+}
+
+.mgsu-logo-white {
+  @extend
+  .right,
+  .logo-base;
+  background: url($image + "mgsu-logo-white.png") no-repeat;
 }
 
 .wide-img {
@@ -145,11 +161,9 @@
 .slick-arrow:before {
   color: $black;
 }
-
 .slick-prev, .slick-next {
   top:-6*$o;
 }
-
 .slick-next {
   right:$o;
 }
@@ -158,4 +172,22 @@
 }
 .slick-slider {
   top: 2*$o;
+}
+
+.contacts{
+  min-height: 5*$o;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.contact h3{
+  margin: 0 0 $o 0;
+  color: $white;
+}
+.contact p{
+  margin: 0 $o 0 0;
+  color: $light;
 }

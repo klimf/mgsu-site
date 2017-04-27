@@ -19,10 +19,10 @@ header {
 
 footer {
   position: relative;
-  height: 8*$o;
   margin: 0;
   padding: 2*$o 3*$o;
   z-index: 100;
+  background-color: $primary;
 }
 
 .columns * {
