@@ -3,6 +3,7 @@ import {NavLink, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
 
+
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -70,5 +71,6 @@ const mapStateToProps = (state) => {
     const {white} = state.Header;
     return {white}
 };
+
 
 export default withRouter(connect(mapStateToProps)(Header));
