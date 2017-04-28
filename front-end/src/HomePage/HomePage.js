@@ -97,11 +97,11 @@ class HomePage extends Component {
                         </div>
                     </div>
                 </div>
+                <div className="space-5"></div>
                 <div className="content small-12 row">
-                    <div className="space-5"></div>
                     <img alt="pic" src={require ("../media/blocks/how-it-works.png")} className="small-12"/>
-                    <div className="space-5"></div>
                 </div>
+                <div className="space-5"></div>
                 <div className="content small-12 row">
                     <div className="small-12 medium-12 large-7 columns padding-left">
                         <div className="home-news small-12 columns">
@@ -173,11 +173,16 @@ class HomePage extends Component {
                     </div>
 
                 </div>
+                <div className="space-2"></div>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Спонсоры</h1>
                     <Slider/>
                 </div>
-
+                <div className="space-12"></div>
+                <div className="content small-12 row">
+                    <img src={require ("../media/images/corps.png")} className="small-12 hover-opacity"/>
+                </div>
+                <div className="space-12"></div>
             </div>
         );
     }
