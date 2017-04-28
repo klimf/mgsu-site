@@ -2,6 +2,7 @@ import React from "react";
 import {
     jsonServerRestClient,
     Admin,
+    Filter,
     Resource,
     List,
     Edit,
@@ -30,8 +31,17 @@ export const UserList = (props) => (
     </List>
 );
 
+const PostFilter = (props) => (
+    <Filter {...props}>
+        <TextInput label="Search" source="q" alwaysOn />
+        <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
+            <SelectInput optionText="name" />
+        </ReferenceInput>
+    </Filter>
+);
+
 const PostList = (props) => (
-    <List {...props}>
+    <List {...props} filters={<PostFilter />}>
         <Datagrid>
             <TextField source="id"/>
             <ReferenceField label="User" source="userId" reference="users">
@@ -74,10 +84,56 @@ export const PostCreate = (props) => (
 );
 
 const App = () => (
-    <Admin restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')}>
+    <Admin authClient={authClient} restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')}>
         <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate}/>
         <Resource name="users" list={UserList}/>
     </Admin>
 );
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'admin-on-rest';
+
+let authClient  = (type, params) => {
+    // called when the user attempts to  log in
+    if (type === AUTH_LOGIN) {
+        const { username } = params;
+        localStorage.setItem('username', username);
+        // accept all username/password combinations
+        return Promise.resolve();
+    }
+    // called when the user clicks on the logout button
+    if (type === AUTH_LOGOUT) {
+        localStorage.removeItem('username');
+        return Promise.resolve();
+    }
+    // called hen the API returns an error
+    if (type === AUTH_ERROR) {
+        const { status } = params;
+        if (status === 401 || status === 403) {
+            localStorage.removeItem('username');
+            return Promise.reject();
+        }
+        return Promise.resolve();
+    }
+    // called when the user navigates to a new location
+    if (type === AUTH_CHECK) {
+        return localStorage.getItem('username') ? Promise.resolve() : Promise.reject();
+    }
+    return Promise.reject('Unknown method');
+};
