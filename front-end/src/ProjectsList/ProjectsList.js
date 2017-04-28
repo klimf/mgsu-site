@@ -1,39 +1,46 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import ProjectItem from "./components/ProjectItem";
-import {Link} from "react-router-dom";
-import {connect} from "react-redux";
+import { Link, withRouter } from "react-router-dom";
+import { connect, bindActionCreators } from "react-redux";
+import { bindAll } from 'redux-act'
+
+import { GetByDirection, ProjectsListActions as actions } from "./state"
+
 
 const defaultProps = {
-    projects: [
-        {
-            _id: 1,
-            title: "Project title",
-            description: "Description"
-        },
-        {
-            _id: 2,
-            title: "Project title 2",
-            description: "description"
-        }
 
-    ]
 };
 
 class ProjectsList extends Component {
+
+
+    componentDidMount() {
+
+        console.log(this.props);
+
+        this.props.getByDirection.perform({
+            query: {
+                direction: this.props.match.params.direction
+            }
+        })
+
+    }
+
     render() {
         return (
-            <div>
-                <ul>
+            <div className="page row expanded">
+                <div className="space-3" />
+                <div className="content small-12 row">
+
                     {
-                        this.props.projects.map((project, index) =>
-                            <li key={index}>
-                                <Link to={`${this.props.match.url}/${project._id}`}>
-                                    <ProjectItem project={project}/>
-                                </Link>
-                            </li>
+                        this.props.projects.data &&
+                        this.props.projects.data.map((project, index) =>
+                            <ProjectItem key={index} project={project} />
                         )
+
                     }
-                </ul>
+                </div>
+                <div className="space-3" />
             </div>
         )
     }
@@ -41,9 +48,15 @@ class ProjectsList extends Component {
 
 ProjectsList.defaultProps = defaultProps;
 
-const mapStateToProps = state => {
-    const { proejcts, direction } = state.projectList;
-    return { proejcts, direction }
+const mapStateToProps = (state) => {
+    const props = {
+        projects: state.ProjectsListAsync
+    }
+    return props;
 }
 
-export default connect(mapStateToProps)(ProjectsList)
+const mapDispatchToProps = dispatch => ({
+    getByDirection: GetByDirection.bindTo(dispatch)
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsList));

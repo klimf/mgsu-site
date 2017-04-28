@@ -1,4 +1,4 @@
-import {initStore} from "../../src/common/Store";
+import {initStore} from "../../src/common/Store.prod";
 import buildApp from "./AppBuilder";
 import generateIndex from "./indexPageGenerator";
 

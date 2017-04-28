@@ -1,12 +1,15 @@
-import {createReducer} from "redux-act";
+
 import {combineReducers} from "redux";
-import {ProjectsListReducer} from "../../ProjectsList/state";
-import {UserReducer} from "./UserState";
-import {NewsReducer} from "../../News/state"
+
+import {GetByDirectionReducer as ProjectsListAsync} from "../../ProjectsList/state";
+import {UserReducer as User} from "./UserState";
+import {NewsReducer as News} from "../../News/state";
+import {HeaderReducer as Header} from "../components/state";
 
 
 export default combineReducers({
-    UserReducer,
-    ProjectsListReducer,
-    NewsReducer
+    User,
+    News,
+    Header,
+    ProjectsListAsync
 })

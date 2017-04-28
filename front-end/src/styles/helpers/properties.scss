@@ -1,32 +1,98 @@
-.inline { display: inline-block; }
+.inline {
+  display: inline-block;
+}
 
-.absolute { position: absolute; }
-.relative { position: relative; }
-.hide { opacity: 0; pointer-events: none; }
-.remove { display: none; }
-.cover { -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+.absolute {
+  position: absolute;
+}
 
-.right { float: right; }
-.left { float: left; }
-.center { display: flex; justify-content: center; align-items: center; text-align: center; }
+.relative {
+  position: relative;
+}
 
-.no-padding { padding: 0 !important; }
-.no-margin { margin: 0 !important; }
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
 
-.border-small-white { border: $small-border solid $white; }
-.border-small-black { border: $small-border solid $black; }
-.border-small { border: $small-border solid $primary; }
+.remove {
+  display: none;
+}
 
-.border-white { border: $border solid $white; }
-.border-black { border: $border solid $black; }
-.border { border: $border solid $primary; }
+.cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
-.pointer { cursor: pointer; }
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.no-float {
+  float: none !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+.border-small-white {
+  border: $small-border solid $white;
+}
+
+.border-small-black {
+  border: $small-border solid $black;
+}
+
+.border-small {
+  border: $small-border solid $primary;
+}
+
+.border-white {
+  border: $border solid $white;
+}
+
+.border-black {
+  border: $border solid $black;
+}
+
+.border {
+  border: $border solid $primary;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+img.block {
+}
 
 .hover-primary:hover {
   background-color: $primary;
   border: 0;
 }
+
 .hover-primary-invert:hover {
   background-color: invert($primary);
   filter: invert(100%);
@@ -37,46 +103,73 @@
   border: $small-border solid $white;
 }
 
+.hover-opacity {
+  @extend .transition-3;
+  opacity: 0.65;
+}
+
+.hover-opacity:hover {
+  opacity: 1;
+}
+
 .primary {
   background-color: $primary !important;
 }
 
-@mixin delay($delay){
+@mixin delay($delay) {
   transition-delay: $delay/20+s !important;
 }
-@mixin transition($transition){
+
+@mixin transition($transition) {
   transition: $transition/10+s ease !important;
 }
-@mixin width($width){
+
+@mixin width($width) {
   width: $width+px !important;
 }
-.delay {
-  &-1 { @include delay(1); }
-  &-2 { @include delay(2); }
-  &-3 { @include delay(3); }
-  &-4 { @include delay(4); }
-  &-5 { @include delay(5); }
-  &-6 { @include delay(6); }
 
-  &-0 { @include delay(0); }
+.margin {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      margin: $i*$o;
+    }
+  }
 }
+
+.space {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      height: $i*$i*$o/2;
+    }
+  }
+  &-base {
+    height: $o;
+  }
+}
+
+.delay {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      @include delay($i);
+    }
+  }
+}
+
 .w {
-  &-200 { @include width(200); }
-  &-0 { @include width(0); }
+  &-200 {
+    @include width(200);
+  }
+  &-0 {
+    @include width(0);
+  }
 }
 
 .transition {
-  &-1 { @include transition(1); }
-  &-2 { @include transition(2); }
-  &-3 { @include transition(3); }
-  &-4 { @include transition(4); }
-  &-5 { @include transition(5); }
-  &-6 { @include transition(6); }
-  &-7 { @include transition(7); }
-  &-8 { @include transition(8); }
-  &-9 { @include transition(9); }
-
-  &-0 { @include transition(0); }
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      @include transition($i);
+    }
+  }
 }
 
 @media screen and (max-width: 639px) {
@@ -94,5 +187,13 @@
 @media only screen and (min-width: 1024px) {
   .large-0 {
     display: none;
+  }
+  .padding-left {
+    padding-right: 0.9375rem;
+    padding-left: 0;
+  }
+  .padding-right {
+    padding-left: 0.9375rem;
+    padding-right: 0;
   }
 }

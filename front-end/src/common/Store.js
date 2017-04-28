@@ -5,8 +5,8 @@ import combinedRedusers from "./reducers/appReducers";
 
 
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export function initStore(initialState = {}) {
+    const composeEnhancers = (window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)  ?  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
     return createStore(combinedRedusers, initialState, composeEnhancers(applyMiddleware(thunk)));
 }

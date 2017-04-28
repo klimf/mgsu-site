@@ -1,3 +1,12 @@
+.primary-btn {
+  @extend .relative,
+  .h3,
+  .white,
+  .uppercase;
+  background-color: $primary;
+  height: 4*$o;
+}
+
 .header-icon {
   @extend .cover,
   .inline,
@@ -83,7 +92,7 @@
   .black,
   .border;
   width: calc(50% - 54px);
-  margin: 0 2*$o 2*$o  0;
+  margin: 0 2*$o 2*$o 0;
 }
 
 .navigation {
@@ -96,12 +105,23 @@
   height: $header-content-height;
 }
 
+.navigation-white {
+  @extend .navigation;
+}
+
+.navigation .nav-item {
+  color: $black;
+}
+
+.navigation-white .nav-item {
+  color: $white;
+}
+
 .nav-item {
   @extend .inline,
   .uppercase,
   .underline,
   .h3,
-  .white,
   .pointer;
   white-space: nowrap;
   margin: 0 0.9*$o;
@@ -112,8 +132,9 @@
   .transition-3;
   position: relative;
   top: 2*$o;
-  width: 100%;
+  width: calc(100% - 60px);
   align-items: flex-start;
+  height: auto;
 }
 
 .small-nav-item {
@@ -131,7 +152,7 @@
 }
 
 .small-nav-item.active {
-  @extend .center;
+  color: $black;
   border: $border solid $primary;
 }
 
@@ -147,6 +168,8 @@
   .no-margin;
   width: 100%;
   pointer-events: none;
+  top: calc(50% - 12px);
+  left: 0;
 }
 
 .hexagon-container {
@@ -187,7 +210,7 @@
 }
 
 .hexagon-container.expand {
-  transform: scale(2) !important;
+  transform: scale(3) !important;
 }
 
 .hexagon-container.expand .hexagon {
@@ -195,7 +218,11 @@
   fill: $white;
 }
 
-@media screen and (max-width: 639px) {
+@media screen and (max-width: 639.9px) {
+  .small-navigation {
+    width: 100%;
+  }
+
   .small-nav-item {
     margin: 0 0 2*$o 0;
   }

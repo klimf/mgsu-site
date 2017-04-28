@@ -1,3 +1,8 @@
+@mixin image($url) {
+  @extend .cover;
+  background: url($image + $url) no-repeat center center;
+}
+
 header {
   position: relative;
   height: 8*$o;
@@ -6,34 +11,48 @@ header {
   z-index: 100;
 }
 
+.header-white {
+  .nav-item {
+    color: #fff;
+  }
+}
+
 footer {
   position: relative;
-  height: 8*$o;
   margin: 0;
   padding: 2*$o 3*$o;
   z-index: 100;
+  background-color: $primary;
+}
+
+.columns * {
+  position: relative;
+}
+
+.columns {
+  position: relative;
 }
 
 .page {
-
+  min-height: calc(100vh - 96px);
 }
 
 .content {
   position: relative;
 }
 
-
 .overlay {
   @extend .transition-2;
-  position: fixed;
+  position: absolute;
   z-index: 9999;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: $white;
   padding: 2*$o 3*$o;
   opacity: 1;
+  box-shadow: 0 0 3*$o $dark;
 }
 
 .blackout {
@@ -41,4 +60,22 @@ footer {
   position: absolute;
   z-index: auto;
   background-color: $dark;
+  box-shadow: none;
+}
+
+.bg-img {
+  @include image("placeholder.png");
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.bg-border {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: $border solid $primary;
 }
