@@ -6,16 +6,16 @@ import {connect} from "react-redux";
 const defaultProps = {
     // projects: [
     //     {
-    //         _id: 1,
+    //         id: 1,
     //         title: "Project title",
     //         description: "Description"
     //     },
     //     {
-    //         _id: 2,
+    //         id: 2,
     //         title: "Project title 2",
     //         description: "description"
     //     }
-
+    //
     // ]
 };
 
@@ -25,9 +25,9 @@ class ProjectsList extends Component {
             <div>
                 <ul>
                     {
-                        this.props.projects.map((project, index) =>
+                        this.props.projects.data.map((project, index) =>
                             <li key={index}>
-                                <Link to={`${this.props.match.url}/${project._id}`}>
+                                <Link to={`${this.props.match.url}/${project.id}`}>
                                     <ProjectItem project={project}/>
                                 </Link>
                             </li>
@@ -44,8 +44,8 @@ ProjectsList.defaultProps = defaultProps;
 const mapStateToProps = (state) => {
     const props = {
         projects: state.ProjectsList
-    }
+    };
     return props;
-}
+};
 
 export default withRouter(connect(mapStateToProps)(ProjectsList))
