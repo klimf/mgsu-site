@@ -218,6 +218,18 @@
   fill: $white;
 }
 
+.projects-nav-item {
+  @extend .transition-3,
+  .h2;
+  margin: $o;
+  display: inline-block;
+  border-bottom: $border solid $disabled;
+}
+
+.projects-nav-item .active, .projects-nav-item:hover {
+  border-bottom: $border solid $primary;
+}
+
 @media screen and (max-width: 639.9px) {
   .small-navigation {
     width: 100%;

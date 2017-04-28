@@ -9,6 +9,42 @@ import { GetByDirection, ProjectsListActions as actions } from "./state"
 
 const defaultProps = {
 
+    filters: [
+        'Все проекты',
+        'Образование',
+        'Наука',
+        'Студенты',
+        'Стипендии',
+        'Инфраструктура',
+        'Спорт',
+        'Проффессора и преподаватели'
+    ],
+    projects: [
+        {
+            id: 1,
+            title: "Project title",
+            description: "Description description description description description description description description description description description",
+            image: "placeholder.png"
+        },
+        {
+            id: 2,
+            title: "Project title 2 Project title 2 Project title 2",
+            description: "description",
+            image: "placeholder.png"
+        },
+        {
+            id: 3,
+            title: "Project title 3",
+            description: "description",
+            image: "placeholder.png"
+        },
+        {
+            id: 4,
+            title: "Project title 4",
+            description: "description",
+            image: "placeholder.png"
+        }
+
 };
 
 class ProjectsList extends Component {
@@ -29,9 +65,19 @@ class ProjectsList extends Component {
     render() {
         return (
             <div className="page row expanded">
-                <div className="space-3" />
                 <div className="content small-12 row">
-
+                    <div className="space-3"/>
+                    <div className="projects-icon small-0" style={{background: "url("+require ("../media/images/project-nav/" + "Образование" +".png") + ") no-repeat"}}></div>
+                    <div className="projects-navigation">
+                        {
+                            this.props.filters.map((filter, index) =>
+                                <div className="projects-nav-item" style={{background: "url(../media/images/project-nav/" + filter + ".png) no-repeat"}} key={index}>
+                                    {filter}
+                                </div>
+                            )
+                        }
+                    </div>
+                    <div className="space-3"/>
                     {
                         this.props.projects.data &&
                         this.props.projects.data.map((project, index) =>

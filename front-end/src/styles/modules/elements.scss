@@ -177,6 +177,11 @@
   top: 2*$o;
 }
 
+.slick-track {
+  height: 270px;
+  overflow: hidden;
+}
+
 .contacts {
   min-height: 5*$o;
   padding: 0;
@@ -245,6 +250,15 @@
   bottom: 6*$o;
   left: 0;
   background-color: $disabled;
+}
+
+.projects-icon{
+  @extend .cover;
+  width: 10*$o;
+  height: 10*$o;
+  margin: $o;
+  float: left;
+
 }
 
 @media screen and (max-width: 639px) {
