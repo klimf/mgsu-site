@@ -13,7 +13,7 @@ const defaultProps = {
         },
         {
             id: 2,
-            title: "Project title 2",
+            title: "Project title 2 Project title 2 Project title 2",
             description: "description",
             image: "placeholder.png"
         },
@@ -42,10 +42,11 @@ class ProjectsList extends Component {
 
                     {
                         this.props.projects.map((project, index) =>
-                                    <ProjectItem key={index} project={project}/>
+                            <ProjectItem key={index} project={project}/>
                         )
                     }
                 </div>
+                <div className="space-3"/>
             </div>
         )
     }
