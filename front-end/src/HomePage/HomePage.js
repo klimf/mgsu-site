@@ -10,6 +10,7 @@ import {headerActions} from "../common/components/state";
 class HomePage extends Component {
     constructor(props) {
         super(props);
+
         this.hexaNames = [
             'Образование',
             'Наука',
@@ -19,6 +20,7 @@ class HomePage extends Component {
             'Спорт',
             'Проффессора и преподаватели'
         ];
+
         this.styles = {
             startShowing: 'active',
             resetDelays: 'active delay-0'
@@ -97,11 +99,11 @@ class HomePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="space-5"></div>
+                <div className="space-3"/>
                 <div className="content small-12 row">
                     <img alt="pic" src={require ("../media/blocks/how-it-works.png")} className="small-12"/>
                 </div>
-                <div className="space-5"></div>
+                <div className="space-3"/>
                 <div className="content small-12 row">
                     <div className="small-12 medium-12 large-7 columns padding-left">
                         <div className="home-news small-12 columns">
@@ -173,16 +175,16 @@ class HomePage extends Component {
                     </div>
 
                 </div>
-                <div className="space-2"></div>
+                <div className="space-2"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Спонсоры</h1>
                     <Slider/>
                 </div>
-                <div className="space-12"></div>
+                <div className="space-4"/>
                 <div className="content small-12 row">
                     <img src={require ("../media/images/corps.png")} className="small-12 hover-opacity"/>
                 </div>
-                <div className="space-12"></div>
+                <div className="space-4"/>
             </div>
         );
     }
@@ -196,4 +198,4 @@ const mapStateToProps = state => {
     return {key}
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage))
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

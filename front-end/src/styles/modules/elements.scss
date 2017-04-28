@@ -7,34 +7,32 @@
 }
 
 .logo {
-  @extend
-  .left,
+  @extend .left,
   .logo-base;
   background: url($image + "logo.png") no-repeat;
 }
+
 .logo-white {
-  @extend
-  .left,
+  @extend .left,
   .logo-base;
   background: url($image + "logo-white.png") no-repeat;
 }
 
 .mgsu-logo {
-  @extend
-  .right,
+  @extend .right,
   .logo-base;
   background: url($image + "mgsu-logo.png") no-repeat;
 }
 
 .mgsu-logo-white {
-  @extend
-  .right,
+  @extend .right,
   .logo-base;
   background: url($image + "mgsu-logo-white.png") no-repeat;
 }
 
 .wide-img {
   @extend .cover;
+  min-height: 100vh;
   overflow: hidden;
   position: relative;
   background: url($image + "home-bg.jpg") no-repeat center center fixed;
@@ -127,7 +125,7 @@
 }
 
 .home-event p {
-  margin:0.8*$o 0 0 0;
+  margin: 0.8*$o 0 0 0;
   height: 7*$o;
   overflow: hidden;
 }
@@ -135,7 +133,7 @@
 .sponsor-img {
   @include image("placeholder.png");
 
-  width:80%;
+  width: 80%;
   margin: 0 10% $o 10%;
   padding: calc(40% - 4px) 0;
   border: $border solid $primary;
@@ -146,6 +144,7 @@
 .sponsor {
   text-align: center;
 }
+
 .sponsor h2 {
   font-weight: 400;
   margin: 0;
@@ -161,20 +160,24 @@
 .slick-arrow:before {
   color: $black;
 }
+
 .slick-prev, .slick-next {
-  top:-6*$o;
+  top: -6*$o;
 }
+
 .slick-next {
-  right:$o;
+  right: $o;
 }
+
 .slick-prev {
   left: $o;
 }
+
 .slick-slider {
   top: 2*$o;
 }
 
-.contacts{
+.contacts {
   min-height: 5*$o;
   padding: 0;
   margin: 0;
@@ -183,15 +186,66 @@
   justify-content: space-around;
   align-items: center;
 }
-.contact h3{
+
+.contact h3 {
   margin: 0 0 $o 0;
   color: $white;
 }
-.contact p{
+
+.contact p {
   margin: 0 $o 0 0;
   color: $light;
 }
 
+.project-item {
+  height: 510px;
+  margin-bottom: 2*$o;
+  overflow: hidden;
+}
+
+.project-item h2 {
+  line-height: 32px;
+  margin: $o 0 0 0;
+}
+
+.project-item p {
+  margin: 0.6*$o 0 $o 0;
+}
+
+.project-text {
+  overflow: hidden;
+  height: 108px;
+}
+
+.project-progress h3 {
+  margin: 0 0 2*$o 0;
+  font-size: 1.8*$o;
+  font-weight: 400;
+}
+
+.project-progress p {
+  margin: 0;
+  font-size: 1.4*$o;
+}
+
+.project-progress {
+  @extend .transition-3;
+  background-color: $white;
+  bottom:0;
+}
+
+.project-progress:hover {
+  bottom: 6*$o;
+}
+
+.project-bar {
+  position: absolute;
+  width: 100%;
+  height: $o;
+  bottom: 6*$o;
+  left: 0;
+  background-color: $disabled;
+}
 
 @media screen and (max-width: 639px) {
   .contacts {

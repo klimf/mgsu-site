@@ -29,8 +29,12 @@ footer {
   position: relative;
 }
 
-.page {
+.columns {
+  position: relative;
+}
 
+.page {
+  min-height: calc(100vh - 96px);
 }
 
 .content {
@@ -56,6 +60,7 @@ footer {
   position: absolute;
   z-index: auto;
   background-color: $dark;
+  box-shadow: none;
 }
 
 .bg-img {

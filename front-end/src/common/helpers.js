@@ -1,3 +1,7 @@
+import fetch from "isomorphic-fetch";
+import {createAction} from "redux-act";
+
+
 export function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -10,4 +14,106 @@ export function formatMoney(value) {
     } else {
         return;
     }
+}
+
+export const apiUrl = 'http://185.189.13.148/api/';
+
+export function resolveApi({path, action, query}) {
+
+    if(query) {
+         var queryArr = [];
+
+
+        for(var key in query) {
+            queryArr.push(key + '=' + query[key])
+        }
+    }
+   
+    
+    return apiUrl + `${path.join('/')}${action ? '/' + action : ''}${query && '/?' + queryArr.join('&&')}`
+
+}
+
+
+export class AsyncAction {
+
+    constructor(TYPE, asyncFunc) {
+
+        this.actions = {
+            startQuery: createAction(TYPE + '_START'),
+            sucessQuery: createAction(TYPE + '_SUCESS', (data) => data),
+            failQuery: createAction(TYPE + '_FAIL', (data) => data)
+        }
+        
+      
+       
+        this.asyncFunc = asyncFunc;
+        this.reducerHandlers = {
+          [this.actions.startQuery]: (state) => ({loading: true, data: false, error: false}),
+          [this.actions.sucessQuery]: (state, data) => ({loading: false, data: data, error: false}),
+          [this.actions.failQuery]: (state, message) => ({loading: false, data: false, error: message})
+        };
+        
+        this.defaultState = {loading: true, data: false, error: false}
+
+    }
+
+    perform(params) {
+
+        return (dispatch) => {
+
+            dispatch(this.actions.startQuery())
+            this.asyncFunc(params).then(
+                resolved => dispatch(this.actions.sucessQuery(resolved)),
+                rejected => dispatch(this.actions.failQuery(rejected)))
+        }
+        
+    }
+}
+
+export class ApiAction extends AsyncAction {
+    
+    constructor({TYPE, model, action, options, prePare}) {
+        
+        const apiFunc = ({params, query, body}) => {
+
+           const path = [this.model].concat(params || []);
+            
+           const apiQuery = resolveApi({path: path, action: this.action || false, query: query || false})
+           
+
+            return new Promise((resolve, reject) => {
+
+                const options = this.options;
+                options.body = body || null;
+
+                fetch(apiQuery, options).then((response) => {
+                    
+                    response.json().then((data) => {
+
+                            if(response.status == 200 || response.status == 304) {
+                                resolve(this.prePare(data));
+                            } else {
+                                reject(data);
+                            }
+
+                    }).catch((response) => {
+                        reject(response);
+                    })
+                   
+                })
+
+            
+            })
+        }
+
+        super(TYPE, apiFunc);
+
+        this.model = model;
+        this.action= action;
+        this.options = options || {method: 'GET'};
+        this.prePare = prePare || ((data) => (data));
+        
+    }
+
 }
