@@ -8,7 +8,6 @@ import { GetByDirection, ProjectsListActions as actions } from "./state"
 
 
 const defaultProps = {
-
     filters: [
         'Все проекты',
         'Образование',
@@ -44,6 +43,7 @@ const defaultProps = {
             description: "description",
             image: "placeholder.png"
         }
+    ]
 
 };
 
