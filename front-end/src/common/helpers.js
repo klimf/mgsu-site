@@ -84,9 +84,10 @@ export class ApiAction extends AsyncAction {
 
             return new Promise((resolve, reject) => {
 
-            
+                const options = this.options;
+                options.body = body || null;
 
-                fetch(apiQuery, this.options).then((response) => {
+                fetch(apiQuery, options).then((response) => {
                     
                     response.json().then((data) => {
 
