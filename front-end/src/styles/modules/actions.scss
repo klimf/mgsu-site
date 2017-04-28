@@ -1,3 +1,12 @@
+.primary-btn {
+  @extend .relative,
+  .h3,
+  .white,
+  .uppercase;
+  background-color: $primary;
+  height: 4*$o;
+}
+
 .header-icon {
   @extend .cover,
   .inline,
@@ -123,7 +132,7 @@
   .transition-3;
   position: relative;
   top: 2*$o;
-  width: 100%;
+  width: calc(100% - 60px);
   align-items: flex-start;
   height: auto;
 }
@@ -143,7 +152,7 @@
 }
 
 .small-nav-item.active {
-  @extend .center;
+  color: $black;
   border: $border solid $primary;
 }
 
@@ -209,7 +218,11 @@
   fill: $white;
 }
 
-@media screen and (max-width: 639px) {
+@media screen and (max-width: 639.9px) {
+  .small-navigation {
+    width: 100%;
+  }
+
   .small-nav-item {
     margin: 0 0 2*$o 0;
   }

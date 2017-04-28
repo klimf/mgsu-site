@@ -4,36 +4,48 @@ import {Link, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
 const defaultProps = {
-    // projects: [
-    //     {
-    //         id: 1,
-    //         title: "Project title",
-    //         description: "Description"
-    //     },
-    //     {
-    //         id: 2,
-    //         title: "Project title 2",
-    //         description: "description"
-    //     }
-    //
-    // ]
+    projects: [
+        {
+            id: 1,
+            title: "Project title",
+            description: "Description description description description description description description description description description description",
+            image: "placeholder.png"
+        },
+        {
+            id: 2,
+            title: "Project title 2",
+            description: "description",
+            image: "placeholder.png"
+        },
+        {
+            id: 3,
+            title: "Project title 3",
+            description: "description",
+            image: "placeholder.png"
+        },
+        {
+            id: 4,
+            title: "Project title 4",
+            description: "description",
+            image: "placeholder.png"
+        }
+
+    ]
 };
 
 class ProjectsList extends Component {
     render() {
         return (
-            <div>
-                <ul>
+            <div className="page row expanded">
+                <div className="space-3"/>
+                <div className="content small-12 row">
+
                     {
-                        this.props.projects.data.map((project, index) =>
-                            <li key={index}>
-                                <Link to={`${this.props.match.url}/${project.id}`}>
-                                    <ProjectItem project={project}/>
-                                </Link>
-                            </li>
+                        this.props.projects.map((project, index) =>
+                                    <ProjectItem key={index} project={project}/>
                         )
                     }
-                </ul>
+                </div>
             </div>
         )
     }
@@ -45,7 +57,7 @@ const mapStateToProps = (state) => {
     const props = {
         projects: state.ProjectsList
     };
-    return props;
+    return state;
 };
 
 export default withRouter(connect(mapStateToProps)(ProjectsList))
