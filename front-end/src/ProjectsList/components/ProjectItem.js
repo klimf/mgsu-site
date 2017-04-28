@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const ProjectItem = ({project}) => (
     <div>
+        <h1>{project.id}</h1>
         <h3>{project.description}</h3>
     </div>
 );
