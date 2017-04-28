@@ -56,7 +56,8 @@ class ProjectsList extends Component {
                 <div className="content small-12 row">
 
                     {
-                        this.props.projects.map((project, index) =>
+                        this.props.projects.data &&
+                        this.props.projects.data.map((project, index) =>
                             <ProjectItem key={index} project={project}/>
                         )
                         
