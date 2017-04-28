@@ -8,11 +8,11 @@ const ProjectItem = (props) => (
             <div className="project-image space-7">
                 <div className="bg-img"/>
             </div>
-            <div className="no-overflow space-4">
+            <div className="project-text">
                 <h2 className="small-12 upprecase center black columns">{props.project.title}</h2>
                 <p className="small-12 center black columns">{props.project.description}</p>
             </div>
-            <div className="space-2"></div>
+            <div className="space-base"></div>
             <div className="project-progress">
                 <div className="project-bar"></div>
                 <div className="project-bar primary" style={{"width":70 + "%"}}></div>

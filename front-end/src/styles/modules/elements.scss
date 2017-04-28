@@ -204,11 +204,17 @@
 }
 
 .project-item h2 {
+  line-height: 32px;
   margin: $o 0 0 0;
 }
 
 .project-item p {
-  margin: 0 0 $o 0;
+  margin: 0.6*$o 0 $o 0;
+}
+
+.project-text {
+  overflow: hidden;
+  height: 108px;
 }
 
 .project-progress h3 {
