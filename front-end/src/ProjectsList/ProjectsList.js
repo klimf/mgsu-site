@@ -4,6 +4,17 @@ import {Link, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
 const defaultProps = {
+
+    filters: [
+        'Все проекты',
+        'Образование',
+        'Наука',
+        'Студенты',
+        'Стипендии',
+        'Инфраструктура',
+        'Спорт',
+        'Проффессора и преподаватели'
+    ],
     projects: [
         {
             id: 1,
@@ -37,9 +48,18 @@ class ProjectsList extends Component {
     render() {
         return (
             <div className="page row expanded">
-                <div className="space-3"/>
                 <div className="content small-12 row">
-
+                    <div className="space-3"/>
+                    <div className="project-navigation">
+                        {
+                            this.props.filters.map((filter, index) =>
+                                <div className="project-nav-item" key={index}>
+                                    {filter}
+                                </div>
+                            )
+                        }
+                    </div>
+                    <div className="space-3"/>
                     {
                         this.props.projects.map((project, index) =>
                             <ProjectItem key={index} project={project}/>
