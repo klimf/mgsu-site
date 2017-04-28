@@ -25,7 +25,7 @@ class ProjectsList extends Component {
             <div>
                 <ul>
                     {
-                        this.props.projects.map((project, index) =>
+                        this.props.projects.data.map((project, index) =>
                             <li key={index}>
                                 <Link to={`${this.props.match.url}/${project._id}`}>
                                     <ProjectItem project={project}/>
