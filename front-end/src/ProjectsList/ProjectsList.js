@@ -1,10 +1,8 @@
 import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
-import {Link, withRouter} from "react-router-dom";
-import {connect, bindActionCreators} from "react-redux";
-import {bindAll} from 'redux-act'
-
-import {GetByDirection} from "./state"
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {GetByDirection} from "./state";
 
 
 const defaultProps = {
@@ -38,7 +36,6 @@ const defaultProps = {
 };
 
 class ProjectsList extends Component {
-
     componentDidMount() {
         console.log(GetByDirection);
         this.props.dispatch(GetByDirection.perform({
@@ -47,20 +44,17 @@ class ProjectsList extends Component {
             }
         }))
     }
-   
- 
+
     render() {
         return (
             <div className="page row expanded">
                 <div className="space-3"/>
                 <div className="content small-12 row">
-
                     {
                         this.props.projects.data &&
                         this.props.projects.data.map((project, index) =>
                             <ProjectItem key={index} project={project}/>
                         )
-                        
                     }
                 </div>
                 <div className="space-3"/>
@@ -74,13 +68,13 @@ ProjectsList.defaultProps = defaultProps;
 const mapStateToProps = (state) => {
     const props = {
         projects: state.ProjectsList
-    }
-    return  props;
-}
+    };
+    return props;
+};
 
-const mapDispatchToProps = dispatch => ({
-        getByDirectionActions:  bindAll(GetByDirection.actions, dispatch),
-        getByDirection: GetByDirection
-    })
+// const mapDispatchToProps = dispatch => ({
+//     getByDirectionActions: bindAll(GetByDirection.actions, dispatch),
+//     getByDirection: GetByDirection
+// });
 
 export default withRouter(connect(mapStateToProps)(ProjectsList));
