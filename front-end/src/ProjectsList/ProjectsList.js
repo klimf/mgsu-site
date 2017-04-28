@@ -1,7 +1,11 @@
 import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
 import {Link, withRouter} from "react-router-dom";
-import {connect} from "react-redux";
+import {connect, bindActionCreators} from "react-redux";
+import {bindAll} from 'redux-act'
+
+import {GetByDirection} from "./state"
+
 
 const defaultProps = {
     // projects: [
@@ -20,18 +24,31 @@ const defaultProps = {
 };
 
 class ProjectsList extends Component {
+
+    componentDidMount() {
+        console.log(GetByDirection);
+        this.props.dispatch(GetByDirection.perform({
+            query: {
+                direction: 'kek'
+            }
+        }))
+    }
+   
+ 
     render() {
         return (
             <div>
                 <ul>
                     {
-                        this.props.projects.map((project, index) =>
+                      this.props.projects.data &&
+                        this.props.projects.data.map((project, index) =>
                             <li key={index}>
                                 <Link to={`${this.props.match.url}/${project._id}`}>
                                     <ProjectItem project={project}/>
                                 </Link>
                             </li>
                         )
+                        
                     }
                 </ul>
             </div>
@@ -45,7 +62,12 @@ const mapStateToProps = (state) => {
     const props = {
         projects: state.ProjectsList
     }
-    return props;
+    return  props;
 }
 
-export default connect(mapStateToProps)(ProjectsList)
+const mapDispatchToProps = dispatch => ({
+        getByDirectionActions:  bindAll(GetByDirection.actions, dispatch),
+        getByDirection: GetByDirection
+    })
+
+export default withRouter(connect(mapStateToProps)(ProjectsList));

@@ -1,17 +1,10 @@
 import {createAction, createReducer} from "redux-act";
+import {ApiAction} from "../common/helpers"
 
 
-const actions = {
-    reqStart: createAction(),
-    reqSuccess: createAction("starting request"),
-    reqFaild: createAction("PROJECTS_GET_FAILED")
-}
+export const GetByDirection = new ApiAction({TYPE: "PROGECTS_GET_BY_DIRECTION", model: 'projects', prePare: ({docs}) => docs});
 
-const reduser = createReducer({
-    [actions.getByDirection]: (state) => ({loading: true, data: [], message: ''}),
-    [actions.getSuccess]: (state, result) => ({loading: false, data: result}),
-    [actions.getFailed]: (state, message) => ({loading: false, message: message}),
-}, {loading: false, data: [], message: ''});
 
-export const ProjectsListActions = actions;
-export const ProjectsListReducer = reduser;
+export const GetByDirectionReducer = createReducer(GetByDirection.reducerHandlers, GetByDirection.defaultState);
+
+
