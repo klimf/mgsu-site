@@ -33,7 +33,7 @@ class Header extends Component {
                          onClick={this.handlerMenuClick.bind(this)}/>
                     <NavLink className="overlay-btn" to="/">Сделать вклад</NavLink>
                     <NavLink className="overlay-btn" to="/">Войти</NavLink>
-                    <div className="small-navigation">
+                    <div className="small-navigation" onClick={this.handlerMenuClick.bind(this)}>
                         <NavLink className="small-nav-item" to="/about">О фонде</NavLink>
                         <NavLink className="small-nav-item" to="/projects">Проекты</NavLink>
                         <NavLink className="small-nav-item" to="/sponsors">Благотворители</NavLink>

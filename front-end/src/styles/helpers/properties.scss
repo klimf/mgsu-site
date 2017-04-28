@@ -15,6 +15,8 @@
 .no-padding { padding: 0 !important; }
 .no-margin { margin: 0 !important; }
 
+.no-overflow { overflow: hidden; }
+
 .border-small-white { border: $small-border solid $white; }
 .border-small-black { border: $small-border solid $black; }
 .border-small { border: $small-border solid $primary; }
@@ -63,10 +65,18 @@ img.block {}
   width: $width+px !important;
 }
 
+.margin {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      margin: $i*$o;
+    }
+  }
+}
+
 .space {
   @for $i from 0 through 12 {
     &-#{$i} {
-      min-height: $i*$o;
+      height: $i*$i*$o/2;
     }
   }
 }
