@@ -26,6 +26,7 @@
     "validator": "^7.0.0"
   },
   "devDependencies": {
+    "admin-on-rest": "^1.0.0",
     "autoprefixer": "6.7.2",
     "babel-core": "6.22.1",
     "babel-eslint": "7.1.1",

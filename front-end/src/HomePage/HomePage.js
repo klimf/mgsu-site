@@ -9,7 +9,6 @@ import { headerActions } from "../common/components/state";
 class HomePage extends Component {
     constructor(props) {
         super(props);
-
         this.hexaNames = [
             'Образование',
             'Наука',
@@ -19,7 +18,6 @@ class HomePage extends Component {
             'Спорт',
             'Проффессора и преподаватели'
         ];
-
         this.styles = {
             startShowing: 'active',
             resetDelays: 'active delay-0'
@@ -40,7 +38,7 @@ class HomePage extends Component {
             this.setState({
                 hexaStyle: this.styles.resetDelays
             });
-        }, 600)
+        }, 600);
 
         this.props.headerAct.dyeWhite();
     }
@@ -100,7 +98,7 @@ class HomePage extends Component {
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
-                    <img alt="pic" src={require ("../media/blocks/how-it-works.png")} className="small-12"/>
+                    <img alt="pic" src={require("../media/blocks/how-it-works.png")} className="small-12"/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
@@ -110,7 +108,8 @@ class HomePage extends Component {
                             <div className="blackout"/>
                             <h2>Альбом выпускников</h2>
                             <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
+                                работодатель сможет посмотреть
                             </p>
                         </div>
                         <div className="home-news small-12 columns">
@@ -118,7 +117,8 @@ class HomePage extends Component {
                             <div className="blackout"/>
                             <h2>Альбом выпускников</h2>
                             <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
+                                работодатель сможет посмотреть
                             </p>
                         </div>
                         <div className="home-news small-12 columns">
@@ -126,7 +126,8 @@ class HomePage extends Component {
                             <div className="blackout"/>
                             <h2>Альбом выпускников</h2>
                             <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
+                                работодатель сможет посмотреть
                             </p>
                         </div>
                         <div className="home-news small-12 columns">
@@ -134,7 +135,8 @@ class HomePage extends Component {
                             <div className="blackout"/>
                             <h2>Альбом выпускников</h2>
                             <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
+                                работодатель сможет посмотреть
                             </p>
                         </div>
                     </div>
@@ -144,7 +146,8 @@ class HomePage extends Component {
                             <h1>19</h1>
                             <h2>Апреля</h2>
                             <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
+                                работодатель сможет посмотреть
                             </p>
                         </div>
                         <div className="home-event small-12 columns">
@@ -152,7 +155,8 @@ class HomePage extends Component {
                             <h1>23</h1>
                             <h2>Апреля</h2>
                             <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
+                                работодатель сможет посмотреть
                             </p>
                         </div>
                         <div className="home-event small-12 columns">
@@ -160,7 +164,8 @@ class HomePage extends Component {
                             <h1>27</h1>
                             <h2>Апреля</h2>
                             <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
+                                работодатель сможет посмотреть
                             </p>
                         </div>
                         <div className="home-event small-12 columns">
@@ -168,7 +173,8 @@ class HomePage extends Component {
                             <h1>29</h1>
                             <h2>Апреля</h2>
                             <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором работодатель сможет посмотреть
+                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
+                                работодатель сможет посмотреть
                             </p>
                         </div>
                     </div>
@@ -181,7 +187,7 @@ class HomePage extends Component {
                 </div>
                 <div className="space-4"/>
                 <div className="content small-12 row">
-                    <img src={require ("../media/images/corps.png")} className="small-12 hover-opacity"/>
+                    <img alt="pic" src={require("../media/images/corps.png")} className="small-12 hover-opacity"/>
                 </div>
                 <div className="space-4"/>
             </div>

@@ -6,7 +6,6 @@ import { bindAll } from 'redux-act'
 
 import { GetByDirection, ProjectsListActions as actions } from "./state"
 
-
 const defaultProps = {
     filters: [
         'Все проекты',
