@@ -50,10 +50,11 @@ class ProjectsList extends Component {
             <div className="page row expanded">
                 <div className="content small-12 row">
                     <div className="space-3"/>
-                    <div className="project-navigation">
+                    <div className="projects-icon small-0" style={{background: "url("+require ("../media/images/project-nav/" + "Образование" +".png") + ") no-repeat"}}></div>
+                    <div className="projects-navigation">
                         {
                             this.props.filters.map((filter, index) =>
-                                <div className="project-nav-item" key={index}>
+                                <div className="projects-nav-item" style={{background: "url(../media/images/project-nav/" + filter + ".png) no-repeat"}} key={index}>
                                     {filter}
                                 </div>
                             )

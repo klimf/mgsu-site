@@ -218,7 +218,7 @@
   fill: $white;
 }
 
-.project-nav-item {
+.projects-nav-item {
   @extend .transition-3,
   .h2;
   margin: $o;
@@ -226,7 +226,7 @@
   border-bottom: $border solid $disabled;
 }
 
-.project-nav-item .active, .project-nav-item:hover {
+.projects-nav-item .active, .projects-nav-item:hover {
   border-bottom: $border solid $primary;
 }
 

@@ -252,6 +252,15 @@
   background-color: $disabled;
 }
 
+.projects-icon{
+  @extend .cover;
+  width: 10*$o;
+  height: 10*$o;
+  margin: $o;
+  float: left;
+
+}
+
 @media screen and (max-width: 639px) {
   .contacts {
     width: 100%;
