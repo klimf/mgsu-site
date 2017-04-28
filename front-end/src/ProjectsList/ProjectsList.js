@@ -4,7 +4,7 @@ import {Link, withRouter} from "react-router-dom";
 import {connect, bindActionCreators} from "react-redux";
 import {bindAll} from 'redux-act'
 
-import {GetByDirection} from "./state"
+import {GetByDirection, ProjectsListActions as actions} from "./state"
 
 
 const defaultProps = {
@@ -40,12 +40,9 @@ const defaultProps = {
 class ProjectsList extends Component {
 
     componentDidMount() {
-        console.log(GetByDirection);
-        this.props.dispatch(GetByDirection.perform({
-            query: {
-                direction: null
-            }
-        }))
+
+        this.props.changeDirection(this.props.match.params.direction || null);
+        
     }
    
  
@@ -79,8 +76,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-        getByDirectionActions:  bindAll(GetByDirection.actions, dispatch),
-        getByDirection: GetByDirection
+        changeDirection: actions.changeDirection.bindTo(dispatch),
+        getByDirection: bindAll(GetByDirection.actions, dispatch)
     })
 
-export default withRouter(connect(mapStateToProps)(ProjectsList));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsList));

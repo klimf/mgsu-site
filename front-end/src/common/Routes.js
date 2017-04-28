@@ -9,8 +9,8 @@ import AdminSection from "../AdminSection/AdminSection"
 const Routes = () => (
     <Switch>
         <Route exact path="/" component={HomePage}/>
-        <Route exact path="/projects" component={ProjectsList}/>
-        <Route exact path="/projects/:projectId" component={Project}/>
+        <Route  path="/projects/:direction?" component={ProjectsList}/>
+        <Route exact path="/project/:projectId" component={Project}/>
         <Route path="/admin" component={AdminSection}></Route>
         <Route component={NotFound}/>
     </Switch>

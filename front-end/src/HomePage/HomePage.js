@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindAll} from "redux-act";
-import {withRouter} from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
 import Slider from "./components/Slider";
 import {formatMoney} from "../common/helpers";
 import {headerActions} from "../common/components/state";
@@ -83,7 +83,7 @@ class HomePage extends Component {
                         <div className="hexagon-grid small-12 columns">
                             {
                                 this.hexaNames.map((name, index) =>
-                                    <div key={index}
+                                    <Link  to={`projects/${name}`} key={index}
                                          ref={(div) => this['tempDiv' + index] = div}
                                          className={`small-3 columns end hexagon-container delay-${index} ${this.state.hexaStyle}`}
                                          onClick={this.handlerHexaClick.bind(this, index)}>
@@ -93,7 +93,7 @@ class HomePage extends Component {
                                                 points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                         </svg>
                                         <h3>{name}</h3>
-                                    </div>
+                                    </Link>
                                 )
                             }
                         </div>
