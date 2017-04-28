@@ -43,7 +43,7 @@ class ProjectsList extends Component {
         console.log(GetByDirection);
         this.props.dispatch(GetByDirection.perform({
             query: {
-                direction: 'kek'
+                direction: null
             }
         }))
     }
