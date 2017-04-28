@@ -252,17 +252,6 @@
   background-color: $disabled;
 }
 
-.project-navigation {
-
-}
-
-.project-nav-item {
-  @extend .h2;
-  margin: $o;
-  display: inline-block;
-  border-bottom: $border solid $primary;
-}
-
 @media screen and (max-width: 639px) {
   .contacts {
     width: 100%;
