@@ -41,6 +41,14 @@ img.block {}
   border: $small-border solid $white;
 }
 
+.hover-opacity {
+  @extend .transition-3;
+  opacity: 0.65;
+}
+.hover-opacity:hover {
+  opacity: 1;
+}
+
 .primary {
   background-color: $primary !important;
 }

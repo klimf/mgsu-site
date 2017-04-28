@@ -191,3 +191,30 @@
   margin: 0 $o 0 0;
   color: $light;
 }
+
+
+@media screen and (max-width: 639px) {
+  .contacts {
+    width: 100%;
+    margin-top: $o;
+    justify-content: space-between;
+  }
+  .logo-white, .mgsu-logo-white {
+    margin: $o auto;
+    display: block !important;
+    float: none !important;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+  .contacts {
+    width: 100%;
+    margin-top: 100px;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+
+}
+
