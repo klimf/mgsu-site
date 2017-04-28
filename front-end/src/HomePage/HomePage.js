@@ -1,11 +1,10 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {bindAll} from "redux-act";
-import {withRouter, Link} from "react-router-dom";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindAll } from "redux-act";
+import { withRouter, Link } from "react-router-dom";
 import Slider from "./components/Slider";
-import {formatMoney} from "../common/helpers";
-import {headerActions} from "../common/components/state";
-
+import { formatMoney } from "../common/helpers";
+import { headerActions } from "../common/components/state";
 
 class HomePage extends Component {
     constructor(props) {
@@ -46,13 +45,13 @@ class HomePage extends Component {
         this.props.headerAct.dyeWhite();
     }
 
-    handlerHexaClick(index) {
-        this.setState({hexaStyle: ''}, () => {
+    handlerHexaClick(index, name) {
+        this.setState({ hexaStyle: '' }, () => {
             this['tempDiv' + index].classList.add('active', 'delay-0');
             setTimeout(() => {
                 this['tempDiv' + index].classList.add('expand');
                 setTimeout(() => {
-                    //this.props.history.push('/projects')
+                    this.props.history.push('/projects/' + name)
                 }, 400)
             }, 200)
         });
@@ -63,11 +62,11 @@ class HomePage extends Component {
         return (
             <div className="page row expanded">
                 <div className="wide-img small-12 expanded">
-                    <div className="blackout"/>
+                    <div className="blackout" />
                     <div className="main-progress">
                         <div className="bar primary">
                         </div>
-                        <div className="bar" style={{width: 100 - 60 + "%"}}>
+                        <div className="bar" style={{ width: 100 - 60 + "%" }}>
                             <h1 className="uppercase bar-text bar-left">
                                 <p className="uppercase">Размер фонда</p>
                                 {formatMoney(256000000)}₽
@@ -83,17 +82,17 @@ class HomePage extends Component {
                         <div className="hexagon-grid small-12 columns">
                             {
                                 this.hexaNames.map((name, index) =>
-                                    <Link  to={`projects/${name}`} key={index}
+                                    <div key={index}
                                          ref={(div) => this['tempDiv' + index] = div}
                                          className={`small-3 columns end hexagon-container delay-${index} ${this.state.hexaStyle}`}
-                                         onClick={this.handlerHexaClick.bind(this, index)}>
+                                         onClick={this.handlerHexaClick.bind(this, index, name)}>
                                         <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1"
                                              xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
                                             <polygon
                                                 points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                                         </svg>
                                         <h3>{name}</h3>
-                                    </Link>
+                                    </div>
                                 )
                             }
                         </div>
