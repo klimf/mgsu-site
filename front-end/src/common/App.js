@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import {User} from "./reducers/UserState";
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
+import ScrollFix from "./components/ScrollFix"
 
 class App extends Component {
 
@@ -16,10 +17,12 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <Header user={this.props.user} UserManager={this.props.UserManager}/>
-                <Routes user={this.props.user} UserManager={this.props.UserManager} />
-                <Footer user={this.props.user} UserManager={this.props.UserManager}/>
+           <div>
+                <Header {...this.props}/>
+                 <ScrollFix>
+                <Routes {...this.props} />
+                </ScrollFix>
+                <Footer {...this.props}/>
             </div>
         );
     }
