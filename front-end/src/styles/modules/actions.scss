@@ -283,12 +283,12 @@
   .center;
   color: $light;
   display: inline-block;
-  border-bottom: $border solid transparent;
+  border-bottom: $border solid $semi-light;
 }
 .donation-radio.active {
   color: $white;
-  background-color: $semi-dark;
-  border-bottom: $border solid transparent;
+  //background-color: $semi-dark;
+  border-bottom: $border solid $semi-light;
 }
 .donation-radio:hover {
   color: $white;
