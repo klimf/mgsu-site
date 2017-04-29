@@ -92,6 +92,10 @@ img.block {
   background-color: $primary;
   border: 0;
 }
+.hover-white:hover {
+  background-color: $white;
+  color: $primary;
+}
 
 .hover-primary-invert:hover {
   background-color: invert($primary);
@@ -116,6 +120,10 @@ img.block {
   background-color: $primary !important;
 }
 
+.disabled {
+  background-color: $disabled !important;
+}
+
 @mixin delay($delay) {
   transition-delay: $delay/20+s !important;
 }
@@ -136,6 +144,22 @@ img.block {
   }
 }
 
+.m-b {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      margin-bottom: $i*$o;
+    }
+  }
+}
+
+.m-t {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      margin-top: $i*$o;
+    }
+  }
+}
+
 .space {
   @for $i from 0 through 12 {
     &-#{$i} {
@@ -145,6 +169,10 @@ img.block {
   &-base {
     height: $o;
   }
+  &-element {
+    height: 3*$o;
+  }
+
 }
 
 .delay {
@@ -156,8 +184,8 @@ img.block {
 }
 
 .w {
-  &-200 {
-    @include width(200);
+  &-100 {
+    width: 100%;
   }
   &-0 {
     @include width(0);

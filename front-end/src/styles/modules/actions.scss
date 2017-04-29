@@ -74,17 +74,6 @@
   margin-right: 20px;
 }
 
-.donate-btn-icon-white {
-  @extend .border-small-white,
-  .pointer,
-  .transition-1,
-  .hover-border;
-  width: 52px;
-  height: 65px;
-  padding: 15px 0;
-  margin-right: 20px;
-}
-
 .overlay-btn {
   @extend .header-btn,
   .hover-primary-invert,
@@ -230,6 +219,87 @@
   border-bottom: $border solid $primary;
 }
 
+
+.form-tab {
+  background-color: $semi-dark;
+}
+
+.form-tab.active {
+  background-color: $primary;
+  bottom: $border;
+  box-shadow: 0 $border 0 $semi-dark;
+}
+
+.form-hideable {
+  @extend .transition-3;
+  height: 60px;
+  overflow: hidden;
+}
+.form-hideable.hide{
+  height: 0;
+}
+
+.donation-form input{
+  @extend .transition-3,
+  .space-element;
+  position: relative;
+  background-color: $semi-light;
+  color: $white;
+  border: none;
+  outline: none !important;
+}
+
+.donation-form input:focus {
+  padding-left: 2*$o;
+  background-color: $semi-dark;
+}
+
+.donation-form span{
+  color: $white;
+}
+
+.donation-form label  {
+  color: $white;
+  top: 4px;
+  left: 24px;
+}
+
+.donation-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $primary;
+}
+.donation-form input::-moz-placeholder { /* Firefox 19+ */
+  color: $primary;
+}
+.donation-form input:-ms-input-placeholder { /* IE 10+ */
+  color: $primary;
+}
+.donation-form input:-moz-placeholder { /* Firefox 18- */
+  color: $primary;
+}
+
+.donation-radio {
+  @extend .transition-3,
+  .h2,
+  .center;
+  color: $light;
+  display: inline-block;
+  border-bottom: $border solid transparent;
+}
+.donation-radio.active {
+  color: $white;
+  background-color: $semi-dark;
+  border-bottom: $border solid transparent;
+}
+.donation-radio:hover {
+  color: $white;
+  border-bottom: $border solid $white;
+}
+
+.donation-money {
+
+}
+
+
 @media screen and (max-width: 639.9px) {
   .small-navigation {
     width: 100%;
@@ -268,6 +338,13 @@
   .hexagon-container:nth-child(4n+5) {
     margin-left: 2*$o;
   }
+  .form-hideable {
+    height: 180px;
+  }
+
+  .form-tab {
+    font-size: 1.5*$o;
+  }
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
@@ -277,6 +354,9 @@
 
   .small-nav-item {
     width: calc(50% - 24px);
+  }
+  .form-hideable {
+    height: 120px;
   }
 }
 

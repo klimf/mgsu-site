@@ -67,6 +67,11 @@
   line-height: 5*$o;
 }
 
+.main-progress h1.bar-text {
+  font-size: 2.5*$o;
+  margin-bottom: 1.2*$o;
+}
+
 .main-progress h1.bar-text p {
   right: 0;
   top: -4*$o;
@@ -78,11 +83,31 @@
 .main-progress .bar-left {
   text-align: right;
   width: calc(100% + 300px);
-  left: calc(-100% - 300px);
+  left: calc(-100% - 340px);
 }
 
 .main-progress .bar-right {
   right: 0;
+}
+
+.donate-btn-icon-white {
+  @extend .transition-2,
+  .absolute,
+  .cover,
+  .pointer;
+  background: url($image + "icon-donate.png") no-repeat;
+  left: -26px;
+  bottom: $o;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+  margin-right: 20px;
+}
+
+.donate-btn-icon-white:hover {
+  left: -30px;
+  width: 60px;
+  height: 75px;
 }
 
 .home-news {
@@ -236,7 +261,7 @@
 .project-progress {
   @extend .transition-3;
   background-color: $white;
-  bottom:0;
+  bottom: 0;
 }
 
 .project-progress:hover {
@@ -252,13 +277,19 @@
   background-color: $disabled;
 }
 
-.projects-icon{
+.projects-icon {
   @extend .cover;
   width: 10*$o;
   height: 10*$o;
   margin: $o;
   float: left;
+}
 
+.project-half {
+}
+
+.project-half h2 {
+  margin: 2*$o 0 $o 0;
 }
 
 @media screen and (max-width: 639px) {

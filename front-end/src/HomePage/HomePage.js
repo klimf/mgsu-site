@@ -10,13 +10,13 @@ class HomePage extends Component {
         super(props);
 
         this.hexaNames = [
-            'Образование',
-            'Наука',
-            'Студенты',
-            'Стипендии',
-            'Инфраструктура',
-            'Спорт',
-            'Проффессора и преподаватели'
+            'образование',
+            'наука',
+            'студенты',
+            'стипендии',
+            'инфраструктура',
+            'спорт',
+            'проффессора и преподаватели'
         ];
 
         this.styles = {
@@ -65,7 +65,8 @@ class HomePage extends Component {
                     <div className="main-progress">
                         <div className="bar primary">
                         </div>
-                        <div className="bar" style={{width: 100 - 60 + "%"}}>
+                        <div className="bar" style={{ width: 100 - 60 + "%" }}>
+                            <div className="donate-btn-icon-white"/>
                             <h1 className="uppercase bar-text bar-left">
                                 <p className="uppercase">Размер фонда</p>
                                 {formatMoney(256000000)}₽

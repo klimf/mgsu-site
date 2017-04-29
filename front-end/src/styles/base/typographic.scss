@@ -72,8 +72,20 @@ h1, h2, h3, h4, h5, p, .h1, .h2, .h3, .h4, .h5, .p, li {
   &.black {
     color: $black;
   }
+  &.dark {
+    color: $dark;
+  }
    &.primary {
     color: $primary;
+  }
+  &.bold {
+    font-weight: 600;
+  }
+  &.light {
+    font-weight: 400;
+  }
+  &.thin {
+    font-weight: 300;
   }
   &.uppercase {
     text-transform: uppercase;

@@ -15,36 +15,36 @@ const defaultProps = {
         'Спорт',
         'Проффессора и преподаватели'
     ],
-    projects: {
-        data: [
-            {
-                id: 1,
-                title: "Project title",
-                description: "Description description description description description description description description description description description",
-                image: "placeholder.png"
-            },
-            {
-                id: 2,
-                title: "Project title 2 Project title 2 Project title 2",
-                description: "description",
-                image: "placeholder.png"
-            },
-            {
-                id: 3,
-                title: "Project title 3",
-                description: "description",
-                image: "placeholder.png"
-            },
-            {
-                id: 4,
-                title: "Project title 4",
-                description: "description",
-                image: "placeholder.png"
-            }
-        ],
-        error: false,
-        loading: false
-    }
+    // projects: {
+    //     data: [
+    //         {
+    //             id: 1,
+    //             title: "Project title",
+    //             description: "Description description description description description description description description description description description",
+    //             image: "placeholder.png"
+    //         },
+    //         {
+    //             id: 2,
+    //             title: "Project title 2 Project title 2 Project title 2",
+    //             description: "description",
+    //             image: "placeholder.png"
+    //         },
+    //         {
+    //             id: 3,
+    //             title: "Project title 3",
+    //             description: "description",
+    //             image: "placeholder.png"
+    //         },
+    //         {
+    //             id: 4,
+    //             title: "Project title 4",
+    //             description: "description",
+    //             image: "placeholder.png"
+    //         }
+    //     ],
+    //     error: false,
+    //     loading: false
+    // }
 
 };
 
@@ -52,7 +52,7 @@ class ProjectsList extends Component {
     componentDidMount() {
         this.props.getByDirection.perform({
             query: {
-                direction: this.props.match.params.direction
+                direction: this.props.match.params.direction || null
             }
         })
 
@@ -93,10 +93,10 @@ class ProjectsList extends Component {
 ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-    // const props = {
-    //     // projects: state.ProjectsListAsync
-    // }
-    return defaultProps;
+    const props = {
+         projects: state.ProjectsListAsync
+    };
+    return props;
 };
 
 const mapDispatchToProps = dispatch => ({
