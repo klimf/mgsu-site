@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
 import { Link, withRouter } from "react-router-dom";
 import { connect, bindActionCreators } from "react-redux";
 import { bindAll } from 'redux-act'
-
-import { GetByDirection, ProjectsListActions as actions } from "./state"
+import { ProjectsListManager } from "../common/reducers/ProjectsState"
 
 const defaultProps = {
     filters: [
@@ -17,60 +16,60 @@ const defaultProps = {
         'Спорт',
         'Проффессора и преподаватели'
     ],
-    projects: [
-        {
-            id: 1,
-            title: "Project title",
-            description: "Description description description description description description description description description description description",
-            image: "placeholder.png"
-        },
-        {
-            id: 2,
-            title: "Project title 2 Project title 2 Project title 2",
-            description: "description",
-            image: "placeholder.png"
-        },
-        {
-            id: 3,
-            title: "Project title 3",
-            description: "description",
-            image: "placeholder.png"
-        },
-        {
-            id: 4,
-            title: "Project title 4",
-            description: "description",
-            image: "placeholder.png"
-        }
-    ]
+    projects: {
+        data: [
+            {
+                id: 1,
+                title: "Project title",
+                description: "Description description description description description description description description description description description",
+                image: "placeholder.png"
+            },
+            {
+                id: 2,
+                title: "Project title 2 Project title 2 Project title 2",
+                description: "description",
+                image: "placeholder.png"
+            },
+            {
+                id: 3,
+                title: "Project title 3",
+                description: "description",
+                image: "placeholder.png"
+            },
+            {
+                id: 4,
+                title: "Project title 4",
+                description: "description",
+                image: "placeholder.png"
+            }
+        ],
+        error: false,
+        loading: false
+    }
 
 };
 
 class ProjectsList extends Component {
+     componentDidMount() {
 
-
-    componentDidMount() {
-
-        console.log(this.props);
-
-        this.props.getByDirection.perform({
-            query: {
-                direction: this.props.match.params.direction
-            }
-        })
+      this.props.ProjectsListManager.changeDirection(this.props.match.params.direction || null)
 
     }
+   
 
     render() {
         return (
             <div className="page row expanded">
                 <div className="content small-12 row">
                     <div className="space-3"/>
-                    <div className="projects-icon small-0" style={{background: "url("+require ("../media/images/project-nav/" + "Образование" +".png") + ") no-repeat"}}></div>
+                    <div className="projects-icon small-0"
+                         style={{background: "url(" + require("../media/images/project-nav/Образование.png") + ") no-repeat"}}></div>
                     <div className="projects-navigation">
                         {
                             this.props.filters.map((filter, index) =>
-                                <div className="projects-nav-item" style={{background: "url(../media/images/project-nav/" + filter + ".png) no-repeat"}} key={index}>
+                                <div className="projects-nav-item"
+                                     style={{background: "url(../media/images/project-nav/" + filter + ".png) no-repeat"}}
+                                     key={index}>
                                     {filter}
                                 </div>
                             )
@@ -80,28 +79,26 @@ class ProjectsList extends Component {
                     {
                         this.props.projects.data &&
                         this.props.projects.data.map((project, index) =>
-                            <ProjectItem key={index} project={project} />
+                            <ProjectItem key={index} project={project}/>
                         )
-
                     }
                 </div>
-                <div className="space-3" />
+                <div className="space-3"/>
             </div>
         )
     }
+
 }
 
 ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-    const props = {
-        projects: state.ProjectsListAsync
-    }
+    const props = state.ProjectsState.List
     return props;
 }
 
 const mapDispatchToProps = dispatch => ({
-    getByDirection: GetByDirection.bindTo(dispatch)
+    ProjectsListManager: ProjectsListManager.bindTo(dispatch)
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsList));

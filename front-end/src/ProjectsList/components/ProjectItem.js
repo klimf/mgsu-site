@@ -4,7 +4,7 @@ import {Link, withRouter} from "react-router-dom";
 
 const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
-        <Link to={`${props.match.url}/${props.project.id}`}>
+        <Link to={`${props.match.url}/${props.project._id}`}>
             <div className="project-image space-7">
                 <div className="bg-img"/>
             </div>
@@ -21,8 +21,8 @@ const ProjectItem = (props) => (
                     <h3 className="black center">12 000 000p</h3>
                 </div>
                 <div className="small-6 space-4 columns no-padding">
-                    <p className="black center">Собрано</p>
-                    <h3 className="black center">12 000 000p</h3>
+                    <p className="black center">Цель</p>
+                    <h3 className="black center">23 000 000p</h3>
                 </div>
                 <div className="small-12 space-2 columns"></div>
                 <button className="small-12 primary-btn">Сделай вклад</button>
