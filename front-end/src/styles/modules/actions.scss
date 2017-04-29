@@ -167,7 +167,8 @@
 }
 
 .small-nav-item:hover {
-  border: $small-border solid $primary;
+  color: $primary;
+  //border: $small-border solid $primary;
 }
 
 .hexagon-container h3 {
@@ -307,8 +308,10 @@
   .h2,
   .center;
   color: $light;
+  white-space: nowrap;
   display: inline-block;
   border-bottom: $border solid $semi-light;
+  margin-bottom: 2*$o;
 }
 .donation-radio.active {
   color: $white;

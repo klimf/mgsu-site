@@ -62,7 +62,7 @@ export default class Registration extends Component {
                 </div>
                 <div className="small-12 space-2 columns"/>
                 <div className="small-12 columns">
-                    <div className="small-6 columns no-padding">
+                    <div className="small-12 medium-6 columns no-padding">
                         <div className="small-6 columns">
                             <div className="donation-radio small-12 space-3 columns">Разовая</div>
                         </div>
@@ -70,10 +70,11 @@ export default class Registration extends Component {
                             <div className="donation-radio small-12 space-3 columns">В месяц</div>
                         </div>
                     </div>
-                    <div className="small-6 columns">
+                    <div className="small-12 medium-6 columns">
                         <Validation.components.Button
-                            className="small-12 transition-3 border-small-white h2 white space-3 center hover-white columns">Перейти
-                            к оплате</Validation.components.Button>
+                            className="small-12 transition-3 border-small-white h2 white space-3 center hover-white columns">
+                            Перейти к оплате
+                        </Validation.components.Button>
                     </div>
                 </div>
                 <div className="small-12 space-1 columns"/>
