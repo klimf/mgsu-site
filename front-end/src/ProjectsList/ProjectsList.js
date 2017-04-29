@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
 import {withRouter} from "react-router-dom";
-import {connect, bindActionCreators} from "react-redux";
+import {connect} from "react-redux";
 import {GetByDirection} from "./state";
 
 const defaultProps = {
@@ -50,7 +50,6 @@ const defaultProps = {
 
 class ProjectsList extends Component {
     componentDidMount() {
-        console.log(this.props);
         this.props.getByDirection.perform({
             query: {
                 direction: this.props.match.params.direction
@@ -60,13 +59,12 @@ class ProjectsList extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="page row expanded">
                 <div className="content small-12 row">
                     <div className="space-3"/>
                     <div className="projects-icon small-0"
-                         style={{background: "url(" + require("../media/images/project-nav/" + "Образование" + ".png") + ") no-repeat"}}></div>
+                         style={{background: "url(" + require("../media/images/project-nav/Образование.png") + ") no-repeat"}}></div>
                     <div className="projects-navigation">
                         {
                             this.props.filters.map((filter, index) =>
@@ -95,14 +93,14 @@ class ProjectsList extends Component {
 ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-    const props = {
-        // projects: state.ProjectsListAsync
-    }
+    // const props = {
+    //     // projects: state.ProjectsListAsync
+    // }
     return defaultProps;
-}
+};
 
 const mapDispatchToProps = dispatch => ({
     getByDirection: GetByDirection.bindTo(dispatch)
-})
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsList));

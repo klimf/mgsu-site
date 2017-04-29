@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React from 'react'
 import {Route, Switch} from "react-router";
 import {NavLink} from "react-router-dom";
 import Donators from "./AccountDepartments/Donators"
