@@ -21,11 +21,14 @@ const defaultProps = {
 class ProjectsList extends Component {
      componentDidMount() {
 
-      this.props.ProjectsListManager.changeDirection(this.props.match.params.direction || null)
+        this.changeDirection(this.props.match.params.direction || null);
+      
+    }
 
+    changeDirection(direction) {
+       return this.props.ProjectsListManager.changeDirection( direction)
     }
    
-
     render() {
         return (
             <div className="page row expanded">

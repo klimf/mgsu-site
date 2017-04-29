@@ -9,7 +9,7 @@ const AdminSection = props => (
     <Switch>
         <Route exact  path={`${props.match.url}/donators`} component={Donators}/>
         <Route  exact path={`${props.match.url}/docs`} component={Docs}/>
-         <Route  exact path={`${props.match.url}/events`} component={EventForm}/>
+         <Route exact path={`${props.match.url}/events`} component={EventForm}/>
     </Switch>
 )
 
