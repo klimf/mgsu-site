@@ -7,7 +7,7 @@ header {
   position: relative;
   height: 8*$o;
   margin: 0;
-  padding: 2*$o 3*$o;
+  padding: 2*$o 3*$o;//0.9375rem
   z-index: 100;
 }
 
@@ -82,4 +82,20 @@ button {
   left: 0;
   top: 0;
   border: $border solid $primary;
+}
+
+
+
+@media screen and (max-width: 639px) {
+  footer, header {
+    padding: 2*$o 0.9375rem;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+
 }

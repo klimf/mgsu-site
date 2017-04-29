@@ -29,11 +29,11 @@ class Header extends Component {
             <div>
                 <div className={`overlay large-0" ${this.state.menuIsOpen ? "" : "hide"}`}>
                     <h1 className="inline medium-0 large-0">Меню</h1>
-                    <div className="menu-btn-icon border right"
+                    <div className="menu-btn-icon right"
                          onClick={this.handlerMenuClick.bind(this)}/>
-                    <NavLink className="overlay-btn" to="/">Сделать вклад</NavLink>
-                    <NavLink className="overlay-btn" to="/">Войти</NavLink>
-                    <div className="small-navigation" onClick={this.handlerMenuClick.bind(this)}>
+                    <button className="overlay-btn" to="">Сделать вклад</button>
+                    <button className="overlay-btn" to="">Войти</button>
+                    <div className="small-navigation no-padding" onClick={this.handlerMenuClick.bind(this)}>
                         <NavLink className="small-nav-item" to="/about">О фонде</NavLink>
                         <NavLink className="small-nav-item" to="/projects">Проекты</NavLink>
                         <NavLink className="small-nav-item" to="/sponsors">Благотворители</NavLink>

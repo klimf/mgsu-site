@@ -9,7 +9,7 @@ export default class Registration extends Component {
                     Банковской картой
                 </div>
                 <div className="form-tab small-6 space-3 h3 white uppercase center columns">
-                    Банковской картой
+                    По почте
                 </div>
                 <div className="small-12 space-1 columns"/>
                 <div className="small-12 space-2 columns"/>
@@ -41,9 +41,6 @@ export default class Registration extends Component {
                                                      placeholder="Специальность" name="speciality"
                                                      validations={['notRequired']}/>
                     </div>
-                    {/*<div className="small-12 medium-6 large-4 m-b-2 columns end">*/}
-                    {/*<Validation.components.Input className="small-12 columns end" value='' name="ina" validations={['currency']}/>*/}
-                    {/*</div>*/}
                 </div>
                 <div className="small-12 columns">
                     <div className="small-12  columns">
@@ -58,7 +55,10 @@ export default class Registration extends Component {
                 </div>
                 <div className="small-12 space-2 columns"/>
                 <div className="small-12 columns">
-
+                    <div className="small-12 medium-6 large-4 m-b-2 columns end">
+                        <Validation.components.Input className="small-12 columns end" value='' name="currency" id="currency"
+                                                     validations={['currency']}/>
+                    </div>
                 </div>
                 <div className="small-12 space-2 columns"/>
                 <div className="small-12 columns">
@@ -71,7 +71,9 @@ export default class Registration extends Component {
                         </div>
                     </div>
                     <div className="small-6 columns">
-                        <Validation.components.Button className="small-12 transition-3 border-small-white h2 white space-3 center hover-white columns">Перейти к оплате</Validation.components.Button>
+                        <Validation.components.Button
+                            className="small-12 transition-3 border-small-white h2 white space-3 center hover-white columns">Перейти
+                            к оплате</Validation.components.Button>
                     </div>
                 </div>
                 <div className="small-12 space-1 columns"/>
