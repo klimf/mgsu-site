@@ -1,14 +1,10 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
-import { Link, withRouter } from "react-router-dom";
-import { connect, bindActionCreators } from "react-redux";
-import { bindAll } from 'redux-act'
-
-import { GetByDirection, ProjectsListActions as actions } from "./state"
-
+import {withRouter} from "react-router-dom";
+import {connect, bindActionCreators} from "react-redux";
+import {GetByDirection} from "./state";
 
 const defaultProps = {
-
     filters: [
         'Все проекты',
         'Образование',
@@ -44,16 +40,13 @@ const defaultProps = {
             description: "description",
             image: "placeholder.png"
         }
+    ]
 
 };
 
 class ProjectsList extends Component {
-
-
     componentDidMount() {
-
         console.log(this.props);
-
         this.props.getByDirection.perform({
             query: {
                 direction: this.props.match.params.direction
@@ -67,11 +60,14 @@ class ProjectsList extends Component {
             <div className="page row expanded">
                 <div className="content small-12 row">
                     <div className="space-3"/>
-                    <div className="projects-icon small-0" style={{background: "url("+require ("../media/images/project-nav/" + "Образование" +".png") + ") no-repeat"}}></div>
+                    <div className="projects-icon small-0"
+                         style={{background: "url(" + require("../media/images/project-nav/" + "Образование" + ".png") + ") no-repeat"}}></div>
                     <div className="projects-navigation">
                         {
                             this.props.filters.map((filter, index) =>
-                                <div className="projects-nav-item" style={{background: "url(../media/images/project-nav/" + filter + ".png) no-repeat"}} key={index}>
+                                <div className="projects-nav-item"
+                                     style={{background: "url(../media/images/project-nav/" + filter + ".png) no-repeat"}}
+                                     key={index}>
                                     {filter}
                                 </div>
                             )
@@ -81,12 +77,11 @@ class ProjectsList extends Component {
                     {
                         this.props.projects.data &&
                         this.props.projects.data.map((project, index) =>
-                            <ProjectItem key={index} project={project} />
+                            <ProjectItem key={index} project={project}/>
                         )
-
                     }
                 </div>
-                <div className="space-3" />
+                <div className="space-3"/>
             </div>
         )
     }
@@ -96,7 +91,8 @@ ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
     const props = {
-        projects: state.ProjectsListAsync
+        // projects: state.ProjectsListAsync
+        projects: defaultProps
     }
     return props;
 }
