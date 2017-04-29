@@ -15,32 +15,36 @@ const defaultProps = {
         'Спорт',
         'Проффессора и преподаватели'
     ],
-    projects: [
-        {
-            id: 1,
-            title: "Project title",
-            description: "Description description description description description description description description description description description",
-            image: "placeholder.png"
-        },
-        {
-            id: 2,
-            title: "Project title 2 Project title 2 Project title 2",
-            description: "description",
-            image: "placeholder.png"
-        },
-        {
-            id: 3,
-            title: "Project title 3",
-            description: "description",
-            image: "placeholder.png"
-        },
-        {
-            id: 4,
-            title: "Project title 4",
-            description: "description",
-            image: "placeholder.png"
-        }
-    ]
+    projects: {
+        data: [
+            {
+                id: 1,
+                title: "Project title",
+                description: "Description description description description description description description description description description description",
+                image: "placeholder.png"
+            },
+            {
+                id: 2,
+                title: "Project title 2 Project title 2 Project title 2",
+                description: "description",
+                image: "placeholder.png"
+            },
+            {
+                id: 3,
+                title: "Project title 3",
+                description: "description",
+                image: "placeholder.png"
+            },
+            {
+                id: 4,
+                title: "Project title 4",
+                description: "description",
+                image: "placeholder.png"
+            }
+        ],
+        error: false,
+        loading: false
+    }
 
 };
 
@@ -56,6 +60,7 @@ class ProjectsList extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className="page row expanded">
                 <div className="content small-12 row">
@@ -92,9 +97,8 @@ ProjectsList.defaultProps = defaultProps;
 const mapStateToProps = (state) => {
     const props = {
         // projects: state.ProjectsListAsync
-        projects: defaultProps
     }
-    return props;
+    return defaultProps;
 }
 
 const mapDispatchToProps = dispatch => ({
