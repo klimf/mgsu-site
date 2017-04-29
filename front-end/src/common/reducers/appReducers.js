@@ -1,17 +1,20 @@
 
 import {combineReducers} from "redux";
 
-import { ProjectsListState } from "./ProjectsListState";
-import { ProjectDetailAsync  } from "../../ProjectDetail/state";
+import { ProjectsState } from "./ProjectsState";
 import {UserState} from "./UserState";
-import {NewsReducer as News} from "../../News/state";
+import {ContentState, NewsState, EventsState} from "./ContentState";
+import {PeopleState} from "./PeopleState";
 import {HeaderReducer as Header} from "../components/state";
+
 
 
 export default combineReducers({
     UserState,
-    News,
+    ContentState,
+    NewsState,
+    EventsState,
+    PeopleState,
     Header,
-    ProjectsListState,
-    ProjectDetailAsync
+    ProjectsState
 })

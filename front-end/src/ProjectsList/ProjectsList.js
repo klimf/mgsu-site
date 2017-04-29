@@ -3,7 +3,7 @@ import ProjectItem from "./components/ProjectItem";
 import { Link, withRouter } from "react-router-dom";
 import { connect, bindActionCreators } from "react-redux";
 import { bindAll } from 'redux-act'
-import { ProjectsListManager } from "../common/reducers/ProjectsListState"
+import { ProjectsListManager } from "../common/reducers/ProjectsState"
 
 const defaultProps = {
     filters: [
@@ -94,7 +94,7 @@ class ProjectsList extends Component {
 ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-    const props = state.ProjectsListState
+    const props = state.ProjectsState.List
     return props;
 }
 

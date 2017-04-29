@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { connect, bindActionCreators } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { GetProjectDetailAsync } from "./state"
+
 
 class ProjectDetail extends Component {
     render() {
@@ -22,12 +22,11 @@ class ProjectDetail extends Component {
 }
 
 const mapStateToProps = state => {
-    const projectState = state.ProjectDetailAsync
-    return {project: projectState}
+  
 };
 
 const mapDispatchToProps = dispatch => {
-    GetProjectDetailAsync: GetProjectDetailAsync.bindTo(dispatch);
+   
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDetail));
