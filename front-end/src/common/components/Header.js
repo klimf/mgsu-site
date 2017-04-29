@@ -28,7 +28,7 @@ class Header extends Component {
         return (
             <div>
                 <div className={`overlay large-0" ${this.state.menuIsOpen ? "" : "hide"}`}>
-                    <h1 className="inline medium-0 large-0">Меню</h1>
+                    <h1 className="inline medium-0 large-0 m-t-1">Меню </h1>
                     <div className="menu-btn-icon right"
                          onClick={this.handlerMenuClick.bind(this)}/>
                     <button className="overlay-btn" to="">Сделать вклад</button>
