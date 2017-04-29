@@ -1,9 +1,8 @@
 import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
-import { Link, withRouter } from "react-router-dom";
-import { connect, bindActionCreators } from "react-redux";
-import { bindAll } from 'redux-act'
 import { ProjectsListManager } from "../common/reducers/ProjectsState"
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
 
 const defaultProps = {
     filters: [
