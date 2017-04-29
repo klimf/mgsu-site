@@ -8,4 +8,4 @@ export const headerActions = {
 export const HeaderReducer = createReducer({
     [headerActions.dyeWhite]: (state) => ({white: true}),
     [headerActions.dyePrimary]: (state) => ({white: false})
-}, { white: false });
+}, {white: false});
