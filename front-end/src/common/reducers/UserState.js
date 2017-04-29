@@ -2,69 +2,58 @@ import { createReducer, createAction } from "redux-act";
 import {combineReducers} from "redux"
 import { ApiAction } from "../helpers";
 
-class UserManager {
+export class UserManager {
 
     constructor() {
-
-        this.loginActionAsync = new ApiAction({
-            TYPE: 'USER_LOGIN',
-            model: 'user',
-            action: 'login',
-            method: 'POST'
-        });
-
-        this.getCurrentActionAsync = new ApiAction({
-            TYPE: 'USER_CURRENT',
-            model: 'user',
-            action: 'current',
-            method: 'GET'
-        });
-
-        this.logoutActionAsync = new ApiAction({
-            TYPE: 'USER_LOGOUT',
-            model: 'user',
-            action: 'logout',
-            method: 'POST'
-        });
-
-
+        this._apiAction =  new ApiAction({TYPE: 'USER_CHANGE', model: 'user'});
     }
-
-    bindTo(dispatch) {
-        this.loginActionAsync =  this.loginActionAsync.bindTo(dispatch);
-        this.getCurrentActionAsync =  this.getCurrentActionAsync.bindTo(dispatch);
-        this.logoutActionAsync =  this.logoutActionAsync.bindTo(dispatch);
-        return this;
-    }
-
+    
     login(email, password) {
-        this.loginActionAsync.perform({
+        this._apiAction.perform({
+            action: 'login',
+            options: {
+                method: 'POST'
+            },
             body: {email, password}
-        }).then(() => {
-            this.current();
-        })
-    }
-
-    current() {
-        this.getCurrentActionAsync.perform()
+        });
     }
 
     logout() {
-        this.logoutActionAsync.perform().then(() => {
-            this.current();
-        })
+         this._apiAction.perform({
+            action: 'logout',
+            options: {
+                method: 'POST'
+            },
+        });
     }
 
-    generateReducer() {
-        return combineReducers({
-            UserLoginAsync: createReducer(this.loginActionAsync.reducerHandlers, this.loginActionAsync.defaultState),
-            UserCurrentState: createReducer(this.getCurrentActionAsync.reducerHandlers, this.getCurrentActionAsync.defaultState),
-            UserLogouttAsync: createReducer(this.logoutActionAsync.reducerHandlers, this.logoutActionAsync.defaultState)
-        })
+     getCurrent() {
+         console.log(this._apiAction);
+         this._apiAction.perform({
+            params: ['current'],
+            options: {
+                method: 'GET'
+            },
+        });
     }
-    
+
+    registration(userData) {
+        this._apiAction.perform({
+            options: {
+                method: 'POST'
+            },
+            body: userData
+        });
+    }
+
+    bindTo(dispatch) {
+        this._apiAction =  this._apiAction.bindTo(dispatch);
+        return this;
+    }
+
 }
 
-export const User = new UserManager;
+export const User = new UserManager();
 
-export const UserState = User.generateReducer();
+
+export const UserState = createReducer(User._apiAction.reducerHandlers, User._apiAction.defaultState);

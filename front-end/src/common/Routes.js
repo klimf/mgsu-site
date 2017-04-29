@@ -6,7 +6,7 @@ import Project from "../ProjectDetail/ProjectDetail";
 import NotFound from "../NotFound/NotFound";
 import AdminSection from "../AdminSection/AdminSection";
 
-const Routes = () => (
+const Routes = ({user, UserManager}) => (
     <Switch>
         <Route exact path="/" component={HomePage}/>
         <Route  path="/projects/:direction?" component={ProjectsList}/>
