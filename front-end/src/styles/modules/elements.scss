@@ -3,7 +3,7 @@
   .pointer,
   .cover;
   height: $header-content-height;
-  width: $header-content-height*3.65;
+  width: 216px;
 }
 
 .logo {
@@ -88,26 +88,6 @@
 
 .main-progress .bar-right {
   right: 0;
-}
-
-.donate-btn-icon-white {
-  @extend .transition-2,
-  .absolute,
-  .cover,
-  .pointer;
-  background: url($image + "icon-donate.png") no-repeat;
-  left: -26px;
-  bottom: $o;
-  width: 52px;
-  height: 65px;
-  padding: 15px 0;
-  margin-right: 20px;
-}
-
-.donate-btn-icon-white:hover {
-  left: -30px;
-  width: 60px;
-  height: 75px;
 }
 
 .home-news {
@@ -215,6 +195,10 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+
+.contact {
+  margin: 0 $o;
 }
 
 .contact h3 {

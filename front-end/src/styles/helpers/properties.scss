@@ -90,7 +90,8 @@ img.block {
 
 .hover-primary:hover {
   background-color: $primary;
-  border: 0;
+  color: $white;
+  border: $small-border solid transparent;
 }
 .hover-white:hover {
   background-color: $white;
@@ -100,7 +101,7 @@ img.block {
 .hover-primary-invert:hover {
   background-color: invert($primary);
   filter: invert(100%);
-  border: 0;
+  border: $small-border solid transparent;
 }
 
 .hover-border:hover {

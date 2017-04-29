@@ -12,7 +12,7 @@
   .inline,
   .right,
   .pointer,
-  .transition-1,
+  .transition-3,
   .hover-primary;
   height: $header-content-height;
   width: $header-content-height;
@@ -24,7 +24,7 @@
   .pointer,
   .uppercase,
   .center,
-  .transition-1,
+  .transition-3,
   .hover-primary;
   height: $header-content-height;
 }
@@ -38,6 +38,7 @@
 
 .login-btn-icon {
   @extend .border-small,
+  .hover-primary-invert,
   .header-icon;
   background: url($image + "icon-login.png") no-repeat;
 }
@@ -57,7 +58,7 @@
 .donate-btn-white {
   @extend .border-small-white,
   .white,
-  .h3,
+  .h4,
   .header-btn;
   width: 200px;
   padding: 15px 0;
@@ -67,29 +68,49 @@
 .donate-btn {
   @extend .border-small,
   .black,
-  .h3,
+  .h4,
   .header-btn;
   width: 200px;
   padding: 15px 0;
   margin-right: 20px;
 }
 
+.donate-btn-icon-white {
+  @extend .transition-3,
+  .absolute,
+  .cover,
+  .pointer;
+  background: url($image + "icon-donate.png") no-repeat;
+  left: -26px;
+  bottom: $o;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+  margin-right: 20px;
+}
+
+.donate-btn-icon-white:hover {
+  left: -30px;
+  width: 60px;
+  height: 75px;
+}
+
 .overlay-btn {
   @extend .header-btn,
-  .hover-primary-invert,
+  .hover-primary,
   .h2,
   .black,
-  .border;
+  .border-small;
   width: calc(50% - 54px);
   margin: 0 2*$o 2*$o 0;
 }
 
 .navigation {
-  padding: 0;
+  padding: 0 2*$o;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: $header-content-height;
 }
@@ -110,7 +131,7 @@
   @extend .inline,
   .uppercase,
   .underline,
-  .h3,
+  .h4,
   .pointer;
   white-space: nowrap;
   margin: 0 0.9*$o;
@@ -137,16 +158,17 @@
   margin: 0 2*$o 2*$o 0;
   width: 100%;
   min-height: 5*$o;
-  border: $border solid $transparent;
+  border: $small-border solid $transparent;
 }
 
 .small-nav-item.active {
   color: $black;
-  border: $border solid $primary;
+  border: $small-border solid $primary;
 }
 
 .small-nav-item:hover {
-  border: $border solid $primary;
+  color: $primary;
+  //border: $small-border solid $primary;
 }
 
 .hexagon-container h3 {
@@ -207,16 +229,20 @@
   fill: $white;
 }
 
+.hexagon-container:nth-child(7) h3{
+  top: calc(50% - 28px);
+}
+
 .projects-nav-item {
   @extend .transition-3,
   .h2;
   margin: $o;
   display: inline-block;
-  border-bottom: $border solid $disabled;
+  border-bottom: $small-border solid $disabled;
 }
 
 .projects-nav-item .active, .projects-nav-item:hover {
-  border-bottom: $border solid $primary;
+  border-bottom: $small-border solid $primary;
 }
 
 
@@ -282,13 +308,15 @@
   .h2,
   .center;
   color: $light;
+  white-space: nowrap;
   display: inline-block;
-  border-bottom: $border solid transparent;
+  border-bottom: $border solid $semi-light;
+  margin-bottom: 2*$o;
 }
 .donation-radio.active {
   color: $white;
-  background-color: $semi-dark;
-  border-bottom: $border solid transparent;
+  //background-color: $semi-dark;
+  border-bottom: $border solid $semi-light;
 }
 .donation-radio:hover {
   color: $white;
@@ -316,10 +344,10 @@
 
   .hexagon-container {
     height: 64px;
-    margin: $o 2*$o;
+    margin: $o 0;
     fill: transparent;
     stroke: transparent;
-    width: calc(100% - 48px) !important;
+    width: 100% !important;
     border: $border solid $white;
     transition: $medium-delay;
     transform: scale(0);
@@ -336,7 +364,7 @@
   }
 
   .hexagon-container:nth-child(4n+5) {
-    margin-left: 2*$o;
+    margin-left: 0;
   }
   .form-hideable {
     height: 180px;
@@ -348,6 +376,10 @@
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
+  .hexagon-container:nth-child(7) h3 {
+    top: calc(50% - 18px);
+  }
+
   .hexagon-container h3 {
     font-size: 1.2*$o;
   }
