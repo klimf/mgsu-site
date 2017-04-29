@@ -1,0 +1,227 @@
+.inline {
+  display: inline-block;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.remove {
+  display: none;
+}
+
+.cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover !important;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.no-float {
+  float: none !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+.border-small-white {
+  border: $small-border solid $white;
+}
+
+.border-small-black {
+  border: $small-border solid $black;
+}
+
+.border-small {
+  border: $small-border solid $primary;
+}
+
+.border-white {
+  border: $border solid $white;
+}
+
+.border-black {
+  border: $border solid $black;
+}
+
+.border {
+  border: $border solid $primary;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+img.block {
+}
+
+.hover-primary:hover {
+  background-color: $primary;
+  border: 0;
+}
+.hover-white:hover {
+  background-color: $white;
+  color: $primary;
+}
+
+.hover-primary-invert:hover {
+  background-color: invert($primary);
+  filter: invert(100%);
+  border: 0;
+}
+
+.hover-border:hover {
+  border: $small-border solid $white;
+}
+
+.hover-opacity {
+  @extend .transition-3;
+  opacity: 0.65;
+}
+
+.hover-opacity:hover {
+  opacity: 1;
+}
+
+.primary {
+  background-color: $primary !important;
+}
+
+.disabled {
+  background-color: $disabled !important;
+}
+
+@mixin delay($delay) {
+  transition-delay: $delay/20+s !important;
+}
+
+@mixin transition($transition) {
+  transition: $transition/10+s ease !important;
+}
+
+@mixin width($width) {
+  width: $width+px !important;
+}
+
+.margin {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      margin: $i*$o;
+    }
+  }
+}
+
+.m-b {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      margin-bottom: $i*$o;
+    }
+  }
+}
+
+.m-t {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      margin-top: $i*$o;
+    }
+  }
+}
+
+.space {
+  @for $i from 0 through 12 {
+    &-#{$i} {
+      height: $i*$i*$o/2;
+    }
+  }
+  &-base {
+    height: $o;
+  }
+  &-element {
+    height: 3*$o;
+  }
+
+}
+
+.delay {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      @include delay($i);
+    }
+  }
+}
+
+.w {
+  &-100 {
+    width: 100%;
+  }
+  &-0 {
+    @include width(0);
+  }
+}
+
+.transition {
+  @for $i from 0 through 6 {
+    &-#{$i} {
+      @include transition($i);
+    }
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .small-0 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+  .medium-0 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .large-0 {
+    display: none;
+  }
+  .padding-left {
+    padding-right: 0.9375rem;
+    padding-left: 0;
+  }
+  .padding-right {
+    padding-left: 0.9375rem;
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,16 @@
+$o: 12px;
+
+$media: "../media/";
+$font: $media + "fonts/";
+$image: $media + "images/";
+$block: $media + "blocks/";
+
+$small-delay: 0.2s;
+$medium-delay: 0.5s;
+$large-delay: 0.9s;
+
+$header-content-height: 5*$o;
+
+$small-border: 0.3*$o;
+$border: $o/3;
+

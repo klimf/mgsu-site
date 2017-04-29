@@ -1,0 +1,319 @@
+.logo-base {
+  @extend .inline,
+  .pointer,
+  .cover;
+  height: $header-content-height;
+  width: $header-content-height*3.65;
+}
+
+.logo {
+  @extend .left,
+  .logo-base;
+  background: url($image + "logo.png") no-repeat;
+}
+
+.logo-white {
+  @extend .left,
+  .logo-base;
+  background: url($image + "logo-white.png") no-repeat;
+}
+
+.mgsu-logo {
+  @extend .right,
+  .logo-base;
+  background: url($image + "mgsu-logo.png") no-repeat;
+}
+
+.mgsu-logo-white {
+  @extend .right,
+  .logo-base;
+  background: url($image + "mgsu-logo-white.png") no-repeat;
+}
+
+.wide-img {
+  @extend .cover;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: url($image + "home-bg.jpg") no-repeat center center fixed;
+  margin-top: -8*$o;
+  padding: 8*$o 0 20*$o 0;
+}
+
+.main-progress {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 12*$o;
+  overflow: hidden;
+}
+
+.main-progress .bar {
+  @extend .transition-3;
+  position: absolute;
+  background-color: $black;
+  bottom: 0;
+  right: 0;
+  height: $o;
+  width: 100%;
+}
+
+.main-progress .bar-text {
+  //white-space: nowrap;
+  font-weight: 400;
+  position: absolute;
+  color: $white;
+  bottom: -$o/2;
+  line-height: 5*$o;
+}
+
+.main-progress h1.bar-text {
+  font-size: 2.5*$o;
+  margin-bottom: 1.2*$o;
+}
+
+.main-progress h1.bar-text p {
+  right: 0;
+  top: -4*$o;
+  position: absolute;
+  color: $light;
+  font-size: 1.5*$o;
+}
+
+.main-progress .bar-left {
+  text-align: right;
+  width: calc(100% + 300px);
+  left: calc(-100% - 340px);
+}
+
+.main-progress .bar-right {
+  right: 0;
+}
+
+.donate-btn-icon-white {
+  @extend .transition-2,
+  .absolute,
+  .cover,
+  .pointer;
+  background: url($image + "icon-donate.png") no-repeat;
+  left: -26px;
+  bottom: $o;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+  margin-right: 20px;
+}
+
+.donate-btn-icon-white:hover {
+  left: -30px;
+  width: 60px;
+  height: 75px;
+}
+
+.home-news {
+  height: 15*$o;
+  padding: 0 3*$o;
+  margin-bottom: 2*$o;
+  color: $white;
+  overflow: hidden;
+}
+
+.home-news h2 {
+  @extend .underline,
+  .uppercase;
+}
+
+.home-news p {
+  height: 7*$o;
+  overflow: hidden;
+}
+
+.home-event {
+  height: 15*$o;
+  margin-bottom: 2*$o;
+  padding: 0 3*$o;
+  overflow: hidden;
+}
+
+.home-event h1 {
+  @extend .inline,
+  .uppercase;
+  margin: $o 0 0 0;
+  color: $primary;
+}
+
+.home-event h2 {
+  @extend .inline,
+  .uppercase;
+  margin: 0 0 0 $o;
+  color: $primary;
+}
+
+.home-event p {
+  margin: 0.8*$o 0 0 0;
+  height: 7*$o;
+  overflow: hidden;
+}
+
+.sponsor-img {
+  @include image("placeholder.png");
+
+  width: 80%;
+  margin: 0 10% $o 10%;
+  padding: calc(40% - 4px) 0;
+  border: $border solid $primary;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.sponsor {
+  text-align: center;
+}
+
+.sponsor h2 {
+  font-weight: 400;
+  margin: 0;
+
+}
+
+.sponsor p {
+  margin: 0;
+  font-weight: 400;
+  color: $dark;
+}
+
+.slick-arrow:before {
+  color: $black;
+}
+
+.slick-prev, .slick-next {
+  top: -6*$o;
+}
+
+.slick-next {
+  right: $o;
+}
+
+.slick-prev {
+  left: $o;
+}
+
+.slick-slider {
+  top: 2*$o;
+}
+
+.slick-track {
+  height: 270px;
+  overflow: hidden;
+}
+
+.contacts {
+  min-height: 5*$o;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contact h3 {
+  margin: 0 0 $o 0;
+  color: $white;
+}
+
+.contact p {
+  margin: 0 $o 0 0;
+  color: $light;
+}
+
+.project-item {
+  height: 510px;
+  margin-bottom: 2*$o;
+  overflow: hidden;
+}
+
+.project-item h2 {
+  line-height: 32px;
+  margin: $o 0 0 0;
+}
+
+.project-item p {
+  margin: 0.6*$o 0 $o 0;
+}
+
+.project-text {
+  overflow: hidden;
+  height: 108px;
+}
+
+.project-progress h3 {
+  margin: 0 0 2*$o 0;
+  font-size: 1.8*$o;
+  font-weight: 400;
+}
+
+.project-progress p {
+  margin: 0;
+  font-size: 1.4*$o;
+}
+
+.project-progress {
+  @extend .transition-3;
+  background-color: $white;
+  bottom: 0;
+}
+
+.project-progress:hover {
+  bottom: 6*$o;
+}
+
+.project-bar {
+  position: absolute;
+  width: 100%;
+  height: $o;
+  bottom: 6*$o;
+  left: 0;
+  background-color: $disabled;
+}
+
+.projects-icon {
+  @extend .cover;
+  width: 10*$o;
+  height: 10*$o;
+  margin: $o;
+  float: left;
+}
+
+.project-half {
+}
+
+.project-half h2 {
+  margin: 2*$o 0 $o 0;
+}
+
+@media screen and (max-width: 639px) {
+  .contacts {
+    width: 100%;
+    margin-top: $o;
+    justify-content: space-between;
+  }
+  footer .logo-white, footer .mgsu-logo-white {
+    margin: $o auto;
+    display: block !important;
+    float: none !important;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+  .contacts {
+    width: 100%;
+    margin-top: 100px;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+
+}
+
