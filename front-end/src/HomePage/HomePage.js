@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindAll } from "redux-act";
-import { withRouter, Link } from "react-router-dom";
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {bindAll} from "redux-act";
 import Slider from "./components/Slider";
-import { formatMoney } from "../common/helpers";
-import { headerActions } from "../common/components/state";
+import {formatMoney} from "../common/helpers";
+import {headerActions} from "../common/components/state";
 
 class HomePage extends Component {
     constructor(props) {
@@ -44,7 +43,7 @@ class HomePage extends Component {
     }
 
     handlerHexaClick(index, name) {
-        this.setState({ hexaStyle: '' }, () => {
+        this.setState({hexaStyle: ''}, () => {
             this['tempDiv' + index].classList.add('active', 'delay-0');
             setTimeout(() => {
                 this['tempDiv' + index].classList.add('expand');
@@ -60,11 +59,11 @@ class HomePage extends Component {
         return (
             <div className="page row expanded">
                 <div className="wide-img small-12 expanded">
-                    <div className="blackout" />
+                    <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar primary">
                         </div>
-                        <div className="bar" style={{ width: 100 - 60 + "%" }}>
+                        <div className="bar" style={{width: 100 - 60 + "%"}}>
                             <h1 className="uppercase bar-text bar-left">
                                 <p className="uppercase">Размер фонда</p>
                                 {formatMoney(256000000)}₽
@@ -201,6 +200,6 @@ const mapDispatchToProps = dispatch => ({headerAct: bindAll(headerActions, dispa
 const mapStateToProps = state => {
     const {key} = state
     return {key}
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

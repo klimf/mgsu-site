@@ -1,6 +1,5 @@
 import fetch from "isomorphic-fetch";
-import { createAction, bindAll } from "redux-act";
-
+import {createAction} from "redux-act";
 
 export function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -26,9 +25,7 @@ export function resolveApi({path, action, query}) {
         }
     }
     return apiUrl + `${path.join('/')}${action ? '/' + action : ''}${query && '/?' + queryArr.join('&&')}`
-
 }
-
 
 export class AsyncAction {
     constructor(TYPE, asyncFunc) {
@@ -39,15 +36,31 @@ export class AsyncAction {
         };
         this.asyncFunc = asyncFunc;
         this.reducerHandlers = {
-            [this.actions.startQuery]: (state, request) => ({ loading: true, data: false, error: false, request: request }),
-            [this.actions.sucessQuery]: (state, data) => ({ loading: false, data: data, error: false }),
-            [this.actions.failQuery]: (state, message) => ({ loading: false, data: false, error: message })
+            [this.actions.startQuery]: (state, request) => ({
+                loading: true,
+                data: false,
+                error: false,
+                request: request
+            }),
+            [this.actions.sucessQuery]: (state, data) => ({
+                loading: false,
+                data: data,
+                error: false
+            }),
+            [this.actions.failQuery]: (state, message) => ({
+                loading: false,
+                data: false,
+                error: message
+            })
         };
-        this.defaultState = {loading: true, data: false, error: false}
+        this.defaultState = {
+            loading: true,
+            data: false,
+            error: false
+        }
     }
 
     perform(params) {
-
         this.dispatch(this.actions.startQuery(params));
         this.asyncFunc(params).then(
             resolved => this.dispatch(this.actions.sucessQuery(resolved)),
@@ -65,7 +78,6 @@ export class ApiAction extends AsyncAction {
         const apiFunc = ({params, query, body}) => {
             const path = [this.model].concat(params || []);
             const apiQuery = resolveApi({path: path, action: this.action || false, query: query || false})
-
             return new Promise((resolve, reject) => {
                 const options = this.options;
                 options.body = body || null;
@@ -89,5 +101,4 @@ export class ApiAction extends AsyncAction {
         this.options = options || {method: 'GET'};
         this.prePare = prePare || ((data) => (data));
     }
-
 }

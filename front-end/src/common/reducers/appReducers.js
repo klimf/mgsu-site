@@ -1,4 +1,3 @@
-
 import {combineReducers} from "redux";
 
 import {GetByDirectionReducer as ProjectsListAsync} from "../../ProjectsList/state";
