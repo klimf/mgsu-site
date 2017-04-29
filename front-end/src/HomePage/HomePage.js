@@ -8,7 +8,6 @@ import {headerActions} from "../common/components/state";
 class HomePage extends Component {
     constructor(props) {
         super(props);
-
         this.hexaNames = [
             'образование',
             'наука',
@@ -18,7 +17,6 @@ class HomePage extends Component {
             'спорт',
             'проффессора и преподаватели'
         ];
-
         this.styles = {
             startShowing: 'active',
             resetDelays: 'active delay-0'
@@ -39,7 +37,7 @@ class HomePage extends Component {
             this.setState({
                 hexaStyle: this.styles.resetDelays
             });
-        }, 600)
+        }, 600);
 
         this.props.headerAct.dyeWhite();
     }

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
     "ejs": "^2.5.6",
     "es6-promise": "^4.1.0",
     "express": "^4.15.2",
@@ -26,6 +27,7 @@
     "validator": "^7.0.0"
   },
   "devDependencies": {
+    "admin-on-rest": "^1.0.0",
     "autoprefixer": "6.7.2",
     "babel-core": "6.22.1",
     "babel-eslint": "7.1.1",

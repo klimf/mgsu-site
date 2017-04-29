@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
-import {withRouter} from "react-router-dom";
+import { ProjectsListManager } from "../common/reducers/ProjectsState"
 import {connect} from "react-redux";
-import {GetByDirection} from "./state";
+import {withRouter} from "react-router-dom";
 
 const defaultProps = {
     filters: [
@@ -49,14 +49,12 @@ const defaultProps = {
 };
 
 class ProjectsList extends Component {
-    componentDidMount() {
-        this.props.getByDirection.perform({
-            query: {
-                direction: this.props.match.params.direction || null
-            }
-        })
+     componentDidMount() {
+
+      this.props.ProjectsListManager.changeDirection(this.props.match.params.direction || null)
 
     }
+   
 
     render() {
         return (
@@ -88,19 +86,18 @@ class ProjectsList extends Component {
             </div>
         )
     }
+
 }
 
 ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-    const props = {
-         projects: state.ProjectsListAsync
-    };
+    const props = state.ProjectsState.List
     return props;
-};
+}
 
 const mapDispatchToProps = dispatch => ({
-    getByDirection: GetByDirection.bindTo(dispatch)
-});
+    ProjectsListManager: ProjectsListManager.bindTo(dispatch)
+})
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsList));
