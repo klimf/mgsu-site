@@ -1,5 +1,6 @@
 import fetch from "isomorphic-fetch";
-import {createAction} from "redux-act";
+import { createAction, bindAll } from "redux-act";
+
 
 export function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -25,10 +26,12 @@ export function resolveApi({path, action, query}) {
             queryArr.push(key + '=' + query[key])
         }
     }
-    return apiUrl + `${path.join('/')}${action ? '/' + action : ''}${query && '/?' + queryArr.join('&&')}`
+    return apiUrl + `${path.join('/')}${haveQuery && '/?' + queryArr.join('&&')}`
+
 }
 
 export class AsyncAction {
+
     constructor(TYPE, asyncFunc) {
         this.actions = {
             startQuery: createAction(TYPE + '_START', (params) => params),
@@ -37,31 +40,15 @@ export class AsyncAction {
         };
         this.asyncFunc = asyncFunc;
         this.reducerHandlers = {
-            [this.actions.startQuery]: (state, request) => ({
-                loading: true,
-                data: false,
-                error: false,
-                request: request
-            }),
-            [this.actions.sucessQuery]: (state, data) => ({
-                loading: false,
-                data: data,
-                error: false
-            }),
-            [this.actions.failQuery]: (state, message) => ({
-                loading: false,
-                data: false,
-                error: message
-            })
+            [this.actions.startQuery]: (state, request) => ({ loading: true, data: false, error: false, request: request }),
+            [this.actions.sucessQuery]: (state, data) => ({ loading: false, data: data, error: false }),
+            [this.actions.failQuery]: (state, message) => ({ loading: false, data: false, error: message })
         };
-        this.defaultState = {
-            loading: true,
-            data: false,
-            error: false
-        }
+        this.defaultState = {loading: true, data: false, error: false}
     }
 
     perform(params) {
+
         this.dispatch(this.actions.startQuery(params));
         return this.asyncFunc(params).then(
             resolved => this.dispatch(this.actions.sucessQuery(resolved)))
@@ -83,7 +70,11 @@ export class ApiAction extends AsyncAction {
             
 
             const path = [this.model].concat(params || []);
-            const apiQuery = resolveApi({path: path, action: this.action || false, query: query || false})
+
+            const _query = query ? Object.assign({}, this.options.query, query) : this.options.query;
+
+            const apiQuery = resolveApi({path: path, action: this.action, query: _query});
+
             return new Promise((resolve, reject) => {
                 
 
@@ -95,7 +86,7 @@ export class ApiAction extends AsyncAction {
                     reject({status: response.status, message: response.statusText});
                 } else {
                     response.json().then((data) => {
-                        resolve(data);
+                        resolve(prePare(data));
                     })
                 }
 
@@ -113,6 +104,8 @@ export class ApiAction extends AsyncAction {
         this.options = options || {method: 'GET', query: {}};
         this.prePare = prePare || ((data) => (data));
     }
+
+   
 }
 
 

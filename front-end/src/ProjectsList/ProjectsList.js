@@ -14,37 +14,7 @@ const defaultProps = {
         'Инфраструктура',
         'Спорт',
         'Проффессора и преподаватели'
-    ],
-    // projects: {
-    //     data: [
-    //         {
-    //             id: 1,
-    //             title: "Project title",
-    //             description: "Description description description description description description description description description description description",
-    //             image: "placeholder.png"
-    //         },
-    //         {
-    //             id: 2,
-    //             title: "Project title 2 Project title 2 Project title 2",
-    //             description: "description",
-    //             image: "placeholder.png"
-    //         },
-    //         {
-    //             id: 3,
-    //             title: "Project title 3",
-    //             description: "description",
-    //             image: "placeholder.png"
-    //         },
-    //         {
-    //             id: 4,
-    //             title: "Project title 4",
-    //             description: "description",
-    //             image: "placeholder.png"
-    //         }
-    //     ],
-    //     error: false,
-    //     loading: false
-    // }
+    ]
 
 };
 
@@ -92,7 +62,10 @@ class ProjectsList extends Component {
 ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-    const props = state.ProjectsState.List
+    console.log(state.ProjectsState.list);
+    const props =  {
+        projects: state.ProjectsState.list
+    }
     return props;
 }
 
