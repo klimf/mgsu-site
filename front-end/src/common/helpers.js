@@ -1,5 +1,5 @@
 import fetch from "isomorphic-fetch";
-import { createAction, bindAll } from "redux-act";
+import {createAction} from "redux-act";
 
 
 export function getRandomInt(min, max) {
@@ -18,7 +18,7 @@ export function formatMoney(value) {
 
 export const apiUrl = 'http://185.189.13.148/api/';
 
-export function resolveApi({ path, action, query }) {
+export function resolveApi({path, action, query}) {
 
     if (query) {
         var queryArr = [];
@@ -47,12 +47,17 @@ export class AsyncAction {
 
         this.asyncFunc = asyncFunc;
         this.reducerHandlers = {
-            [this.actions.startQuery]: (state, request) => ({ loading: true, data: false, error: false, request: request }),
-            [this.actions.sucessQuery]: (state, data) => ({ loading: false, data: data, error: false }),
-            [this.actions.failQuery]: (state, message) => ({ loading: false, data: false, error: message })
+            [this.actions.startQuery]: (state, request) => ({
+                loading: true,
+                data: false,
+                error: false,
+                request: request
+            }),
+            [this.actions.sucessQuery]: (state, data) => ({loading: false, data: data, error: false}),
+            [this.actions.failQuery]: (state, message) => ({loading: false, data: false, error: message})
         };
 
-        this.defaultState = { loading: true, data: false, error: false }
+        this.defaultState = {loading: true, data: false, error: false}
 
     }
 
@@ -72,13 +77,13 @@ export class AsyncAction {
 
 export class ApiAction extends AsyncAction {
 
-    constructor({ TYPE, model, action, options, prePare }) {
+    constructor({TYPE, model, action, options, prePare}) {
 
-        const apiFunc = ({ params, query, body }) => {
+        const apiFunc = ({params, query, body}) => {
 
             const path = [this.model].concat(params || []);
 
-            const apiQuery = resolveApi({ path: path, action: this.action || false, query: query || false })
+            const apiQuery = resolveApi({path: path, action: this.action || false, query: query || false})
 
 
             return new Promise((resolve, reject) => {
@@ -110,7 +115,7 @@ export class ApiAction extends AsyncAction {
 
         this.model = model;
         this.action = action;
-        this.options = options || { method: 'GET' };
+        this.options = options || {method: 'GET'};
         this.prePare = prePare || ((data) => (data));
 
     }

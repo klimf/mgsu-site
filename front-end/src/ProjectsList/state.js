@@ -1,12 +1,12 @@
-import {createAction, createReducer} from "redux-act";
-import {ApiAction} from "../common/helpers"
+import {createReducer} from "redux-act";
+import {ApiAction} from "../common/helpers";
 
 
-const actions = {
-    getByDirection: createAction("get by direction"),
-    getSuccess: createAction("starting request"),
-    getFaild: createAction("request failed")
-};
+export const GetByDirection = new ApiAction({
+    TYPE: "PROJECTS_GET_BY_DIRECTION",
+    model: 'projects',
+    prePare: ({docs}) => docs
+});
 
 
 export const GetByDirectionReducer = createReducer(GetByDirection.reducerHandlers, GetByDirection.defaultState);
