@@ -1,13 +1,13 @@
-import {createReducer} from "redux-act";
-import {ApiAction} from "../common/helpers";
+import { createReducer } from "redux-act";
+import { ApiAction } from "../common/helpers";
 
-export const GetByDirection = new ApiAction({
+export const GetProjectsAsync = new ApiAction({
     TYPE: "PROGECTS_GET_BY_DIRECTION",
     model: 'projects',
-    prePare: ({docs}) => docs
+    prePare: ({ docs }) => docs
 });
 
-export const GetByDirectionReducer = createReducer(GetByDirection.reducerHandlers, GetByDirection.defaultState);
+export const ProjectsAsync = createReducer(GetProjectsAsync.reducerHandlers, GetProjectsAsync.defaultState);
 
 
 

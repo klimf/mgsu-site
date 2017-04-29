@@ -49,7 +49,7 @@ export class AsyncAction {
     perform(params) {
 
         this.dispatch(this.actions.startQuery(params));
-        this.asyncFunc(params).then(
+        return this.asyncFunc(params).then(
             resolved => this.dispatch(this.actions.sucessQuery(resolved)),
             rejected => this.dispatch(this.actions.failQuery(rejected)))
     }

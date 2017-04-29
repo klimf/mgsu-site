@@ -4,7 +4,7 @@ import {Link, withRouter} from "react-router-dom";
 
 const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
-        <Link to={`${props.match.url}/${props.project.id}`}>
+        <Link to={`${props.match.url}/${props.project._id}`}>
             <div className="project-image space-7">
                 <div className="bg-img"/>
             </div>
