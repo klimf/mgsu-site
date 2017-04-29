@@ -31,6 +31,7 @@ export function resolveApi({path, action, query}) {
 }
 
 export class AsyncAction {
+
     constructor(TYPE, asyncFunc) {
         this.actions = {
             startQuery: createAction(TYPE + '_START', (params) => params),
@@ -50,8 +51,9 @@ export class AsyncAction {
 
         this.dispatch(this.actions.startQuery(params));
         return this.asyncFunc(params).then(
-            resolved => this.dispatch(this.actions.sucessQuery(resolved)),
-            rejected => this.dispatch(this.actions.failQuery(rejected)))
+            resolved => this.dispatch(this.actions.sucessQuery(resolved)))
+            .catch(rejected => this.dispatch(this.actions.failQuery(rejected)))
+            
     }
 
     bindTo(dispatch) {
@@ -65,6 +67,7 @@ export class ApiAction extends AsyncAction {
     constructor({TYPE, model, action = false, options = false, prePare = false}) {
 
         const apiFunc = ({params, query = {}, body}) => {
+            
 
             const path = [this.model].concat(params || []);
 
@@ -73,6 +76,8 @@ export class ApiAction extends AsyncAction {
             const apiQuery = resolveApi({path: path, action: this.action, query: _query});
 
             return new Promise((resolve, reject) => {
+                
+
                 const options = this.options;
                 options.body = body || null;
                 fetch(apiQuery, options).then((response) => {
@@ -85,7 +90,8 @@ export class ApiAction extends AsyncAction {
                     })
                 }
 
-                }).catch((error) => {
+            }).catch((error) => {
+                
                     reject(error);
                 })
             })
@@ -99,5 +105,33 @@ export class ApiAction extends AsyncAction {
         this.prePare = prePare || ((data) => (data));
     }
 
-   œ
+   
+}
+
+
+export class StateModel {
+
+    constructor(apiAction) {
+        this._apiAction = apiAction;
+        this.handlers = this._apiAction.reducerHandlers;
+        this.defaultState = this._apiAction.defaultState;
+        this.actions = {}
+    }
+
+    bindTo(dispatch) {
+        this._apiAction.bindTo(dispatch);
+        this.dispatch = dispatch;
+        return this;
+    }
+
+    appendAction(action, changedStateField, defaultStateFieldValue) {
+        this.actions = Object.assign(this.actions, action);
+        this.handlers[action] = (state, data) => {
+            const newState = this.defaultState;
+            newState[changedStateField] = data;
+            return newState;
+        }
+        this.defaultState[changedStateField] = defaultStateFieldValue;
+    }
+    
 }

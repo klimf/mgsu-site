@@ -3,7 +3,7 @@ import ProjectItem from "./components/ProjectItem";
 import { Link, withRouter } from "react-router-dom";
 import { connect, bindActionCreators } from "react-redux";
 import { bindAll } from 'redux-act'
-import { GetProjectsAsync, ProjectsListActions as actions } from "./state"
+import { ProjectsListManager } from "../common/reducers/ProjectsListState"
 
 const defaultProps = {
     filters: [
@@ -55,7 +55,7 @@ class ProjectsList extends Component {
 
      componentDidMount() {
 
-      this.getByDirection(this.props.match.params.direction || null)
+      this.props.ProjectsListManager.changeDirection(this.props.match.params.direction || null)
 
     }
    
@@ -89,28 +89,17 @@ class ProjectsList extends Component {
         )
     }
 
-    getByDirection(direction) {
-         this.props.GetProjectsAsync.perform({
-                query: {
-                    direction: direction
-                }
-            });
-    }
-
-    
 }
 
 ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-    const props = {
-        projects: state.ProjectsListAsync
-    }
+    const props = state.ProjectsListState
     return props;
 }
 
 const mapDispatchToProps = dispatch => ({
-    GetProjectsAsync: GetProjectsAsync.bindTo(dispatch)
+    ProjectsListManager: ProjectsListManager.bindTo(dispatch)
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsList));

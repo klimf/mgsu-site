@@ -1,11 +1,11 @@
 import { createReducer, createAction } from "redux-act";
 import {combineReducers} from "redux"
-import { ApiAction } from "../helpers";
+import { ApiAction, StateModel } from "../helpers";
 
-export class UserManager {
+export class UserManager extends StateModel {
 
     constructor() {
-        this._apiAction =  new ApiAction({TYPE: 'USER_CHANGE', model: 'user'});
+        super(new ApiAction({TYPE: 'USER_CHANGE', model: 'user'}));
     }
     
     login(email, password) {
@@ -28,7 +28,6 @@ export class UserManager {
     }
 
      getCurrent() {
-         console.log(this._apiAction);
          this._apiAction.perform({
             params: ['current'],
             options: {
@@ -44,11 +43,6 @@ export class UserManager {
             },
             body: userData
         });
-    }
-
-    bindTo(dispatch) {
-        this._apiAction =  this._apiAction.bindTo(dispatch);
-        return this;
     }
 
 }

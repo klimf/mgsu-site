@@ -5,10 +5,12 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import {User} from "./reducers/UserState";
 import {connect} from 'react-redux';
+import {withRouter} from "react-router-dom";
 
 class App extends Component {
 
     componentDidMount() {
+        console.log(this.props);
         this.props.UserManager.getCurrent();
     }
 
@@ -16,7 +18,7 @@ class App extends Component {
         return (
             <div>
                 <Header user={this.props.user} UserManager={this.props.UserManager}/>
-                <Routes user={this.props.user} UserManager={this.props.UserManager}/>
+                <Routes user={this.props.user} UserManager={this.props.UserManager} />
                 <Footer user={this.props.user} UserManager={this.props.UserManager}/>
             </div>
         );
@@ -24,13 +26,13 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-    const user = state.UserState
-    return user
+    const {user} = state.UserState
+    return {user}
 }
 
 const mapDispatchToProps = dispatch => ({
     UserManager: User.bindTo(dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 

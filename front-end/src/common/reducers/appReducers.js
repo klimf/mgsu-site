@@ -1,7 +1,7 @@
 
 import {combineReducers} from "redux";
 
-import { ProjectsAsync  } from "../../ProjectsList/state";
+import { ProjectsListState } from "./ProjectsListState";
 import { ProjectDetailAsync  } from "../../ProjectDetail/state";
 import {UserState} from "./UserState";
 import {NewsReducer as News} from "../../News/state";
@@ -12,6 +12,6 @@ export default combineReducers({
     UserState,
     News,
     Header,
-    ProjectsAsync,
+    ProjectsListState,
     ProjectDetailAsync
 })
