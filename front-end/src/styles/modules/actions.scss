@@ -235,7 +235,7 @@
 
 .projects-nav-item {
   @extend .transition-3,
-  .h2;
+  .h3;
   margin: $o;
   display: inline-block;
   border-bottom: $small-border solid $disabled;
@@ -244,6 +244,38 @@
 .projects-nav-item .active, .projects-nav-item:hover {
   border-bottom: $small-border solid $primary;
 }
+
+
+.slick-arrow:before {
+  border-top: 4px solid black;
+  border-left: 4px solid black;
+  color: transparent;
+}
+
+.slick-prev, .slick-next {
+  top: -7*$o;
+}
+
+.slick-next {
+  transform: rotate(135deg);
+  margin-top: -7px;
+  right: 2*$o;
+}
+
+.slick-prev {
+  transform: rotate(-45deg);
+  left: 2*$o;
+}
+
+.slick-slider {
+  top: 2*$o;
+}
+
+.slick-track {
+  height: 270px;
+  overflow: hidden;
+}
+
 
 .form-tab {
   background-color: $semi-dark;

@@ -162,36 +162,6 @@
   color: $dark;
 }
 
-.slick-arrow:before {
-  border-top: 4px solid black;
-  border-left: 4px solid black;
-  color: transparent;
-}
-
-.slick-prev, .slick-next {
-  top: -7*$o;
-}
-
-.slick-next {
-  transform: rotate(135deg);
-  margin-top: -7px;
-  right: 2*$o;
-}
-
-.slick-prev {
-  transform: rotate(-45deg);
-  left: 2*$o;
-}
-
-.slick-slider {
-  top: 2*$o;
-}
-
-.slick-track {
-  height: 270px;
-  overflow: hidden;
-}
-
 .contacts {
   min-height: 5*$o;
   padding: 0;
@@ -270,7 +240,7 @@
   @extend .cover;
   width: 10*$o;
   height: 10*$o;
-  margin: $o;
+  margin: 0 0 0 0.65*$o;
   float: left;
 }
 
