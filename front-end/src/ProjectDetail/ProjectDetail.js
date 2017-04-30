@@ -74,7 +74,8 @@ class ProjectDetail extends Component {
                     <div className="small-12 columns">
                         <DonationForm/>
                         <div className="small-12 space-2 columns"/>
-                        <img alt="pic" src={require("../media/images/payment-info.png")} className="small-12"/>
+                        <img alt="pic" src={require("../media/images/payment-info.png")} className="small-12 medium-6 columns no-padding"/>
+                        <img alt="pic" src={require("../media/images/payment-logos.png")} className="small-12 medium-6 columns no-padding"/>
                     </div>
                     <div className="small-12 space-4 columns"/>
                 </div>
