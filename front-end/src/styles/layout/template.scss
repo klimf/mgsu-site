@@ -7,7 +7,7 @@ header {
   position: relative;
   height: 8*$o;
   margin: 0;
-  padding: 2*$o 3*$o;//0.9375rem
+  padding: 2*$o 2*$o;
   z-index: 100;
 }
 
@@ -20,7 +20,7 @@ header {
 footer {
   position: relative;
   margin: 0;
-  padding: 2*$o 3*$o;
+  padding: 2*$o 2*$o;
   z-index: 100;
   background-color: $primary;
 }
@@ -54,7 +54,7 @@ button {
   width: 100%;
   min-height: 100%;
   background-color: $white;
-  padding: 2*$o  3*$o;
+  padding: 2*$o  2*$o;
   opacity: 1;
   box-shadow: 0 0 3*$o $dark;
 }
@@ -101,5 +101,8 @@ button {
 }
 
 @media print, screen and (min-width: 64em) {
+  .overlay, header, footer {
+    padding: 2*$o 3*$o;
+  }
 
 }

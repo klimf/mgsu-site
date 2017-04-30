@@ -99,8 +99,10 @@
   @extend .header-btn,
   .hover-primary,
   .h2,
+  .center,
   .black,
   .border-small;
+  padding: 0 2*$o;
   width: calc(50% - 54px);
   margin: 0 2*$o 2*$o 0;
 }
