@@ -56,34 +56,34 @@ export default class Registration extends Component {
                 <div className="small-12 space-2 columns"/>
                 <div className="small-12 columns">
                     <div className="small-12 medium-6 large-3 m-b-2 columns no-padding end">
-                            <input type="radio" className="remove" name="money" id="money-200"/>
-                            <label className="small-6 columns" htmlFor="money-200">
-                                <div className="">200 ₽</div>
-                            </label>
-                            <input type="radio" className="remove" name="money" id="money-500"/>
-                            <label className="small-6 columns" htmlFor="money-500">
-                                <div className="">500 ₽</div>
-                            </label>
+                        <input type="radio" className="remove" name="money" id="money-200"/>
+                        <label className="small-6 columns" htmlFor="money-200">
+                            <div className="">200 ₽</div>
+                        </label>
+                        <input type="radio" className="remove" name="money" id="money-500"/>
+                        <label className="small-6 columns" htmlFor="money-500">
+                            <div className="">500 ₽</div>
+                        </label>
                     </div>
                     <div className="small-12 medium-6 large-3 m-b-2 columns no-padding end">
-                            <input type="radio" className="remove" name="money" id="money-1000"/>
-                            <label className="small-6 columns" htmlFor="money-1000">
-                                <div className="">1000 ₽</div>
-                            </label>
-                            <input type="radio" className="remove" name="money" id="money-3000"/>
-                            <label className="small-6 columns" htmlFor="money-3000">
-                                <div className="">3000 ₽</div>
-                            </label>
+                        <input type="radio" className="remove" name="money" id="money-1000"/>
+                        <label className="small-6 columns" htmlFor="money-1000">
+                            <div className="">1000 ₽</div>
+                        </label>
+                        <input type="radio" className="remove" name="money" id="money-3000"/>
+                        <label className="small-6 columns" htmlFor="money-3000">
+                            <div className="">3000 ₽</div>
+                        </label>
                     </div>
                     <div className="small-12 medium-6 large-3 m-b-2 columns no-padding end">
-                            <input type="radio" className="remove" name="money" id="money-5000"/>
-                            <label className="small-6 columns" htmlFor="money-5000">
-                                <div className="">5000 ₽</div>
-                            </label>
-                            <input type="radio" className="remove" name="money" id="money-10000"/>
-                            <label className="small-6 columns" htmlFor="money-10000">
-                                <div className="">10000 ₽</div>
-                            </label>
+                        <input type="radio" className="remove" name="money" id="money-5000"/>
+                        <label className="small-6 columns" htmlFor="money-5000">
+                            <div className="">5000 ₽</div>
+                        </label>
+                        <input type="radio" className="remove" name="money" id="money-10000"/>
+                        <label className="small-6 columns" htmlFor="money-10000">
+                            <div className="">10000 ₽</div>
+                        </label>
                     </div>
                     <div className="small-12 medium-6 large-3 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value=''
@@ -96,11 +96,15 @@ export default class Registration extends Component {
                     <div className="small-12 medium-6 columns no-padding">
                         <div className="small-6 columns">
                             <input type="radio" className="remove" name="donation-select" id="single"/>
-                            <label htmlFor="single"><div className="donation-select m-b-2 small-12 space-3 columns">Разовая</div></label>
+                            <label htmlFor="single">
+                                <div className="donation-select m-b-2 small-12 space-3 columns">Разовая</div>
+                            </label>
                         </div>
                         <div className="small-6 columns">
                             <input type="radio" className="remove" name="donation-select" id="regular"/>
-                        <label htmlFor="regular"><div className="donation-select m-b-2 small-12 space-3 columns">В месяц</div></label>
+                            <label htmlFor="regular">
+                                <div className="donation-select m-b-2 small-12 space-3 columns">В месяц</div>
+                            </label>
                         </div>
                     </div>
                     <div className="small-12 medium-6 columns">
@@ -111,7 +115,6 @@ export default class Registration extends Component {
                     </div>
                 </div>
                 <div className="small-12 space-1 columns"/>
-                <div className="small-12 space-2 columns"/>
             </div>
         </Validation.components.Form>;
     }
