@@ -16,8 +16,8 @@ const Routes = ({user, UserManager}) => (
         <Route path="/projects/:direction?" component={ProjectsList}/>
         <Route exact path="/project/:projectId" component={ProjectDetail}/>
         <Route exact path="/contacts" component={Contacts}/>
-        <Route path="/about/:department" component={AboutPage}/>
-        <Route exact path="/alumni/:department" component={GradClubPage}/>
+        <Route path="/about/:department?" component={AboutPage}/>
+        <Route exact path="/alumni/:department?" component={GradClubPage}/>
         <Route exact path="/sponsors" component={SponsorsPage}/>
         <Route path="/admin" component={AdminSection}/>
         <Route component={NotFound}/>

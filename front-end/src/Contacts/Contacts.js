@@ -27,9 +27,8 @@ class ContactsPage extends Component {
                     <iframe
                         width="600"
                         height="450"
-                        frameborder="0" style="border:0"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAH0TpAzPZLkOHi2623tYV3Edn-nBCIM2k
-    &q=Space+Needle,Seattle+WA" allowfullscreen>
+                   
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAH0TpAzPZLkOHi2623tYV3Edn-nBCIM2k&q=Space+Needle,Seattle+WA">
                     </iframe>
                 </div>
             </div>
