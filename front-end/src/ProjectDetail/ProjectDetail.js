@@ -2,9 +2,29 @@ import React, {Component} from "react";
 import { connect, bindActionCreators } from "react-redux";
 import { withRouter } from "react-router-dom";
 import DonationForm from "./components/DonationForm"
+import { ProjectDetailManager} from '../common/reducers/ProjectsState'
 
 
 class ProjectDetail extends Component {
+
+     componentDidMount() {
+        this.getProject(this.props.match.params.projectId)
+        /////////////////////////////////////////////////
+        // ФОРМАТ this.props.project
+        ////////////////////////////////////////////////
+        //
+        // _id,
+        // name,
+        // shortDesciption,
+        // img: {
+        //     original,
+        //     small
+        // },
+        // given,
+        // need,
+        // content
+    }
+
     render() {
         return (
             <div className="page row expanded">
@@ -81,22 +101,20 @@ class ProjectDetail extends Component {
             </div>
         )
     }
-    componentDidMount() {
-        this.getProject(this.props.match.params.projectId)
-    }
+   
     getProject(id) {
-        this.props.GetProjectDetailAsync.perform({
-            params: [id]
-        })
+        this.props.ProjectManager.getDetail(id)
     }
 }
 
 const mapStateToProps = state => {
-  
+  const project = state.currentProject;
 };
 
 const mapDispatchToProps = dispatch => {
-   
+   return {
+       ProjectManager: ProjectDetailManager.bindTo(dispatch)
+   }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDetail));

@@ -1,21 +1,22 @@
-import React, {Component} from "react";
+import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindAll} from "redux-act";
 import Slider from "./components/Slider";
 import {formatMoney} from "../common/helpers";
 import {headerActions} from "../common/components/state";
 
+
 class HomePage extends Component {
     constructor(props) {
         super(props);
         this.hexaNames = [
-            'образование',
-            'наука',
-            'студенты',
-            'стипендии',
-            'инфраструктура',
-            'спорт',
-            'проффессора и преподаватели'
+            'Образование',
+            'Наука',
+            'Студенты',
+            'Стипендии',
+            'Инфраструктура',
+            'Спорт',
+            'Проффессора и преподаватели'
         ];
         this.styles = {
             startShowing: 'active',
@@ -112,24 +113,24 @@ class HomePage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="space-3"/>
-                <div className="small-12 row expanded absolute">
+                <div className="hexagon-bg-container small-12 row expanded absolute no-overflow">
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
                          xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
-                               xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
-                    <polygon
-                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                         xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                        <polygon
+                            points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
-                               xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
-                    <polygon
-                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                         xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                        <polygon
+                            points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                 </div>
+                <div className="space-3"/>
                 <div className="content small-12 row">
                     <img alt="pic" src={require("../media/blocks/how-it-works.png")} className="small-12"/>
                 </div>
@@ -230,12 +231,13 @@ class HomePage extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({headerAct: bindAll(headerActions, dispatch)});
+const mapDispatchToProps = dispatch => (
+    {headerAct: bindAll(headerActions, dispatch)});
 
 
 const mapStateToProps = state => {
-    const {key} = state
-    return {key}
+    const { data } = state.ProjectsState.fundDetail
+    return {data}
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

@@ -241,6 +241,8 @@
   margin: $o;
   display: inline-block;
   border-bottom: $small-border solid $disabled;
+  text-tramsform: capitalize;
+  
 }
 
 .projects-nav-item .active, .projects-nav-item:hover {
