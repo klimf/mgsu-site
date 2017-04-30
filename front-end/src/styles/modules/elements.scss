@@ -177,6 +177,7 @@
 
 .sponsor {
   text-align: center;
+  margin-bottom: 2*$o;
 }
 
 .sponsor h2 {
@@ -201,18 +202,33 @@
   align-items: center;
 }
 
+.contact-white {
+  margin: 0 $o;
+}
+
+.contact-white h3 {
+  margin: 0 0 $o 0;
+  color: $white;
+}
+
+.contact-white p {
+  margin: 0 $o 0 0;
+  color: $light;
+}
+
 .contact {
   margin: 0 $o;
 }
 
 .contact h3 {
   margin: 0 0 $o 0;
-  color: $white;
+  font-weight: 500;
+  color: $black;
 }
 
 .contact p {
   margin: 0 $o 0 0;
-  color: $light;
+  color: $dark;
 }
 
 .project-item {
@@ -278,6 +294,14 @@
 
 .project-half h2 {
   margin: 2*$o 0 $o 0;
+}
+
+.contacts-block {
+  margin-bottom: -150px;
+}
+
+.iframe-map {
+  margin-bottom: -6px;
 }
 
 @media screen and (max-width: 639px) {
