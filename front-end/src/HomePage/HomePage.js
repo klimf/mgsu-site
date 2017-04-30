@@ -106,7 +106,8 @@ class HomePage extends Component {
                           
                             <h1 className="uppercase bar-text bar-right bar-text--right">
                                 
-                                {this.fundValue > 80 && <div className="tooLargeValue">
+                                {this.fundValue > 80 && 
+                                    <div className="tooLargeValue">
                                       <div className="donate-btn-icon-white--tooLargeValue"></div>
                                         <h1 className="uppercase bar-text bar--tooLagreValue">
                                             <p className="uppercase">Размер фонда</p>
