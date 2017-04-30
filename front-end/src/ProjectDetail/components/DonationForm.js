@@ -116,6 +116,9 @@ export default class Registration extends Component {
                 </div>
                 <div className="small-12 space-1 columns"/>
             </div>
+            <div>
+                <Validation.components.Button>Submit</Validation.components.Button>
+            </div>
         </Validation.components.Form>;
     }
 }

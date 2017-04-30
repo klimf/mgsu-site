@@ -14,29 +14,52 @@ const defaultProps = {
         'Инфраструктура',
         'Спорт',
         'Проффессора и преподаватели'
+    ],
+
+    directions: [
+        null,
+        'образование',
+        'наука',
+        'студенты',
+        'стипендии',
+        'инфраструктура',
+        'спорт',
+        'проффессора и преподаватели'
     ]
 
 };
 
 class ProjectsList extends Component {
-     componentDidMount() {
+    constructor(props) {
+        super(props);
+        this.currentDirection = this.props.directions[1];
+    }
 
-      this.props.ProjectsListManager.changeDirection(this.props.match.params.direction || null)
+     componentWillMount() {
+        this.changeDirection(this.props.match.params.direction || null);
+    }
 
+    changeDirection(direction) {
+       this.props.history.push('/projects/' + (direction || 'Все проекты'))
+       console.log(direction,  this.props.filters.indexOf(direction));
+       this.props.filters.indexOf(direction) == -1 || direction == null ?
+       this.currentDirection = this.props.directions[0] :
+       this.currentDirection = this.props.directions[this.props.filters.indexOf(direction)];
+       this.props.ProjectsListManager.changeDirection(this.currentDirection);
     }
    
-
     render() {
         return (
             <div className="page row expanded">
                 <div className="content small-12 row">
                     <div className="space-3"/>
                     <div className="projects-icon small-0"
-                         style={{background: "url(" + require("../media/images/project-nav/" + "образование" + ".png") + ") no-repeat"}}></div>
+                         style={{background: "url(" + require("../media/images/project-nav/" + (this.currentDirection || 'наука') + ".png") + ") no-repeat"}}></div>
                     <div className="projects-navigation">
                         {
                             this.props.filters.map((filter, index) =>
                                 <div className="projects-nav-item"
+                                     onClick={this.changeDirection.bind(this, filter)}
                                      key={index}>
                                     {filter}
                                 </div>
@@ -45,10 +68,11 @@ class ProjectsList extends Component {
                     </div>
                     <div className="space-3"/>
                     {
-                        this.props.projects.data &&
+                        this.props.projects.data && this.props.projects.data.length > 0 ?
                         this.props.projects.data.map((project, index) =>
                             <ProjectItem key={index} project={project}/>
-                        )
+                        ) 
+                        : <h2 className="center">К сожалению, проектов в этом направлении пока нет</h2>
                     }
                 </div>
                 <div className="space-3"/>
