@@ -25,7 +25,7 @@ const ProjectItem = (props) => (
                     <h3 className="black center">{props.project.need}</h3>
                 </div>
                 <div className="small-12 space-2 columns"></div>
-                <button className="small-12 primary-btn">Сделай вклад</button>
+                <button className="small-12 pointer primary-btn">Сделай вклад</button>
             </div>
         </Link>
     </div>

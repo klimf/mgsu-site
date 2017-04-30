@@ -155,6 +155,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
+                        <a className="h3 underline" href="/news">Показать все</a>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right">
                         <div className="home-event small-12 columns">
@@ -193,6 +194,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
+                        <a className="h3 underline" href="/events">Показать все</a>
                     </div>
 
                 </div>
