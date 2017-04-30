@@ -86,16 +86,16 @@ button {
 
 
 
-@media screen and (max-width: 639px) {
+@media print, screen and (max-width: 39.999em) {
   footer, header {
     padding: 2*$o 0.9375rem;
   }
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
+@media print, screen and (min-width: 40em) and (max-width: 63.999em) {
 
 }
 
-@media only screen and (min-width: 1024px) {
+@media print, screen and (min-width: 64em) {
 
 }

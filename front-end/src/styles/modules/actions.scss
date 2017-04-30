@@ -393,7 +393,7 @@
   height: 4*$o !important;
 }
 
-@media screen and (max-width: 639.9px) {
+@media print, screen and (max-width: 39.999em) {
   .small-navigation {
     width: 100%;
   }
@@ -440,7 +440,7 @@
   }
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
+@media print, screen and (min-width: 40em) and (max-width: 63.999em) {
   .hexagon-container:nth-child(7) h3 {
     top: calc(50% - 18px);
   }
@@ -457,7 +457,7 @@
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media print, screen and (min-width: 64em) {
   .small-nav-item {
     width: calc(50% - 24px);
   }
