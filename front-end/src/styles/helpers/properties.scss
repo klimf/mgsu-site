@@ -82,6 +82,11 @@
 }
 
 .pointer {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   cursor: pointer;
 }
 
@@ -201,19 +206,19 @@ img.block {
   }
 }
 
-@media screen and (max-width: 639px) {
+@media print, screen and (max-width: 39.999em) {
   .small-0 {
     display: none;
   }
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
+@media print, screen and (min-width: 40em) and (max-width: 63.999em) {
   .medium-0 {
     display: none;
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media print, screen and (min-width: 64em) {
   .large-0 {
     display: none;
   }

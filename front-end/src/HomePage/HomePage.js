@@ -39,6 +39,22 @@ class HomePage extends Component {
             });
         }, 600);
 
+        // window.addEventListener("scroll", function(){
+        //     parallax();
+        // });
+        //
+        // function parallax() {
+        //     let $slider = document.getElementById("wide-img");
+        //
+        //     let yPos = window.pageYOffset / 3;
+        //     yPos = -yPos;
+        //
+        //     let coords = '0% '+ yPos + 'px';
+        //
+        //     $slider.style.backgroundPosition = coords;
+        //     console.log("Scroll");
+        // }
+
         this.props.headerAct.dyeWhite();
     }
 
@@ -58,7 +74,7 @@ class HomePage extends Component {
 
         return (
             <div className="page row expanded">
-                <div className="wide-img small-12 expanded">
+                <div classID="wide-img" className="wide-img small-12 expanded">
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar primary">
@@ -139,6 +155,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
+                        <a className="h3 underline" href="/news">Показать все</a>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right">
                         <div className="home-event small-12 columns">
@@ -177,6 +194,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
+                        <a className="h3 underline" href="/events">Показать все</a>
                     </div>
 
                 </div>
