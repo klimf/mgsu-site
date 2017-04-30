@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router";
-import {connect} from "redux";
+import {connect} from "react-redux";
 
 
 class ContactsPage extends Component {
