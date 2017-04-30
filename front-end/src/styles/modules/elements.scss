@@ -49,14 +49,37 @@
   overflow: hidden;
 }
 
-.main-progress .bar {
+.main-progress .bar-wrap {
   @extend .transition-3;
   position: absolute;
-  background-color: $black;
+  background-color: transparent;
   bottom: 0;
   right: 0;
   height: $o;
   width: 100%;
+  .bar-fact {
+    height: 100%;
+    position: relative;
+  }
+}
+
+.donate-btn-icon-white {
+  @extend .transition-3,
+  .absolute,
+  .cover,
+  .pointer;
+  background: url($image + "icon-donate.png") no-repeat;
+  right: -25px;
+  bottom: $o + 3px;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+}
+
+.donate-btn-icon-white:hover {
+  right: -29px;
+  width: 60px;
+  height: 75px;
 }
 
 .main-progress .bar-text {
@@ -70,7 +93,7 @@
 
 .main-progress h1.bar-text {
   font-size: 2.5*$o;
-  margin-bottom: 1.2*$o;
+  margin-bottom: 1*$o;
 }
 
 .main-progress h1.bar-text p {
@@ -82,12 +105,25 @@
 }
 
 .main-progress .bar-left {
+  position: absolute;
+  right: 25px + $o*2;
   text-align: right;
-  width: calc(100% + 300px);
-  left: calc(-100% - 340px);
+  width: calc(300px);
+  right: 25px + $o*2;
+}
+
+.main-progress .bar-label {
+  position: relative;
+  max-width: 82%;
+  min-width: 220px + $o*2;
+}
+
+.main-progress .bar-text--right {
+  margin-bottom: 2.3*$o !important;
 }
 
 .main-progress .bar-right {
+  
   right: 2*$o;
 }
 
