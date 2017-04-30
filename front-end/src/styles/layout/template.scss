@@ -54,7 +54,7 @@ button {
   width: 100%;
   min-height: 100%;
   background-color: $white;
-  padding: 2*$o  0.9375rem;
+  padding: 2*$o  3*$o;
   opacity: 1;
   box-shadow: 0 0 3*$o $dark;
 }
@@ -88,6 +88,10 @@ button {
 
 @media print, screen and (max-width: 39.999em) {
   footer, header {
+    padding: 2*$o 0.9375rem;
+  }
+
+  .overlay {
     padding: 2*$o 0.9375rem;
   }
 }
