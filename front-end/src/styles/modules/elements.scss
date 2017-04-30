@@ -163,19 +163,24 @@
 }
 
 .slick-arrow:before {
-  color: $black;
+  border-top: 4px solid black;
+  border-left: 4px solid black;
+  color: transparent;
 }
 
 .slick-prev, .slick-next {
-  top: -6*$o;
+  top: -7*$o;
 }
 
 .slick-next {
-  right: $o;
+  transform: rotate(135deg);
+  margin-top: -7px;
+  right: 2*$o;
 }
 
 .slick-prev {
-  left: $o;
+  transform: rotate(-45deg);
+  left: 2*$o;
 }
 
 .slick-slider {
