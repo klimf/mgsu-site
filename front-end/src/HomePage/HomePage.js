@@ -113,6 +113,23 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="space-3"/>
+                <div className="small-12 row expanded absolute">
+                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                        <polygon
+                            points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                    </svg>
+                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                               xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                    <polygon
+                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                    </svg>
+                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                               xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                    <polygon
+                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                    </svg>
+                </div>
                 <div className="content small-12 row">
                     <img alt="pic" src={require("../media/blocks/how-it-works.png")} className="small-12"/>
                 </div>

@@ -32,6 +32,7 @@
 
 .wide-img {
   @extend .cover;
+  z-index: 10;
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -90,6 +91,29 @@
   right: 2*$o;
 }
 
+.hexagon-bg:nth-child(1) {
+  right: -300px;
+  top: -400px;
+  width: 800px;
+}
+.hexagon-bg:nth-child(2) {
+  top: 150px;
+  left: 100px;
+  width: 500px;
+}
+.hexagon-bg:nth-child(3) {
+  top: 700px;
+  right: 250px;
+  width: 650px;
+}
+.hexagon-bg {
+  position: absolute;
+  stroke-width: 18px;
+  stroke: $primary;
+  fill: transparent;
+  opacity: 0.2;
+}
+
 .home-news {
   height: 15*$o;
   padding: 0 3*$o;
@@ -113,6 +137,7 @@
   margin-bottom: 2*$o;
   padding: 0 3*$o;
   overflow: hidden;
+  background-color: $white;
 }
 
 .home-event h1 {
