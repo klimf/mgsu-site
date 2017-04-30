@@ -134,7 +134,7 @@ class HomePage extends Component {
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
-                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                    <svg className="hexagon-bg small-0 medium-0" viewBox="-24 -24 254 287" version="1.1"
                          xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
@@ -147,7 +147,8 @@ class HomePage extends Component {
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
-                    <img alt="pic" src={require("../media/blocks/how-it-works.png")} className="small-12"/>
+                        <img alt="pic" src={require("../media/blocks/how-it-works.png")} className="small-12 columns small-0"/>
+                        <img alt="pic" src={require("../media/blocks/how-it-works-mobile.png")} className="small-12 columns medium-0 large-0"/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
@@ -238,7 +239,8 @@ class HomePage extends Component {
                 </div>
                 <div className="space-4"/>
                 <div className="content small-12 row">
-                    <img alt="pic" src={require("../media/images/corps.png")} className="small-12 hover-opacity"/>
+                    <img alt="pic" src={require("../media/images/corps.png")} className="small-12 small-0 medium-0 hover-opacity columns"/>
+                    <img alt="pic" src={require("../media/images/corps-mobile.png")} className="small-12 large-0 hover-opacity columns"/>
                 </div>
                 <div className="space-4"/>
             </div>
