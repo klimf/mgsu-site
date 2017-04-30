@@ -3,7 +3,7 @@
   .pointer,
   .cover;
   height: $header-content-height;
-  width: $header-content-height*3.65;
+  width: 216px;
 }
 
 .logo {
@@ -32,6 +32,7 @@
 
 .wide-img {
   @extend .cover;
+  z-index: 10;
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -67,6 +68,11 @@
   line-height: 5*$o;
 }
 
+.main-progress h1.bar-text {
+  font-size: 2.5*$o;
+  margin-bottom: 1.2*$o;
+}
+
 .main-progress h1.bar-text p {
   right: 0;
   top: -4*$o;
@@ -78,11 +84,34 @@
 .main-progress .bar-left {
   text-align: right;
   width: calc(100% + 300px);
-  left: calc(-100% - 300px);
+  left: calc(-100% - 340px);
 }
 
 .main-progress .bar-right {
-  right: 0;
+  right: 2*$o;
+}
+
+.hexagon-bg:nth-child(1) {
+  right: -300px;
+  top: -400px;
+  width: 800px;
+}
+.hexagon-bg:nth-child(2) {
+  top: 150px;
+  left: 100px;
+  width: 500px;
+}
+.hexagon-bg:nth-child(3) {
+  top: 700px;
+  right: 250px;
+  width: 650px;
+}
+.hexagon-bg {
+  position: absolute;
+  stroke-width: 18px;
+  stroke: $primary;
+  fill: transparent;
+  opacity: 0.2;
 }
 
 .home-news {
@@ -108,6 +137,7 @@
   margin-bottom: 2*$o;
   padding: 0 3*$o;
   overflow: hidden;
+  background-color: $white;
 }
 
 .home-event h1 {
@@ -157,26 +187,6 @@
   color: $dark;
 }
 
-.slick-arrow:before {
-  color: $black;
-}
-
-.slick-prev, .slick-next {
-  top: -6*$o;
-}
-
-.slick-next {
-  right: $o;
-}
-
-.slick-prev {
-  left: $o;
-}
-
-.slick-slider {
-  top: 2*$o;
-}
-
 .contacts {
   min-height: 5*$o;
   padding: 0;
@@ -185,6 +195,10 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+
+.contact {
+  margin: 0 $o;
 }
 
 .contact h3 {
@@ -231,7 +245,7 @@
 .project-progress {
   @extend .transition-3;
   background-color: $white;
-  bottom:0;
+  bottom: 0;
 }
 
 .project-progress:hover {
@@ -247,6 +261,21 @@
   background-color: $disabled;
 }
 
+.projects-icon {
+  @extend .cover;
+  width: 10*$o;
+  height: 10*$o;
+  margin: 0 0 0 0.65*$o;
+  float: left;
+}
+
+.project-half {
+}
+
+.project-half h2 {
+  margin: 2*$o 0 $o 0;
+}
+
 @media screen and (max-width: 639px) {
   .contacts {
     width: 100%;
@@ -260,7 +289,7 @@
   }
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
+@media print, screen and (min-width: 40em) and (max-width: 63.999em) {
   .contacts {
     width: 100%;
     margin-top: 100px;
@@ -268,7 +297,7 @@
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media print, screen and (min-width: 64em) {
 
 }
 

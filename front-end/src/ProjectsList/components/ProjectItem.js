@@ -4,13 +4,13 @@ import {Link, withRouter} from "react-router-dom";
 
 const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
-        <Link to={`${props.match.url}/${props.project.id}`}>
+        <Link to={`project/${props.project._id}`}>
             <div className="project-image space-7">
-                <div className="bg-img"/>
+                <div className="bg-img" style={{"background": "url(" + (props.project.img ? props.project.img.small : "../media/images/placeholder.png" + ") center center no-repeat;") }}/>
             </div>
             <div className="project-text">
-                <h2 className="small-12 upprecase center black columns">{props.project.title}</h2>
-                <p className="small-12 center black columns">{props.project.description}</p>
+                <h2 className="small-12 upprecase center black columns">{props.project.name}</h2>
+                <p className="small-12 center black columns">{props.project.shortDescription}</p>
             </div>
             <div className="space-base"></div>
             <div className="project-progress">
@@ -18,14 +18,14 @@ const ProjectItem = (props) => (
                 <div className="project-bar primary" style={{"width":70 + "%"}}></div>
                 <div className="small-6 space-4 columns no-padding">
                     <p className="black center">Собрано</p>
-                    <h3 className="black center">12 000 000p</h3>
+                    <h3 className="black center">{props.project.given}</h3>
                 </div>
                 <div className="small-6 space-4 columns no-padding">
-                    <p className="black center">Собрано</p>
-                    <h3 className="black center">12 000 000p</h3>
+                    <p className="black center">Цель</p>
+                    <h3 className="black center">{props.project.need}</h3>
                 </div>
                 <div className="small-12 space-2 columns"></div>
-                <button className="small-12 primary-btn">Сделай вклад</button>
+                <button className="small-12 pointer primary-btn">Сделай вклад</button>
             </div>
         </Link>
     </div>

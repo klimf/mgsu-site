@@ -11,6 +11,11 @@ Object.assign(Validation.rules, {
             return <span>Обязательное поле</span>
         }
     },
+    notRequired: {
+        rule: value => {
+            return value;
+        }
+    },
     email: {
         rule: value => {
             return isEmail(value);
@@ -27,12 +32,20 @@ Object.assign(Validation.rules, {
             return <span>{value} не корректный год.</span>
         }
     },
+    altYear: {
+        rule: value => {
+            return isInt(value, {min: 1900, max: 2030}) || isEmpty(value);
+        },
+        hint: value => {
+            return <span>{value} не корректный год.</span>
+        }
+    },
     currency: {
         rule: value => {
             return isInt(value, {min: 1, max: 9000000000});
         },
         hint: value => {
-            return <span>{value} не корректное значение.</span>
+            return <span>{value} Р не корректное значение.</span>
         }
     },
     api: {

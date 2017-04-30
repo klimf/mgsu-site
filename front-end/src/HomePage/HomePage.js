@@ -9,13 +9,13 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
         this.hexaNames = [
-            'Образование',
-            'Наука',
-            'Студенты',
-            'Стипендии',
-            'Инфраструктура',
-            'Спорт',
-            'Проффессора и преподаватели'
+            'образование',
+            'наука',
+            'студенты',
+            'стипендии',
+            'инфраструктура',
+            'спорт',
+            'проффессора и преподаватели'
         ];
         this.styles = {
             startShowing: 'active',
@@ -39,16 +39,32 @@ class HomePage extends Component {
             });
         }, 600);
 
+        // window.addEventListener("scroll", function(){
+        //     parallax();
+        // });
+        //
+        // function parallax() {
+        //     let $slider = document.getElementById("wide-img");
+        //
+        //     let yPos = window.pageYOffset / 3;
+        //     yPos = -yPos;
+        //
+        //     let coords = '0% '+ yPos + 'px';
+        //
+        //     $slider.style.backgroundPosition = coords;
+        //     console.log("Scroll");
+        // }
+
         this.props.headerAct.dyeWhite();
     }
 
-    handlerHexaClick(index) {
+    handlerHexaClick(index, name) {
         this.setState({hexaStyle: ''}, () => {
             this['tempDiv' + index].classList.add('active', 'delay-0');
             setTimeout(() => {
                 this['tempDiv' + index].classList.add('expand');
                 setTimeout(() => {
-                    //this.props.history.push('/projects')
+                    this.props.history.push('/projects/' + name)
                 }, 400)
             }, 200)
         });
@@ -58,12 +74,13 @@ class HomePage extends Component {
 
         return (
             <div className="page row expanded">
-                <div className="wide-img small-12 expanded">
+                <div classID="wide-img" className="wide-img small-12 expanded">
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar primary">
                         </div>
-                        <div className="bar" style={{width: 100 - 60 + "%"}}>
+                        <div className="bar" style={{ width: 100 - 60 + "%" }}>
+                            <div className="donate-btn-icon-white"/>
                             <h1 className="uppercase bar-text bar-left">
                                 <p className="uppercase">Размер фонда</p>
                                 {formatMoney(256000000)}₽
@@ -82,7 +99,7 @@ class HomePage extends Component {
                                     <div key={index}
                                          ref={(div) => this['tempDiv' + index] = div}
                                          className={`small-3 columns end hexagon-container delay-${index} ${this.state.hexaStyle}`}
-                                         onClick={this.handlerHexaClick.bind(this, index)}>
+                                         onClick={this.handlerHexaClick.bind(this, index, name)}>
                                         <svg className="hexagon" viewBox="-10 -10 240 273" version="1.1"
                                              xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
                                             <polygon
@@ -96,6 +113,23 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="space-3"/>
+                <div className="small-12 row expanded absolute">
+                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                        <polygon
+                            points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                    </svg>
+                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                               xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                    <polygon
+                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                    </svg>
+                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                               xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                    <polygon
+                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                    </svg>
+                </div>
                 <div className="content small-12 row">
                     <img alt="pic" src={require("../media/blocks/how-it-works.png")} className="small-12"/>
                 </div>
@@ -138,6 +172,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
+                        <a className="h3 underline" href="/news">Показать все</a>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right">
                         <div className="home-event small-12 columns">
@@ -176,6 +211,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
+                        <a className="h3 underline" href="/events">Показать все</a>
                     </div>
 
                 </div>
@@ -200,6 +236,6 @@ const mapDispatchToProps = dispatch => ({headerAct: bindAll(headerActions, dispa
 const mapStateToProps = state => {
     const {key} = state
     return {key}
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
