@@ -35,12 +35,11 @@ class ProjectsList extends Component {
                 <div className="content small-12 row">
                     <div className="space-3"/>
                     <div className="projects-icon small-0"
-                         style={{background: "url(" + require("../media/images/project-nav/Образование.png") + ") no-repeat"}}></div>
+                         style={{background: "url(" + require("../media/images/project-nav/" + "образование" + ".png") + ") no-repeat"}}></div>
                     <div className="projects-navigation">
                         {
                             this.props.filters.map((filter, index) =>
                                 <div className="projects-nav-item"
-                                     style={{background: "url(../media/images/project-nav/" + filter + ".png) no-repeat"}}
                                      key={index}>
                                     {filter}
                                 </div>
@@ -68,12 +67,12 @@ const mapStateToProps = (state) => {
     console.log(state.ProjectsState.list);
     const props =  {
         projects: state.ProjectsState.list
-    }
+    };
     return props;
-}
+};
 
 const mapDispatchToProps = dispatch => ({
     ProjectsListManager: ProjectsListManager.bindTo(dispatch)
-})
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsList));

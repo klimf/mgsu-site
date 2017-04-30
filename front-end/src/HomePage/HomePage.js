@@ -40,6 +40,22 @@ class HomePage extends Component {
             });
         }, 600);
 
+        // window.addEventListener("scroll", function(){
+        //     parallax();
+        // });
+        //
+        // function parallax() {
+        //     let $slider = document.getElementById("wide-img");
+        //
+        //     let yPos = window.pageYOffset / 3;
+        //     yPos = -yPos;
+        //
+        //     let coords = '0% '+ yPos + 'px';
+        //
+        //     $slider.style.backgroundPosition = coords;
+        //     console.log("Scroll");
+        // }
+
         this.props.headerAct.dyeWhite();
     }
 
@@ -59,7 +75,7 @@ class HomePage extends Component {
 
         return (
             <div className="page row expanded">
-                <div className="wide-img small-12 expanded">
+                <div classID="wide-img" className="wide-img small-12 expanded">
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar primary">
@@ -98,6 +114,23 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="space-3"/>
+                <div className="small-12 row expanded absolute">
+                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                        <polygon
+                            points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                    </svg>
+                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                               xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                    <polygon
+                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                    </svg>
+                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                               xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                    <polygon
+                        points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
+                    </svg>
+                </div>
                 <div className="content small-12 row">
                     <img alt="pic" src={require("../media/blocks/how-it-works.png")} className="small-12"/>
                 </div>
@@ -140,6 +173,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
+                        <a className="h3 underline" href="/news">Показать все</a>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right">
                         <div className="home-event small-12 columns">
@@ -178,6 +212,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
+                        <a className="h3 underline" href="/events">Показать все</a>
                     </div>
 
                 </div>
