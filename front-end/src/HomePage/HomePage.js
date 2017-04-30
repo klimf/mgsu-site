@@ -39,6 +39,22 @@ class HomePage extends Component {
             });
         }, 600);
 
+        // window.addEventListener("scroll", function(){
+        //     parallax();
+        // });
+        //
+        // function parallax() {
+        //     let $slider = document.getElementById("wide-img");
+        //
+        //     let yPos = window.pageYOffset / 3;
+        //     yPos = -yPos;
+        //
+        //     let coords = '0% '+ yPos + 'px';
+        //
+        //     $slider.style.backgroundPosition = coords;
+        //     console.log("Scroll");
+        // }
+
         this.props.headerAct.dyeWhite();
     }
 
@@ -58,7 +74,7 @@ class HomePage extends Component {
 
         return (
             <div className="page row expanded">
-                <div className="wide-img small-12 expanded">
+                <div classID="wide-img" className="wide-img small-12 expanded">
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar primary">
