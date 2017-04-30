@@ -27,7 +27,7 @@ export function resolveApi({path, action, query}) {
         }
     }
     console.log(path, action, query);
-    return apiUrl + `${path.join('/')}${haveQuery ? ('/?' +  queryArr.join('&&')) : ''}`
+    return apiUrl + `${path.join('/')}${haveQuery ? ('/?' +  queryArr.join('&')) : ''}`
 
 }
 

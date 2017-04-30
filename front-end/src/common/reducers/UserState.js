@@ -2,14 +2,14 @@ import { createReducer, createAction } from "redux-act";
 import {combineReducers} from "redux"
 import { ApiAction, StateModel } from "../helpers";
 
-export class UserManager extends StateModel {
+class UserManager extends StateModel {
 
     constructor() {
         super(new ApiAction({TYPE: 'USER_CHANGE', model: 'user'}));
     }
     
     login(email, password) {
-        this._apiAction.perform({
+       return this._apiAction.perform({
             action: 'login',
             options: {
                 method: 'POST'
@@ -19,7 +19,7 @@ export class UserManager extends StateModel {
     }
 
     logout() {
-         this._apiAction.perform({
+        return this._apiAction.perform({
             action: 'logout',
             options: {
                 method: 'POST'
@@ -28,7 +28,7 @@ export class UserManager extends StateModel {
     }
 
      getCurrent() {
-         this._apiAction.perform({
+        return this._apiAction.perform({
             params: ['current'],
             options: {
                 method: 'GET'

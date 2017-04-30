@@ -98,7 +98,8 @@ const createRequest = (type, resource, params) => {
 const formatResponse = (response, type, resource, params) => {
 
         const { headers, json } = response;
-        var result;
+        console.log(response);
+
         switch (type) {
             case CREATE:
                     return {data: {...params.data, id: json}, total: 1000}
