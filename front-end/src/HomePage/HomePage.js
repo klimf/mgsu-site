@@ -88,13 +88,13 @@ class HomePage extends Component {
                         <div className="bar-wrap">
 
                             {this.fundValue < 80 && 
-                            <div className="bar-label" style={{ width: `${this.fundValue}%`}}>
-                                   <div className="donate-btn-icon-white"></div>
-                                    <h1 className="uppercase bar-text bar-left">
-                                        <p className="uppercase">Размер фонда</p>
-                                        {formatMoney(this.props.fundDetail.data.given)}₽
-                                    </h1>
-                            </div>
+                                <div className="bar-label" style={{ width: `${this.fundValue}%`}}>
+                                    <div className="donate-btn-icon-white"></div>
+                                        <h1 className="uppercase bar-text bar-left">
+                                            <p className="uppercase">Размер фонда</p>
+                                            {formatMoney(this.props.fundDetail.data.given)}₽
+                                        </h1>
+                                </div>
                             }
 
                             
@@ -108,11 +108,11 @@ class HomePage extends Component {
                                 
                                 {this.fundValue > 80 && <div className="tooLargeValue">
                                       <div className="donate-btn-icon-white--tooLargeValue"></div>
-                                      <h1 className="uppercase bar-text bar--tooLagreValue">
-                                        <p className="uppercase">Размер фонда</p>
-                                        {formatMoney(this.props.fundDetail.data.given)}₽
-                                    </h1>
-                                 </div>
+                                        <h1 className="uppercase bar-text bar--tooLagreValue">
+                                            <p className="uppercase">Размер фонда</p>
+                                            {formatMoney(this.props.fundDetail.data.given)}₽
+                                        </h1>
+                                     </div>
                                  } 
                                     
                                 <p className="uppercase">Цель</p>
