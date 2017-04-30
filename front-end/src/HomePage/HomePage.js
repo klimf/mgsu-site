@@ -87,14 +87,17 @@ class HomePage extends Component {
                     <div className="main-progress">
                         <div className="bar-wrap">
 
+                            {this.fundValue < 80 && 
                             <div className="bar-label" style={{ width: `${this.fundValue}%`}}>
-
-                             <div className="donate-btn-icon-white"></div>
+                                   <div className="donate-btn-icon-white"></div>
                                     <h1 className="uppercase bar-text bar-left">
                                         <p className="uppercase">Размер фонда</p>
                                         {formatMoney(this.props.fundDetail.data.given)}₽
                                     </h1>
                             </div>
+                            }
+
+                            
                             
                              <div className="bar-fact primary" style={{ width: `${this.fundValue}%`}}></div>
                              
@@ -102,6 +105,16 @@ class HomePage extends Component {
                              
                           
                             <h1 className="uppercase bar-text bar-right bar-text--right">
+                                
+                                {this.fundValue > 80 && <div className="tooLargeValue">
+                                      <div className="donate-btn-icon-white--tooLargeValue"></div>
+                                      <h1 className="uppercase bar-text bar--tooLagreValue">
+                                        <p className="uppercase">Размер фонда</p>
+                                        {formatMoney(this.props.fundDetail.data.given)}₽
+                                    </h1>
+                                 </div>
+                                 } 
+                                    
                                 <p className="uppercase">Цель</p>
                                 {formatMoney(this.props.fundDetail.data.need)}₽
                             </h1>
@@ -252,7 +265,7 @@ HomePage.defaultProps = {
     fundDetail: {
         data: {
                 given: 123000000,
-                need:  124000000
+                need:  224000000
             }
     }
 }

@@ -38,7 +38,7 @@
   position: relative;
   background: url($image + "home-bg.jpg") no-repeat center center fixed;
   margin-top: -8*$o;
-  padding: 8*$o 0 12*$o 0;
+  padding: 8*$o 0 20*$o 0;
 }
 
 .main-progress {
@@ -76,10 +76,25 @@
   padding: 15px 0;
 }
 
+.donate-btn-icon-white--tooLargeValue {
+  @extend .transition-3,
+  .absolute,
+  .cover,
+  .pointer;
+  background: url($image + "icon-donate.png") no-repeat;
+  right: 200px;
+  bottom: 0;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+}
+
+
 .donate-btn-icon-white:hover {
   right: -29px;
   width: 60px;
   height: 75px;
+
 }
 
 .main-progress .bar-text {
@@ -112,10 +127,19 @@
   right: 25px + $o*2;
 }
 
+.bar--tooLagreValue {
+  position: absolute;
+  text-align: right;
+  width: calc(300px);
+  right: 200px + 52px + $o*2;
+  margin-bottom: 4px !important;
+}
+
 .main-progress .bar-label {
   position: relative;
-  max-width: 82%;
+  margin-right: $o*10;
   min-width: 220px + $o*2;
+  max-width: 82%;
 }
 
 .main-progress .bar-text--right {
