@@ -152,7 +152,7 @@ class HomePage extends Component {
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
-                    <div className="small-12 medium-12 large-7 columns padding-left">
+                    <div className="small-12 medium-12 large-7 columns padding-left m-b-3">
                         <div className="home-news small-12 columns">
                             <div className="bg-img"/>
                             <div className="blackout"/>
@@ -191,7 +191,7 @@ class HomePage extends Component {
                         </div>
                         <a className="h3 underline" href="/news">Показать все</a>
                     </div>
-                    <div className="small-12 medium-12 large-5 columns padding-right">
+                    <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
                         <div className="home-event small-12 columns">
                             <div className="bg-border"/>
                             <h1>19</h1>
