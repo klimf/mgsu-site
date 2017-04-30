@@ -65,7 +65,7 @@ h4, .h4 {
   font-size: 1.5*$o;
 }
 
-h1, h2, h3, h4, h5, p, .h1, .h2, .h3, .h4, .h5, .p, li {
+h1, h2, h3, h4, h5, p, .h1, .h2, .h3, .h4, .h5, .p, .huge-text, li {
   &.white {
     color: $white;
   }
@@ -106,4 +106,10 @@ h1, h2, h3, h4, h5, p, .h1, .h2, .h3, .h4, .h5, .p, li {
 
 .overlay h1 {
   margin: 0;
+}
+
+.huge-text {
+  color: $disabled;
+  font-size: 6*$o;
+  font-weight: 900;
 }
