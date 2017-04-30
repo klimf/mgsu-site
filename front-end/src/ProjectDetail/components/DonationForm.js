@@ -30,7 +30,7 @@ export default class Registration extends Component {
                 <div className="form-hideable small-12 columns">
                     <div className="small-12 medium-6 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value='' placeholder="Институт"
-                                                     name="department" validations={['notRequired']}/>
+                                                     name="department" validations/>
                     </div>
                     <div className="small-12 medium-6 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value='' placeholder="Год выпуска"
@@ -39,16 +39,16 @@ export default class Registration extends Component {
                     <div className="small-12 medium-12 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value=''
                                                      placeholder="Специальность" name="speciality"
-                                                     validations={['notRequired']}/>
+                                                     validations/>
                     </div>
                 </div>
                 <div className="small-12 columns">
                     <div className="small-12  columns">
-                        <input className="left" type="checkbox" id="check-graduate"/>
+                        <Validation.components.Input className="left" type="checkbox" id="check-graduate" validations/>
                         <label htmlFor="check-graduate">Я выпускник МГСУ</label>
                     </div>
                     <div className="small-12 columns">
-                        <input className="left" type="checkbox" id="check-rules"/>
+                        <Validation.components.Input className="left" type="checkbox" id="check-rules" validations/>
                         <label htmlFor="check-rules">Согласен(а) c условиями оплаты,
                             обработки персональных данных и офертой</label>
                     </div>
@@ -115,9 +115,6 @@ export default class Registration extends Component {
                     </div>
                 </div>
                 <div className="small-12 space-1 columns"/>
-            </div>
-            <div>
-                <Validation.components.Button>Submit</Validation.components.Button>
             </div>
         </Validation.components.Form>;
     }
