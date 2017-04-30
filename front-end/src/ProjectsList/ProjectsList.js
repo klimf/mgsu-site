@@ -32,7 +32,7 @@ const defaultProps = {
 class ProjectsList extends Component {
     constructor(props) {
         super(props);
-        this.currentDirection = null
+        this.currentDirection = this.props.directions[1];
     }
 
      componentWillMount() {
@@ -40,9 +40,10 @@ class ProjectsList extends Component {
     }
 
     changeDirection(direction) {
-       this.props.history.push('/projects/' + direction || 'все проекты')
-       this.props.filters.indexOf(direction) == -1 ?
-       this.currentDirection = this.props.directions[1] :
+       this.props.history.push('/projects/' + (direction || 'Все проекты'))
+       console.log(direction,  this.props.filters.indexOf(direction));
+       this.props.filters.indexOf(direction) == -1 || direction == null ?
+       this.currentDirection = this.props.directions[0] :
        this.currentDirection = this.props.directions[this.props.filters.indexOf(direction)];
        this.props.ProjectsListManager.changeDirection(this.currentDirection);
     }
@@ -69,7 +70,7 @@ class ProjectsList extends Component {
                     {
                         this.props.projects.data && this.props.projects.data.length > 0 ?
                         this.props.projects.data.map((project, index) =>
-                            <ProjectItem   key={index} project={project}/>
+                            <ProjectItem key={index} project={project}/>
                         ) :
                         <h2 className="center">К сожалению, проектов в этом направлении пока нет</h2>
                     }

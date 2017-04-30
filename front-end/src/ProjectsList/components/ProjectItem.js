@@ -4,7 +4,7 @@ import {Link, withRouter} from "react-router-dom";
 
 const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
-        <Link to={`project/${props.project._id}`}>
+        <Link to={`/project/${props.project._id}`}>
             <div className="project-image space-7">
                 <div className="bg-img" style={{"background": "url(" + (props.project.img ? props.project.img.small : "../media/images/placeholder.png" + ") center center no-repeat;") }}/>
             </div>
