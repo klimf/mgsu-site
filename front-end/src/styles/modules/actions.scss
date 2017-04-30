@@ -312,6 +312,10 @@
 }
 
 .donation-form span {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 3*$o;
   color: $white;
 }
 
