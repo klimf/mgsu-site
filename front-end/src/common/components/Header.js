@@ -72,4 +72,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default Header;
+export default withRouter(connect(mapStateToProps)(Header));
