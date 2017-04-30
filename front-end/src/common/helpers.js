@@ -19,14 +19,15 @@ export function formatMoney(value) {
 export const apiUrl = 'http://185.189.13.148/api/';
 
 export function resolveApi({path, action, query}) {
-    const haveQuery = (query && query != {})
+    const haveQuery = (query && query != {});
     if (haveQuery) {
         var queryArr = [];
         for (var key in query) {
             queryArr.push(key + '=' + query[key])
         }
     }
-    return apiUrl + `${path.join('/')}${haveQuery && '/?' + queryArr.join('&&')}`
+    console.log(path, action, query);
+    return apiUrl + `${path.join('/')}${haveQuery ? ('/?' +  queryArr.join('&&')) : ''}`
 
 }
 

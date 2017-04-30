@@ -15,11 +15,12 @@ import {jsonServerRestClient, Admin, Resource, Delete} from "admin-on-rest";
 import authClient from './authClient';
 import {PostList} from "./resources/test";
 import {UserList, UserEdit, UserCreate} from "./resources/user";
+import efRestClient from "./efRestClient"
 
 const AdminSection = () => (
     <Admin title="Админ панель"
            authClient={authClient}
-           restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')}>
+           restClient={efRestClient}>
         <Resource name="posts"
                   list={PostList}/>
         <Resource name="users"
