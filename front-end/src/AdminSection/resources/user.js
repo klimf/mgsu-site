@@ -1,4 +1,5 @@
 import React from "react";
+import {noSpace, required, email, minLength} from "../validationRules";
 import {
     List,
     Datagrid,
@@ -33,14 +34,13 @@ export const UserEdit = (props) => (
     <Edit title="Изменение пользователя" {...props}>
         <SimpleForm>
             <DisabledInput source="id"/>
-            <TextInput source="name" label="Имя"/>
-            <TextInput source="surname" label="Фамиля"/>
-            <TextInput source="middleName" label="Отчество"/>
-            <TextInput source="email" label="Email"/>
+            <TextInput source="name" label="Имя" validate={[required, noSpace]}/>
+            <TextInput source="surname" label="Фамиля" validate={[required, noSpace]}/>
+            <TextInput source="middleName" label="Отчество" validate={[noSpace]}/>
+            <TextInput source="email" label="Email" validate={[required, email]}/>
             <TextInput source="contact" label="Контакт"/>
-            <TextInput source="aboutMe" label="Обо мне"/>
+            <LongTextInput source="aboutMe" label="Обо мне" validate={[minLength(15)]}/>
             <TextInput source="image" label="Аватар"/>
-            <LongTextInput source="body"/>
         </SimpleForm>
     </Edit>
 );
@@ -49,14 +49,13 @@ export const UserCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
             <DisabledInput source="id"/>
-            <TextInput source="name" label="Имя"/>
-            <TextInput source="surname" label="Фамиля"/>
-            <TextInput source="middleName" label="Отчество"/>
-            <TextInput source="email" label="Email"/>
+            <TextInput source="name" label="Имя" validate={[required, noSpace]}/>
+            <TextInput source="surname" label="Фамиля" validate={[required, noSpace]}/>
+            <TextInput source="middleName" label="Отчество" validate={[noSpace]}/>
+            <TextInput source="email" label="Email" validate={[required, email]}/>
             <TextInput source="contact" label="Контакт"/>
-            <TextInput source="aboutMe" label="Обо мне"/>
+            <LongTextInput source="aboutMe" label="Обо мне" validate={[minLength(15)]}/>
             <TextInput source="image" label="Аватар"/>
-            <LongTextInput source="body"/>
         </SimpleForm>
     </Create>
 );

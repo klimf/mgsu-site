@@ -44,11 +44,11 @@ export default class Registration extends Component {
                 </div>
                 <div className="small-12 columns">
                     <div className="small-12  columns">
-                        <Validation.components.Input className="left" type="checkbox" id="check-graduate"/>
+                        <input className="left" type="checkbox" id="check-graduate"/>
                         <label htmlFor="check-graduate">Я выпускник МГСУ</label>
                     </div>
                     <div className="small-12 columns">
-                        <Validation.components.Input className="left" type="checkbox" id="check-rules"/>
+                        <input className="left" type="checkbox" id="check-rules"/>
                         <label htmlFor="check-rules">Согласен(а) c условиями оплаты,
                             обработки персональных данных и офертой</label>
                     </div>
