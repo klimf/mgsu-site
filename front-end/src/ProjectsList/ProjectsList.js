@@ -14,19 +14,37 @@ const defaultProps = {
         'Инфраструктура',
         'Спорт',
         'Проффессора и преподаватели'
+    ],
+
+    directions: [
+        null,
+        'образование',
+        'наука',
+        'студенты',
+        'стипендии',
+        'инфраструктура',
+        'спорт',
+        'проффессора и преподаватели'
     ]
 
 };
 
 class ProjectsList extends Component {
-     componentDidMount() {
+    constructor(props) {
+        super(props);
+        this.currentDirection = null
+    }
 
+     componentWillMount() {
         this.changeDirection(this.props.match.params.direction || null);
-      
     }
 
     changeDirection(direction) {
-       return this.props.ProjectsListManager.changeDirection( direction)
+       this.props.history.push('/projects/' + direction || 'все проекты')
+       this.props.filters.indexOf(direction) == -1 ?
+       this.currentDirection = this.props.directions[1] :
+       this.currentDirection = this.props.directions[this.props.filters.indexOf(direction)];
+       this.props.ProjectsListManager.changeDirection(this.currentDirection);
     }
    
     render() {
@@ -35,11 +53,12 @@ class ProjectsList extends Component {
                 <div className="content small-12 row">
                     <div className="space-3"/>
                     <div className="projects-icon small-0"
-                         style={{background: "url(" + require("../media/images/project-nav/" + "образование" + ".png") + ") no-repeat"}}></div>
+                         style={{background: "url(" + require("../media/images/project-nav/" + (this.currentDirection || 'наука') + ".png") + ") no-repeat"}}></div>
                     <div className="projects-navigation">
                         {
                             this.props.filters.map((filter, index) =>
                                 <div className="projects-nav-item"
+                                     onClick={this.changeDirection.bind(this, filter)}
                                      key={index}>
                                     {filter}
                                 </div>
@@ -48,10 +67,11 @@ class ProjectsList extends Component {
                     </div>
                     <div className="space-3"/>
                     {
-                        this.props.projects.data &&
+                        this.props.projects.data && this.props.projects.data.length > 0 ?
                         this.props.projects.data.map((project, index) =>
-                            <ProjectItem key={index} project={project}/>
-                        )
+                            <ProjectItem   key={index} project={project}/>
+                        ) :
+                        <h2 className="center">К сожалению, проектов в этом направлении пока нет</h2>
                     }
                 </div>
                 <div className="space-3"/>
