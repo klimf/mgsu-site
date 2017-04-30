@@ -1,32 +1,50 @@
 import React, {Component, propTypes} from "react";
 import { connect, bindActionCreators } from "react-redux";
 import { withRouter } from "react-router-dom";
-import DonationForm from "./components/DonationForm"
 import { DonationsListManager, VipSponsorsManager} from '../common/reducers/PeopleState'
 import { PartnersManager} from '../common/reducers/ContentState'
 
 
-const propTypes = {
-    
-}
 
-const defaultProps = {}
 
-class SponsorsPage extends Component {
+class AboutPage extends Component {
 
     componentDidMount() {
         /////////////////////////////////////////////////
-        // ФОРМАТ this.props.vipSponsors 
+        // ФОРМАТ this.props.about.data
         ////////////////////////////////////////////////
         //
         // _id,
-        // img: {
-        //     original,
-        //     small
-        // },
-        // s
+        // title,
+        // content
         // ...
         // 
+
+        /////////////////////////////////////////////////
+        // ФОРМАТ this.props.aboutTeam.data
+        ////////////////////////////////////////////////
+        //
+        // _id,
+        // firstName,
+        // lastName,
+        // middleName,
+        // description
+        // ...
+        // 
+
+        /////////////////////////////////////////////////
+        // ФОРМАТ this.props.about.targets.data
+        ////////////////////////////////////////////////
+        //
+        // _id,
+        // firstName,
+        // lastName,
+        // middleName,
+        // description
+        // content
+        // ...
+        // 
+
     }
    
 
@@ -41,9 +59,7 @@ class SponsorsPage extends Component {
 
 }
 
-SponsorsPage.propTypes = propTypes
 
-SponsorsPage.defaultProps = defaultProps
 
 const mapStateToProps = state => {
   return {
@@ -62,5 +78,5 @@ const mapDispatchToProps = dispatch => {
    }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDetail));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AboutPage));
 

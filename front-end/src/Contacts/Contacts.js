@@ -1,17 +1,22 @@
-import React from "react";
+import React, {Component} from "react";
+import {withRouter} from "react-router";
+import {connect} from "redux";
 
-const NotFound = () => (
-    <div className="page row expanded">
-        <div className="content small-12 row">
-            <div className="small-12 space-4 columns"/>
-            <img alt="pic" src={require("../media/images/404.png")} className="small-12"/>
-        </div>
-    </div>
-);
 
-export default NotFound;
-
-class ProjectDetail extends Component {
+class ContactsPage extends Component {
+    componentDidMount() {
+        /////////////////////////////////////////////////
+        // ФОРМАТ this.props.contacts.data
+        ////////////////////////////////////////////////
+        //
+        // _id,
+        // firstName,
+        // lastName,
+        // middleName,
+        // description
+        // ...
+        // 
+    }
     render() {
         return (
             <div className="page row expanded">
@@ -32,4 +37,13 @@ class ProjectDetail extends Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDetail));
+const mapDispatchToProps = dispatch => {
+    
+}
+
+const mapStateToProps = state => {
+    const { key } = state
+    return { key }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsPage));

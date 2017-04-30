@@ -1,16 +1,10 @@
-import React, {Component, propTypes} from "react";
+import React, {Component} from "react";
 import { connect, bindActionCreators } from "react-redux";
 import { withRouter } from "react-router-dom";
-import DonationForm from "./components/DonationForm"
 import { DonationsListManager, VipSponsorsManager} from '../common/reducers/PeopleState'
 import { PartnersManager} from '../common/reducers/ContentState'
 
 
-const propTypes = {
-    
-}
-
-const defaultProps = {}
 
 class SponsorsPage extends Component {
 
@@ -79,9 +73,8 @@ class SponsorsPage extends Component {
 
 }
 
-SponsorsPage.propTypes = propTypes
 
-SponsorsPage.defaultProps = defaultProps
+
 
 const mapStateToProps = state => {
   return {
@@ -100,5 +93,5 @@ const mapDispatchToProps = dispatch => {
    }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDetail));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SponsorsPage));
 

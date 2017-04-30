@@ -37,7 +37,7 @@ class Header extends Component {
                         <NavLink className="small-nav-item" to="/about">О фонде</NavLink>
                         <NavLink className="small-nav-item" to="/projects">Проекты</NavLink>
                         <NavLink className="small-nav-item" to="/sponsors">Благотворители</NavLink>
-                        <NavLink className="small-nav-item" to="/club">Клуб выпускников</NavLink>
+                        <NavLink className="small-nav-item" to="/alumni">Клуб выпускников</NavLink>
                         <NavLink className="small-nav-item" to="/news">Новости</NavLink>
                         <NavLink className="small-nav-item" to="/contacts">Контакты</NavLink>
                     </div>
