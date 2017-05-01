@@ -1,5 +1,5 @@
-import React, {Component, propTypes} from "react";
-import { connect, bindActionCreators } from "react-redux";
+import React, {Component} from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { DonationsListManager, VipSponsorsManager} from '../common/reducers/PeopleState'
 import { PartnersManager} from '../common/reducers/ContentState'
@@ -8,7 +8,6 @@ import { PartnersManager} from '../common/reducers/ContentState'
 
 
 class AboutPage extends Component {
-
     componentDidMount() {
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.about.data
@@ -43,8 +42,7 @@ class AboutPage extends Component {
         // description
         // content
         // ...
-        // 
-
+        //
     }
    
 
@@ -55,8 +53,6 @@ class AboutPage extends Component {
             </div>
         )
     }
-
-
 }
 
 

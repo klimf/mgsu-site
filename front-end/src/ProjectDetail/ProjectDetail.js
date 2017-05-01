@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { connect, bindActionCreators } from "react-redux";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import DonationForm from "./components/DonationForm"
 import { ProjectDetailManager} from '../common/reducers/ProjectsState'
@@ -110,7 +110,7 @@ class ProjectDetail extends Component {
 }
 
 const mapStateToProps = state => {
-  const project = state.currentProject;
+  // const project = state.currentProject;
 };
 
 const mapDispatchToProps = dispatch => {

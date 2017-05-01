@@ -1,4 +1,4 @@
-import { createReducer, createAction } from "redux-act";
+import { createReducer } from "redux-act";
 import {combineReducers} from "redux";
 import { ApiAction,  StateModel} from "../helpers";
 
@@ -21,7 +21,7 @@ class _PeopleListModel extends StateModel {
 class _DonationsListModel extends StateModel {
 
     constructor() {
-        super(new ApiAction({TYPE: 'SPONSORS' + '_LIST_CHANGE', model: 'donators'}));
+        super(new ApiAction({TYPE: 'SPONSORS_LIST_CHANGE', model: 'donators'}));
     }
 
     get() {

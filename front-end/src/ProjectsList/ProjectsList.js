@@ -41,7 +41,7 @@ class ProjectsList extends Component {
 
     changeDirection(direction) {
        this.props.history.push('/projects/' + (direction || 'Все проекты'))
-       this.props.filters.indexOf(direction) == -1 || direction == null ?
+       this.props.filters.indexOf(direction) === -1 || direction == null ?
        this.currentDirection = this.props.directions[0] :
        this.currentDirection = this.props.directions[this.props.filters.indexOf(direction)];
        this.props.ProjectsListManager.changeDirection(this.currentDirection);

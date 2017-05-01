@@ -1,5 +1,4 @@
-import { createReducer, createAction } from "redux-act";
-import {combineReducers} from "redux"
+import { createReducer } from "redux-act";
 import { ApiAction, StateModel } from "../helpers";
 
 class UserManager extends StateModel {
