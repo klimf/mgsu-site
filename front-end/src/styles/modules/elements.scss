@@ -323,7 +323,9 @@
 
 .project-progress {
   @extend .transition-3;
-  background-color: $white;
+  margin-top: -414px;
+  padding-top: 414px;
+  height: 100%;
   bottom: 0;
 }
 
@@ -334,8 +336,9 @@
 .project-bar {
   position: absolute;
   width: 100%;
+  max-width: 100%;
   height: $o;
-  bottom: 6*$o;
+  bottom: 0;
   left: 0;
   background-color: $disabled;
 }
