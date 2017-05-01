@@ -221,14 +221,12 @@
   margin: $o;
   color: $dark;
   display: inline-block;
-  border-bottom: $small-border solid $disabled;
-  text-tramsform: capitalize;
-  
+  border-bottom: $border solid $disabled;
 }
 
 .projects-nav-item.active, .projects-nav-item:hover {
   color: $black;
-  border-bottom: $small-border solid $primary;
+  border-bottom: $border solid $primary;
 }
 
 
