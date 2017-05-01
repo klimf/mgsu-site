@@ -15,7 +15,6 @@ const defaultProps = {
         'Документы',
         'Контакты'
     ]
-
 };
 
 class AboutPage extends Component {

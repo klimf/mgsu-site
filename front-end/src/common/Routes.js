@@ -10,6 +10,7 @@ import AboutPage from "../AboutPage/AboutPage";
 import GradClubPage from "../GradClubPage/GradClubPage";
 import SponsorsPage from "../SponsorsPage/SponsorsPage";
 import NewsPage from "../NewsPage/NewsPage";
+import EventsPage from "../EventsPage/EventsPage";
 
 const Routes = ({user, UserManager}) => (
     <Switch>
@@ -21,6 +22,7 @@ const Routes = ({user, UserManager}) => (
         <Route exact path="/alumni/:department?" component={GradClubPage}/>
         <Route exact path="/sponsors" component={SponsorsPage}/>
         <Route exact path="/news" component={NewsPage}/>
+        <Route exact path="/events" component={EventsPage}/>
         <Route path="/admin" component={AdminSection}/>
         <Route component={NotFound}/>
     </Switch>

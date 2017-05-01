@@ -3,7 +3,7 @@ import {connect, bindActionCreators} from "react-redux";
 
 import {NavLink, withRouter} from "react-router-dom";
 
-class NewsPage extends Component {
+class EventsPage extends Component {
 
     componentDidMount() {
 
@@ -26,11 +26,12 @@ class NewsPage extends Component {
                     </div>
                     <div className="small-12 space-3 columns"/>
                     <div className="small-12 columns m-b-3">
+
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-news space-6 small-12 columns">
-                                <div className="bg-img"/>
-                                <div className="blackout"/>
-                                <h2>Альбом выпускников</h2>
+                            <div className="home-event small-12 columns">
+                                <div className="bg-border"/>
+                                <h1>5</h1>
+                                <h2>Апреля</h2>
                                 <p>
                                     В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
                                     работодатель сможет посмотреть
@@ -38,10 +39,10 @@ class NewsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-news space-6 small-12 columns">
-                                <div className="bg-img"/>
-                                <div className="blackout"/>
-                                <h2>Альбом выпускников</h2>
+                            <div className="home-event small-12 columns">
+                                <div className="bg-border"/>
+                                <h1>10</h1>
+                                <h2>Апреля</h2>
                                 <p>
                                     В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
                                     работодатель сможет посмотреть
@@ -49,10 +50,10 @@ class NewsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-news space-6 small-12 columns">
-                                <div className="bg-img"/>
-                                <div className="blackout"/>
-                                <h2>Альбом выпускников</h2>
+                            <div className="home-event small-12 columns">
+                                <div className="bg-border"/>
+                                <h1>19</h1>
+                                <h2>Апреля</h2>
                                 <p>
                                     В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
                                     работодатель сможет посмотреть
@@ -60,10 +61,10 @@ class NewsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-news space-6 small-12 columns">
-                                <div className="bg-img"/>
-                                <div className="blackout"/>
-                                <h2>Альбом выпускников</h2>
+                            <div className="home-event small-12 columns">
+                                <div className="bg-border"/>
+                                <h1>29</h1>
+                                <h2>Апреля</h2>
                                 <p>
                                     В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
                                     работодатель сможет посмотреть
@@ -71,10 +72,10 @@ class NewsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-news space-6 small-12 columns">
-                                <div className="bg-img"/>
-                                <div className="blackout"/>
-                                <h2>Альбом выпускников</h2>
+                            <div className="home-event small-12 columns">
+                                <div className="bg-border"/>
+                                <h1>30</h1>
+                                <h2>Апреля</h2>
                                 <p>
                                     В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
                                     работодатель сможет посмотреть
@@ -82,10 +83,10 @@ class NewsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-news space-6 small-12 columns">
-                                <div className="bg-img"/>
-                                <div className="blackout"/>
-                                <h2>Альбом выпускников</h2>
+                            <div className="home-event small-12 columns">
+                                <div className="bg-border"/>
+                                <h1>1</h1>
+                                <h2>Мая</h2>
                                 <p>
                                     В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
                                     работодатель сможет посмотреть
@@ -103,5 +104,5 @@ class NewsPage extends Component {
 }
 
 
-export default NewsPage;
+export default EventsPage;
 
