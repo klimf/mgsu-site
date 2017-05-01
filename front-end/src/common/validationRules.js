@@ -2,18 +2,19 @@ import React from "react";
 import Validation from "react-validation";
 import {isEmpty, isEmail, isInt} from "validator";
 
+/*
+ * Rules for Validation lib
+ * true - correct
+ * false - warring
+ */
+
 Object.assign(Validation.rules, {
     required: {
-        rule: value => {
+        rule: (value) => {
             return !isEmpty(value);
         },
         hint: value => {
             return <span>Обязательное поле</span>
-        }
-    },
-    notRequired: {
-        rule: value => {
-            return value;
         }
     },
     email: {
