@@ -9,6 +9,7 @@ import {headerActions} from "../common/components/state";
 class HomePage extends Component {
     constructor(props) {
         super(props);
+
         this.hexaNames = [
             'Образование',
             'Наука',
@@ -23,7 +24,8 @@ class HomePage extends Component {
             resetDelays: 'active delay-0'
         };
         this.state = {
-            hexaStyle: ''
+            hexaStyle: '',
+            scrollTop: 0
         }
 
 
@@ -41,27 +43,17 @@ class HomePage extends Component {
             });
         }, 600);
 
-        this.fundValue = (this.props.fundDetail.data.given/this.props.fundDetail.data.need)*100;
+        this.fundValue = (this.props.fundDetail.data.given / this.props.fundDetail.data.need) * 100;
         this.fundValueTooSmall = this.fundValue < 10;
         this.fundValueTooLagre = this.fundValue > 80;
 
-        console.log(this.fundValue)
+        //console.log(this.fundValue);
 
-        // window.addEventListener("scroll", function(){
-        //     parallax();
-        // });
-        //
-        // function parallax() {
-        //     let $slider = document.getElementById("wide-img");
-        //
-        //     let yPos = window.pageYOffset / 3;
-        //     yPos = -yPos;
-        //
-        //     let coords = '0% '+ yPos + 'px';
-        //
-        //     $slider.style.backgroundPosition = coords;
-        //     console.log("Scroll");
-        // }
+        window.addEventListener("scroll", ()=>{
+                this.setState({
+                    scrollTop: window.pageYOffset
+                });
+        });
 
         this.props.headerAct.dyeWhite();
     }
@@ -82,44 +74,43 @@ class HomePage extends Component {
 
         return (
             <div className="page row expanded">
-                <div classID="wide-img" className="wide-img small-12 expanded">
+                <div classID="wide-img" className="wide-img small-12 expanded"
+                style={{backgroundPosition: "center -"+ this.state.scrollTop/2 + "px"}}>
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar-wrap">
-
-                            {this.fundValue < 80 && 
-                                <div className="bar-label" style={{ width: `${this.fundValue}%`}}>
-                                    <div className="donate-btn-icon-white"></div>
-                                        <h1 className="uppercase bar-text bar-left">
-                                            <p className="uppercase">Размер фонда</p>
-                                            {formatMoney(this.props.fundDetail.data.given)}₽
-                                        </h1>
-                                </div>
+                            {this.fundValue < 80 &&
+                            <div className="bar-label" style={{width: `${this.fundValue}%`}}>
+                                <div className="donate-btn-icon-white"></div>
+                                <h1 className="uppercase bar-text bar-left">
+                                    <p className="uppercase">Размер фонда</p>
+                                    {formatMoney(this.props.fundDetail.data.given)}₽
+                                </h1>
+                            </div>
                             }
 
-                            
-                            
-                             <div className="bar-fact primary" style={{ width: `${this.fundValue}%`}}></div>
-                             
-                             </div>
-                             
-                          
-                            <h1 className="uppercase bar-text bar-right bar-text--right">
-                                
-                                {this.fundValue > 80 && 
-                                    <div className="tooLargeValue">
-                                      <div className="donate-btn-icon-white--tooLargeValue"></div>
-                                        <h1 className="uppercase bar-text bar--tooLagreValue">
-                                            <p className="uppercase">Размер фонда</p>
-                                            {formatMoney(this.props.fundDetail.data.given)}₽
-                                        </h1>
-                                     </div>
-                                 } 
-                                    
-                                <p className="uppercase">Цель</p>
-                                {formatMoney(this.props.fundDetail.data.need)}₽
-                            </h1>
-                        
+
+                            <div className="bar-fact primary" style={{width: `${this.fundValue}%`}}></div>
+
+                        </div>
+
+
+                        <h1 className="uppercase bar-text bar-right bar-text--right">
+
+                            {this.fundValue > 80 &&
+                            <div className="tooLargeValue">
+                                <div className="donate-btn-icon-white--tooLargeValue"></div>
+                                <h1 className="uppercase bar-text bar--tooLagreValue">
+                                    <p className="uppercase">Размер фонда</p>
+                                    {formatMoney(this.props.fundDetail.data.given)}₽
+                                </h1>
+                            </div>
+                            }
+
+                            <p className="uppercase">Цель</p>
+                            {formatMoney(this.props.fundDetail.data.need)}₽
+                        </h1>
+
                     </div>
                     <div className="content small-12 row">
                         <h1 className="small-12 white uppercase center columns">Направления для поддержки</h1>
@@ -144,25 +135,30 @@ class HomePage extends Component {
                 </div>
                 <div className="hexagon-bg-container small-12 row expanded absolute no-overflow">
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
-                         xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                         xmlns="http://www.w3.org/2000/svg"
+                         style={{top: -500 + this.state.scrollTop/5 + "px"}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                     <svg className="hexagon-bg small-0 medium-0" viewBox="-24 -24 254 287" version="1.1"
-                         xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                         xmlns="http://www.w3.org/2000/svg"
+                         style={{top: this.state.scrollTop/3 + "px"}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
-                         xmlns="http://www.w3.org/2000/svg">{/*getRandomInt(0, 7)*/}
+                         xmlns="http://www.w3.org/2000/svg"
+                         style={{top: 600 + this.state.scrollTop/4 + "px"}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
-                        <img alt="pic" src={require("../media/blocks/how-it-works.png")} className="small-12 columns small-0"/>
-                        <img alt="pic" src={require("../media/blocks/how-it-works-mobile.png")} className="small-12 columns medium-0 large-0"/>
+                    <img alt="pic" src={require("../media/blocks/how-it-works.png")}
+                         className="small-12 columns small-0"/>
+                    <img alt="pic" src={require("../media/blocks/how-it-works-mobile.png")}
+                         className="small-12 columns medium-0 large-0"/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
@@ -253,8 +249,10 @@ class HomePage extends Component {
                 </div>
                 <div className="space-4"/>
                 <div className="content small-12 row">
-                    <img alt="pic" src={require("../media/images/corps.png")} className="small-12 small-0 medium-0 hover-opacity columns"/>
-                    <img alt="pic" src={require("../media/images/corps-mobile.png")} className="small-12 large-0 hover-opacity columns"/>
+                    <img alt="pic" src={require("../media/images/corps.png")}
+                         className="small-12 small-0 medium-0 hover-opacity columns"/>
+                    <img alt="pic" src={require("../media/images/corps-mobile.png")}
+                         className="small-12 large-0 hover-opacity columns"/>
                 </div>
                 <div className="space-4"/>
             </div>
@@ -265,11 +263,11 @@ class HomePage extends Component {
 HomePage.defaultProps = {
     fundDetail: {
         data: {
-                given: 123000000,
-                need:  224000000
-            }
+            given: 123000000,
+            need: 224000000
+        }
     }
-}
+};
 
 const mapDispatchToProps = dispatch => (
     {headerAct: bindAll(headerActions, dispatch)});
