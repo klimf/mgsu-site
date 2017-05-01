@@ -1,3 +1,14 @@
+.decoration {
+  @extend .cover;
+  background: url($image + "decoration.png") no-repeat;
+  position: absolute;
+  left: 0;
+  top: 42px;
+  width: 24px;
+  height: 20px;
+
+}
+
 .logo-base {
   @extend .inline,
   .pointer,
@@ -69,7 +80,7 @@
   .cover,
   .pointer;
   background: url($image + "icon-donate.png") no-repeat;
-  right: -25px;
+  right: -26px;
   bottom: $o + 3px;
   width: 52px;
   height: 65px;
@@ -90,9 +101,10 @@
 }
 
 .donate-btn-icon-white:hover {
-  right: -29px;
-  width: 60px;
-  height: 75px;
+  right: -32px;
+  bottom: 0;
+  width: 64px;
+  height: 80px;
 
 }
 
@@ -123,7 +135,6 @@
   right: 25px + $o*2;
   text-align: right;
   width: calc(300px);
-  right: 25px + $o*2;
 }
 
 .bar--tooLagreValue {
@@ -323,7 +334,9 @@
 
 .project-progress {
   @extend .transition-3;
-  background-color: $white;
+  margin-top: -414px;
+  padding-top: 414px;
+  height: 100%;
   bottom: 0;
 }
 
@@ -334,8 +347,9 @@
 .project-bar {
   position: absolute;
   width: 100%;
+  max-width: 100%;
   height: $o;
-  bottom: 6*$o;
+  bottom: 0;
   left: 0;
   background-color: $disabled;
 }
@@ -360,6 +374,7 @@
 }
 
 .iframe-map {
+  background-color: $disabled;
   margin-bottom: -6px;
 }
 
