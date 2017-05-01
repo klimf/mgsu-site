@@ -219,13 +219,15 @@
   @extend .transition-3,
   .h3;
   margin: $o;
+  color: $dark;
   display: inline-block;
   border-bottom: $small-border solid $disabled;
   text-tramsform: capitalize;
   
 }
 
-.projects-nav-item .active, .projects-nav-item:hover {
+.projects-nav-item.active, .projects-nav-item:hover {
+  color: $black;
   border-bottom: $small-border solid $primary;
 }
 
