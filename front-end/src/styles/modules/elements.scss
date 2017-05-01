@@ -236,7 +236,6 @@
 
 .sponsor-img {
   @include image("placeholder.png");
-
   width: 80%;
   margin: 0 10% $o 10%;
   padding: calc(40% - 4px) 0;
@@ -247,17 +246,16 @@
 
 .sponsor {
   text-align: center;
-  margin-bottom: 2*$o;
+  margin: 0;
 }
 
 .sponsor h2 {
   font-weight: 400;
   margin: 0;
-
 }
 
 .sponsor p {
-  margin: 0;
+  margin: 0 0  2*$o 0;
   font-weight: 400;
   color: $dark;
 }
