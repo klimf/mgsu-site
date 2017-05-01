@@ -28,7 +28,7 @@ class EventsPage extends Component {
                     <div className="small-12 columns m-b-3">
 
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-event small-12 columns">
+                            <div className="home-event space-6 small-12 columns">
                                 <div className="bg-border"/>
                                 <h1>5</h1>
                                 <h2>Апреля</h2>
@@ -39,7 +39,7 @@ class EventsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-event small-12 columns">
+                            <div className="home-event space-6 small-12 columns">
                                 <div className="bg-border"/>
                                 <h1>10</h1>
                                 <h2>Апреля</h2>
@@ -50,7 +50,7 @@ class EventsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-event small-12 columns">
+                            <div className="home-event space-6 small-12 columns">
                                 <div className="bg-border"/>
                                 <h1>19</h1>
                                 <h2>Апреля</h2>
@@ -61,7 +61,7 @@ class EventsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-event small-12 columns">
+                            <div className="home-event space-6 small-12 columns">
                                 <div className="bg-border"/>
                                 <h1>29</h1>
                                 <h2>Апреля</h2>
@@ -72,7 +72,7 @@ class EventsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-event small-12 columns">
+                            <div className="home-event space-6 small-12 columns">
                                 <div className="bg-border"/>
                                 <h1>30</h1>
                                 <h2>Апреля</h2>
@@ -83,7 +83,7 @@ class EventsPage extends Component {
                             </div>
                         </div>
                         <div className="small-12 medium-12 large-6 columns">
-                            <div className="home-event small-12 columns">
+                            <div className="home-event space-6 small-12 columns">
                                 <div className="bg-border"/>
                                 <h1>1</h1>
                                 <h2>Мая</h2>
