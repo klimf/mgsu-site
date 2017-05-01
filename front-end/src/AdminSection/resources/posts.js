@@ -3,22 +3,16 @@ import {
     List,
     Datagrid,
     TextField,
-    EmailField,
     DateField,
     EditButton,
-    NumberField,
-    BooleanField,
     UrlField,
     ChipField,
     Edit,
     Create,
     SimpleForm,
-    DisabledInput,
-    BooleanInput,
     TextInput,
     LongTextInput,
-    DateInput,
-    NumberInput
+    DateInput
 } from "admin-on-rest";
 
 export const PostList = (props) => (

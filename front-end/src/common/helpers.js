@@ -1,5 +1,5 @@
 import fetch from "isomorphic-fetch";
-import { createAction, bindAll } from "redux-act";
+import {createAction} from "redux-act";
 
 
 export function getRandomInt(min, max) {
@@ -19,14 +19,14 @@ export function formatMoney(value) {
 export const apiUrl = 'http://185.189.13.148/api/';
 
 export function resolveApi({path, action, query}) {
-    const haveQuery = (query && query != {});
+    const haveQuery = (query && query !== {});
     if (haveQuery) {
         var queryArr = [];
         for (var key in query) {
             queryArr.push(key + '=' + query[key])
         }
     }
-    return apiUrl + `${path.join('/')}${haveQuery ? ('/?' +  queryArr.join('&')) : ''}`
+    return apiUrl + `${path.join('/')}${haveQuery ? ('/?' + queryArr.join('&')) : ''}`
 
 }
 
@@ -40,9 +40,14 @@ export class AsyncAction {
         };
         this.asyncFunc = asyncFunc;
         this.reducerHandlers = {
-            [this.actions.startQuery]: (state, request) => ({ loading: true, data: false, error: false, request: request }),
-            [this.actions.sucessQuery]: (state, data) => ({ loading: false, data: data, error: false }),
-            [this.actions.failQuery]: (state, message) => ({ loading: false, data: false, error: message })
+            [this.actions.startQuery]: (state, request) => ({
+                loading: true,
+                data: false,
+                error: false,
+                request: request
+            }),
+            [this.actions.sucessQuery]: (state, data) => ({loading: false, data: data, error: false}),
+            [this.actions.failQuery]: (state, message) => ({loading: false, data: false, error: message})
         };
         this.defaultState = {loading: true, data: false, error: false}
     }
@@ -53,7 +58,7 @@ export class AsyncAction {
         return this.asyncFunc(params).then(
             resolved => this.dispatch(this.actions.sucessQuery(resolved)))
             .catch(rejected => this.dispatch(this.actions.failQuery(rejected)))
-            
+
     }
 
     bindTo(dispatch) {
@@ -63,11 +68,11 @@ export class AsyncAction {
 }
 
 export class ApiAction extends AsyncAction {
-    
+
     constructor({TYPE, model, action = false, options = false, prePare = false}) {
 
         const apiFunc = ({params, query = {}, body, options}) => {
-            
+
             const path = [this.model].concat(params || []);
 
             const _query = query ? Object.assign({}, this.options.query, query) : this.options.query;
@@ -75,6 +80,7 @@ export class ApiAction extends AsyncAction {
             const apiQuery = resolveApi({path: path, action: this.action, query: _query});
 
             const _options = options || this.options;
+
             if(body) {
                  _options.body = JSON.stringify(body);
                  _options.headers = {
@@ -83,23 +89,20 @@ export class ApiAction extends AsyncAction {
                     };
             }
 
-           // _options.creditionals = 'same-origin';
-           
+            // _options.creditionals = 'same-origin';
+
 
             return new Promise((resolve, reject) => {
-
-            
                 fetch(apiQuery, _options).then((response) => {
-                if(response.status != 200 && response.status!= 304) {
-                    reject({status: response.status, message: response.statusText});
-                } else {
+                if(response.status == 200 || response.status == 304) {
                     response.json().then((data) => {
                         resolve(this.prePare(data));
                     })
+                } else {
+                    reject({status: response.status, message: response.statusText});
                 }
 
             }).catch((error) => {
-                
                     reject(error);
                 })
             })
@@ -112,10 +115,10 @@ export class ApiAction extends AsyncAction {
         this.options = options || {query: {}, method: 'GET'};
 
         this.prePare = prePare || ((data) => data);
-       
+
     }
 
-   
+
 }
 
 
@@ -143,5 +146,5 @@ export class StateModel {
         }
         this.defaultState[changedStateField] = defaultStateFieldValue;
     }
-    
+
 }

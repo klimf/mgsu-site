@@ -7,7 +7,14 @@ const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
         <Link to={`/project/${props.project._id}`}>
             <div className="project-image space-7">
-                <div className="bg-img" style={{"background": "url(" + (props.project.img ? props.project.img.small : "../media/images/placeholder.png" + ") center center no-repeat;") }}/>
+                <div className={`bg-img ${!props.project.img && 'placeholder-img'}`}
+                                style={
+                                    props.project.img &&
+                                    {
+                                        backgroud: `url(${props.project.img.small})`
+                                    }
+                                }
+                 />
             </div>
             <div className="project-text">
                 <h2 className="small-12 upprecase center black columns">{props.project.name}</h2>
@@ -17,7 +24,7 @@ const ProjectItem = (props) => (
             <div className="project-progress">
                 <div className="small-6 bg-white space-4 columns no-padding">
                     <p className="black center">Собрано</p>
-                    <h3 className="black center">{formatMoney(props.project.given)}</h3>
+                    <h3 className="black center">{formatMoney(props.project.given)} ₽</h3>
                 </div>
                 <div className="small-6 bg-white space-4 columns no-padding">
                     <p className="black center">Цель</p>

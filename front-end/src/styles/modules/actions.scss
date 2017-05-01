@@ -43,6 +43,20 @@
   background: url($image + "icon-login.png") no-repeat;
 }
 
+.back-btn-icon {
+  @extend .border-small,
+  .hover-primary-invert,
+  .header-icon;
+  background: url($image + "icon-back.png") no-repeat;
+}
+
+.close-btn-icon {
+  @extend .border-small,
+  .hover-primary-invert,
+  .header-icon;
+  background: url($image + "icon-close.png") no-repeat;
+}
+
 .login-btn-icon-white {
   @extend .border-small-white,
   .header-icon;
@@ -85,6 +99,17 @@
   padding: 0 2*$o;
   width: calc(50% - 54px);
   margin: 0 2*$o 2*$o 0;
+}
+
+.login-input {
+  @extend .border-small-disabled,
+  .transition-3,
+  .m-b-2;
+  height: 4*$o;
+}
+.login-input:focus {
+  padding-left: 2*$o;
+  border: $small-border solid $dark;
 }
 
 .navigation {
@@ -217,16 +242,17 @@
 
 .projects-nav-item {
   @extend .transition-3,
+  .pointer,
   .h3;
   margin: $o;
+  color: $dark;
   display: inline-block;
-  border-bottom: $small-border solid $disabled;
-  text-tramsform: capitalize;
-  
+  border-bottom: $border solid $disabled;
 }
 
-.projects-nav-item .active, .projects-nav-item:hover {
-  border-bottom: $small-border solid $primary;
+.projects-nav-item.active, .projects-nav-item:hover {
+  color: $black;
+  border-bottom: $border solid $primary;
 }
 
 

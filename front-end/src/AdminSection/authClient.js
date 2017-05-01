@@ -23,7 +23,7 @@ export default (getUserState, dispatch) => {
     // called when the user navigates to a new location
     if (type === AUTH_CHECK) {
         const user = getUserState();
-        return (user.role && user.role == 1 ? Promise.resolve : Promise.reject())
+        return (user.role && user.role === 1 ? Promise.resolve : Promise.reject())
     }
     return Promise.reject('Unknown method');
 };

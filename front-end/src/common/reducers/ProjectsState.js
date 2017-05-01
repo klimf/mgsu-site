@@ -30,7 +30,7 @@ class _ProjectDetailManager extends StateModel {
     }
 
     getDetail(id) {
-        this._apiAction.perform({
+       this._apiAction.perform({
             params: [id]
         })
     }
@@ -39,7 +39,7 @@ class _ProjectDetailManager extends StateModel {
 
 class _FundDetailManager extends StateModel {
     constructor() {
-        super(new ApiAction({TYPE: 'FUND_DETAIL_CHANGE', model: 'projects'}));
+        super(new ApiAction({TYPE: 'FUND_DETAIL_CHANGE', model: 'projects', prePare: ({docs}) => docs[0]}));
     }
 
     getDetail() {
