@@ -20,7 +20,7 @@ class App extends Component {
            <div>
                 <Header {...this.props} />
                 <ScrollFix {...this.props}>
-                <Routes {...this.props} />
+                <Routes  />
                 </ScrollFix>
                 <Footer {...this.props}/>
             </div>

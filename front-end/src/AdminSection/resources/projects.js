@@ -20,14 +20,12 @@ import {
 export const ProjectList = (props) => (
     <List title="Список проектов" {...props}>
         <Datagrid>
-            <TextField source="_id" label="id"/>
-            <TextField source="name" label="Имя"/>
-            <DateField source="creatingDate" label="Дата создания"/>
-            <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Нужно собрать"/>
-            <NumberField source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Собрано"/>
+            <TextField source="name" label="Название"/>
             <TextField source="shortDescription" label="Короткое описание"/>
+            <NumberField source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Собрано"/>
+            <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Нужно собрать"/>
             <TextField source="direction" label="Направление"/>
-            <BooleanField source="public" label="Опубликвано"/>
+            <BooleanField source="public" label="Публичный"/>
             <EditButton />
         </Datagrid>
     </List>

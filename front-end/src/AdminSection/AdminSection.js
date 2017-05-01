@@ -1,15 +1,4 @@
-/*import React from 'react'
- import {Switch} from "react-router";
- // import AdminAccount from "./components/AdminAccount";
- // import FormsSection from "./components/FormsSection";
 
-
- const AdminSection = props => (
- <Switch>
- {/!*<Route exact path={`${props.match.url}/`} component={AdminAccount}/>*!/}
- {/!*<Route  path={`${props.match.url}/forms`} component={FormsSection}/>*!/}
- </Switch>
- )*/
 import React, {Component} from "react";
 import {Admin, Resource, Delete} from "admin-on-rest";
 import russianMessages from "aor-language-russian";
@@ -22,6 +11,7 @@ import {PostList, PostEdit, PostCreate} from "./resources/posts";
 import {ContactList, ContactEdit, ContactCreate} from "./resources/contacts";
 import {PrivilegeList, PrivilegeEdit, PrivilegeCreate} from "./resources/privileges";
 import {DontaionList, DontaionEdit, DontaionCreate} from "./resources/donations";
+import mgsuTheme from './components/mgsuTheme';
 
 const messages = {
     'ru': russianMessages,
@@ -34,10 +24,10 @@ class AdminSection extends Component {
         return this.props.user;
     }
 
-
     render() {
         return (
-            <Admin locale="ru" messages={messages}
+            <Admin theme={mgsuTheme}
+                  locale='ru' messages={messages}
                    title={`Кабинет администратора ${this.props.user.firstName} ${this.props.user.lastName}`}
                    authClient={authClient(this.getUserState.bind(this), this.props.dispatch)}
                    restClient={efRestClient}>
