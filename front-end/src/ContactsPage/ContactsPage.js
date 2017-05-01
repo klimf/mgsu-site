@@ -109,11 +109,11 @@ class ContactsPage extends Component {
 
 const mapDispatchToProps = dispatch => {
 
-}
+};
 
 const mapStateToProps = state => {
-    const {key} = state
+    const {key} = state;
     return {key}
-}
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsPage));
