@@ -24,7 +24,7 @@ import {
 } from "admin-on-rest";
 
 export const ContactList = (props) => (
-    <List title="Список проектов" {...props}>
+    <List title="Список контактов" {...props}>
         <Datagrid>
             <TextField source="team" label="Команда"/>
             <TextField source="firstName" label="Имя"/>
