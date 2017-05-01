@@ -363,6 +363,20 @@
   margin-bottom: -6px;
 }
 
+table.donations-table td {
+  @extend .h3,
+  .space-element;
+  padding-left: 2*$o;
+}
+table.donations-table tr:first-child {
+  background-color: $primary;
+  font-weight: 500;
+  color: $white;
+}
+table.donations-table tr:nth-child(2n) {
+  background-color: $semi-disabled;
+}
+
 @media screen and (max-width: 639px) {
   .contacts {
     width: 100%;
