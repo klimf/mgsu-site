@@ -2,9 +2,29 @@ import React, {Component} from "react";
 import { connect, bindActionCreators } from "react-redux";
 import { withRouter } from "react-router-dom";
 import DonationForm from "./components/DonationForm"
+import { ProjectDetailManager} from '../common/reducers/ProjectsState'
 
 
 class ProjectDetail extends Component {
+
+     componentDidMount() {
+        this.getProject(this.props.match.params.projectId)
+        /////////////////////////////////////////////////
+        // ФОРМАТ this.props.project
+        ////////////////////////////////////////////////
+        //
+        // _id,
+        // name,
+        // shortDesciption,
+        // img: {
+        //     original,
+        //     small
+        // },
+        // given,
+        // need,
+        // content
+    }
+
     render() {
         return (
             <div className="page row expanded">
@@ -45,6 +65,7 @@ class ProjectDetail extends Component {
                                 <h2 className="black center light no-margin">23 000 000p</h2>
                             </div>
                             <div className="bg-border"/>
+                            <div className="decoration"/>
                         </div>
                     </div>
                     <div className="small-12 space-2 columns"/>
@@ -73,28 +94,29 @@ class ProjectDetail extends Component {
                     <div className="small-12 space-3 columns"/>
                     <div className="small-12 columns">
                         <DonationForm/>
+                        <div className="small-12 space-2 columns"/>
+                        <img alt="pic" src={require("../media/images/payment-info.png")} className="small-12 medium-6 columns no-padding"/>
+                        <img alt="pic" src={require("../media/images/payment-logos.png")} className="small-12 medium-6 columns no-padding"/>
                     </div>
                     <div className="small-12 space-4 columns"/>
                 </div>
             </div>
         )
     }
-    componentDidMount() {
-        this.getProject(this.props.match.params.projectId)
-    }
+   
     getProject(id) {
-        this.props.GetProjectDetailAsync.perform({
-            params: [id]
-        })
+        this.props.ProjectManager.getDetail(id)
     }
 }
 
 const mapStateToProps = state => {
-  
+  const project = state.currentProject;
 };
 
 const mapDispatchToProps = dispatch => {
-   
+   return {
+       ProjectManager: ProjectDetailManager.bindTo(dispatch)
+   }
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDetail));

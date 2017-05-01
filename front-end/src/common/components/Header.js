@@ -28,16 +28,16 @@ class Header extends Component {
         return (
             <div>
                 <div className={`overlay large-0" ${this.state.menuIsOpen ? "" : "hide"}`}>
-                    <h1 className="inline medium-0 large-0">Меню</h1>
-                    <div className="menu-btn-icon border right"
+                    <h1 className="inline medium-0 large-0 m-t-1">Меню </h1>
+                    <div className="menu-btn-icon right"
                          onClick={this.handlerMenuClick.bind(this)}/>
-                    <NavLink className="overlay-btn" to="/">Сделать вклад</NavLink>
-                    <NavLink className="overlay-btn" to="/">Войти</NavLink>
-                    <div className="small-navigation" onClick={this.handlerMenuClick.bind(this)}>
+                    <button className="overlay-btn" to="">Сделать вклад</button>
+                    <button className="overlay-btn" to="">Войти</button>
+                    <div className="small-navigation no-padding" onClick={this.handlerMenuClick.bind(this)}>
                         <NavLink className="small-nav-item" to="/about">О фонде</NavLink>
                         <NavLink className="small-nav-item" to="/projects">Проекты</NavLink>
                         <NavLink className="small-nav-item" to="/sponsors">Благотворители</NavLink>
-                        <NavLink className="small-nav-item" to="/club">Клуб выпускников</NavLink>
+                        <NavLink className="small-nav-item" to="/alumni">Клуб выпускников</NavLink>
                         <NavLink className="small-nav-item" to="/news">Новости</NavLink>
                         <NavLink className="small-nav-item" to="/contacts">Контакты</NavLink>
                     </div>
@@ -55,7 +55,7 @@ class Header extends Component {
                         <NavLink className="nav-item" to="/about">О фонде</NavLink>
                         <NavLink className="nav-item" to="/projects">Проекты</NavLink>
                         <NavLink className="nav-item" to="/sponsors">Благотворители</NavLink>
-                        <NavLink className="nav-item" to="/club">Клуб выпускников</NavLink>
+                        <NavLink className="nav-item" to="/alumni">Клуб выпускников</NavLink>
                         <NavLink className="nav-item" to="/news">Новости</NavLink>
                         <NavLink className="nav-item" to="/contacts">Контакты</NavLink>
                     </div>
@@ -72,4 +72,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default Header;
+export default withRouter(connect(mapStateToProps)(Header));

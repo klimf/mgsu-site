@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link, withRouter} from "react-router-dom";
+import {formatMoney} from "../../common/helpers";
 
 const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
-        <Link to={`project/${props.project._id}`}>
+        <Link to={`/project/${props.project._id}`}>
             <div className="project-image space-7">
                 <div className="bg-img" style={{"background": "url(" + (props.project.img ? props.project.img.small : "../media/images/placeholder.png" + ") center center no-repeat;") }}/>
             </div>
@@ -14,18 +15,18 @@ const ProjectItem = (props) => (
             </div>
             <div className="space-base"></div>
             <div className="project-progress">
-                <div className="project-bar"></div>
-                <div className="project-bar primary" style={{"width":70 + "%"}}></div>
-                <div className="small-6 space-4 columns no-padding">
+                <div className="small-6 bg-white space-4 columns no-padding">
                     <p className="black center">Собрано</p>
-                    <h3 className="black center">{props.project.given}</h3>
+                    <h3 className="black center">{formatMoney(props.project.given)}</h3>
                 </div>
-                <div className="small-6 space-4 columns no-padding">
+                <div className="small-6 bg-white space-4 columns no-padding">
                     <p className="black center">Цель</p>
-                    <h3 className="black center">{props.project.need}</h3>
+                    <h3 className="black center">{formatMoney(props.project.need)} ₽</h3>
                 </div>
+                <div className="project-bar"></div>
+                <div className="project-bar primary" style={{"width":(props.project.given/props.project.need)*100 + "%"}}></div>
                 <div className="small-12 space-2 columns"></div>
-                <button className="small-12 primary-btn">Сделай вклад</button>
+                <button className="small-12 pointer primary-btn">Сделай вклад</button>
             </div>
         </Link>
     </div>

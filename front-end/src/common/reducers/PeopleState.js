@@ -18,7 +18,7 @@ class _PeopleListModel extends StateModel {
     }
 }
 
-class _SponsorsListModel extends StateModel {
+class _DonationsListModel extends StateModel {
 
     constructor() {
         super(new ApiAction({TYPE: 'SPONSORS' + '_LIST_CHANGE', model: 'donators'}));
@@ -33,7 +33,7 @@ class _SponsorsListModel extends StateModel {
 export const OurTeamManager = new _PeopleListModel('our-team');
 export const VipSponsorsManager = new _PeopleListModel('vip-sponsors');
 export const ContactsManager = new _PeopleListModel('our-contacts');
-export const SponsorsListManager = new _SponsorsListModel();
+export const DonationsListManager = new _DonationsListModel();
 
 
 
@@ -41,7 +41,7 @@ export const PeopleState = combineReducers({
     OurTeam: createReducer(OurTeamManager.handlers, OurTeamManager.defaultState),
     VipSponsors: createReducer(VipSponsorsManager.handlers, VipSponsorsManager.defaultState),
     Contacts: createReducer(ContactsManager.handlers, ContactsManager.defaultState),
-    SponsorsList: createReducer(SponsorsListManager.handlers, SponsorsListManager.defaultState)
+    DonationsList: createReducer(DonationsListManager.handlers, DonationsListManager.defaultState)
 }) 
 
 

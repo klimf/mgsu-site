@@ -53,13 +53,13 @@ class _FundDetailManager extends StateModel {
 }
 
 export const ProjectsListManager = new _ProjectsListManager();
-export const CurrentProjectManager = new _ProjectDetailManager();
+export const ProjectDetailManager = new _ProjectDetailManager();
 export const FundDetailManager = new _FundDetailManager();
 
 
 export const ProjectsState = combineReducers({
     list: createReducer(ProjectsListManager.handlers, ProjectsListManager.defaultState),
-    currentProject: createReducer(CurrentProjectManager.handlers, CurrentProjectManager.defaultState),
+    currentProject: createReducer(ProjectDetailManager.handlers, ProjectDetailManager.defaultState),
     fundDetail: createReducer(FundDetailManager.handlers, FundDetailManager.defaultState)
 })
 
