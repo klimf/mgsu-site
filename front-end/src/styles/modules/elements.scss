@@ -38,7 +38,7 @@
   position: relative;
   background: url($image + "home-bg.jpg") no-repeat center center fixed;
   margin-top: -8*$o;
-  padding: 8*$o 0 12*$o 0;
+  padding: 8*$o 0 20*$o 0;
 }
 
 .main-progress {
@@ -49,14 +49,51 @@
   overflow: hidden;
 }
 
-.main-progress .bar {
+.main-progress .bar-wrap {
   @extend .transition-3;
   position: absolute;
-  background-color: $black;
+  background-color: transparent;
   bottom: 0;
   right: 0;
   height: $o;
   width: 100%;
+  .bar-fact {
+    height: 100%;
+    position: relative;
+  }
+}
+
+.donate-btn-icon-white {
+  @extend .transition-3,
+  .absolute,
+  .cover,
+  .pointer;
+  background: url($image + "icon-donate.png") no-repeat;
+  right: -25px;
+  bottom: $o + 3px;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+}
+
+.donate-btn-icon-white--tooLargeValue {
+  @extend .transition-3,
+  .absolute,
+  .cover,
+  .pointer;
+  background: url($image + "icon-donate.png") no-repeat;
+  right: 200px;
+  bottom: 0;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+}
+
+.donate-btn-icon-white:hover {
+  right: -29px;
+  width: 60px;
+  height: 75px;
+
 }
 
 .main-progress .bar-text {
@@ -70,7 +107,7 @@
 
 .main-progress h1.bar-text {
   font-size: 2.5*$o;
-  margin-bottom: 1.2*$o;
+  margin-bottom: 1*$o;
 }
 
 .main-progress h1.bar-text p {
@@ -82,12 +119,34 @@
 }
 
 .main-progress .bar-left {
+  position: absolute;
+  right: 25px + $o*2;
   text-align: right;
-  width: calc(100% + 300px);
-  left: calc(-100% - 340px);
+  width: calc(300px);
+  right: 25px + $o*2;
+}
+
+.bar--tooLagreValue {
+  position: absolute;
+  text-align: right;
+  width: calc(300px);
+  right: 200px + 52px + $o*2;
+  margin-bottom: 4px !important;
+}
+
+.main-progress .bar-label {
+  position: relative;
+  margin-right: $o*10;
+  min-width: 220px + $o*2;
+  max-width: 82%;
+}
+
+.main-progress .bar-text--right {
+  margin-bottom: 2.3*$o !important;
 }
 
 .main-progress .bar-right {
+  
   right: 2*$o;
 }
 
@@ -212,7 +271,7 @@
 }
 
 .contact-white p {
-  margin: 0 $o 0 0;
+  margin: 0 $o 0 0; 
   color: $light;
 }
 
@@ -302,6 +361,20 @@
 
 .iframe-map {
   margin-bottom: -6px;
+}
+
+table.donations-table td {
+  @extend .h3,
+  .space-element;
+  padding-left: 2*$o;
+}
+table.donations-table tr:first-child {
+  background-color: $primary;
+  font-weight: 500;
+  color: $white;
+}
+table.donations-table tr:nth-child(2n) {
+  background-color: $semi-disabled;
 }
 
 @media screen and (max-width: 639px) {

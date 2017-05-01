@@ -75,26 +75,6 @@
   margin-right: 20px;
 }
 
-.donate-btn-icon-white {
-  @extend .transition-3,
-  .absolute,
-  .cover,
-  .pointer;
-  background: url($image + "icon-donate.png") no-repeat;
-  left: -26px;
-  bottom: $o;
-  width: 52px;
-  height: 65px;
-  padding: 15px 0;
-  margin-right: 20px;
-}
-
-.donate-btn-icon-white:hover {
-  left: -30px;
-  width: 60px;
-  height: 75px;
-}
-
 .overlay-btn {
   @extend .header-btn,
   .hover-primary,
