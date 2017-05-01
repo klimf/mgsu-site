@@ -10,7 +10,7 @@ class UserManager extends StateModel {
     
     login(email, password) {
        return this._apiAction.perform({
-            action: 'login',
+            params: ['login'],
             options: {
                 method: 'POST'
             },
@@ -20,7 +20,7 @@ class UserManager extends StateModel {
 
     logout() {
         return this._apiAction.perform({
-            action: 'logout',
+            params: ['logout'],
             options: {
                 method: 'POST'
             },

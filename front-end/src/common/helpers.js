@@ -67,7 +67,7 @@ export class ApiAction extends AsyncAction {
     
     constructor({TYPE, model, action = false, options = false, prePare = false}) {
 
-        const apiFunc = ({params, query = {}, body}) => {
+        const apiFunc = ({params, query = {}, body, options}) => {
             
 
             const path = [this.model].concat(params || []);
@@ -76,12 +76,11 @@ export class ApiAction extends AsyncAction {
 
             const apiQuery = resolveApi({path: path, action: this.action, query: _query});
 
-            return new Promise((resolve, reject) => {
-                
+            const _options = options || this.options;
 
-                const options = this.options;
-                options.body = body || null;
-                fetch(apiQuery, options).then((response) => {
+            return new Promise((resolve, reject) => {
+            
+                fetch(apiQuery, _options).then((response) => {
                     
                 if(response.status != 200 && response.status!= 304) {
                     reject({status: response.status, message: response.statusText});
@@ -102,7 +101,7 @@ export class ApiAction extends AsyncAction {
         super(TYPE, apiFunc);
         this.model = model;
         this.action = action;
-        this.options = options || {method: 'GET', query: {}};
+        this.options = options || {query: {}, method: 'GET'};
         this.prePare = prePare || ((data) => (data));
     }
 
