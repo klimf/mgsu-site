@@ -1,7 +1,5 @@
-import React, {Component, propTypes} from "react";
-import {connect, bindActionCreators} from "react-redux";
-
-import {NavLink, withRouter} from "react-router-dom";
+import React, {Component} from "react";
+import {NavLink} from "react-router-dom";
 
 class EventsPage extends Component {
 

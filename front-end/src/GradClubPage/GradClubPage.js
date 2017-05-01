@@ -1,6 +1,4 @@
-import React, {Component, propTypes} from "react";
-import {connect, bindActionCreators} from "react-redux";
-
+import React, {Component} from "react";
 
 class GradClubPage extends Component {
 
