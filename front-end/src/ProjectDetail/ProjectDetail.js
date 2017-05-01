@@ -111,12 +111,13 @@ class ProjectDetail extends Component {
 
 const mapStateToProps = state => {
   // const project = state.currentProject;
+    return {}
 };
 
 const mapDispatchToProps = dispatch => {
    return {
        ProjectManager: ProjectDetailManager.bindTo(dispatch)
    }
-}
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDetail));

@@ -17,6 +17,14 @@ Object.assign(Validation.rules, {
             return <span>Обязательное поле</span>
         }
     },
+    noSpace: {
+        rule: (value) => {
+            return value.indexOf(" ") < 0;
+        },
+        hint: value => {
+            return <span>Пробелы не допустимы.</span>
+        }
+    },
     email: {
         rule: value => {
             return isEmail(value);
@@ -33,20 +41,26 @@ Object.assign(Validation.rules, {
             return <span>{value} не корректный год.</span>
         }
     },
-    altYear: {
-        rule: value => {
-            return isInt(value, {min: 1900, max: 2030}) || isEmpty(value);
-        },
-        hint: value => {
-            return <span>{value} не корректный год.</span>
-        }
-    },
     currency: {
         rule: value => {
-            return isInt(value, {min: 1, max: 9000000000});
+            return isInt(value, {min: 1, max: 900000000000});
         },
         hint: value => {
             return <span>{value} Р не корректное значение.</span>
+        }
+    },
+    isStr: {
+        rule: value => {
+            let correct = true;
+            for (let i = 0; i < value.length; i++) {
+                if (correct) {
+                    correct = /[A-Za-zа-яА-ЯёЁ]/.test(value[i]);
+                }
+            }
+            return correct;
+        },
+        hint: value => {
+            return <span>Разрешены только буквы.</span>
         }
     },
     api: {

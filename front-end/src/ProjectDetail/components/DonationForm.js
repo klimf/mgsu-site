@@ -16,39 +16,39 @@ export default class Registration extends Component {
                 <div className="form-hideable small-12 columns">
                     <div className="small-12 medium-6 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value='' placeholder="Имя"
-                                                     name="name" validations={['required']}/>
+                                                     name="name" validations={['required', 'noSpace', 'isStr']}/>
                     </div>
                     <div className="small-12 medium-6 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value='' placeholder="Фамилия"
-                                                     name="surname" validations={['required']}/>
+                                                     name="surname" validations={['required', 'noSpace', 'isStr']}/>
                     </div>
                     <div className="small-12 medium-12 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value='' placeholder="E-mail"
-                                                     name="mail" validations={['email']}/>
+                                                     name="mail" validations={['required','email']}/>
                     </div>
                 </div>
                 <div className="form-hideable small-12 columns">
                     <div className="small-12 medium-6 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value='' placeholder="Институт"
-                                                     name="department" validations/>
+                                                     name="department" validations={['noSpace', 'isStr']}/>
                     </div>
                     <div className="small-12 medium-6 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value='' placeholder="Год выпуска"
-                                                     name="year" validations={['altYear']}/>
+                                                     name="year" validations={['year']}/>
                     </div>
                     <div className="small-12 medium-12 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value=''
                                                      placeholder="Специальность" name="speciality"
-                                                     validations/>
+                                                     validations={['noSpace', 'isStr']}/>
                     </div>
                 </div>
                 <div className="small-12 columns">
                     <div className="small-12  columns">
-                        <Validation.components.Input className="left" type="checkbox" id="check-graduate" validations/>
+                        <input className="left" type="checkbox" id="check-graduate"/>
                         <label htmlFor="check-graduate">Я выпускник МГСУ</label>
                     </div>
                     <div className="small-12 columns">
-                        <Validation.components.Input className="left" type="checkbox" id="check-rules" validations/>
+                        <input className="left" type="checkbox" id="check-rules"/>
                         <label htmlFor="check-rules">Согласен(а) c условиями оплаты,
                             обработки персональных данных и офертой</label>
                     </div>
