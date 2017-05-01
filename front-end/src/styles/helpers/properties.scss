@@ -264,3 +264,8 @@ img.block {
     padding-right: 0;
   }
 }
+
+.no-scroll {
+  height: 100vh !important;
+  overflow: hidden !important;
+}

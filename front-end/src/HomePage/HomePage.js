@@ -49,7 +49,7 @@ class HomePage extends Component {
             this.setState({
                 hexaStyle: this.styles.startShowing
             });
-        }, 200);
+        }, 100);
         setTimeout(() => {
             this.setState({
                 hexaStyle: this.styles.resetDelays
@@ -94,7 +94,7 @@ class HomePage extends Component {
         return (
             <div className="page row expanded">
                 <div classID="wide-img" className="wide-img small-12 expanded"
-                 style={{backgroundPosition: "center " + -this.state.scrollTop/2 + "px"}}>
+                 style={{backgroundPosition: "center " + -this.state.scrollTop/2 + "px fixed"}}>
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar-wrap">

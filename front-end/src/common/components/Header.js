@@ -19,6 +19,7 @@ class Header extends Component {
 
     handlerLoginClick() {
         this.setState({loginIsOpen: !this.state.loginIsOpen});
+        document.body.classList.toggle('no-scroll', !this.state.loginIsOpen);
     }
 
     componentDidUpdate() {
