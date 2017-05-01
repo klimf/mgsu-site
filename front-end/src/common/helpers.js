@@ -19,14 +19,15 @@ export function formatMoney(value) {
 export const apiUrl = 'http://185.189.13.148/api/';
 
 export function resolveApi({path, action, query}) {
-    const haveQuery = (query && query != {})
+    const haveQuery = (query && query != {});
     if (haveQuery) {
         var queryArr = [];
         for (var key in query) {
             queryArr.push(key + '=' + query[key])
         }
     }
-    return apiUrl + `${path.join('/')}${haveQuery && '/?' + queryArr.join('&&')}`
+    console.log(path, action, query);
+    return apiUrl + `${path.join('/')}${haveQuery ? ('/?' +  queryArr.join('&')) : ''}`
 
 }
 
@@ -66,27 +67,32 @@ export class ApiAction extends AsyncAction {
     
     constructor({TYPE, model, action = false, options = false, prePare = false}) {
 
-        const apiFunc = ({params, query = {}, body}) => {
+        const apiFunc = ({params, query = {}, body, options}) => {
             
-
             const path = [this.model].concat(params || []);
 
             const _query = query ? Object.assign({}, this.options.query, query) : this.options.query;
 
             const apiQuery = resolveApi({path: path, action: this.action, query: _query});
 
-            return new Promise((resolve, reject) => {
-                
+            const _options = options || this.options;
+            if(body) {
+                 _options.body = JSON.stringify(body);
+                 _options.headers = {'Content-Type': 'application/json'};
+            }
+           
 
-                const options = this.options;
-                options.body = body || null;
-                fetch(apiQuery, options).then((response) => {
-                    
+            return new Promise((resolve, reject) => {
+
+                console.log('ASYNC OPTIONS', _options)
+            
+                fetch(apiQuery, _options).then((response) => {
+                    console.log("ASYNC RESPONSE", response);
                 if(response.status != 200 && response.status!= 304) {
                     reject({status: response.status, message: response.statusText});
                 } else {
                     response.json().then((data) => {
-                        resolve(prePare(data));
+                        resolve(this.prePare(data));
                     })
                 }
 
@@ -101,8 +107,10 @@ export class ApiAction extends AsyncAction {
         super(TYPE, apiFunc);
         this.model = model;
         this.action = action;
-        this.options = options || {method: 'GET', query: {}};
-        this.prePare = prePare || ((data) => (data));
+        this.options = options || {query: {}, method: 'GET'};
+
+        this.prePare = prePare || ((data) => data);
+       
     }
 
    
