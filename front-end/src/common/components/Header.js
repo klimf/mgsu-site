@@ -56,7 +56,7 @@ class Header extends Component {
                 </div>
                 <div className={`overlay large-0" ${this.state.loginIsOpen ? "" : "hide"}`}>
                     <h1 className="inline medium-0 large-0 m-t-1">Вход </h1>
-                    <div className="back-btn-icon right"
+                    <div className="close-btn-icon right"
                          onClick={this.handlerLoginClick.bind(this)}/>
                     <div className="small-12 space-2 columns"/>
                     <div className="small-0 small-3 large-4 space-1 columns"/>
