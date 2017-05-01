@@ -68,8 +68,10 @@ class SponsorsPage extends Component {
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Компании партнеры</h1>
-                    <img alt="pic" src={require("../media/images/corps.png")} className="small-12 small-0 medium-0 columns"/>
-                    <img alt="pic" src={require("../media/images/corps-mobile.png")} className="small-12 large-0 columns"/>
+                    <img alt="pic" src={require("../media/images/corps.png")}
+                         className="small-12 small-0 medium-0 columns"/>
+                    <img alt="pic" src={require("../media/images/corps-mobile.png")}
+                         className="small-12 large-0 columns"/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
@@ -79,32 +81,40 @@ class SponsorsPage extends Component {
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Благотворители</h1>
-                    <table className="donations-table small-12 columns">
-                        <tr>
-                            <td>Имя</td>
-                            <td>Проект</td>
-                            <td>Сумма</td>
-                            <td>Время</td>
-                        </tr>
-                        <tr>
-                            <td>Имя</td>
-                            <td>Проект</td>
-                            <td>Сумма</td>
-                            <td>Время</td>
-                        </tr>
-                        <tr>
-                            <td>Имя</td>
-                            <td>Проект</td>
-                            <td>Сумма</td>
-                            <td>Время</td>
-                        </tr>
-                        <tr>
-                            <td>Имя</td>
-                            <td>Проект</td>
-                            <td>Сумма</td>
-                            <td>Время</td>
-                        </tr>
-                    </table>
+                    <div className="donations-table-container">
+                        <table className="donations-table small-12 columns">
+                            <tr>
+                                <td>Имя</td>
+                                <td>Проект</td>
+                                <td>Сумма</td>
+                                <td>Время</td>
+                            </tr>
+                            <tr>
+                                <td>Имя</td>
+                                <td>Проект</td>
+                                <td>Сумма</td>
+                                <td>Время</td>
+                            </tr>
+                            <tr>
+                                <td>Имя</td>
+                                <td>Проект</td>
+                                <td>Сумма</td>
+                                <td>Время</td>
+                            </tr>
+                            <tr>
+                                <td>Имя</td>
+                                <td>Проект</td>
+                                <td>Сумма</td>
+                                <td>Время</td>
+                            </tr>
+                            <tr>
+                                <td>Имя</td>
+                                <td>Проект</td>
+                                <td>Сумма</td>
+                                <td>Время</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div className="space-3"/>
             </div>

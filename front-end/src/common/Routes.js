@@ -5,20 +5,22 @@ import ProjectsList from "../ProjectsList/ProjectsList";
 import ProjectDetail from "../ProjectDetail/ProjectDetail";
 import NotFound from "../NotFound/NotFound";
 import AdminSection from "../AdminSection/AdminSection";
-import Contacts from "../Contacts/Contacts";
+import ContactsPage from "../ContactsPage/ContactsPage";
 import AboutPage from "../AboutPage/AboutPage";
 import GradClubPage from "../GradClubPage/GradClubPage";
 import SponsorsPage from "../SponsorsPage/SponsorsPage";
+import NewsPage from "../NewsPage/NewsPage";
 
 const Routes = ({user, UserManager}) => (
     <Switch>
         <Route exact path="/" component={HomePage}/>
         <Route path="/projects/:direction?" component={ProjectsList}/>
         <Route exact path="/project/:projectId" component={ProjectDetail}/>
-        <Route exact path="/contacts" component={Contacts}/>
+        <Route exact path="/contacts" component={ContactsPage}/>
         <Route path="/about/:department?" component={AboutPage}/>
         <Route exact path="/alumni/:department?" component={GradClubPage}/>
         <Route exact path="/sponsors" component={SponsorsPage}/>
+        <Route exact path="/news" component={NewsPage}/>
         <Route path="/admin" component={AdminSection}/>
         <Route component={NotFound}/>
     </Switch>
