@@ -4,6 +4,9 @@ import {bindAll} from "redux-act";
 import Slider from "./components/Slider";
 import {formatMoney} from "../common/helpers";
 import {headerActions} from "../common/components/state";
+import {FundDetailManager} from "../common/reducers/ProjectsState";
+import {NewsManager, EventsManager, PartnersManager} from "../common/reducers/ContentState";
+import {VipSponsorsManager} from "../common/reducers/PeopleState";
 import {NavLink, withRouter} from "react-router-dom";
 
 
@@ -28,10 +31,19 @@ class HomePage extends Component {
             hexaStyle: ''
         };
         this.scrollTop = 0;
+    }
 
+    componentWillMount() {
+        this.props.FundDetailManager.getDetail();
+        this.props.NewsManager.get();
+        this.props.EventsManager.get();
+        this.props.VipSponsorsManager.get();
+        this.props.PartnersManager.get();
+        
     }
 
     componentDidMount() {
+
         setTimeout(() => {
             this.setState({
                 hexaStyle: this.styles.startShowing
@@ -43,17 +55,23 @@ class HomePage extends Component {
             });
         }, 600);
 
-        this.fundValue = (this.props.fundDetail.data.given / this.props.fundDetail.data.need) * 100;
-        this.fundValueTooSmall = this.fundValue < 10;
-        this.fundValueTooLagre = this.fundValue > 80;
-
-        //console.log(this.fundValue);
-
+        
         window.addEventListener("scroll", ()=>{
-            this.scrollTop = window.pageYOffset;
+               this.scrollTop = window.pageYOffset;
         });
 
-        this.props.headerAct.dyeWhite();
+    }
+
+    fundValue() {
+        return (this.props.fundDetail.data.given / this.props.fundDetail.data.need) * 100;
+    }
+
+    getNews(limit) {
+        return this.props.news.data ? this.props.news.data.slice(0, limit) : []
+    }
+
+    getEvents(limit) {
+        return this.props.events.data ? this.props.events.data.slice(0, limit) : []
     }
 
     handlerHexaClick(index, name) {
@@ -73,12 +91,12 @@ class HomePage extends Component {
         return (
             <div className="page row expanded">
                 <div classID="wide-img" className="wide-img small-12 expanded"
-                style={{backgroundPosition: "center " + -this.scrollTop/2 + "px"}}>
+                 style={{backgroundPosition: "center " + -this.scrollTop/2 + "px"}}>
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar-wrap">
-                            {this.fundValue < 80 &&
-                            <div className="bar-label" style={{width: `${this.fundValue}%`}}>
+                            {this.fundValue() < 80 &&
+                            <div className="bar-label" style={{width: `${this.fundValue()}%`}}>
                                 <div className="donate-btn-icon-white"></div>
                                 <h1 className="uppercase bar-text bar-left">
                                     <p className="uppercase">Размер фонда</p>
@@ -87,15 +105,14 @@ class HomePage extends Component {
                             </div>
                             }
 
-
-                            <div className="bar-fact primary" style={{width: `${this.fundValue}%`}}></div>
+                            <div className="bar-fact primary" style={{width: `${this.fundValue()}%`}}></div>
 
                         </div>
 
 
                         <h1 className="uppercase bar-text bar-right bar-text--right">
 
-                            {this.fundValue > 80 &&
+                            {this.fundValue() > 80 &&
                             <div className="tooLargeValue">
                                 <div className="donate-btn-icon-white--tooLargeValue"></div>
                                 <h1 className="uppercase bar-text bar--tooLagreValue">
@@ -134,7 +151,7 @@ class HomePage extends Component {
                 <div className="hexagon-bg-container small-12 row expanded absolute no-overflow">
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
-                         style={{top: -500 + this.scrollTop/5 + "px"}}>
+                         style={{top: -500 + -this.scrollTop/5 + "px"}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
@@ -197,7 +214,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
-                        <NavLink className="h3 underline" to="/news">Показать все</NavLink>
+                         <NavLink className="h3 underline" to="/news">Показать все</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
                         <div className="home-event small-12 columns">
@@ -236,7 +253,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
-                        <NavLink className="h3 underline" to="/events">Показать все</NavLink>
+                         <NavLink className="h3 underline" to="/events">Показать все</NavLink>
                     </div>
 
                 </div>
@@ -258,23 +275,33 @@ class HomePage extends Component {
     }
 }
 
-HomePage.defaultProps = {
-    fundDetail: {
-        data: {
-            given: 123000000,
-            need: 224000000
-        }
+// HomePage.defaultProps = {
+//     fundDetail: {
+//         data: {
+//             given: 123000000,
+//             need: 224000000
+//         }
+//     }
+// };
+
+const mapStateToProps = state => {
+    return {
+        partners: state.ContentState.Partners,
+        vipSpinsors: state.PeopleState.VipSpinsors,
+        fundDetail: state.ProjectsState.fundDetail,
+        events: state.EventsState,
+        news: state.NewsState
     }
 };
 
-const mapDispatchToProps = dispatch => (
-    {headerAct: bindAll(headerActions, dispatch)});
-
-
-const mapStateToProps = state => {
-    //const { data } = state.ProjectsState.fundDetail
-    //return {data}
-    return {}
-};
+const mapDispatchToProps = dispatch => {
+    return {
+        FundDetailManager: FundDetailManager.bindTo(dispatch),
+        VipSponsorsManager: VipSponsorsManager.bindTo(dispatch),
+        PartnersManager: PartnersManager.bindTo(dispatch),
+        NewsManager: NewsManager.bindTo(dispatch),
+        EventsManager: EventsManager.bindTo(dispatch)
+    }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
