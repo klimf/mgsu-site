@@ -49,7 +49,7 @@
   position: relative;
   background: url($image + "home-bg.jpg") no-repeat center center fixed;
   margin-top: -8*$o;
-  padding: 8*$o 0 20*$o 0;
+  padding: 8*$o 0 14*$o 0;
 }
 
 .main-progress {
@@ -162,7 +162,7 @@
 }
 
 .hexagon-bg-container {
-  height: 1600px;
+  height: 2000px;
 }
 
 .hexagon-bg:nth-child(1) {
@@ -378,21 +378,36 @@
   margin-bottom: -6px;
 }
 
+.donations-table-container {
+  width: 100%;
+  overflow-y: auto;
+  _overflow: auto;
+  margin: 0 0 1em;
+}
+
+.donations-table {
+  min-width: 1000px;
+}
+
 table.donations-table td {
   @extend .h3,
   .space-element;
   padding-left: 2*$o;
+}
+table.donations-table tr:nth-child(2n+1) {
+  background-color: $semi-disabled;
 }
 table.donations-table tr:first-child {
   background-color: $primary;
   font-weight: 500;
   color: $white;
 }
-table.donations-table tr:nth-child(2n) {
-  background-color: $semi-disabled;
-}
 
-@media screen and (max-width: 639px) {
+@media print, screen and (max-width: 39.999em) {
+  .wide-img {
+    background-position: center 0 !important;
+  }
+
   .contacts {
     width: 100%;
     margin-top: $o;
@@ -402,6 +417,14 @@ table.donations-table tr:nth-child(2n) {
     margin: $o auto;
     display: block !important;
     float: none !important;
+  }
+  .contacts-block {
+    margin-bottom: 2*$o;
+  }
+  .iframe-map {
+    background-color: $white;
+    padding: 0 0.9375rem;
+    margin-bottom: 2*$o;
   }
 }
 

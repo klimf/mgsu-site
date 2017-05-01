@@ -30,11 +30,11 @@ class App extends Component {
 const mapStateToProps = state => {
     const {user} = state.UserState
     return {user}
-}
+};
 
 const mapDispatchToProps = dispatch => ({
     UserManager: User.bindTo(dispatch)
-})
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
