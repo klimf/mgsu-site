@@ -378,18 +378,29 @@
   margin-bottom: -6px;
 }
 
+.donations-table-container {
+  width: 100%;
+  overflow-y: auto;
+  _overflow: auto;
+  margin: 0 0 1em;
+}
+
+.donations-table {
+  min-width: 1000px;
+}
+
 table.donations-table td {
   @extend .h3,
   .space-element;
   padding-left: 2*$o;
 }
+table.donations-table tr:nth-child(2n+1) {
+  background-color: $semi-disabled;
+}
 table.donations-table tr:first-child {
   background-color: $primary;
   font-weight: 500;
   color: $white;
-}
-table.donations-table tr:nth-child(2n) {
-  background-color: $semi-disabled;
 }
 
 @media screen and (max-width: 639px) {
