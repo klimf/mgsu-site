@@ -31,7 +31,7 @@ class AdminSection extends Component {
 
     render() {
         return (
-            <Admin title="Кабинет администратора"
+            <Admin title={`Кабинет администратора ${this.props.user.firstName} ${this.props.user.lastName}`}
                    authClient={authClient(this.getUserState.bind(this), this.props.dispatch)}
                    restClient={efRestClient}>
                 <Resource name="posts"
