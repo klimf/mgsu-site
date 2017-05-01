@@ -15,6 +15,7 @@ import {jsonServerRestClient, Admin, Resource, Delete} from "admin-on-rest";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import efRestClient from "./efRestClient";
+import authClient from "./authClient";
 import {UserList, UserEdit, UserCreate} from "./resources/user";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
 import {PostList, PostEdit, PostCreate} from "./resources/posts";
@@ -27,10 +28,9 @@ class AdminSection extends Component {
     }
 
     render() {
-        {/*authClient={authClient(this.getUserState.bind(this), this.props.dispatch)}*/
-        }
         return (
             <Admin title="Кабинет администратора"
+                   authClient={authClient(this.getUserState.bind(this), this.props.dispatch)}
                    restClient={efRestClient}>
                 <Resource name="posts"
                           list={PostList}
