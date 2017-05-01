@@ -69,7 +69,6 @@ export class ApiAction extends AsyncAction {
 
         const apiFunc = ({params, query = {}, body, options}) => {
             
-
             const path = [this.model].concat(params || []);
 
             const _query = query ? Object.assign({}, this.options.query, query) : this.options.query;
@@ -77,16 +76,23 @@ export class ApiAction extends AsyncAction {
             const apiQuery = resolveApi({path: path, action: this.action, query: _query});
 
             const _options = options || this.options;
+            if(body) {
+                 _options.body = JSON.stringify(body);
+                 _options.headers = {'Content-Type': 'application/json'};
+            }
+           
 
             return new Promise((resolve, reject) => {
+
+                console.log('ASYNC OPTIONS', _options)
             
                 fetch(apiQuery, _options).then((response) => {
-                    
+                    console.log("ASYNC RESPONSE", response);
                 if(response.status != 200 && response.status!= 304) {
                     reject({status: response.status, message: response.statusText});
                 } else {
                     response.json().then((data) => {
-                        resolve(prePare(data));
+                        resolve(this.prePare(data));
                     })
                 }
 
@@ -102,7 +108,9 @@ export class ApiAction extends AsyncAction {
         this.model = model;
         this.action = action;
         this.options = options || {query: {}, method: 'GET'};
-        this.prePare = prePare || ((data) => (data));
+
+        this.prePare = prePare || ((data) => data);
+       
     }
 
    

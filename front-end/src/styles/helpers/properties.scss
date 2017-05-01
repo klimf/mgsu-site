@@ -130,6 +130,10 @@ img.block {
   background-color: $disabled !important;
 }
 
+.bg-white {
+  background-color: $white;
+}
+
 @mixin delay($delay) {
   transition-delay: $delay/20+s !important;
 }
@@ -155,6 +159,9 @@ img.block {
     &-#{$i} {
       margin-bottom: $i*$o;
     }
+  }
+  &--50 {
+    margin-bottom: -40%;
   }
 }
 

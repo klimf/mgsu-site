@@ -26,6 +26,7 @@ class HomePage extends Component {
             hexaStyle: ''
         }
 
+
     }
 
     componentDidMount() {
@@ -39,6 +40,12 @@ class HomePage extends Component {
                 hexaStyle: this.styles.resetDelays
             });
         }, 600);
+
+        this.fundValue = (this.props.fundDetail.data.given/this.props.fundDetail.data.need)*100;
+        this.fundValueTooSmall = this.fundValue < 10;
+        this.fundValueTooLagre = this.fundValue > 80;
+
+        console.log(this.fundValue)
 
         // window.addEventListener("scroll", function(){
         //     parallax();
@@ -78,19 +85,41 @@ class HomePage extends Component {
                 <div classID="wide-img" className="wide-img small-12 expanded">
                     <div className="blackout"/>
                     <div className="main-progress">
-                        <div className="bar primary">
-                        </div>
-                        <div className="bar" style={{width: 100 - 60 + "%"}}>
-                            <div className="donate-btn-icon-white"/>
-                            <h1 className="uppercase bar-text bar-left">
-                                <p className="uppercase">Размер фонда</p>
-                                {formatMoney(256000000)}₽
+                        <div className="bar-wrap">
+
+                            {this.fundValue < 80 && 
+                                <div className="bar-label" style={{ width: `${this.fundValue}%`}}>
+                                    <div className="donate-btn-icon-white"></div>
+                                        <h1 className="uppercase bar-text bar-left">
+                                            <p className="uppercase">Размер фонда</p>
+                                            {formatMoney(this.props.fundDetail.data.given)}₽
+                                        </h1>
+                                </div>
+                            }
+
+                            
+                            
+                             <div className="bar-fact primary" style={{ width: `${this.fundValue}%`}}></div>
+                             
+                             </div>
+                             
+                          
+                            <h1 className="uppercase bar-text bar-right bar-text--right">
+                                
+                                {this.fundValue > 80 && 
+                                    <div className="tooLargeValue">
+                                      <div className="donate-btn-icon-white--tooLargeValue"></div>
+                                        <h1 className="uppercase bar-text bar--tooLagreValue">
+                                            <p className="uppercase">Размер фонда</p>
+                                            {formatMoney(this.props.fundDetail.data.given)}₽
+                                        </h1>
+                                     </div>
+                                 } 
+                                    
+                                <p className="uppercase">Цель</p>
+                                {formatMoney(this.props.fundDetail.data.need)}₽
                             </h1>
-                            <h1 className="uppercase bar-text bar-right">
-                                <p className="uppercase">Цель </p>
-                                {formatMoney(320000000)}₽
-                            </h1>
-                        </div>
+                        
                     </div>
                     <div className="content small-12 row">
                         <h1 className="small-12 white uppercase center columns">Направления для поддержки</h1>
@@ -137,7 +166,7 @@ class HomePage extends Component {
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
-                    <div className="small-12 medium-12 large-7 columns padding-left">
+                    <div className="small-12 medium-12 large-7 columns padding-left m-b-3">
                         <div className="home-news small-12 columns">
                             <div className="bg-img"/>
                             <div className="blackout"/>
@@ -176,7 +205,7 @@ class HomePage extends Component {
                         </div>
                         <a className="h3 underline" href="/news">Показать все</a>
                     </div>
-                    <div className="small-12 medium-12 large-5 columns padding-right">
+                    <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
                         <div className="home-event small-12 columns">
                             <div className="bg-border"/>
                             <h1>19</h1>
@@ -233,13 +262,22 @@ class HomePage extends Component {
     }
 }
 
+HomePage.defaultProps = {
+    fundDetail: {
+        data: {
+                given: 123000000,
+                need:  224000000
+            }
+    }
+}
+
 const mapDispatchToProps = dispatch => (
     {headerAct: bindAll(headerActions, dispatch)});
 
 
 const mapStateToProps = state => {
-    const { data } = state.ProjectsState.fundDetail
-    return {data}
+    //const { data } = state.ProjectsState.fundDetail
+    //return {data}
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
