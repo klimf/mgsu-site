@@ -217,7 +217,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
-                         <NavLink className="h3 underline" to="/news">Показать все</NavLink>
+                         <NavLink className="h3 underline" to="/news">Все новости</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
                         <div className="home-event small-12 columns">
@@ -256,7 +256,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
-                         <NavLink className="h3 underline" to="/events">Показать все</NavLink>
+                         <NavLink className="h3 underline" to="/events">Все мероприятия</NavLink>
                     </div>
 
                 </div>
