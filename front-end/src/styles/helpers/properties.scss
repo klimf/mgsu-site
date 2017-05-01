@@ -208,6 +208,15 @@ img.block {
   }
 }
 
+.top {
+  &-2 {
+    top: 2*$o;
+  }
+  &-0 {
+    top: 0;
+  }
+}
+
 .transition {
   @for $i from 0 through 6 {
     &-#{$i} {

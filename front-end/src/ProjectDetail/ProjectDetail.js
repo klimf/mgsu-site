@@ -65,6 +65,7 @@ class ProjectDetail extends Component {
                                 <h2 className="black center light no-margin">23 000 000p</h2>
                             </div>
                             <div className="bg-border"/>
+                            <div className="decoration"/>
                         </div>
                     </div>
                     <div className="small-12 space-2 columns"/>
