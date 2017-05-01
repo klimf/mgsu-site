@@ -1,9 +1,20 @@
+.decoration {
+  @extend .cover;
+  background: url($image + "decoration.png") no-repeat;
+  position: absolute;
+  left: 0;
+  top: 42px;
+  width: 24px;
+  height: 20px;
+
+}
+
 .logo-base {
   @extend .inline,
   .pointer,
   .cover;
   height: $header-content-height;
-  width: $header-content-height*3.65;
+  width: 216px;
 }
 
 .logo {
@@ -32,6 +43,7 @@
 
 .wide-img {
   @extend .cover;
+  z-index: 10;
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -48,14 +60,52 @@
   overflow: hidden;
 }
 
-.main-progress .bar {
+.main-progress .bar-wrap {
   @extend .transition-3;
   position: absolute;
-  background-color: $black;
+  background-color: transparent;
   bottom: 0;
   right: 0;
   height: $o;
   width: 100%;
+  .bar-fact {
+    height: 100%;
+    position: relative;
+  }
+}
+
+.donate-btn-icon-white {
+  @extend .transition-3,
+  .absolute,
+  .cover,
+  .pointer;
+  background: url($image + "icon-donate.png") no-repeat;
+  right: -26px;
+  bottom: $o + 3px;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+}
+
+.donate-btn-icon-white--tooLargeValue {
+  @extend .transition-3,
+  .absolute,
+  .cover,
+  .pointer;
+  background: url($image + "icon-donate.png") no-repeat;
+  right: 200px;
+  bottom: 0;
+  width: 52px;
+  height: 65px;
+  padding: 15px 0;
+}
+
+.donate-btn-icon-white:hover {
+  right: -32px;
+  bottom: 0;
+  width: 64px;
+  height: 80px;
+
 }
 
 .main-progress .bar-text {
@@ -69,7 +119,7 @@
 
 .main-progress h1.bar-text {
   font-size: 2.5*$o;
-  margin-bottom: 1.2*$o;
+  margin-bottom: 1*$o;
 }
 
 .main-progress h1.bar-text p {
@@ -81,33 +131,61 @@
 }
 
 .main-progress .bar-left {
+  position: absolute;
+  right: 25px + $o*2;
   text-align: right;
-  width: calc(100% + 300px);
-  left: calc(-100% - 340px);
+  width: calc(300px);
+}
+
+.bar--tooLagreValue {
+  position: absolute;
+  text-align: right;
+  width: calc(300px);
+  right: 200px + 52px + $o*2;
+  margin-bottom: 4px !important;
+}
+
+.main-progress .bar-label {
+  position: relative;
+  margin-right: $o*10;
+  min-width: 220px + $o*2;
+  max-width: 82%;
+}
+
+.main-progress .bar-text--right {
+  margin-bottom: 2.3*$o !important;
 }
 
 .main-progress .bar-right {
-  right: 0;
+  
+  right: 2*$o;
 }
 
-.donate-btn-icon-white {
-  @extend .transition-2,
-  .absolute,
-  .cover,
-  .pointer;
-  background: url($image + "icon-donate.png") no-repeat;
-  left: -26px;
-  bottom: $o;
-  width: 52px;
-  height: 65px;
-  padding: 15px 0;
-  margin-right: 20px;
+.hexagon-bg-container {
+  height: 1600px;
 }
 
-.donate-btn-icon-white:hover {
-  left: -30px;
-  width: 60px;
-  height: 75px;
+.hexagon-bg:nth-child(1) {
+  right: -300px;
+  top: -400px;
+  width: 800px;
+}
+.hexagon-bg:nth-child(2) {
+  top: 150px;
+  left: 100px;
+  width: 500px;
+}
+.hexagon-bg:nth-child(3) {
+  top: 700px;
+  right: 250px;
+  width: 650px;
+}
+.hexagon-bg {
+  position: absolute;
+  stroke-width: 18px;
+  stroke: $primary;
+  fill: transparent;
+  opacity: 0.2;
 }
 
 .home-news {
@@ -133,6 +211,7 @@
   margin-bottom: 2*$o;
   padding: 0 3*$o;
   overflow: hidden;
+  background-color: $white;
 }
 
 .home-event h1 {
@@ -168,6 +247,7 @@
 
 .sponsor {
   text-align: center;
+  margin-bottom: 2*$o;
 }
 
 .sponsor h2 {
@@ -182,31 +262,6 @@
   color: $dark;
 }
 
-.slick-arrow:before {
-  color: $black;
-}
-
-.slick-prev, .slick-next {
-  top: -6*$o;
-}
-
-.slick-next {
-  right: $o;
-}
-
-.slick-prev {
-  left: $o;
-}
-
-.slick-slider {
-  top: 2*$o;
-}
-
-.slick-track {
-  height: 270px;
-  overflow: hidden;
-}
-
 .contacts {
   min-height: 5*$o;
   padding: 0;
@@ -217,14 +272,33 @@
   align-items: center;
 }
 
-.contact h3 {
+.contact-white {
+  margin: 0 $o;
+}
+
+.contact-white h3 {
   margin: 0 0 $o 0;
   color: $white;
 }
 
+.contact-white p {
+  margin: 0 $o 0 0; 
+  color: $light;
+}
+
+.contact {
+  margin: 0 $o;
+}
+
+.contact h3 {
+  margin: 0 0 $o 0;
+  font-weight: 500;
+  color: $black;
+}
+
 .contact p {
   margin: 0 $o 0 0;
-  color: $light;
+  color: $dark;
 }
 
 .project-item {
@@ -260,7 +334,9 @@
 
 .project-progress {
   @extend .transition-3;
-  background-color: $white;
+  margin-top: -414px;
+  padding-top: 414px;
+  height: 100%;
   bottom: 0;
 }
 
@@ -271,8 +347,9 @@
 .project-bar {
   position: absolute;
   width: 100%;
+  max-width: 100%;
   height: $o;
-  bottom: 6*$o;
+  bottom: 0;
   left: 0;
   background-color: $disabled;
 }
@@ -281,7 +358,7 @@
   @extend .cover;
   width: 10*$o;
   height: 10*$o;
-  margin: $o;
+  margin: 0 0 0 0.65*$o;
   float: left;
 }
 
@@ -290,6 +367,29 @@
 
 .project-half h2 {
   margin: 2*$o 0 $o 0;
+}
+
+.contacts-block {
+  margin-bottom: -150px;
+}
+
+.iframe-map {
+  background-color: $disabled;
+  margin-bottom: -6px;
+}
+
+table.donations-table td {
+  @extend .h3,
+  .space-element;
+  padding-left: 2*$o;
+}
+table.donations-table tr:first-child {
+  background-color: $primary;
+  font-weight: 500;
+  color: $white;
+}
+table.donations-table tr:nth-child(2n) {
+  background-color: $semi-disabled;
 }
 
 @media screen and (max-width: 639px) {
@@ -305,7 +405,7 @@
   }
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
+@media print, screen and (min-width: 40em) and (max-width: 63.999em) {
   .contacts {
     width: 100%;
     margin-top: 100px;
@@ -313,7 +413,7 @@
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media print, screen and (min-width: 64em) {
 
 }
 

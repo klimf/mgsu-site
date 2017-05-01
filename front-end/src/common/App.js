@@ -11,7 +11,6 @@ import ScrollFix from "./components/ScrollFix"
 class App extends Component {
 
     componentDidMount() {
-        console.log(this.props);
         this.props.UserManager.getCurrent();
     }
 
@@ -19,7 +18,7 @@ class App extends Component {
         return (
            <div>
                 <Header {...this.props}/>
-                 <ScrollFix>
+                <ScrollFix {...this.props}>
                 <Routes {...this.props} />
                 </ScrollFix>
                 <Footer {...this.props}/>
