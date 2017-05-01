@@ -4,6 +4,7 @@ import {bindAll} from "redux-act";
 import Slider from "./components/Slider";
 import {formatMoney} from "../common/helpers";
 import {headerActions} from "../common/components/state";
+import {NavLink, withRouter} from "react-router-dom";
 
 
 class HomePage extends Component {
@@ -199,7 +200,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
-                        <a className="h3 underline" href="/news">Показать все</a>
+                        <NavLink className="h3 underline" to="/news">Показать все</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
                         <div className="home-event small-12 columns">
@@ -238,7 +239,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
-                        <a className="h3 underline" href="/events">Показать все</a>
+                        <NavLink className="h3 underline" to="/events">Показать все</NavLink>
                     </div>
 
                 </div>
