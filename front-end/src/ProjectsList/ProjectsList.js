@@ -53,11 +53,11 @@ class ProjectsList extends Component {
                 <div className="content small-12 row">
                     <div className="space-3"/>
                     <div className="projects-icon small-0"
-                         style={{background: "url(" + require("../media/images/project-nav/" + (this.currentDirection || 'наука') + ".png") + ") no-repeat"}}></div>
+                         style={{background: "url(" + require("../media/images/project-nav/" + (this.currentDirection || 'стипендии') + ".png") + ") no-repeat"}}></div>
                     <div className="projects-navigation">
                         {
                             this.props.filters.map((filter, index) =>
-                                <div className="projects-nav-item"
+                                <div className={"projects-nav-item " + (this.currentDirection == this.props.directions[index] ? "active" : "")}
                                      onClick={this.changeDirection.bind(this, filter)}
                                      key={index}>
                                     {filter}
