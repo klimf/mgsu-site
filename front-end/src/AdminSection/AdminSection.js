@@ -20,7 +20,7 @@ import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
 import {PostList, PostEdit, PostCreate} from "./resources/posts";
 import {ContactList,ContactEdit,ContactCreate} from "./resources/contacts";
 import {PrivilegeList, PrivilegeEdit, PrivilegeCreate} from "./resources/privileges";
-
+import {DontaionList, DontaionEdit, DontaionCreate} from './resources/donations';
 
 
 class AdminSection extends Component {
@@ -58,6 +58,12 @@ class AdminSection extends Component {
                           create={PrivilegeCreate}
                           remove={Delete}
                           options={{label: 'Преимущества'}}/>
+                <Resource name="donation"
+                          list={DontaionList}
+                          edit={DontaionEdit}
+                          create={DontaionCreate}
+                          remove={Delete}
+                          options={{label: 'Донаты'}}/>
             </Admin>
         )
     }
