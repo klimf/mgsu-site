@@ -403,6 +403,14 @@ table.donations-table tr:nth-child(2n) {
     display: block !important;
     float: none !important;
   }
+  .contacts-block {
+    margin-bottom: 2*$o;
+  }
+  .iframe-map {
+    background-color: $white;
+    padding: 0 0.9375rem;
+    margin-bottom: 2*$o;
+  }
 }
 
 @media print, screen and (min-width: 40em) and (max-width: 63.999em) {
