@@ -18,6 +18,7 @@ import efRestClient from "./efRestClient";
 import {UserList, UserEdit, UserCreate} from "./resources/user";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
 import {PostList, PostEdit, PostCreate} from "./resources/posts";
+import {ContactList,ContactEdit,ContactCreate} from "./resources/contacts";
 
 class AdminSection extends Component {
 
@@ -49,6 +50,12 @@ class AdminSection extends Component {
                           create={ProjectCreate}
                           remove={Delete}
                           options={{label: 'Проекты'}}/>
+                <Resource name="contacts"
+                          list={ContactList}
+                          edit={ContactEdit}
+                          create={ContactCreate}
+                          remove={Delete}
+                          options={{label: 'Контакты'}}/>
             </Admin>
         )
     }
