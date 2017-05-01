@@ -50,6 +50,13 @@
   background: url($image + "icon-back.png") no-repeat;
 }
 
+.close-btn-icon {
+  @extend .border-small,
+  .hover-primary-invert,
+  .header-icon;
+  background: url($image + "icon-close.png") no-repeat;
+}
+
 .login-btn-icon-white {
   @extend .border-small-white,
   .header-icon;
@@ -235,6 +242,7 @@
 
 .projects-nav-item {
   @extend .transition-3,
+  .pointer,
   .h3;
   margin: $o;
   color: $dark;
