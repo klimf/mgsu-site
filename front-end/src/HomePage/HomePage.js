@@ -25,10 +25,9 @@ class HomePage extends Component {
             resetDelays: 'active delay-0'
         };
         this.state = {
-            hexaStyle: '',
-            scrollTop: 0
-        }
-
+            hexaStyle: ''
+        };
+        this.scrollTop = 0;
 
     }
 
@@ -51,9 +50,7 @@ class HomePage extends Component {
         //console.log(this.fundValue);
 
         window.addEventListener("scroll", ()=>{
-                this.setState({
-                    scrollTop: window.pageYOffset
-                });
+            this.scrollTop = window.pageYOffset;
         });
 
         this.props.headerAct.dyeWhite();
@@ -76,7 +73,7 @@ class HomePage extends Component {
         return (
             <div className="page row expanded">
                 <div classID="wide-img" className="wide-img small-12 expanded"
-                style={{backgroundPosition: "center " + -this.state.scrollTop/2 + "px"}}>
+                style={{backgroundPosition: "center " + -this.scrollTop/2 + "px"}}>
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar-wrap">
@@ -137,19 +134,19 @@ class HomePage extends Component {
                 <div className="hexagon-bg-container small-12 row expanded absolute no-overflow">
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
-                         style={{top: -500 + this.state.scrollTop/5 + "px"}}>
+                         style={{top: -500 + this.scrollTop/5 + "px"}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                     <svg className="hexagon-bg small-0 medium-0" viewBox="-24 -24 254 287" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
-                         style={{top: this.state.scrollTop/3 + "px"}}>
+                         style={{top: this.scrollTop/3 + "px"}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
-                         style={{top: 600 + this.state.scrollTop/4 + "px"}}>
+                         style={{top: 600 + this.scrollTop/4 + "px"}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
