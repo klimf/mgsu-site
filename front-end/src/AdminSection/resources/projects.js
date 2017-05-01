@@ -22,6 +22,7 @@ import {
 export const ProjectList = (props) => (
     <List title="Список проектов" {...props}>
         <Datagrid>
+            <TextField source="_id" label="id"/>
             <TextField source="name" label="Имя"/>
             <DateField source="creatingDate" label="Дата создания"/>
             <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Нужно собрать"/>

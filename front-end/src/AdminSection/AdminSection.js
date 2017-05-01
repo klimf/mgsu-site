@@ -15,9 +15,9 @@ import {jsonServerRestClient, Admin, Resource, Delete} from "admin-on-rest";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import efRestClient from "./efRestClient";
-import {PostList} from "./resources/test";
 import {UserList, UserEdit, UserCreate} from "./resources/user";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
+import {PostList, PostEdit, PostCreate} from "./resources/posts";
 
 class AdminSection extends Component {
 
@@ -32,7 +32,11 @@ class AdminSection extends Component {
             <Admin title="Кабинет администратора"
                    restClient={efRestClient}>
                 <Resource name="posts"
-                          list={PostList}/>
+                          list={PostList}
+                          edit={PostEdit}
+                          create={PostCreate}
+                          remove={Delete}
+                          options={{label: 'Посты'}}/>
                 <Resource name="users"
                           list={UserList}
                           edit={UserEdit}
