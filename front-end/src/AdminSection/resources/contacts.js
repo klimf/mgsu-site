@@ -3,23 +3,13 @@ import {
     List,
     Datagrid,
     TextField,
-    EmailField,
-    DateField,
     EditButton,
-    NumberField,
-    BooleanField,
-    UrlField,
-    ChipField,
     ImageField,
     Edit,
     Create,
     SimpleForm,
-    DisabledInput,
-    BooleanInput,
     TextInput,
     LongTextInput,
-    DateInput,
-    NumberInput,
     ImageInput
 } from "admin-on-rest";
 

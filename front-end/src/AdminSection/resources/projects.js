@@ -3,7 +3,6 @@ import {
     List,
     Datagrid,
     TextField,
-    EmailField,
     DateField,
     EditButton,
     NumberField,
@@ -11,7 +10,6 @@ import {
     Edit,
     Create,
     SimpleForm,
-    DisabledInput,
     BooleanInput,
     TextInput,
     LongTextInput,
@@ -40,8 +38,8 @@ export const ProjectEdit = (props) => (
         <SimpleForm>
             <TextInput source="name" label="Имя"/>
             <DateInput source="creatingDate" label="Дата создания"/>
-            <NumberInput source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Нужно собрать"/>
-            <NumberInput source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Собрано"/>
+            <NumberInput source="need"  label="Нужно собрать"/>
+            <NumberInput source="given" label="Собрано"/>
             <LongTextInput source="shortDescription" label="Короткое описание"/>
             <TextInput source="direction" label="Направление"/>
             <BooleanInput  source="public" label="Опубликвано"/>
@@ -54,8 +52,8 @@ export const ProjectCreate = (props) => (
         <SimpleForm>
             <TextInput source="name" label="Имя"/>
             <DateInput source="creatingDate" label="Дата создания"/>
-            <NumberInput source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Нужно собрать"/>
-            <NumberInput source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Собрано"/>
+            <NumberInput source="need" label="Нужно собрать"/>
+            <NumberInput source="given" label="Собрано"/>
             <LongTextInput source="shortDescription" label="Короткое описание"/>
             <TextInput source="direction" label="Направление"/>
             <BooleanInput  source="public" label="Опубликвано"/>
