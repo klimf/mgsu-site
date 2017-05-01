@@ -26,7 +26,6 @@ export function resolveApi({path, action, query}) {
             queryArr.push(key + '=' + query[key])
         }
     }
-    console.log(path, action, query);
     return apiUrl + `${path.join('/')}${haveQuery ? ('/?' +  queryArr.join('&')) : ''}`
 
 }
@@ -84,10 +83,8 @@ export class ApiAction extends AsyncAction {
 
             return new Promise((resolve, reject) => {
 
-                console.log('ASYNC OPTIONS', _options)
             
                 fetch(apiQuery, _options).then((response) => {
-                    console.log("ASYNC RESPONSE", response);
                 if(response.status != 200 && response.status!= 304) {
                     reject({status: response.status, message: response.statusText});
                 } else {
