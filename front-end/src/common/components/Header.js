@@ -63,7 +63,7 @@ class Header extends Component {
                     <div className="small-12 medium-6 large-4 columns no-padding">
                         <h2 className="small-0 small-12 uppercase center columns">Вход</h2>
                         <input className="login-input small-12 columns" type="email" placeholder="Введите почту"/>
-                        <input className="login-input small-12 columns" type="password" placeholder="Введите пароль"/>
+                        {/*<input className="login-input small-12 columns" type="password" placeholder="Введите пароль"/>*/}
                         <button className="primary-btn h4 small-12 columns">Войти</button>
                     </div>
                     <div className="small-0 small-3 large-4 space-1 columns"/>
