@@ -6,6 +6,16 @@
   position: absolute;
 }
 
+.absolute.right-top {
+  top:0;
+  right: 0;
+}
+
+.absolute.left-top {
+  top:0;
+  left: 0;
+}
+
 .relative {
   position: relative;
 }
@@ -63,6 +73,10 @@
 
 .border-small-black {
   border: $small-border solid $black;
+}
+
+.border-small-disabled {
+  border: $small-border solid $disabled;
 }
 
 .border-small {
@@ -249,4 +263,9 @@ img.block {
     padding-left: 0.9375rem;
     padding-right: 0;
   }
+}
+
+.no-scroll {
+  height: 100vh !important;
+  overflow: hidden !important;
 }

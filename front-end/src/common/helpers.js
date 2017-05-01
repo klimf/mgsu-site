@@ -80,12 +80,13 @@ export class ApiAction extends AsyncAction {
             const apiQuery = resolveApi({path: path, action: this.action, query: _query});
 
             const _options = options || this.options;
-            if (body) {
-                _options.body = JSON.stringify(body);
-                _options.headers = {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic bWV0YWxsaWM6bWV0YWxsaWM='
-                };
+
+            if(body) {
+                 _options.body = JSON.stringify(body);
+                 _options.headers = {
+                     'Content-Type': 'application/json',
+                     'Authorization': 'Basic bWV0YWxsaWM6bWV0YWxsaWM='
+                    };
             }
 
             // _options.creditionals = 'same-origin';
@@ -93,16 +94,15 @@ export class ApiAction extends AsyncAction {
 
             return new Promise((resolve, reject) => {
                 fetch(apiQuery, _options).then((response) => {
-                    if (response.status !== 200 && response.status !== 304) {
-                        reject({status: response.status, message: response.statusText});
-                    } else {
-                        response.json().then((data) => {
-                            resolve(this.prePare(data));
-                        })
-                    }
+                if(response.status == 200 || response.status == 304) {
+                    response.json().then((data) => {
+                        resolve(this.prePare(data));
+                    })
+                } else {
+                    reject({status: response.status, message: response.statusText});
+                }
 
-                }).catch((error) => {
-
+            }).catch((error) => {
                     reject(error);
                 })
             })
