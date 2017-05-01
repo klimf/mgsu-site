@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { connect, bindActionCreators } from "react-redux";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import DonationForm from "./components/DonationForm"
 import { ProjectDetailManager} from '../common/reducers/ProjectsState'

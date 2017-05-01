@@ -10,17 +10,22 @@
  {/!*<Route  path={`${props.match.url}/forms`} component={FormsSection}/>*!/}
  </Switch>
  )*/
-import React, {Component, PropTypes} from "react";
-import {jsonServerRestClient, Admin, Resource, Delete} from "admin-on-rest";
+import React, {Component} from "react";
+import {Admin, Resource, Delete} from "admin-on-rest";
+import russianMessages from "aor-language-russian";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import efRestClient from "./efRestClient";
 import authClient from "./authClient";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
 import {PostList, PostEdit, PostCreate} from "./resources/posts";
-import {ContactList,ContactEdit,ContactCreate} from "./resources/contacts";
+import {ContactList, ContactEdit, ContactCreate} from "./resources/contacts";
 import {PrivilegeList, PrivilegeEdit, PrivilegeCreate} from "./resources/privileges";
-import {DontaionList, DontaionEdit, DontaionCreate} from './resources/donations';
+import {DontaionList, DontaionEdit, DontaionCreate} from "./resources/donations";
+
+const messages = {
+    'ru': russianMessages,
+};
 
 
 class AdminSection extends Component {
@@ -29,9 +34,11 @@ class AdminSection extends Component {
         return this.props.user;
     }
 
+
     render() {
         return (
-            <Admin title={`Кабинет администратора ${this.props.user.firstName} ${this.props.user.lastName}`}
+            <Admin locale="ru" messages={messages}
+                   title={`Кабинет администратора ${this.props.user.firstName} ${this.props.user.lastName}`}
                    authClient={authClient(this.getUserState.bind(this), this.props.dispatch)}
                    restClient={efRestClient}>
                 <Resource name="posts"
