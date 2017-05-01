@@ -43,6 +43,13 @@
   background: url($image + "icon-login.png") no-repeat;
 }
 
+.back-btn-icon {
+  @extend .border-small,
+  .hover-primary-invert,
+  .header-icon;
+  background: url($image + "icon-back.png") no-repeat;
+}
+
 .login-btn-icon-white {
   @extend .border-small-white,
   .header-icon;
@@ -85,6 +92,17 @@
   padding: 0 2*$o;
   width: calc(50% - 54px);
   margin: 0 2*$o 2*$o 0;
+}
+
+.login-input {
+  @extend .border-small-disabled,
+  .transition-3,
+  .m-b-2;
+  height: 4*$o;
+}
+.login-input:focus {
+  padding-left: 2*$o;
+  border: $small-border solid $dark;
 }
 
 .navigation {
