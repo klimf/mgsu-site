@@ -14,10 +14,11 @@ class App extends Component {
         this.props.UserManager.getCurrent();
     }
 
+
     render() {
         return (
            <div>
-                <Header {...this.props}/>
+                <Header {...this.props} />
                 <ScrollFix {...this.props}>
                 <Routes {...this.props} />
                 </ScrollFix>
@@ -28,8 +29,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-    const {user} = state.UserState
-    return {user}
+    const user = state.UserState
+    return {user: user}
 };
 
 const mapDispatchToProps = dispatch => ({

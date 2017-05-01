@@ -11,7 +11,7 @@ import GradClubPage from "../GradClubPage/GradClubPage";
 import SponsorsPage from "../SponsorsPage/SponsorsPage";
 import NewsPage from "../NewsPage/NewsPage";
 
-const Routes = ({user, UserManager}) => (
+const Routes = (props) => (
     <Switch>
         <Route exact path="/" component={HomePage}/>
         <Route path="/projects/:direction?" component={ProjectsList}/>

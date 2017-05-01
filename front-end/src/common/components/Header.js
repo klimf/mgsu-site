@@ -17,6 +17,11 @@ class Header extends Component {
     }
 
     componentDidUpdate() {
+
+        this.isAdmin = this.props.user.data && this.props.user.data.role == 1;
+        this.isSponsor = this.props.user.data && this.props.user.data.role != 1;
+        this.isNotSign= !this.props.user.data;
+
         if (this.state.headerIsWhite !== (this.props.location.pathname === '/')) {
             this.setState({
                 headerIsWhite: this.props.location.pathname === '/'
@@ -47,10 +52,22 @@ class Header extends Component {
                              activeClassName="selected">
                         <div className={`logo${this.state.headerIsWhite ? "-white" : ""}`}/>
                     </NavLink>
-                    <div className={`login-btn-icon${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`}/>
+                    {this.isAdmin && 
+                     <NavLink className={`login-btn-icon${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`}
+                            to='/admin'/>
+                    }
+                    {this.isSponsor&& 
+                     <NavLink className={`login-btn-icon${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`}
+                            to='/'/>
+                    }
+                    {this.isNotSign  && 
+                     <NavLink className={`login-btn-icon${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`}
+                            to='/projects'/>
+                    }
+                   
                     <div className={`menu-btn-icon${this.state.headerIsWhite ? "-white" : ""} large-0`}
                          onClick={this.handlerMenuClick.bind(this)}/>
-                    <div className={`donate-btn${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`}>Сделать вклад</div>
+                    <NavLink className={`donate-btn${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`} to='/projects'>Сделать вклад</NavLink>
                     <div className={`navigation${this.state.headerIsWhite ? "-white" : ""} small-0 medium-0`}>
                         <NavLink className="nav-item" to="/about">О фонде</NavLink>
                         <NavLink className="nav-item" to="/projects">Проекты</NavLink>
@@ -66,10 +83,4 @@ class Header extends Component {
 }
 
 
-const mapStateToProps = (state) => {
-    const {white} = state.Header;
-    return {white}
-};
-
-
-export default withRouter(connect(mapStateToProps)(Header));
+export default Header;
