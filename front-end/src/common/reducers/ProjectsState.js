@@ -30,7 +30,7 @@ class _ProjectDetailManager extends StateModel {
     }
 
     getDetail(id) {
-        this._apiAction.perform({
+       this._apiAction.perform({
             params: [id]
         })
     }

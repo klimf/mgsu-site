@@ -75,6 +75,7 @@ export class ApiAction extends AsyncAction {
             const apiQuery = resolveApi({path: path, action: this.action, query: _query});
 
             const _options = options || this.options;
+
             if(body) {
                  _options.body = JSON.stringify(body);
                  _options.headers = {
@@ -90,16 +91,15 @@ export class ApiAction extends AsyncAction {
 
             
                 fetch(apiQuery, _options).then((response) => {
-                if(response.status != 200 && response.status!= 304) {
-                    reject({status: response.status, message: response.statusText});
-                } else {
+                if(response.status == 200 || response.status == 304) {
                     response.json().then((data) => {
                         resolve(this.prePare(data));
                     })
+                } else {
+                    reject({status: response.status, message: response.statusText});
                 }
 
             }).catch((error) => {
-                
                     reject(error);
                 })
             })
