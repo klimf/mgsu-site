@@ -7,17 +7,19 @@ export default (getUserState, dispatch) => {
         console.log(type, params)
     // called when the user attempts to  log in
     if (type === AUTH_LOGIN) {
-       return User.login(params.username, params.password).then(() => (Promise.resolve()))
+        User.login(params.username, params.password);
+       return Promise.resolve();
     }
     // called when the user clicks on the logout button
     if (type === AUTH_LOGOUT) {
-         return User.logout().then(() => Promise.resolve())
+         User.logout()
+         return Promise.resolve();
     }
     // called hen the API returns an error
     if (type === AUTH_ERROR) {
         const { status } = params;
         if (status === 401 || status === 403) {
-            return Promise.reject();
+            return Promise.resolve();
         }
         return Promise.resolve();
     }
