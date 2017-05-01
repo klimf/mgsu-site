@@ -41,7 +41,6 @@ class ProjectsList extends Component {
 
     changeDirection(direction) {
        this.props.history.push('/projects/' + (direction || 'Все проекты'))
-       console.log(direction,  this.props.filters.indexOf(direction));
        this.props.filters.indexOf(direction) == -1 || direction == null ?
        this.currentDirection = this.props.directions[0] :
        this.currentDirection = this.props.directions[this.props.filters.indexOf(direction)];
@@ -85,7 +84,6 @@ class ProjectsList extends Component {
 ProjectsList.defaultProps = defaultProps;
 
 const mapStateToProps = (state) => {
-    console.log(state.ProjectsState.list);
     const props =  {
         projects: state.ProjectsState.list
     };

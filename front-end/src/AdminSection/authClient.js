@@ -4,7 +4,6 @@ import {User} from "../common/reducers/UserState";
 export default (getUserState, dispatch) => {
     User.bindTo(dispatch);
     return (type, params) => {
-        console.log(type, params)
     // called when the user attempts to  log in
     if (type === AUTH_LOGIN) {
         return User.login(params.username, params.password).then(() => Promise.resolve);

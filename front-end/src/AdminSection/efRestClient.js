@@ -13,7 +13,7 @@ import {resolveApi} from "../common/helpers";
 
 const createRequest = (type, resource, params) => {
 
-    console.log(type, resource, params);
+  
 
     try {
 
@@ -80,7 +80,6 @@ const createRequest = (type, resource, params) => {
         if(_typesHandlers[type]) {
 
             _typesHandlers[type]();
-            console.log(apiQuery)
             return apiQuery;
         
         } else {
@@ -98,7 +97,6 @@ const createRequest = (type, resource, params) => {
 const formatResponse = (response, type, resource, params) => {
 
         const { headers, json } = response;
-        console.log(response);
 
         switch (type) {
             case CREATE:
