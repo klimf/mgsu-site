@@ -1,3 +1,14 @@
+.decoration {
+  @extend .cover;
+  background: url($image + "decoration.png") no-repeat;
+  position: absolute;
+  left: 0;
+  top: 42px;
+  width: 24px;
+  height: 20px;
+
+}
+
 .logo-base {
   @extend .inline,
   .pointer,
@@ -124,7 +135,6 @@
   right: 25px + $o*2;
   text-align: right;
   width: calc(300px);
-  right: 25px + $o*2;
 }
 
 .bar--tooLagreValue {
@@ -364,6 +374,7 @@
 }
 
 .iframe-map {
+  background-color: $disabled;
   margin-bottom: -6px;
 }
 
