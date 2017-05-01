@@ -77,8 +77,13 @@ export class ApiAction extends AsyncAction {
             const _options = options || this.options;
             if(body) {
                  _options.body = JSON.stringify(body);
-                 _options.headers = {'Content-Type': 'application/json'};
+                 _options.headers = {
+                     'Content-Type': 'application/json',
+                     'Authorization': 'Basic bWV0YWxsaWM6bWV0YWxsaWM='
+                    };
             }
+
+           // _options.creditionals = 'same-origin';
            
 
             return new Promise((resolve, reject) => {
