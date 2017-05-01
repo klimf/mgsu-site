@@ -11,7 +11,6 @@ import ScrollFix from "./components/ScrollFix"
 class App extends Component {
 
     componentDidMount() {
-        console.log(this.props);
         this.props.UserManager.getCurrent();
     }
 

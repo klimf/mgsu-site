@@ -45,8 +45,6 @@ class HomePage extends Component {
         this.fundValueTooSmall = this.fundValue < 10;
         this.fundValueTooLagre = this.fundValue > 80;
 
-        console.log(this.fundValue)
-
         // window.addEventListener("scroll", function(){
         //     parallax();
         // });

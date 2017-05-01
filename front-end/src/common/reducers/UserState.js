@@ -9,7 +9,6 @@ class UserManager extends StateModel {
     }
     
     login(email, password) {
-        console.log('?????????????????????????',email, password)
        return this._apiAction.perform({
             params: ['login'],
             options: {

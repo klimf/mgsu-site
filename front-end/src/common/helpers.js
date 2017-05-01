@@ -26,7 +26,6 @@ export function resolveApi({path, action, query}) {
             queryArr.push(key + '=' + query[key])
         }
     }
-    console.log(path, action, query);
     return apiUrl + `${path.join('/')}${haveQuery ? ('/?' +  queryArr.join('&')) : ''}`
 
 }
@@ -78,16 +77,19 @@ export class ApiAction extends AsyncAction {
             const _options = options || this.options;
             if(body) {
                  _options.body = JSON.stringify(body);
-                 _options.headers = {'Content-Type': 'application/json'};
+                 _options.headers = {
+                     'Content-Type': 'application/json',
+                     'Authorization': 'Basic bWV0YWxsaWM6bWV0YWxsaWM='
+                    };
             }
+
+           // _options.creditionals = 'same-origin';
            
 
             return new Promise((resolve, reject) => {
 
-                console.log('ASYNC OPTIONS', _options)
             
                 fetch(apiQuery, _options).then((response) => {
-                    console.log("ASYNC RESPONSE", response);
                 if(response.status != 200 && response.status!= 304) {
                     reject({status: response.status, message: response.statusText});
                 } else {

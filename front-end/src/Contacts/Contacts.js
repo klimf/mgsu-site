@@ -73,7 +73,7 @@ class ContactsPage extends Component {
                     <div className="huge-text uppercase center small-6 columns">
                         Карта
                     </div>
-                    <div className="contacts-block small-6 border bg-white columns">
+                    <div className="contacts-block small-6 bg-white columns">
                         <h3 className="uppercase center">Контакты</h3>
                         <div className="contact">
                             <p>Адрес</p>
@@ -88,6 +88,8 @@ class ContactsPage extends Component {
                             <h3>ef@mgsu.ru </h3>
                         </div>
                         <div className="space-2"/>
+                        <div className="bg-border"/>
+                        <div className="decoration top-2"/>
                     </div>
                 </div>
                 <div className="small-12 expanded">

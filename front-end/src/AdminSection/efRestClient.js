@@ -13,7 +13,7 @@ import {resolveApi} from "../common/helpers";
 
 const createRequest = (type, resource, params) => {
 
-    console.log(type, resource, params);
+  
 
     try {
 
@@ -80,7 +80,6 @@ const createRequest = (type, resource, params) => {
         if(_typesHandlers[type]) {
 
             _typesHandlers[type]();
-            console.log(apiQuery)
             return apiQuery;
         
         } else {
@@ -98,7 +97,6 @@ const createRequest = (type, resource, params) => {
 const formatResponse = (response, type, resource, params) => {
 
         const { headers, json } = response;
-        console.log(response);
 
         switch (type) {
             case CREATE:
@@ -111,6 +109,9 @@ const formatResponse = (response, type, resource, params) => {
 
 export default (type, resource, params) => {
     const {url, options} = createRequest(type, resource, params)
+    options.headers = new Headers({ 'Content-Type': 'application/json'});
+    options.headers.set('Authorization', 'Basic bWV0YWxsaWM6bWV0YWxsaWM=');
+    //options.credentials = 'include';
     const { fetchJson } = fetchUtils;
     return fetchJson(url, options)
         .then(response => formatResponse(response, type, resource, params));
