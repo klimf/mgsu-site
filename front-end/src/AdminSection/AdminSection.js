@@ -16,10 +16,11 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import efRestClient from "./efRestClient";
 import authClient from "./authClient";
-import {UserList, UserEdit, UserCreate} from "./resources/user";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
 import {PostList, PostEdit, PostCreate} from "./resources/posts";
 import {ContactList,ContactEdit,ContactCreate} from "./resources/contacts";
+import {PrivilegeList, PrivilegeEdit, PrivilegeCreate} from "./resources/privileges";
+
 
 
 class AdminSection extends Component {
@@ -39,12 +40,6 @@ class AdminSection extends Component {
                           create={PostCreate}
                           remove={Delete}
                           options={{label: 'Посты'}}/>
-                <Resource name="users"
-                          list={UserList}
-                          edit={UserEdit}
-                          create={UserCreate}
-                          remove={Delete}
-                          options={{label: 'Пользователи'}}/>
                 <Resource name="projects"
                           list={ProjectList}
                           edit={ProjectEdit}
@@ -57,6 +52,12 @@ class AdminSection extends Component {
                           create={ContactCreate}
                           remove={Delete}
                           options={{label: 'Контакты'}}/>
+                <Resource name="privileges"
+                          list={PrivilegeList}
+                          edit={PrivilegeEdit}
+                          create={PrivilegeCreate}
+                          remove={Delete}
+                          options={{label: 'Преимущества'}}/>
             </Admin>
         )
     }
