@@ -49,7 +49,7 @@
   position: relative;
   background: url($image + "home-bg.jpg") no-repeat center center fixed;
   margin-top: -8*$o;
-  padding: 8*$o 0 20*$o 0;
+  padding: 8*$o 0 14*$o 0;
 }
 
 .main-progress {
@@ -403,7 +403,11 @@ table.donations-table tr:first-child {
   color: $white;
 }
 
-@media screen and (max-width: 639px) {
+@media print, screen and (max-width: 39.999em) {
+  .wide-img {
+    background-position: center 0 !important;
+  }
+
   .contacts {
     width: 100%;
     margin-top: $o;

@@ -75,7 +75,7 @@ class HomePage extends Component {
         return (
             <div className="page row expanded">
                 <div classID="wide-img" className="wide-img small-12 expanded"
-                style={{backgroundPosition: "center -"+ this.state.scrollTop/2 + "px"}}>
+                style={{backgroundPosition: "center " + -this.state.scrollTop/2 + "px"}}>
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar-wrap">
