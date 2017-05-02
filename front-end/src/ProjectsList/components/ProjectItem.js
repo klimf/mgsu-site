@@ -8,12 +8,7 @@ const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
         <Link to={`/project/${props.project._id}`}>
             <div className="project-image space-7">
-                <div className={`bg-img ${!props.project.img && 'placeholder-img'}`}
-                                style={
-                                    {
-                                        backgroud: `url(${resolveStatic(props.project.img.small)})`
-                                    }
-                                }
+                <div className={'bg-img placeholder-img'}
                  />
             </div>
             <div className="project-text">
