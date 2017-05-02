@@ -32,13 +32,36 @@ class AdminSection extends Component {
             <Admin theme={mgsuTheme}
                   locale='ru' messages={messages}
                    title={`Кабинет администратора ${this.props.user.data.firstName} ${this.props.user.data.lastName}`}
-                   
                    restClient={efRestClient}>
                 <Resource name="projects"
-                           options={{ label: 'Проекты' }}
+                          options={{ label: 'Проекты' }}
                           list={ProjectList}
                           edit={ProjectEdit}
                           create={ProjectCreate}
+                          remove={Delete}/>
+                <Resource name="posts"
+                          options={{ label: 'Посты' }}
+                          list={PostList}
+                          edit={PostEdit}
+                          create={PostCreate}
+                          remove={Delete}/>
+                <Resource name="contacts"
+                          options={{ label: 'Контакты' }}
+                          list={ContactList}
+                          edit={ContactEdit}
+                          create={ContactCreate}
+                          remove={Delete}/>
+                <Resource name="privileges"
+                          options={{ label: 'Привилегии' }}
+                          list={PrivilegeList}
+                          edit={PrivilegeEdit}
+                          create={ProjectCreate}
+                          remove={Delete}/>
+                <Resource name="donation"
+                          options={{ label: 'Донаты' }}
+                          list={DontaionList}
+                          edit={DontaionEdit}
+                          create={DontaionCreate}
                           remove={Delete}/>
             </Admin>
         )

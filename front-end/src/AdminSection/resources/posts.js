@@ -12,8 +12,11 @@ import {
     SimpleForm,
     TextInput,
     LongTextInput,
-    DateInput
+    DateInput,
+    ReferenceInput,
+    SelectInput
 } from "admin-on-rest";
+import {required, isStr, isURL} from '../validationRules';
 
 export const PostList = (props) => (
     <List title="Список проектов" {...props}>
@@ -21,11 +24,9 @@ export const PostList = (props) => (
             <TextField source="title" label="Заголовок"/>
             <TextField source="description" label="Описание"/>
             <TextField source="content" label="Содержимое поста"/>
-            <DateField source="creatingDate" label="Дата создания"/>
             <DateField source="date" label="Дата"/>
             <ChipField source="category" label="Категория"/>
             <UrlField source="link" label="Ссылка"/>
-            <TextField source="time" label="Время"/>
             <EditButton />
         </Datagrid>
     </List>
@@ -34,14 +35,12 @@ export const PostList = (props) => (
 export const PostEdit = (props) => (
     <Edit title="Изменение пользователя" {...props}>
         <SimpleForm>
-            <TextInput source="title" label="Заголовок"/>
-            <LongTextInput source="description" label="Описание"/>
-            <LongTextInput source="content" label="Содержимое поста"/>
-            <DateInput source="creatingDate" label="Дата создания"/>
-            <DateInput source="date" label="Дата"/>
-            <TextInput source="category" label="Категория"/>
-            <TextInput source="link" label="Ссылка"/>
-            <TextInput source="time" label="Время"/>
+            <TextInput source="title" label="Заголовок" validate={[required, isStr]}/>
+            <LongTextInput source="description" label="Описание" validate={[required]}/>
+            <LongTextInput source="content" label="Содержимое поста" validate={[required]}/>
+            <DateInput source="date" label="Дата" validate={[required]}/>
+            <TextInput source="category" label="Категория" validate={[required]}/>
+            <TextInput source="link" label="Ссылка" validate={[required, isURL]}/>
         </SimpleForm>
     </Edit>
 );
@@ -49,14 +48,12 @@ export const PostEdit = (props) => (
 export const PostCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source="title" label="Заголовок"/>
-            <LongTextInput source="description" label="Описание"/>
-            <LongTextInput source="content" label="Содержимое поста"/>
-            <DateInput source="creatingDate" label="Дата создания"/>
-            <DateInput source="date" label="Дата"/>
-            <TextInput source="category" label="Категория"/>
-            <TextInput source="link" label="Ссылка"/>
-            <TextInput source="time" label="Время"/>
+            <TextInput source="title" label="Заголовок" validate={[required, isStr]}/>
+            <LongTextInput source="description" label="Описание" validate={[required]}/>
+            <LongTextInput source="content" label="Содержимое поста" validate={[required]}/>
+            <DateInput source="date" label="Дата" validate={[required]}/>
+            <TextInput source="category" label="Категория" validate={[required]}/>
+            <TextInput source="link" label="Ссылка" validate={[required, isURL]}/>
         </SimpleForm>
     </Create>
 );
