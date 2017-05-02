@@ -16,7 +16,7 @@ export default getMuiTheme({
         alternateTextColor: '#fff',
         canvasColor: '#fff',
         borderColor: '#CB6D71',
-        disabledColor: '#D8D8D8',
+        disabledColor: '#CB6D71',
         pickerHeaderColor: '#CB6D71',
         clockCircleColor: '#fff',
         shadowColor: '#050F11',

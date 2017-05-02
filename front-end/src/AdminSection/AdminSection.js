@@ -52,7 +52,7 @@ AdminSection.propTypes = {
 }
 
 const mapStateToProps = state => {
- 
+  return {}
 }
 
 export default withRouter(connect(mapStateToProps)(AdminSection));

@@ -54,6 +54,7 @@ const createRequest = (type, resource, params) => {
                     })
                 apiQuery.options.method = 'POST';
                 apiQuery.options.body = params.data;
+                console.log(apiQuery);
             },
             UPDATE: () => {
                 apiQuery.url = resolveApi(
@@ -93,7 +94,7 @@ const formatResponse = (response, type, resource, params) => {
     const {json} = response;
     switch (type) {
         case CREATE:
-            return {...params.data, id: json}
+            return {data: {...params.data, id: json}}
         case GET_LIST:
         const data = { 
                  data:  (json.docs ? json.docs.map(mapId) : json.map(mapId)),
@@ -102,7 +103,7 @@ const formatResponse = (response, type, resource, params) => {
         return data;
         break;
         default:
-            return json;
+            return {data: mapId(json)};
     }
 };
 
@@ -111,6 +112,9 @@ export default (type, resource, params) => {
     options.headers = new Headers({'Content-Type': 'application/json'});
     options.headers.set('Authorization', 'Basic bWV0YWxsaWM6bWV0YWxsaWM=');
     //options.credentials = 'include';
+    if(options.body) {
+        options.body = JSON.stringify(options.body);
+    }
     const {fetchJson} = fetchUtils;
     return fetchJson(url, options)
         .then(response => (formatResponse(response, type, resource, params)));
