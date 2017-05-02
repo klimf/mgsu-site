@@ -33,9 +33,9 @@ export const PostList = (props) => (
 );
 
 export const PostEdit = (props) => (
-    <Edit title="Изменение пользователя" {...props}>
+    <Edit title="Изменение проекта" {...props}>
         <SimpleForm>
-            <TextInput source="title" label="Заголовок" validate={[required, isStr]}/>
+            <TextInput source="title" label="Заголовок" validate={[required]}/>
             <LongTextInput source="description" label="Описание" validate={[required]}/>
             <LongTextInput source="content" label="Содержимое поста" validate={[required]}/>
             <DateInput source="date" label="Дата" validate={[required]}/>
@@ -48,7 +48,7 @@ export const PostEdit = (props) => (
 export const PostCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source="title" label="Заголовок" validate={[required, isStr]}/>
+            <TextInput source="title" label="Заголовок" validate={[required]}/>
             <LongTextInput source="description" label="Описание" validate={[required]}/>
             <LongTextInput source="content" label="Содержимое поста" validate={[required]}/>
             <DateInput source="date" label="Дата" validate={[required]}/>
