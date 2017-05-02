@@ -54,7 +54,7 @@ const createRequest = (type, resource, params) => {
                     })
                 apiQuery.options.method = 'POST';
                 apiQuery.options.body = params.data;
-                console.log(apiQuery);
+                console.log(params.data);
             },
             UPDATE: () => {
                 apiQuery.url = resolveApi(
@@ -107,15 +107,50 @@ const formatResponse = (response, type, resource, params) => {
     }
 };
 
+const uploadFile = (file) => {
+        const url = resolveApi({path: ['files', 'img']});
+        const data = new FormData();
+        const headers = new Headers({'Content-Type': 'multipart/form-data'});
+        headers.set('Authorization', 'Basic bWV0YWxsaWM6bWV0YWxsaWM=');
+        const options = {
+            method: 'POST',
+            headers: headers,
+            body: data.append('file', file)
+        }
+        return fetchUtils.fetchJson(url, options).then((response) => {
+            console.log(response);
+            return Promise.resolve(response);
+        })
+}
+
 export default (type, resource, params) => {
     const {url, options} = createRequest(type, resource, params)
     options.headers = new Headers({'Content-Type': 'application/json'});
     options.headers.set('Authorization', 'Basic bWV0YWxsaWM6bWV0YWxsaWM=');
+
     //options.credentials = 'include';
-    if(options.body) {
-        options.body = JSON.stringify(options.body);
+
+  
+
+    if(options.body && options.body.picture) {
+        console.log('picture!!!!')
+      return uploadFile(options.body.picture[0]).then((response) => {
+
+            const {fetchJson} = fetchUtils;
+            options.body.img = response;
+            return fetchJson(url, options)
+                .then(response => (formatResponse(response, type, resource, params)));
+        })
+
+    } else {
+
+          if(options.body) {
+                options.body = JSON.stringify(options.body);
+            }
+
+          const {fetchJson} = fetchUtils;
+            return fetchJson(url, options)
+                .then(response => (formatResponse(response, type, resource, params)));
     }
-    const {fetchJson} = fetchUtils;
-    return fetchJson(url, options)
-        .then(response => (formatResponse(response, type, resource, params)));
+  
 }
