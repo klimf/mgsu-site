@@ -30,7 +30,7 @@ export const ContactList = (props) => (
 );
 
 export const ContactEdit = (props) => (
-    <Edit title="Изменение пользователя" {...props}>
+    <Edit title="Изменение контакта" {...props}>
         <SimpleForm>
             <TextInput source="team" label="Команда" validate={[required, isStr]}/>
             <TextInput source="firstName" label="Имя" validate={[required, isStr, noSpace]}/>

@@ -8,7 +8,6 @@ import authClient from "./authClient";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
 import {PostList, PostEdit, PostCreate} from "./resources/posts";
 import {ContactList, ContactEdit, ContactCreate} from "./resources/contacts";
-import {PrivilegeList, PrivilegeEdit, PrivilegeCreate} from "./resources/privileges";
 import {DontaionList, DontaionEdit, DontaionCreate} from "./resources/donations";
 import mgsuTheme from './components/mgsuTheme';
 import {AboutCreate, AboutList, AboutEdit} from "./resources/about"
@@ -50,12 +49,6 @@ class AdminSection extends Component {
                           list={ContactList}
                           edit={ContactEdit}
                           create={ContactCreate}
-                          remove={Delete}/>
-                <Resource name="privileges"
-                          options={{ label: 'Привилегии' }}
-                          list={PrivilegeList}
-                          edit={PrivilegeEdit}
-                          create={ProjectCreate}
                           remove={Delete}/>
                 <Resource name="donation"
                           options={{ label: 'Донаты' }}
