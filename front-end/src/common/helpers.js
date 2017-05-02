@@ -89,20 +89,19 @@ export class ApiAction extends AsyncAction {
                      'Content-Type': 'application/json',
                      'Authorization': 'Basic bWV0YWxsaWM6bWV0YWxsaWM='
                     };
-
             // _options.creditionals = 'same-origin';
 
             return new Promise((resolve, reject) => {
                 fetch(apiQuery, _options).then((response) => {
                 if(response.status != 200 && response.status != 304) {
-                   return reject({status: response.status, message: response});
+                    reject({status: response.status, message: response});
                 } else {
-                   return response.json().then((data) => {
-                      return resolve(this.prePare(data));
+                    response.json().then((data) => {
+                       resolve(this.prePare(data));
                     })
                 }
             }).catch((error) => {
-                  return reject(error);
+                   reject(error);
                 })
             })
 

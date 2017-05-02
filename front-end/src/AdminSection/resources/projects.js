@@ -18,15 +18,18 @@ import {
 } from "admin-on-rest";
 
 export const ProjectList = (props) => (
-    <List title="Список проектов" {...props}>
-        <Datagrid>
+    <List title="Список проектов" {...props} perPage={100}>
+        <Datagrid >
+            <TextField source="_id" label="ID"/>
             <TextField source="name" label="Название"/>
             <TextField source="shortDescription" label="Короткое описание"/>
+            <DateField source="creatingDate" label="Создан"></DateField>
             <NumberField source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Собрано"/>
             <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Нужно собрать"/>
             <TextField source="direction" label="Направление"/>
-            <BooleanField source="public" label="Публичный"/>
-            <EditButton />
+            <NumberField source="_v" label="версия"/>
+            <BooleanField source="public" label="публичный"></BooleanField>
+            <EditButton label="редактировать" />
         </Datagrid>
     </List>
 );
