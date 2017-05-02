@@ -34,7 +34,7 @@ export default class Registration extends Component {
                     </div>
                     <div className="small-12 medium-6 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value='' placeholder="Год выпуска"
-                                                     name="year" validations={['altYear']}/>
+                                                     name="year" validations={[]}/>
                     </div>
                     <div className="small-12 medium-12 large-4 m-b-2 columns end">
                         <Validation.components.Input className="small-12 columns end" value=''
@@ -44,11 +44,11 @@ export default class Registration extends Component {
                 </div>
                 <div className="small-12 columns">
                     <div className="small-12  columns">
-                        <Validation.components.Input className="left" type="checkbox" id="check-graduate" validations/>
+                        <input className="left" type="checkbox" id="check-graduate"/>
                         <label htmlFor="check-graduate">Я выпускник МГСУ</label>
                     </div>
                     <div className="small-12 columns">
-                        <Validation.components.Input className="left" type="checkbox" id="check-rules" validations/>
+                        <input className="left" type="checkbox" id="check-rules"/>
                         <label htmlFor="check-rules">Согласен(а) c условиями оплаты,
                             обработки персональных данных и офертой</label>
                     </div>

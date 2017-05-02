@@ -1,4 +1,3 @@
-
 import React, {Component, PropTypes} from "react";
 import {Admin, Resource, Delete, simpleRestClient} from "admin-on-rest";
 import russianMessages from "aor-language-russian";

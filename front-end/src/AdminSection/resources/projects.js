@@ -21,8 +21,7 @@ import {
     FormTab,
     SelectInput
 } from "admin-on-rest";
-import RichTextInput from 'aor-rich-text-input';
-import {required} from '../validationRules';
+import RichTextInput from "aor-rich-text-input";
 import {resolveStatic} from "../../common/helpers";
 
 
@@ -37,19 +36,20 @@ const directions = [
 ]
 
 
-
 export const ProjectList = (props) => (
     <List title="Список проектов" {...props} perPage={100}>
         <Datagrid >
-            <ImageField source={resolveStatic("img.small")} label="Изображение"></ImageField>
+            <ImageField source={resolveStatic("img.small")} label="Изображение"/>
             <TextField source="name" label="Название"/>
             <TextField source="shortDescription" label="Короткое описание"/>
-            <DateField source="creatingDate" label="Создан"></DateField>
-            <NumberField source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Собрано"/>
-            <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Нужно собрать"/>
+            <DateField source="creatingDate" label="Создан"/>
+            <NumberField source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}}
+                         label="Собрано"/>
+            <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}}
+                         label="Нужно собрать"/>
             <TextField source="direction" label="Направление"/>
             <NumberField source="_v" label="версия"/>
-            <BooleanField source="public" label="публичный"></BooleanField>
+            <BooleanField source="public" label="публичный"/>
             <EditButton  />
         </Datagrid>
     </List>
@@ -60,18 +60,18 @@ export const ProjectEdit = (props) => (
         <TabbedForm>
             <FormTab label="Общая информация">
                 <ImageInput source="picture" label="Фотография" accept="image/*">
-                    <ImageField source="img.small" />
+                    <ImageField source="img.small"/>
                 </ImageInput>
-                <TextInput    source="name" label="Название"/>
-                <NumberInput  source="given" label="Собрано"/>
-                <NumberInput  source="need" label="Нужно собрать"/>
-                <SelectInput  source="direction" label="Направление" choices={directions} />
+                <TextInput source="name" label="Название"/>
+                <NumberInput source="given" label="Собрано"/>
+                <NumberInput source="need" label="Нужно собрать"/>
+                <SelectInput source="direction" label="Направление" choices={directions}/>
             </FormTab>
             <FormTab label="Содержание">
-                 <LongTextInput source="shortDescription" label="Короткое описание"/>
-                 <RichTextInput source="content" label="Полное описание"/>
+                <LongTextInput source="shortDescription" label="Короткое описание"/>
+                <RichTextInput source="content" label="Полное описание"/>
             </FormTab>
-    </TabbedForm>
+        </TabbedForm>
     </Edit>
 );
 
@@ -80,17 +80,17 @@ export const ProjectCreate = (props) => (
         <TabbedForm>
             <FormTab label="Общая информация">
                 <ImageInput source="picture" label="Фотография" accept="image/*">
-                    <ImageField source="picSrc" />
+                    <ImageField source="picSrc"/>
                 </ImageInput>
-                <TextInput    source="name" label="Название"/>
-                <NumberInput  source="given" label="Собрано"/>
-                <NumberInput  source="need" label="Нужно собрать"/>
-                <SelectInput  source="direction" label="Направление" choices={directions} />
+                <TextInput source="name" label="Название"/>
+                <NumberInput source="given" label="Собрано"/>
+                <NumberInput source="need" label="Нужно собрать"/>
+                <SelectInput source="direction" label="Направление" choices={directions}/>
             </FormTab>
             <FormTab label="Содержание">
-                 <LongTextInput source="shortDescription" label="Короткое описание"/>
-                 <RichTextInput source="content" label="Полное описание"/>
+                <LongTextInput source="shortDescription" label="Короткое описание"/>
+                <RichTextInput source="content" label="Полное описание"/>
             </FormTab>
-    </TabbedForm>
+        </TabbedForm>
     </Create>
 );
