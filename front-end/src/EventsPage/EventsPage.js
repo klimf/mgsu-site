@@ -7,7 +7,6 @@ class EventsPage extends Component {
 
     }
 
-
     render() {
         return (
             <div className="page row expanded">
