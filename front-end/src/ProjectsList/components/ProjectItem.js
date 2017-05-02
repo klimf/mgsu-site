@@ -8,8 +8,8 @@ const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
         <Link to={`/project/${props.project._id}`}>
             <div className="project-image space-7">
-                <div className='bg-img'
-              />
+                <div className={'bg-img placeholder-img'}
+                 />
             </div>
             <div className="project-text">
                 <h2 className="small-12 upprecase center black columns">{props.project.name}</h2>

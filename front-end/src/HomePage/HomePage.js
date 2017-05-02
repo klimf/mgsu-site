@@ -10,6 +10,7 @@ import {VipSponsorsManager} from "../common/reducers/PeopleState";
 import {NavLink, withRouter} from "react-router-dom";
 
 
+
 class HomePage extends Component {
     constructor(props) {
         super(props);
@@ -31,6 +32,12 @@ class HomePage extends Component {
             hexaStyle: '',
             scrollTop: 0
         };
+
+         window.addEventListener("scroll", ()=>{
+               this.setState({
+                    scrollTop: window.pageYOffset
+               }) 
+        });
         
     }
 
@@ -56,12 +63,12 @@ class HomePage extends Component {
             });
         }, 600);
 
-        window.addEventListener("scroll", ()=>{
-               this.setState({
-                    scrollTop: window.pageYOffset
-               }) 
-        });
+       
 
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        
     }
 
 
@@ -307,4 +314,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

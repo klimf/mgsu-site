@@ -1,5 +1,5 @@
 import React from "react";
-import {isEmpty, isEmail, isInt, isLength as length} from "validator";
+import {isEmpty, isEmail, isInt, isLength as length, isURL as url} from "validator";
 
 /*
  * Rules for Admin panel
@@ -49,4 +49,9 @@ export const isStr = (value = '') => {
         }
     }
     return value && correct ? false : 'Разрешены только буквы.'
+};
+
+export const isURL = (value = '') => {
+    value+='';
+    return value && url(value) ? false : 'Не корректный адрес.';
 };
