@@ -9,6 +9,7 @@ import {
     fetchUtils,
 } from 'admin-on-rest';
 import {resolveApi} from "../common/helpers";
+import fetch from 'isomorphic-fetch';
 
 const createRequest = (type, resource, params) => {
     try {
@@ -108,18 +109,16 @@ const formatResponse = (response, type, resource, params) => {
 };
 
 const uploadFile = (file) => {
+
         const url = resolveApi({path: ['files', 'img']});
-        const data = new FormData();
-        const headers = new Headers({'Content-Type': 'multipart/form-data'});
-        headers.set('Authorization', 'Basic bWV0YWxsaWM6bWV0YWxsaWM=');
+        const formdata = new FormData();
+        formdata.append('file', file);
         const options = {
             method: 'POST',
-            headers: headers,
-            body: data.append('file', file)
+            body: formdata
         }
         return fetchUtils.fetchJson(url, options).then((response) => {
-            console.log(response);
-            return Promise.resolve(response);
+            return Promise.resolve(response.json);
         })
 }
 
@@ -133,11 +132,10 @@ export default (type, resource, params) => {
   
 
     if(options.body && options.body.picture) {
-        console.log('picture!!!!')
       return uploadFile(options.body.picture[0]).then((response) => {
-
             const {fetchJson} = fetchUtils;
             options.body.img = response;
+            options.body = JSON.stringify(options.body);
             return fetchJson(url, options)
                 .then(response => (formatResponse(response, type, resource, params)));
         })
@@ -147,7 +145,6 @@ export default (type, resource, params) => {
           if(options.body) {
                 options.body = JSON.stringify(options.body);
             }
-
           const {fetchJson} = fetchUtils;
             return fetchJson(url, options)
                 .then(response => (formatResponse(response, type, resource, params)));
