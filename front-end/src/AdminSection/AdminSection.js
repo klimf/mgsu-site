@@ -1,17 +1,5 @@
-/*import React from 'react'
- import {Switch} from "react-router";
- // import AdminAccount from "./components/AdminAccount";
- // import FormsSection from "./components/FormsSection";
-
-
- const AdminSection = props => (
- <Switch>
- {/!*<Route exact path={`${props.match.url}/`} component={AdminAccount}/>*!/}
- {/!*<Route  path={`${props.match.url}/forms`} component={FormsSection}/>*!/}
- </Switch>
- )*/
-import React, {Component} from "react";
-import {Admin, Resource, Delete} from "admin-on-rest";
+import React, {Component, PropTypes} from "react";
+import {Admin, Resource, Delete, simpleRestClient} from "admin-on-rest";
 import russianMessages from "aor-language-russian";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
@@ -22,7 +10,8 @@ import {PostList, PostEdit, PostCreate} from "./resources/posts";
 import {ContactList, ContactEdit, ContactCreate} from "./resources/contacts";
 import {PrivilegeList, PrivilegeEdit, PrivilegeCreate} from "./resources/privileges";
 import {DontaionList, DontaionEdit, DontaionCreate} from "./resources/donations";
-
+import mgsuTheme from './components/mgsuTheme';
+import {AboutCreate, AboutList, AboutEdit} from "./resources/about"
 const messages = {
     'ru': russianMessages,
 };
@@ -34,52 +23,41 @@ class AdminSection extends Component {
         return this.props.user;
     }
 
+    componentDidUpdate() {
+        console.log(this.props);
+    }
 
     render() {
         return (
-            <Admin locale="ru" messages={messages}
-                   title={`Кабинет администратора ${this.props.user.firstName} ${this.props.user.lastName}`}
-                   authClient={authClient(this.getUserState.bind(this), this.props.dispatch)}
+            <Admin theme={mgsuTheme}
+                  locale='ru' messages={messages}
+                   title={`Кабинет администратора ${this.props.user.data.firstName} ${this.props.user.data.lastName}`}
+                   
                    restClient={efRestClient}>
-                <Resource name="posts"
-                          list={PostList}
-                          edit={PostEdit}
-                          create={PostCreate}
-                          remove={Delete}
-                          options={{label: 'Посты'}}/>
                 <Resource name="projects"
+                           options={{ label: 'Проекты' }}
                           list={ProjectList}
                           edit={ProjectEdit}
                           create={ProjectCreate}
-                          remove={Delete}
-                          options={{label: 'Проекты'}}/>
-                <Resource name="contacts"
-                          list={ContactList}
-                          edit={ContactEdit}
-                          create={ContactCreate}
-                          remove={Delete}
-                          options={{label: 'Контакты'}}/>
-                <Resource name="privileges"
-                          list={PrivilegeList}
-                          edit={PrivilegeEdit}
-                          create={PrivilegeCreate}
-                          remove={Delete}
-                          options={{label: 'Преимущества'}}/>
-                <Resource name="donation"
-                          list={DontaionList}
-                          edit={DontaionEdit}
-                          create={DontaionCreate}
-                          remove={Delete}
-                          options={{label: 'Донаты'}}/>
+                          remove={Delete}/>
+                 <Resource name="posts/?category=about"
+                          options={{ label: 'Страница о фонде' }}
+                          list={AboutList}
+                          edit={AboutEdit}
+                          create={AboutCreate}
+                          remove={Delete}/>
             </Admin>
         )
     }
 }
 
+AdminSection.propTypes = {
+    UserManager: PropTypes.object.isRequired,
+    user: PropTypes.object.isRequired
+}
+
 const mapStateToProps = state => {
-    return {
-        user: state.UserState.data
-    }
+  return {}
 }
 
 export default withRouter(connect(mapStateToProps)(AdminSection));

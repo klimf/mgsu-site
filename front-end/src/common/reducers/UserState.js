@@ -14,6 +14,8 @@ class UserManager extends StateModel {
                 method: 'POST'
             },
             body: {email, password}
+        }).then((res) => {
+            return Promise.resolve(res.payload);
         });
     }
 
@@ -23,6 +25,8 @@ class UserManager extends StateModel {
             options: {
                 method: 'POST'
             },
+        }).then((res) => {
+            return  Promise.resolve(res.payload);
         });
     }
 
@@ -32,6 +36,8 @@ class UserManager extends StateModel {
             options: {
                 method: 'GET'
             },
+        }).then((res) => {
+            return Promise.resolve(res.payload);
         });
     }
 

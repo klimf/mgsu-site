@@ -14,49 +14,85 @@ import {
     TextInput,
     LongTextInput,
     DateInput,
-    NumberInput
+    NumberInput,
+    ImageField,
+    ImageInput,
+    TabbedForm,
+    FormTab,
+    SelectInput
 } from "admin-on-rest";
+import {StaticImage} from "../components/customFields";
+import RichTextInput from "aor-rich-text-input";
+import {required, isStr, currency} from '../validationRules';
+import {resolveStatic} from "../../common/helpers";
+
+
+const directions = [
+    {id: 'образование', name: 'Образование'},
+    {id: 'наука', name: 'Наука'},
+    {id: 'студенты', name: 'Студенты'},
+    {id: 'стипендии', name: 'Стипендии'},
+    {id: 'инфраструктура', name: 'Инфраструктура'},
+    {id: 'спорт', name: 'Спорт'},
+    {id: 'проффессора и преподаватели', name: 'Проффессора и преподаватели'}
+];
+
 
 export const ProjectList = (props) => (
-    <List title="Список проектов" {...props}>
-        <Datagrid>
-            <TextField source="_id" label="id"/>
-            <TextField source="name" label="Имя"/>
-            <DateField source="creatingDate" label="Дата создания"/>
-            <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Нужно собрать"/>
-            <NumberField source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}} label="Собрано"/>
+    <List title="Список проектов" {...props} perPage={100}>
+        <Datagrid >
+            <StaticImage source="img" label="Изображение"></StaticImage>
+            <TextField source="name" label="Название"/>
             <TextField source="shortDescription" label="Короткое описание"/>
+            <DateField source="creatingDate" label="Создан"/>
+            <NumberField source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}}
+                         label="Собрано"/>
+            <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}}
+                         label="Нужно собрать"/>
             <TextField source="direction" label="Направление"/>
-            <BooleanField source="public" label="Опубликвано"/>
-            <EditButton />
+            <NumberField source="_v" label="версия"/>
+            <BooleanField source="public" label="публичный"/>
+            <EditButton  />
         </Datagrid>
     </List>
 );
 
 export const ProjectEdit = (props) => (
-    <Edit title="Изменение пользователя" {...props}>
-        <SimpleForm>
-            <TextInput source="name" label="Имя"/>
-            <DateInput source="creatingDate" label="Дата создания"/>
-            <NumberInput source="need"  label="Нужно собрать"/>
-            <NumberInput source="given" label="Собрано"/>
-            <LongTextInput source="shortDescription" label="Короткое описание"/>
-            <TextInput source="direction" label="Направление"/>
-            <BooleanInput  source="public" label="Опубликвано"/>
-        </SimpleForm>
+    <Edit title="Изменение проекта" {...props}>
+        <TabbedForm>
+            <FormTab label="Общая информация">
+                <ImageInput source="picture" label="Фотография" accept="image/*">
+                    <ImageField source="img.small"/>
+                </ImageInput>
+                <TextInput source="name" label="Название" validate={[required, isStr]}/>
+                <NumberInput source="given" label="Собрано" validate={[required, currency]}/>
+                <NumberInput source="need" label="Нужно собрать" validate={[required, currency]}/>
+                <SelectInput source="direction" label="Направление" choices={directions} validate={[required]}/>
+            </FormTab>
+            <FormTab label="Содержание">
+                <LongTextInput source="shortDescription" label="Короткое описание"/>
+                <RichTextInput source="content" label="Полное описание"/>
+            </FormTab>
+        </TabbedForm>
     </Edit>
 );
 
 export const ProjectCreate = (props) => (
-    <Create {...props}>
-        <SimpleForm>
-            <TextInput source="name" label="Имя"/>
-            <DateInput source="creatingDate" label="Дата создания"/>
-            <NumberInput source="need" label="Нужно собрать"/>
-            <NumberInput source="given" label="Собрано"/>
-            <LongTextInput source="shortDescription" label="Короткое описание"/>
-            <TextInput source="direction" label="Направление"/>
-            <BooleanInput  source="public" label="Опубликвано"/>
-        </SimpleForm>
+    <Create title={'Создать проект'} {...props}>
+        <TabbedForm>
+            <FormTab label="Общая информация">
+                <ImageInput source="picture" label="Фотография" accept="image/*">
+                    <ImageField source="img.small"/>
+                </ImageInput>
+                <TextInput source="name" label="Название" validate={[required, isStr]}/>
+                <NumberInput source="given" label="Собрано" validate={[required, currency]}/>
+                <NumberInput source="need" label="Нужно собрать" validate={[required, currency]}/>
+                <SelectInput source="direction" label="Направление" choices={directions} validate={[required]}/>
+            </FormTab>
+            <FormTab label="Содержание">
+                <LongTextInput source="shortDescription" label="Короткое описание"/>
+                <RichTextInput source="content" label="Полное описание"/>
+            </FormTab>
+        </TabbedForm>
     </Create>
 );
