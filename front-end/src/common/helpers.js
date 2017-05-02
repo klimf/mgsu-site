@@ -20,7 +20,7 @@ export const apiUrl = 'http://185.189.13.148/api/';
 // export const apiUrl = 'http://localhost:4000/api';
 
 export const resolveStatic = (path) => {
-    return apiUrl + path;
+    return apiUrl + '/file/' + path;
 }
 
 export function resolveApi({path, action, query}) {

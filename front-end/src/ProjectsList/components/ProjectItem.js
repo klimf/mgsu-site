@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link, withRouter} from "react-router-dom";
 import {formatMoney} from "../../common/helpers";
+import {resolveStatic} from "../../common/helpers";
 
 const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
@@ -11,7 +12,7 @@ const ProjectItem = (props) => (
                                 style={
                                     props.project.img &&
                                     {
-                                        backgroud: `url(${props.project.img.small})`
+                                        backgroud: `url(${resolveStatic(props.project.img.small)})`
                                     }
                                 }
                  />
