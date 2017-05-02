@@ -23,6 +23,7 @@ import {
 } from "admin-on-rest";
 import RichTextInput from 'aor-rich-text-input';
 import {required} from '../validationRules';
+import {StaticImage} from "../components/customFields";
 import {resolveStatic} from "../../common/helpers";
 
 
@@ -41,7 +42,7 @@ const directions = [
 export const ProjectList = (props) => (
     <List title="Список проектов" {...props} perPage={100}>
         <Datagrid >
-            <ImageField source={resolveStatic("img.small")} label="Изображение"></ImageField>
+            <StaticImage source="img" label="Изображение"></StaticImage>
             <TextField source="name" label="Название"/>
             <TextField source="shortDescription" label="Короткое описание"/>
             <DateField source="creatingDate" label="Создан"></DateField>

@@ -10,7 +10,6 @@ const ProjectItem = (props) => (
             <div className="project-image space-7">
                 <div className={`bg-img ${!props.project.img && 'placeholder-img'}`}
                                 style={
-                                    props.project.img &&
                                     {
                                         backgroud: `url(${resolveStatic(props.project.img.small)})`
                                     }
