@@ -101,6 +101,10 @@
   margin: 0 2*$o 2*$o 0;
 }
 
+.overlay-btn.active {
+  color: $black;
+}
+
 .login-input {
   @extend .border-small-disabled,
   .transition-3,
@@ -114,10 +118,10 @@
 
 .navigation {
   padding: 0 2*$o;
-  margin: 0;
+  margin: -4px 0 0 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   height: $header-content-height;
 }
@@ -469,5 +473,11 @@
 @media print, screen and (min-width: 64em) {
   .small-nav-item {
     width: calc(50% - 24px);
+  }
+}
+
+@media print, screen and (min-width: 96em) {
+  .navigation, .navigation-white {
+    justify-content: space-around;
   }
 }
