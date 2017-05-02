@@ -14,7 +14,6 @@ import {NavLink, withRouter} from "react-router-dom";
 class HomePage extends Component {
     constructor(props) {
         super(props);
-
         this.hexaNames = [
             'Образование',
             'Наука',
@@ -22,7 +21,7 @@ class HomePage extends Component {
             'Стипендии',
             'Инфраструктура',
             'Спорт',
-            'Проффессора и\n преподаватели'
+            <div>Проффессора и <br /> преподаватели</div>
         ];
         this.styles = {
             startShowing: 'active',
