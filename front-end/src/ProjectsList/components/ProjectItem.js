@@ -9,6 +9,7 @@ const ProjectItem = (props) => (
         <Link to={`/project/${props.project._id}`}>
             <div className="project-image space-7">
                 <div className={'bg-img placeholder-img'}
+                     style={props.project.img && {backgroundImage:"url(" + resolveStatic(props.project.img.small) + ")"}}
                  />
             </div>
             <div className="project-text">
