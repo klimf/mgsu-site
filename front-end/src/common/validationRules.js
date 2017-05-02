@@ -17,6 +17,14 @@ Object.assign(Validation.rules, {
             return <span>Обязательное поле</span>
         }
     },
+    noSpace: {
+        rule: (value) => {
+            return value.indexOf(" ") < 0;
+        },
+        hint: value => {
+            return <span>Пробелы не допустимы.</span>
+        }
+    },
     email: {
         rule: value => {
             return isEmail(value);

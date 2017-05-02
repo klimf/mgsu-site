@@ -135,6 +135,6 @@ const mapDispatchToProps = dispatch => {
    return {
        ProjectManager: ProjectDetailManager.bindTo(dispatch)
    }
-}
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectDetail));
