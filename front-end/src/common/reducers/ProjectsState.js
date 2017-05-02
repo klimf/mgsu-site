@@ -10,7 +10,7 @@ class _ProjectsListManager extends StateModel {
     }
 
     getByDirection(direction) {
-        this._apiAction.perform({
+       return this._apiAction.perform({
             query: {
                 direction: direction
             }
@@ -19,7 +19,7 @@ class _ProjectsListManager extends StateModel {
 
     changeDirection(direction) {
         this.dispatch(this.actions.changeDirection(direction));
-        this.getByDirection(direction);
+       return this.getByDirection(direction);
     }
 
 }
@@ -30,7 +30,7 @@ class _ProjectDetailManager extends StateModel {
     }
 
     getDetail(id) {
-       this._apiAction.perform({
+       return this._apiAction.perform({
             params: [id]
         })
     }

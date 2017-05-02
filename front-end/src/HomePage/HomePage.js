@@ -22,7 +22,7 @@ class HomePage extends Component {
             'Стипендии',
             'Инфраструктура',
             'Спорт',
-            'Проффессора и преподаватели'
+            'Проффессора и\n преподаватели'
         ];
         this.styles = {
             startShowing: 'active',

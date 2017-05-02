@@ -151,3 +151,21 @@ export class StateModel {
     }
 
 }
+
+export function setItemImage(item, small) {
+    if(item.img) {
+        return {
+            class: '',
+            style: {
+                background: `url(${resolveStatic((small ? item.img.small : item.img.original ))}`
+            }
+        }
+    } else {
+    
+        return {
+            class:  'placeholder-img',
+            style: { }
+        }
+    }
+   
+}
