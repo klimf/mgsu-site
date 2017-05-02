@@ -11,7 +11,7 @@ import {ContactList, ContactEdit, ContactCreate} from "./resources/contacts";
 import {PrivilegeList, PrivilegeEdit, PrivilegeCreate} from "./resources/privileges";
 import {DontaionList, DontaionEdit, DontaionCreate} from "./resources/donations";
 import mgsuTheme from './components/mgsuTheme';
-
+import {AboutCreate, AboutList, AboutEdit} from "./resources/about"
 const messages = {
     'ru': russianMessages,
 };

@@ -67,7 +67,7 @@ class ProjectsList extends Component {
                     </div>
                     <div className="space-3"/>
                     {
-                        this.props.projects.data && this.props.projects.data.length > 0 ?
+                        this.props.projects.data  ?
                         this.props.projects.data.map((project, index) =>
                             <ProjectItem key={index} project={project}/>
                         ) 
