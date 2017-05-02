@@ -21,6 +21,7 @@ import {
     FormTab,
     SelectInput
 } from "admin-on-rest";
+import {required, isStr, currency} from '../validationRules';
 import RichTextInput from "aor-rich-text-input";
 import {resolveStatic} from "../../common/helpers";
 
@@ -33,7 +34,7 @@ const directions = [
     {id: 'инфраструктура', name: 'Инфраструктура'},
     {id: 'спорт', name: 'Спорт'},
     {id: 'проффессора и преподаватели', name: 'Проффессора и преподаватели'}
-]
+];
 
 
 export const ProjectList = (props) => (
@@ -62,10 +63,10 @@ export const ProjectEdit = (props) => (
                 <ImageInput source="picture" label="Фотография" accept="image/*">
                     <ImageField source="img.small"/>
                 </ImageInput>
-                <TextInput source="name" label="Название"/>
-                <NumberInput source="given" label="Собрано"/>
-                <NumberInput source="need" label="Нужно собрать"/>
-                <SelectInput source="direction" label="Направление" choices={directions}/>
+                <TextInput source="name" label="Название" validate={[required, isStr]}/>
+                <NumberInput source="given" label="Собрано" validate={[required, currency]}/>
+                <NumberInput source="need" label="Нужно собрать" validate={[required, currency]}/>
+                <SelectInput source="direction" label="Направление" choices={directions} validate={[required]}/>
             </FormTab>
             <FormTab label="Содержание">
                 <LongTextInput source="shortDescription" label="Короткое описание"/>
@@ -80,12 +81,12 @@ export const ProjectCreate = (props) => (
         <TabbedForm>
             <FormTab label="Общая информация">
                 <ImageInput source="picture" label="Фотография" accept="image/*">
-                    <ImageField source="picSrc"/>
+                    <ImageField source="img.small"/>
                 </ImageInput>
-                <TextInput source="name" label="Название"/>
-                <NumberInput source="given" label="Собрано"/>
-                <NumberInput source="need" label="Нужно собрать"/>
-                <SelectInput source="direction" label="Направление" choices={directions}/>
+                <TextInput source="name" label="Название" validate={[required, isStr]}/>
+                <NumberInput source="given" label="Собрано" validate={[required, currency]}/>
+                <NumberInput source="need" label="Нужно собрать" validate={[required, currency]}/>
+                <SelectInput source="direction" label="Направление" choices={directions} validate={[required]}/>
             </FormTab>
             <FormTab label="Содержание">
                 <LongTextInput source="shortDescription" label="Короткое описание"/>

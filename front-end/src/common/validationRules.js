@@ -46,7 +46,7 @@ Object.assign(Validation.rules, {
             let correct = true;
             for(let i = 0; i < value.length; i++){
                 if(correct){
-                    correct = /[A-Za-zа-яА-ЯёЁ]/.test(value[i]);
+                    correct = /[A-Za-zа-яА-ЯёЁ ]/.test(value[i]);
                 }
             }
             return correct;
