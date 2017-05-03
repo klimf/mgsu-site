@@ -111,6 +111,7 @@
   .m-b-2;
   height: 4*$o;
 }
+
 .login-input:focus {
   padding-left: 2*$o;
   border: $small-border solid $dark;
@@ -259,7 +260,6 @@
   border-bottom: $border solid $primary;
 }
 
-
 .slick-arrow:before {
   border-top: 4px solid black;
   border-left: 4px solid black;
@@ -284,7 +284,6 @@
 .slick-slider {
   top: 2*$o;
 }
-
 
 .form-tab {
   background-color: $semi-dark;
@@ -388,6 +387,13 @@
 .donation-form input[type="radio"]:checked + label div {
   background-color: $semi-dark;
 }
+
+/*.donation-form input[type="checkbox"] + label div {
+  @extend .cover;
+  width: $o;
+  height: $o;
+  background: url($image + "icon-check.png") no-repeat; //fixme
+}*/
 
 .donation-form-btn {
   @extend .transition-3,
