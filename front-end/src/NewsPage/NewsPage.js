@@ -100,6 +100,14 @@ class NewsPage extends Component {
 
 }
 
-
+const mapStateToProps = state => {
+    return {
+        partners: state.ContentState.Partners,
+        vipSpinsors: state.PeopleState.VipSpinsors,
+        fundDetail: state.ProjectsState.fundDetail,
+        events: state.EventsState,
+        news: state.NewsState
+    }
+};
 export default NewsPage;
 
