@@ -14,7 +14,8 @@ import {
     LongTextInput,
     DateInput,
     ReferenceInput,
-    SelectInput
+    SelectInput,
+    Filter
 } from "admin-on-rest";
 import {required, isStr, isURL} from '../validationRules';
 

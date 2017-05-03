@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
-import { ProjectsListManager } from "../common/reducers/ProjectsState"
+import { ProjectsListManager } from "../common/reducers/ProjectsState";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 
@@ -67,10 +67,10 @@ class ProjectsList extends Component {
                     </div>
                     <div className="space-3"/>
                     {
-                        this.props.projects.data && this.props.projects.data.length > 0  ? 
+                        this.props.projects.data && this.props.projects.data.length > 0  ?
                         this.props.projects.data.map((project, index) =>
                             <ProjectItem key={index} project={project}/>
-                        ) 
+                        )
                         : <h2 className="center">К сожалению, проектов в этом направлении пока нет</h2>
                     }
                 </div>
