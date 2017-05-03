@@ -3,6 +3,7 @@ import ProjectItem from "./components/ProjectItem";
 import { ProjectsListManager } from "../common/reducers/ProjectsState";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
+import AdminToolbar from '../AdminSection/components/AdminToolbar';
 
 const defaultProps = {
     filters: [
@@ -66,10 +67,13 @@ class ProjectsList extends Component {
                         }
                     </div>
                     <div className="space-3"/>
+                    <AdminToolbar.listActions type="projects" actions={['create']} />
                     {
                         this.props.projects.data && this.props.projects.data.length > 0  ?
                         this.props.projects.data.map((project, index) =>
+                        <AdminToolbar.editableItem type="projects" id={project._id} actions={['edit', 'delete']} >
                             <ProjectItem key={index} project={project}/>
+                        </AdminToolbar.editableItem>
                         )
                         : <h2 className="center">К сожалению, проектов в этом направлении пока нет</h2>
                     }

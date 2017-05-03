@@ -1,12 +1,11 @@
 import React from "react";
 import {Link, withRouter} from "react-router-dom";
-import {formatMoney, resolveStatic} from "../../common/helpers";
-import PropTypes from 'prop-types';
-import Admin from '../../AdminSection/components/AdminWrapper';
+import {formatMoney} from "../../common/helpers";
+import {resolveStatic} from "../../common/helpers";
+
 
 const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
-        <Admin type="projects" id={props.project._id}>
             <Link to={`/project/${props.project._id}`}>
                 <div className="project-image space-7">
                     <div className={'bg-img placeholder-img'}
@@ -45,7 +44,6 @@ const ProjectItem = (props) => (
                     </div>
                 </div>
             </Link>
-        </Admin>
     </div>
 );
 
