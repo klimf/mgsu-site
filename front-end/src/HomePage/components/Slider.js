@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ReactSlider from "react-slick";
-import PropTypes from 'prop-types';
+import Admin from "../../AdminSection/components/AdminWrapper";
 
 class Slider extends Component {
     constructor(props) {
@@ -33,14 +33,17 @@ class Slider extends Component {
                 {this.props.sponsors.data && <ReactSlider {...this.sliderSetings}>
                     {
                         this.props.sponsors.data.map((sponsor, index) =>
-                            <div key={index}
-                                 className="sponsor small-6 medium-4 large-3 columns">
-                                <div className="small-12 sponsor-img columns"/>
-                                <h2 className="small-12">{sponsor.lastName + ' ' + sponsor.firstName}</h2>
-                                <p className="small-12">Спонсор</p>
-                            </div>)
+                            <div key={index} className="sponsor small-6 medium-4 large-3 columns">
+                                <Admin type="vip" id={sponsor._id}>
+                                    <div className="small-12 sponsor-img columns"/>
+                                    <h2 className="small-12">{sponsor.lastName + ' ' + sponsor.firstName}</h2>
+                                    <p className="small-12">Спонсор</p>
+                                </Admin>
+                            </div>
+                        )
                     }
-                </ReactSlider>}
+                </ReactSlider>
+                }
             </div>
         );
     }
