@@ -2,7 +2,7 @@ import React, {PropTypes} from "react";
 import {Link, withRouter} from "react-router-dom";
 import {formatMoney} from "../../common/helpers";
 import {resolveStatic} from "../../common/helpers";
-import {EditableItem} from "../../AdminSection/components/AdminToolbar";
+import {EditableItem} from "../../AdminSection/components/AdminToolbar"
 
 
 const ProjectItem = (props) => (

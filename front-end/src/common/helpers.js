@@ -35,15 +35,14 @@ export function formatEventDate(date) {
     month[10]="Ноября";
     month[11]="Декабря";
 
-
     return {
         day: d.getDate(),
         month: month[d.getMonth()],
         year: d.getFullYear(),
         old: d.getTime() < new Date().getTime()
     }
-
 }
+
 export const apiUrl = 'http://185.189.13.148:4000/api';
 // export const apiUrl = 'http://localhost:4000/api';
 

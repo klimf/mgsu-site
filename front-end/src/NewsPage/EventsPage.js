@@ -3,10 +3,10 @@ import {NavLink, withRouter} from "react-router-dom";
 import NewsItem from "./components/NewsItem";
 import EventItem from "./components/EventItem";
 
-class NewsPage extends Component {
+class EventsPage extends Component {
 
     componentWillMount(nextProps, nextState) {
-         this.props.NewsManager.get();
+         this.props.EventsManager.get();
     }
 
     render() {
@@ -25,8 +25,8 @@ class NewsPage extends Component {
                     </div>
                     <div className="small-12 space-3 columns"/>
                     <div className="small-12 columns m-b-3">
-                    {this.props.news.data  && this.props.news.data.map((item) =>   
-                         <NewsItem item={item} ></NewsItem>
+                    {this.props.events.data  && this.props.events.data.map((item) =>   
+                         <EventItem item={item} ></EventItem>
                     )}
                     </div>
                 </div>
@@ -37,4 +37,7 @@ class NewsPage extends Component {
 
 }
 
-export default NewsPage;
+
+
+
+export default EventsPage;
