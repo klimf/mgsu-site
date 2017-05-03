@@ -5,9 +5,12 @@ import {connect} from "react-redux";
 
 
 const actions = {
-    create: (props) => ( <Link to={`/admin#/${props.type}/create`} className="admin-toolbar__actions-btn create-btn"></Link>),
-    edit: (props) => (<Link to={`/admin#/${props.type}/${props.id}`} className="admin-toolbar__actions-btn edit-btn">ksadk</Link>),
-    delete: (props) => (<Link to={`/admin#/${props.type}/${props.id}/delete`} className="admin-toolbar__actions-btn delete-btn">askd</Link>)
+    create: (props) => (
+        <Link to={`/admin#/${props.type}/create`} className="admin-toolbar__actions-btn create-btn">dsdf</Link>),
+    edit: (props) => (
+        <Link to={`/admin#/${props.type}/${props.id}`} className="admin-toolbar__actions-btn edit-btn">ksadk</Link>),
+    delete: (props) => (<Link to={`/admin#/${props.type}/${props.id}/delete`}
+                              className="admin-toolbar__actions-btn delete-btn">askd</Link>)
 }
 
 
@@ -16,12 +19,13 @@ class _EditableItem extends Component {
         return (
             <span>
                 {
-                    this.props.user.data.role && this.props.user.data.role === 1  ?
+                    this.props.user.data.role && this.props.user.data.role === 1 ?
                         (<div className="admin-toolbar__item-wrap">
-                          {this.props.actions.map(action => (
-                             actions[action](this.props)
-                            ))
-                          }
+                            {this.props.actions.map((action, index) =>
+                                <div key={index}>
+                                    {actions[action](this.props)}
+                                </div>)
+                            }
                         </div>)
                         :
                         null
@@ -37,9 +41,9 @@ class _ActionBar extends Component {
         return (
             <span>
                 {
-                    this.props.user.data && this.props.user.data.role === 1  ?
+                    this.props.user.data && this.props.user.data.role === 1 ?
                         (<div className="admin-toolbar__actions-bar">
-                             {this.props.actions.map(action =>(actions[action].apply(this)))}
+                            {this.props.actions.map(action => (actions[action].apply(this)))}
                         </div>)
                         :
                         null

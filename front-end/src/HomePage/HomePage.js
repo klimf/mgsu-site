@@ -194,42 +194,18 @@ class HomePage extends Component {
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <div className="small-12 medium-12 large-7 columns padding-left m-b-3">
-                        <div className="home-news small-12 columns">
-                            <div className="bg-img"/>
-                            <div className="blackout"/>
-                            <h2>Альбом выпускников</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-news small-12 columns">
-                            <div className="bg-img"/>
-                            <div className="blackout"/>
-                            <h2>Альбом выпускников</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-news small-12 columns">
-                            <div className="bg-img"/>
-                            <div className="blackout"/>
-                            <h2>Альбом выпускников</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-news small-12 columns">
-                            <div className="bg-img"/>
-                            <div className="blackout"/>
-                            <h2>Альбом выпускников</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
+                        {
+                            this.props.news.data && this.props.news.data.slice(0, 4).map((item, index)=>
+                                <div key={index} className="home-news small-12 columns">
+                                    <div className="bg-img"/>
+                                    <div className="blackout"/>
+                                    <h2>{item.title}</h2>
+                                    <p>
+                                        {item.description}
+                                    </p>
+                                </div>
+                            )
+                        }
                         <NavLink className="h3 underline" to="/news">Все новости</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
