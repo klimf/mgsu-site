@@ -17,6 +17,15 @@ class _PostsListModel extends StateModel {
         })
     }
 
+     getDetail(id) {
+        const _query = {};
+        _query.category = this.category;
+        this._apiAction.perform({
+            params: [id],
+            query: _query
+        })
+    }
+
 }
 
 export const NewsManager = new _PostsListModel('news');

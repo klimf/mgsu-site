@@ -52,7 +52,7 @@ export const Content = {
             </SimpleForm>
         </Create>
     )
-}
+};
 
 
 export const News = {
@@ -92,7 +92,7 @@ export const News = {
             </SimpleForm>
         </Create>
     )
-}
+};
 
 export const Events = {
     list: (props) => (
@@ -134,7 +134,7 @@ export const Events = {
             </SimpleForm>
         </Create>
     )
-}
+};
 
 
 export const Partners = {
@@ -167,7 +167,7 @@ export const Partners = {
             </SimpleForm>
         </Create>
     )
-}
+};
 
 const Options = {
     list: (props) => (props) => (
@@ -195,7 +195,7 @@ const Options = {
             </SimpleForm>
         </Create>
     )
-}
+};
 
 
 export const contentsCategories = {

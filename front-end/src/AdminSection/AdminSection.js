@@ -73,10 +73,10 @@ class AdminSection extends Component {
 AdminSection.propTypes = {
     UserManager: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired
-}
+};
 
 const mapStateToProps = state => {
     return {}
-}
+};
 
 export default withRouter(connect(mapStateToProps)(AdminSection));
