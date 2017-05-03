@@ -10,13 +10,32 @@ import {
 } from 'admin-on-rest';
 import {resolveApi} from "../common/helpers";
 import fetch from 'isomorphic-fetch';
+import {contentsCategories} from './resources/contents';
+import {peopleTeams} from './resources/team';
+
 
 const createRequest = (type, resource, params) => {
+
     try {
+
         let apiQuery = {
             url: '',
             options: {}
         };
+
+    if(peopleTeams[resource]) {
+        params.query = {
+            team: peopleTeams[resource].team
+        },
+        resource = 'contacts';
+    }
+
+    if(contentsCategories[resource]) {
+        params.query = {
+            category: contentsCategories[resource].category
+        },
+        resource = 'posts';
+    }
 
         const _typesHandlers = {
             GET_LIST: () => {
@@ -45,13 +64,14 @@ const createRequest = (type, resource, params) => {
                 apiQuery.url = resolveApi(
                     {
                         path: [resource],
-                        query: params.query
+                        //query: params.query
                     })
             },
             CREATE: () => {
                 apiQuery.url = resolveApi(
                     {
                         path: [resource, params.id],
+                        query: params.query
                     })
                 apiQuery.options.method = 'POST';
                 apiQuery.options.body = params.data;

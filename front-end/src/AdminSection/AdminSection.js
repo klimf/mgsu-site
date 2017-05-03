@@ -6,11 +6,13 @@ import {withRouter} from "react-router-dom";
 import efRestClient from "./efRestClient";
 import authClient from "./authClient";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
-import {PostList, PostEdit, PostCreate} from "./resources/posts";
-import {ContactList, ContactEdit, ContactCreate} from "./resources/contacts";
 import {DontaionList, DontaionEdit, DontaionCreate} from "./resources/donations";
 import mgsuTheme from './components/mgsuTheme';
-import {AboutCreate, AboutList, AboutEdit} from "./resources/about"
+import {contentsCategories} from "./resources/contents"
+import {peopleTeams} from "./resources/team.js"
+import ResourcesSet from './components/ResourcesSet';
+
+
 const messages = {
     'ru': russianMessages,
 };
@@ -27,6 +29,7 @@ class AdminSection extends Component {
     }
 
     render() {
+         console.log(peopleTeams)
         return (
             <Admin theme={mgsuTheme}
                   locale='ru' messages={messages}
@@ -38,24 +41,30 @@ class AdminSection extends Component {
                           edit={ProjectEdit}
                           create={ProjectCreate}
                           remove={Delete}/>
-                <Resource name="posts"
-                          options={{ label: 'Посты' }}
-                          list={PostList}
-                          edit={PostEdit}
-                          create={PostCreate}
+
+               { Object.keys(peopleTeams).map((key, index) => 
+
+                         (<Resource name={key}
+                          options={{ label: peopleTeams[key].label }}
+                          list={peopleTeams[key].component.list}
+                          edit={peopleTeams[key].component.edit}
+                          create={peopleTeams[key].component.create}
                           remove={Delete}/>
-                <Resource name="contacts"
-                          options={{ label: 'Контакты' }}
-                          list={ContactList}
-                          edit={ContactEdit}
-                          create={ContactCreate}
+                          ))
+                         
+             }
+             { Object.keys(contentsCategories).map((key, index) => 
+
+                         (<Resource name={key}
+                          options={{ label: contentsCategories[key].label }}
+                          list={contentsCategories[key].component.list}
+                          edit={contentsCategories[key].component.edit}
+                          create={contentsCategories[key].component.create}
                           remove={Delete}/>
-                <Resource name="donation"
-                          options={{ label: 'Донаты' }}
-                          list={DontaionList}
-                          edit={DontaionEdit}
-                          create={DontaionCreate}
-                          remove={Delete}/>
+                          ))
+                         
+             }
+                
             </Admin>
         )
     }

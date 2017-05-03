@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import DonationForm from "./components/DonationForm"
-import {ProjectDetailManager} from '../common/reducers/ProjectsState'
-import {formatMoney, resolveStatic} from '../common/helpers';
-
+import { ProjectDetailManager} from '../common/reducers/ProjectsState'
+import {formatMoney} from '../common/helpers';
+import sanitizeHtml from 'sanitize-html';
 
 class ProjectDetail extends Component {
 
@@ -82,12 +82,31 @@ class ProjectDetail extends Component {
                         </div>
                     </div>
                     <div className="small-12 space-2 columns"/>
-                    {this.props.project.data.content &&
-                    <h1 className="small-12 uppercase center columns">О проекте</h1>
-                    }
-                    <p className="small-12 columns">
-                        {this.props.project.data.content}
-                    </p>
+                         {this.props.project.data.content && 
+                             <h1 className="small-12 uppercase center columns">О проекте</h1>
+                         }
+                        <p className="small-12 columns">
+                            <div dangerouslySetInnerHTML={{__html: sanitizeHtml(this.props.project.data.content)}}/>
+                            {/*Задача старшего поколения - сохранить память об одном из самых важных
+                            исторических событий нашей страны среди молодого поколения, которое знает
+                            о войне только лишь по рассказам ветеранов и подвержены влиянию людей,
+                            пытающихся «переписать историю».
+                            • Автопробег по городам воинской славы «Дорогами победы»
+                            • Творческий фестиваль «Победа, добытая единством»
+                            • Военно-патриотический парад на территории МГСУ
+                            • Изготовление подарочно-сувенирных изданий книг об истории Великой
+                            Отечественной Войны
+                            • Изготовление флагов Российской Федерации для патриотических акций
+                            НИУ МГСУ
+                            • Участие во Всероссийской акции «Бессмертный полк»
+                            В этом году в первых числах мая автоколонна студентов вновь отправится в
+                            автопробег по городам воинской Славы. Наши активисты посетят город
+                            воинской славы Волоколамск, в котором они примут участие в патриотическом
+                            митинге и возложат цветы к монументу памяти Великой победе. После
+                            Волоколамска автоколонна направится в город Мытищи, где на два дня
+                            окунется в солдатскую жизнь в экстремальных условиях: жизнь в палатках,
+                            «солдатская зарница», еда приготовленная на костре и т.д.*/}
+                        </p>
                     <div className="small-12 space-3 columns"/>
                     <h1 className="small-12 uppercase center columns">Вы можете помочь проекту</h1>
                     <div className="small-12 columns">

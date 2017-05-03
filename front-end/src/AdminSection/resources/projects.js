@@ -64,7 +64,7 @@ export const ProjectEdit = (props) => (
                 <ImageInput source="picture" label="Фотография" accept="image/*">
                     <ImageField source="img.small"/>
                 </ImageInput>
-                <TextInput source="name" label="Название" validate={[required, isStr]}/>
+                <TextInput source="name" label="Название" validate={[required]}/>
                 <NumberInput source="given" label="Собрано" validate={[required, currency]}/>
                 <NumberInput source="need" label="Нужно собрать" validate={[required, currency]}/>
                 <SelectInput source="direction" label="Направление" choices={directions} validate={[required]}/>
@@ -84,7 +84,7 @@ export const ProjectCreate = (props) => (
                 <ImageInput source="picture" label="Фотография" accept="image/*">
                     <ImageField source="img.small"/>
                 </ImageInput>
-                <TextInput source="name" label="Название" validate={[required, isStr]}/>
+                <TextInput source="name" label="Название" validate={[required]}/>
                 <NumberInput source="given" label="Собрано" validate={[required, currency]}/>
                 <NumberInput source="need" label="Нужно собрать" validate={[required, currency]}/>
                 <SelectInput source="direction" label="Направление" choices={directions} validate={[required]}/>
