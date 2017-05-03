@@ -7,7 +7,7 @@ import efRestClient from "./efRestClient";
 import authClient from "./authClient";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
 import {DontaionList, DontaionEdit, DontaionCreate} from "./resources/donations";
-import mgsuTheme from './components/mgsuTheme';
+import mgsuTheme from './components/mgsuTheme'
 import {contentsCategories} from "./resources/contents"
 import {peopleTeams} from "./resources/team.js"
 import ResourcesSet from './components/ResourcesSet';
@@ -34,6 +34,7 @@ class AdminSection extends Component {
             <Admin theme={mgsuTheme}
                   locale='ru' messages={messages}
                    title={`Кабинет администратора ${this.props.user.data.firstName} ${this.props.user.data.lastName}`}
+                   authClient={authClient(this.getUserState.bind(this), this.props.UserManager)}
                    restClient={efRestClient}>
                 <Resource name="projects"
                           options={{ label: 'Проекты' }}
