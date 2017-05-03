@@ -30,12 +30,13 @@ export default (getUserState ,UserManager) => {
     if (type === AUTH_CHECK) {
 
         const user = getUserState();
+
         //return (user.data.role  && user.data.role == 1) ? Promise.resolve() : Promise.reject();
             // UserManager.getCurrent().then((user) => {
             //     console.log('FromCurrent',user)
             // })
             
-         return (user.data.role == 1 ? Promise.resolve() : Promise.reject())
+         return ( (user.data &&user.data.role == 1) ? Promise.resolve() : Promise.reject())
         
         }
          return Promise.reject('Unknown method');

@@ -12,6 +12,7 @@ import {resolveApi} from "../common/helpers";
 import fetch from 'isomorphic-fetch';
 import {contentsCategories} from './resources/contents';
 import {peopleTeams} from './resources/team';
+import {credOptions} from "../common/helpers" 
 
 
 const createRequest = (type, resource, params) => {
@@ -135,7 +136,8 @@ const uploadFile = (file) => {
         formdata.append('file', file);
         const options = {
             method: 'POST',
-            body: formdata
+            body: formdata,
+            creditionals: credOptions
         }
         return fetchUtils.fetchJson(url, options).then((response) => {
             return Promise.resolve(response.json);
@@ -144,10 +146,10 @@ const uploadFile = (file) => {
 
 export default (type, resource, params) => {
     const {url, options} = createRequest(type, resource, params)
-    options.headers = new Headers({'Content-Type': 'application/json'});
-    options.headers.set('Authorization', 'Basic bWV0YWxsaWM6bWV0YWxsaWM=');
 
-    //options.credentials = 'include';
+    options.headers = new Headers({'Content-Type': 'application/json'});
+
+    options.credentials = credOptions;
 
   
 
