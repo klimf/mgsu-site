@@ -4,13 +4,13 @@ import russianMessages from "aor-language-russian";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import efRestClient from "./efRestClient";
-import authClient from "./authClient";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
 import {DontaionList, DontaionEdit, DontaionCreate} from "./resources/donations";
 import mgsuTheme from './components/mgsuTheme'
 import {contentsCategories} from "./resources/contents"
 import {peopleTeams} from "./resources/team.js"
 import ResourcesSet from './components/ResourcesSet';
+import authClient from './authClient';
 
 
 const messages = {
@@ -28,43 +28,43 @@ class AdminSection extends Component {
     }
 
     render() {
-         console.log(peopleTeams)
+        console.log(peopleTeams)
         return (
             <Admin theme={mgsuTheme}
-                  locale='ru' messages={messages}
+                   locale='ru' messages={messages}
                    title={`Кабинет администратора ${this.props.user.data.firstName} ${this.props.user.data.lastName}`}
                    authClient={authClient(this.getUserState.bind(this), this.props.UserManager)}
                    restClient={efRestClient}>
                 <Resource name="projects"
-                          options={{ label: 'Проекты' }}
+                          options={{label: 'Проекты'}}
                           list={ProjectList}
                           edit={ProjectEdit}
                           create={ProjectCreate}
                           remove={Delete}/>
 
-               { Object.keys(peopleTeams).map((key, index) => 
+                { Object.keys(peopleTeams).map((key, index) =>
 
-                         (<Resource name={key}
-                          options={{ label: peopleTeams[key].label }}
-                          list={peopleTeams[key].component.list}
-                          edit={peopleTeams[key].component.edit}
-                          create={peopleTeams[key].component.create}
-                          remove={Delete}/>
-                          ))
-                         
-             }
-             { Object.keys(contentsCategories).map((key, index) => 
+                    (<Resource name={key}
+                               options={{label: peopleTeams[key].label}}
+                               list={peopleTeams[key].component.list}
+                               edit={peopleTeams[key].component.edit}
+                               create={peopleTeams[key].component.create}
+                               remove={Delete}/>
+                    ))
 
-                         (<Resource name={key}
-                          options={{ label: contentsCategories[key].label }}
-                          list={contentsCategories[key].component.list}
-                          edit={contentsCategories[key].component.edit}
-                          create={contentsCategories[key].component.create}
-                          remove={Delete}/>
-                          ))
-                         
-             }
-                
+                }
+                { Object.keys(contentsCategories).map((key, index) =>
+
+                    (<Resource name={key}
+                               options={{label: contentsCategories[key].label}}
+                               list={contentsCategories[key].component.list}
+                               edit={contentsCategories[key].component.edit}
+                               create={contentsCategories[key].component.create}
+                               remove={Delete}/>
+                    ))
+
+                }
+
             </Admin>
         )
     }
@@ -76,7 +76,7 @@ AdminSection.propTypes = {
 }
 
 const mapStateToProps = state => {
-  return {}
+    return {}
 }
 
 export default withRouter(connect(mapStateToProps)(AdminSection));

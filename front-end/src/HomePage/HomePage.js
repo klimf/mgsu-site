@@ -1,9 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {bindAll} from "redux-act";
 import Slider from "./components/Slider";
 import {formatMoney} from "../common/helpers";
-import {headerActions} from "../common/components/state";
 import {FundDetailManager} from "../common/reducers/ProjectsState";
 import {NewsManager, EventsManager, PartnersManager} from "../common/reducers/ContentState";
 import {VipSponsorsManager} from "../common/reducers/PeopleState";
@@ -101,6 +99,47 @@ class HomePage extends Component {
                 }, 400)
             }, 200)
         });
+    }
+
+    getMonth(value) {
+        switch (value) {
+            case 0:
+                return 'Января';
+                break;
+            case 1:
+                return 'Февраля';
+                break;
+            case 2:
+                return 'Марта';
+                break;
+            case 3:
+                return 'Апреля';
+                break;
+            case 4:
+                return 'Мая';
+                break;
+            case 5:
+                return 'Июня';
+                break;
+            case 6:
+                return 'Июля';
+                break;
+            case 7:
+                return 'Августа';
+                break;
+            case 8:
+                return 'Сентября';
+                break;
+            case 9:
+                return 'Октября';
+                break;
+            case 10:
+                return 'Ноября';
+                break;
+            case 11:
+                return 'Декабря';
+                break;
+        }
     }
 
     render() {
@@ -228,7 +267,7 @@ class HomePage extends Component {
                 <div className="space-2"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Спонсоры</h1>
-                    <Slider/>
+                    <Slider sponsors={this.props.vipSponsors}/>
                 </div>
                 <div className="space-4"/>
                 <div className="content small-12 row">
@@ -266,10 +305,11 @@ class HomePage extends Component {
 const mapStateToProps = state => {
     return {
         partners: state.ContentState.Partners,
-        vipSpinsors: state.PeopleState.VipSpinsors,
+        vipSponsors: state.PeopleState.VipSponsors,
         fundDetail: state.ProjectsState.fundDetail,
         events: state.EventsState,
-        news: state.NewsState
+        news: state.NewsState,
+        state: state
     }
 };
 
@@ -281,6 +321,6 @@ const mapDispatchToProps = dispatch => {
         NewsManager: NewsManager.bindTo(dispatch),
         EventsManager: EventsManager.bindTo(dispatch)
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

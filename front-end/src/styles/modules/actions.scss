@@ -487,3 +487,31 @@
     justify-content: space-around;
   }
 }
+
+
+
+.toolbar-btn {
+  @extend .inline,
+  .cover;
+  height: $o*3;
+  width: $o*3;
+  margin-left: $o;
+}
+
+.add-btn {
+  @extend .border-small,
+  .hover-primary-invert;
+  background: url($image + "add-btn.png") no-repeat;
+}
+
+.delete-btn {
+   @extend .border-small,
+  .hover-primary-invert;
+  background: url($image + "icon-close.png") no-repeat;
+}
+
+.edit-btn {
+  @extend .border-small,
+  .hover-primary-invert;
+   background: url($image + "edit-btn.png") no-repeat;
+}
