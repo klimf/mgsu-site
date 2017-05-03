@@ -24,6 +24,7 @@
     "redux-thunk": "^2.2.0",
     "sanitize-html": "^1.14.1",
     "sass-loader": "^6.0.3",
+    "url-loader": "^0.5.7",
     "validator": "^7.0.0"
   },
   "devDependencies": {
