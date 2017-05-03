@@ -21,9 +21,9 @@ const Routes = (props) => (
         <Route path="/about/:department?" component={AboutPage}/>
         <Route exact path="/alumni/:department?" component={GradClubPage}/>
         <Route exact path="/sponsors" component={SponsorsPage}/>
-        <Route exact path="/news" component={NewsPage}/>
-        <Route exact path="/events" component={EventsPage}/>
-        <Route path="/admin"  render={() =>   <AdminSection {...props}/>}/>
+        <Route exact path="/news" render={() =>   <NewsPage {...props}/>} />
+        <Route exact path="/events" render={() =>   <NewsPage {...props}/>} />
+        <Route path="/admin"  render={() =>   <AdminSection {...props}/>} />
         <Route component={NotFound}/>
     </Switch>
 );
