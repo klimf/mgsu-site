@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ReactSlider from "react-slick";
-import Admin from "../../AdminSection/components/AdminWrapper";
+import {EditableItem} from "../../AdminSection/components/AdminToolbar";
 import PropTypes from 'prop-types';
 
 class Slider extends Component {
@@ -35,11 +35,11 @@ class Slider extends Component {
                     {
                         this.props.sponsors.data.map((sponsor, index) =>
                             <div key={index} className="sponsor small-6 medium-4 large-3 columns">
-                                <Admin type="vip" id={sponsor._id}>
+                                <EditableItem type="vip" id={sponsor._id} actions={['edit', 'delete']}>
                                     <div className="small-12 sponsor-img columns"/>
                                     <h2 className="small-12">{sponsor.lastName + ' ' + sponsor.firstName}</h2>
                                     <p className="small-12">Спонсор</p>
-                                </Admin>
+                                </EditableItem>
                             </div>
                         )
                     }

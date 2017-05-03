@@ -5,20 +5,23 @@ import {connect} from "react-redux";
 
 
 const actions = {
-    create: () => ( <Link to={`/admin#/${this.props.type}/create`} className="admin-toolbar__actions-btn create-btn"></Link>),
-    edit: () => (<Link to={`/admin#/${this.props.type}/${this.props.id}`} className="admin-toolbar__actions-btn edit-btn"></Link>),
-    delete: () => (<Link to={`/admin#/${this.props.type}/${this.props.id}/delete`} className="admin-toolbar__actions-btn delete-btn"></Link>)
+    create: (props) => ( <Link to={`/admin#/${props.type}/create`} className="admin-toolbar__actions-btn create-btn"></Link>),
+    edit: (props) => (<Link to={`/admin#/${props.type}/${props.id}`} className="admin-toolbar__actions-btn edit-btn">ksadk</Link>),
+    delete: (props) => (<Link to={`/admin#/${props.type}/${props.id}/delete`} className="admin-toolbar__actions-btn delete-btn">askd</Link>)
 }
 
 
-class EditableItem extends Component {
+class _EditableItem extends Component {
     render() {
         return (
             <span>
                 {
                     this.props.user.data.role && this.props.user.data.role === 1  ?
                         (<div className="admin-toolbar__item-wrap">
-                          {this.props.actions.map(action =>(actions[action].apply(this)))}
+                          {this.props.actions.map(action => (
+                             actions[action](this.props)
+                            ))
+                          }
                         </div>)
                         :
                         null
@@ -29,12 +32,12 @@ class EditableItem extends Component {
     }
 }
 
-class ListActions extends Component {
+class _ActionBar extends Component {
     render() {
         return (
             <span>
                 {
-                    this.props.user.data.role && this.props.user.data.role === 1  ?
+                    this.props.user.data && this.props.user.data.role === 1  ?
                         (<div className="admin-toolbar__actions-bar">
                              {this.props.actions.map(action =>(actions[action].apply(this)))}
                         </div>)
@@ -48,14 +51,14 @@ class ListActions extends Component {
 }
 
 
-EditableItem.propTypes = {
+_EditableItem.propTypes = {
     type: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     actions: PropTypes.array.isRequired
 };
 
 
-ListActions.propTypes = {
+_ActionBar.propTypes = {
     type: PropTypes.string.isRequired,
     actions: PropTypes.array.isRequired
 };
@@ -66,7 +69,6 @@ const mapStateToProps = state => {
     }
 };
 
-export default {
-    editableItem: connect(mapStateToProps)(EditableItem),
-    listActions: connect(mapStateToProps)(ListActions)
-}
+export const EditableItem = connect(mapStateToProps)(_EditableItem);
+export const ActionBar = connect(mapStateToProps)(_ActionBar);
+
