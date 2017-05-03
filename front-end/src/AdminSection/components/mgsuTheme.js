@@ -9,7 +9,7 @@ export default getMuiTheme({
         primary1Color: '#CB6D71',
         primary2Color: '#CB6D71',
         primary3Color: '#CB6D71',
-        accent1Color: '#CB6D71',
+        accent1Color: '#fff',
         accent2Color: '#fff',
         accent3Color: '#CB6D71',
         textColor: '#050F11',

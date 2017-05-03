@@ -23,6 +23,7 @@ export const NewsManager = new _PostsListModel('news');
 export const EventsManager = new _PostsListModel('events');
 export const AboutContentManager = new _PostsListModel('about-content');
 export const PartnersManager = new _PostsListModel('partners');
+export const GradClubManager = new _PostsListModel('alumni');
 
 
 export const NewsState = createReducer(NewsManager.handlers, NewsManager.defaultState);
@@ -30,7 +31,8 @@ export const EventsState = createReducer(EventsManager.handlers, EventsManager.d
 
 export const ContentState = combineReducers({
     About: createReducer(AboutContentManager.handlers, AboutContentManager.defaultState),
-    Partners: createReducer(PartnersManager.handlers, PartnersManager.defaultState)
+    Partners: createReducer(PartnersManager.handlers, PartnersManager.defaultState),
+    GradClub: createReducer(GradClubManager.handlers, GradClubManager.defaultState)
 });
 
 
