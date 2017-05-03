@@ -31,7 +31,7 @@ export function resolveApi({path, action, query}) {
             queryArr.push(key + '=' + query[key])
         }
     }
-    return apiUrl + `/${path.join('/')}${haveQuery ? ('/?' + queryArr.join('&')) : ''}`
+    return apiUrl + `/${path.join('/')}${haveQuery ? ('?' + queryArr.join('&')) : ''}`
 
 }
 

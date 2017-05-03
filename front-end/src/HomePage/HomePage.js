@@ -63,7 +63,7 @@ class HomePage extends Component {
             });
         }, 600);
 
-       
+       console.log(this.props.state)
 
     }
 
@@ -270,7 +270,7 @@ class HomePage extends Component {
                 <div className="space-2"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Спонсоры</h1>
-                    <Slider/>
+                    <Slider sponsors={this.props.vipSponsors}/>
                 </div>
                 <div className="space-4"/>
                 <div className="content small-12 row">
@@ -297,10 +297,11 @@ class HomePage extends Component {
 const mapStateToProps = state => {
     return {
         partners: state.ContentState.Partners,
-        vipSpinsors: state.PeopleState.VipSpinsors,
+        vipSponsors: state.PeopleState.VipSponsors,
         fundDetail: state.ProjectsState.fundDetail,
         events: state.EventsState,
-        news: state.NewsState
+        news: state.NewsState,
+        state: state
     }
 };
 
@@ -312,6 +313,6 @@ const mapDispatchToProps = dispatch => {
         NewsManager: NewsManager.bindTo(dispatch),
         EventsManager: EventsManager.bindTo(dispatch)
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

@@ -7,7 +7,7 @@ import Admin from '../../AdminSection/components/AdminWrapper';
 
 const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
-        {/*<Admin type="projects" id={props.project._id}>*/}
+        <Admin type="projects" id={props.project._id}>
             <Link to={`/project/${props.project._id}`}>
                 <div className="project-image space-7">
                     <div className={'bg-img placeholder-img'}
@@ -33,7 +33,7 @@ const ProjectItem = (props) => (
                     <button className="small-12 pointer primary-btn">Сделай вклад</button>
                 </div>
             </Link>
-        {/*</Admin>*/}
+        </Admin>
     </div>
 );
 
