@@ -71,8 +71,8 @@ class ProjectsList extends Component {
                     {
                         this.props.projects.data && this.props.projects.data.length > 0  ?
                         this.props.projects.data.map((project, index) =>
-                            <EditableItem type="projects" id={project._id} actions={['edit', 'delete']} >
-                                <ProjectItem key={index} project={project}/>
+                            <EditableItem  key={index} type="projects" id={project._id} actions={['edit', 'delete']} >
+                                <ProjectItem  project={project}/>
                             </EditableItem>
                         )
                         : <h2 className="center">К сожалению, проектов в этом направлении пока нет</h2>

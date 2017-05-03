@@ -5,16 +5,15 @@ import {connect} from "react-redux";
 
 
 const actions = {
-    create: (props) => ( <Link to={`/admin#/${props.type}/create`} className="admin-toolbar__actions-btn create-btn"></Link>),
-    edit: (props) => (<Link to={`/admin#/${props.type}/${props.id}`} className="admin-toolbar__actions-btn edit-btn">ksadk</Link>),
-    delete: (props) => (<Link to={`/admin#/${props.type}/${props.id}/delete`} className="admin-toolbar__actions-btn delete-btn">askd</Link>)
+    create: (props) => ( <Link to={`/admin#/${props.type}/create`} className="toolbar-btn create-btn"></Link>),
+    edit: (props) => (<Link to={`/admin#/${props.type}/${props.id}`} className="toolbar-btn edit-btn"></Link>),
+    delete: (props) => (<Link to={`/admin#/${props.type}/${props.id}/delete`} className="toolbar-btn delete-btn"></Link>)
 }
-
 
 class _EditableItem extends Component {
     render() {
         return (
-            <span>
+            <span className="relative">
                 {
                     this.props.user.data.role && this.props.user.data.role === 1  ?
                         (<div className="admin-toolbar__item-wrap">
@@ -39,7 +38,10 @@ class _ActionBar extends Component {
                 {
                     this.props.user.data && this.props.user.data.role === 1  ?
                         (<div className="admin-toolbar__actions-bar">
-                             {this.props.actions.map(action =>(actions[action].apply(this)))}
+                             {this.props.actions.map(action => (
+                                 actions[action](this.props)
+                                ))
+                             }
                         </div>)
                         :
                         null
