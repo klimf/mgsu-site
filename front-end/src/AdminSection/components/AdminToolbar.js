@@ -15,12 +15,13 @@ class _EditableItem extends Component {
         return (
             <span className="relative">
                 {
-                    this.props.user.data.role && this.props.user.data.role === 1  ?
+                    this.props.user.data.role && this.props.user.data.role === 1 ?
                         (<div className="admin-toolbar__item-wrap">
-                          {this.props.actions.map(action => (
-                             actions[action](this.props)
-                            ))
-                          }
+                            {this.props.actions.map((action, index) =>
+                                <div key={index}>
+                                    {actions[action](this.props)}
+                                </div>)
+                            }
                         </div>)
                         :
                         null
@@ -36,7 +37,7 @@ class _ActionBar extends Component {
         return (
             <span>
                 {
-                    this.props.user.data && this.props.user.data.role === 1  ?
+                    this.props.user.data && this.props.user.data.role === 1 ?
                         (<div className="admin-toolbar__actions-bar">
                              {this.props.actions.map(action => (
                                  actions[action](this.props)

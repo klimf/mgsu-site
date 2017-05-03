@@ -8,8 +8,8 @@ import Slider from "../HomePage/components/Slider";
 
 class SponsorsPage extends Component {
 
-    componentDidMount() {
-        this.props.DonationsListManager.get();
+    componentWillMount() {
+        // this.props.DonationsListManager.get();
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.donations обычные спонсоры в таблицу
         ////////////////////////////////////////////////
@@ -30,7 +30,7 @@ class SponsorsPage extends Component {
         // recursive - ежемесясно или нет
         // date - дата
         // 
-        // 
+        //
         this.props.VipSponsorsManager.get();
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.vipSponsors 
@@ -65,6 +65,7 @@ class SponsorsPage extends Component {
     render() {
         return (
             <div className="page row expanded">
+                {console.log(this.props)}
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Компании - партнеры</h1>
@@ -77,7 +78,7 @@ class SponsorsPage extends Component {
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Спонсоры</h1>
-                    <Slider/>
+                    <Slider sponsors={this.props.vipSponsors}/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
@@ -154,7 +155,7 @@ const mapStateToProps = state => {
     return {
         donations: state.PeopleState.DonationsList,
         partners: state.ContentState.Partners,
-        vipSpinsors: state.PeopleState.VipSpinsors
+        vipSponsors: state.PeopleState.VipSponsors
     }
 };
 
