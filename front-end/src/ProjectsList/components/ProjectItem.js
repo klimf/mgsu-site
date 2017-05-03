@@ -2,10 +2,12 @@ import React, {PropTypes} from "react";
 import {Link, withRouter} from "react-router-dom";
 import {formatMoney} from "../../common/helpers";
 import {resolveStatic} from "../../common/helpers";
+import {EditableItem} from "../../AdminSection/components/AdminToolbar";
 
 
 const ProjectItem = (props) => (
     <div className="project-item small-12 medium-6 large-4 columns end">
+         <EditableItem   type="projects" id={props.project._id} actions={['edit', 'delete']} >
             <Link to={`/project/${props.project._id}`}>
                 <div className="project-image space-7">
                     <div className={'bg-img placeholder-img'}
@@ -44,6 +46,7 @@ const ProjectItem = (props) => (
                     </div>
                 </div>
             </Link>
+            </EditableItem>
     </div>
 );
 
