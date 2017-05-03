@@ -18,13 +18,13 @@ const defaultProps = {
 
     directions: [
         null,
-        'образование',
-        'наука',
-        'студенты',
-        'стипендии',
-        'инфраструктура',
-        'спорт',
-        'проффессора и преподаватели'
+        'Образование',
+        'Наука',
+        'Студенты',
+        'Стипендии',
+        'Инфраструктура',
+        'Спорт',
+        'Проффессора и преподаватели'
     ]
 
 };
@@ -53,7 +53,7 @@ class ProjectsList extends Component {
                 <div className="content small-12 row">
                     <div className="space-3"/>
                     <div className="projects-icon small-0"
-                         style={{background: "url(" + require("../media/images/project-nav/" + (this.currentDirection || 'стипендии') + ".png") + ") no-repeat"}}></div>
+                         style={{background: "url(" + require("../media/images/project-nav/" + (this.currentDirection ? this.currentDirection.toLowerCase() : 'стипендии') + ".png") + ") no-repeat"}}></div>
                     <div className="projects-navigation">
                         {
                             this.props.filters.map((filter, index) =>
@@ -67,7 +67,7 @@ class ProjectsList extends Component {
                     </div>
                     <div className="space-3"/>
                     {
-                        this.props.projects.data && this.props.projects.data.length > 0 ?
+                        this.props.projects.data && this.props.projects.data.length > 0  ? 
                         this.props.projects.data.map((project, index) =>
                             <ProjectItem key={index} project={project}/>
                         ) 

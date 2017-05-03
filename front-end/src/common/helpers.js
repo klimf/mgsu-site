@@ -16,7 +16,12 @@ export function formatMoney(value) {
     }
 }
 
-export const apiUrl = 'http://185.189.13.148/api/';
+export const apiUrl = 'http://185.189.13.148/api';
+// export const apiUrl = 'http://localhost:4000/api';
+
+export const resolveStatic = (path) => {
+    return 'http://185.189.13.148' + path;
+}
 
 export function resolveApi({path, action, query}) {
     const haveQuery = (query && query !== {});
@@ -26,7 +31,7 @@ export function resolveApi({path, action, query}) {
             queryArr.push(key + '=' + query[key])
         }
     }
-    return apiUrl + `${path.join('/')}${haveQuery ? ('/?' + queryArr.join('&')) : ''}`
+    return apiUrl + `/${path.join('/')}${haveQuery ? ('/?' + queryArr.join('&')) : ''}`
 
 }
 
@@ -83,27 +88,25 @@ export class ApiAction extends AsyncAction {
 
             if(body) {
                  _options.body = JSON.stringify(body);
-                 _options.headers = {
+            }
+
+            _options.headers = {
                      'Content-Type': 'application/json',
                      'Authorization': 'Basic bWV0YWxsaWM6bWV0YWxsaWM='
                     };
-            }
-
             // _options.creditionals = 'same-origin';
-
 
             return new Promise((resolve, reject) => {
                 fetch(apiQuery, _options).then((response) => {
-                if(response.status == 200 || response.status == 304) {
-                    response.json().then((data) => {
-                        resolve(this.prePare(data));
-                    })
+                if(response.status != 200 && response.status != 304) {
+                    reject({status: response.status, message: response});
                 } else {
-                    reject({status: response.status, message: response.statusText});
+                    response.json().then((data) => {
+                       resolve(this.prePare(data));
+                    })
                 }
-
             }).catch((error) => {
-                    reject(error);
+                   reject(error);
                 })
             })
 
@@ -147,4 +150,22 @@ export class StateModel {
         this.defaultState[changedStateField] = defaultStateFieldValue;
     }
 
+}
+
+export function setItemImage(item, small) {
+    if(item.img) {
+        return {
+            class: '',
+            style: {
+                background: `url(${resolveStatic((small ? item.img.small : item.img.original ))}`
+            }
+        }
+    } else {
+    
+        return {
+            class:  'placeholder-img',
+            style: { }
+        }
+    }
+   
 }

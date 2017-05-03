@@ -42,7 +42,8 @@ HTML {
 
 a {
   text-decoration: none;
-  color: $accent;
+  cursor: pointer;
+  color: $black;
 }
 
 a:hover, a.active {

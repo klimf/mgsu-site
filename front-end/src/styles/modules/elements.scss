@@ -56,7 +56,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 12*$o;
+  height: 14*$o;
   overflow: hidden;
 }
 
@@ -194,6 +194,7 @@
   margin-bottom: 2*$o;
   color: $white;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .home-news h2 {
@@ -212,6 +213,7 @@
   padding: 0 3*$o;
   overflow: hidden;
   background-color: $white;
+  cursor: pointer;
 }
 
 .home-event h1 {
@@ -423,6 +425,30 @@ table.donations-table tr:first-child {
     background-color: $white;
     padding: 0 0.9375rem;
     margin-bottom: 2*$o;
+  }
+  .wide-img {
+    padding: 8*$o 0 18*$o 0;
+  }
+
+  .main-progress .bar-text {
+    right: 2*$o;
+  }
+  .main-progress .bar-label {
+    max-width: 100%;
+    width: 100% !important;
+    bottom: 6*$o;
+  }
+  .donate-btn-icon-white {
+    left: 24px;
+    height: 121px;
+    width: 97px;
+    bottom: -46px;
+  }
+  .donate-btn-icon-white:hover {
+    left: 24px;
+    height: 121px;
+    width: 97px;
+    bottom: -46px;
   }
 }
 

@@ -139,17 +139,17 @@ module.exports = {
       // tags. If you use code splitting, however, any async bundles will still
       // use the "style" loader inside the async code so CSS from them won't be
       // in the main CSS file.
-      // {
-      //   test: /\.css$/,
-      //   loader: ExtractTextPlugin.extract(
-      //     'style',
-      //     'css?importLoaders=1!postcss',
-      //     extractTextPluginOptions
-      //   )
-      //   // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
-      // },
       {
-        test: /\.s?css$/,
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css?importLoaders=1!postcss',
+          extractTextPluginOptions
+        )
+        // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+      },
+      {
+        test: /\.scss$/,
         include: paths.appSrc,
         loader: ExtractTextPlugin.extract(
           'style',
@@ -197,23 +197,23 @@ module.exports = {
     // in `package.json`, in which case it will be the pathname of that URL.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
-    // new HtmlWebpackPlugin({
-    //   inject: true,
-    //   template: paths.appHtml,
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: paths.appHtml,
       
-    //   minify: {
-    //     removeComments: true,
-    //     collapseWhitespace: true,
-    //     removeRedundantAttributes: true,
-    //     useShortDoctype: true,
-    //     removeEmptyAttributes: true,
-    //     removeStyleLinkTypeAttributes: true,
-    //     keepClosingSlash: true,
-    //     minifyJS: true,
-    //     minifyCSS: true,
-    //     minifyURLs: true
-    //   }
-    // }),
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      }
+    }),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.

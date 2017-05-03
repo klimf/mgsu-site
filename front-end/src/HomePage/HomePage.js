@@ -13,7 +13,6 @@ import {NavLink, withRouter} from "react-router-dom";
 class HomePage extends Component {
     constructor(props) {
         super(props);
-
         this.hexaNames = [
             'Образование',
             'Наука',
@@ -21,18 +20,29 @@ class HomePage extends Component {
             'Стипендии',
             'Инфраструктура',
             'Спорт',
-            'Проффессора и преподаватели'
+            <div>Проффессора и <br /> преподаватели</div>
         ];
+
         this.styles = {
             startShowing: 'active',
             resetDelays: 'active delay-0'
         };
+
         this.state = {
             hexaStyle: '',
             scrollTop: 0
         };
-        
+
+        this.bindedScrollHandler = this.scrollFunc.bind(this);
+        window.addEventListener("scroll", this.bindedScrollHandler);
+
     }
+
+    scrollFunc() {
+        this.setState({
+            scrollTop: window.pageYOffset
+        })
+    };
 
     componentWillMount() {
         this.props.FundDetailManager.getDetail();
@@ -40,7 +50,11 @@ class HomePage extends Component {
         this.props.EventsManager.get();
         this.props.VipSponsorsManager.get();
         this.props.PartnersManager.get();
-        
+
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.bindedScrollHandler);
     }
 
     componentDidMount() {
@@ -56,11 +70,10 @@ class HomePage extends Component {
             });
         }, 600);
 
-        window.addEventListener("scroll", ()=>{
-               this.setState({
-                    scrollTop: window.pageYOffset
-               }) 
-        });
+
+    }
+
+    componentDidUpdate(prevProps, prevState) {
 
     }
 
@@ -94,7 +107,7 @@ class HomePage extends Component {
         return (
             <div className="page row expanded">
                 <div classID="wide-img" className="wide-img small-12 expanded"
-                 style={{backgroundPosition: "center " + -this.state.scrollTop/2 + "px fixed"}}>
+                     style={{backgroundPosition: "center " + -this.state.scrollTop / 2 + "px fixed"}}>
                     <div className="blackout"/>
                     <div className="main-progress">
                         <div className="bar-wrap">
@@ -154,19 +167,19 @@ class HomePage extends Component {
                 <div className="hexagon-bg-container small-12 row expanded absolute no-overflow">
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
-                         style={{top: -500, transform: `translateY(${ this.state.scrollTop/5 }px)`}}>
+                         style={{top: -500, transform: `translateY(${ this.state.scrollTop / 5 }px)`}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                     <svg className="hexagon-bg small-0 medium-0" viewBox="-24 -24 254 287" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
-                         style={{top: 0, transform: `translateY(${ this.state.scrollTop/3 }px)`}}>
+                         style={{top: 0, transform: `translateY(${ this.state.scrollTop / 3 }px)`}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
                     <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
-                         style={{top: 600, transform: `translateY(${ this.state.scrollTop/4 }px)`}}>
+                         style={{top: 600, transform: `translateY(${ this.state.scrollTop / 4 }px)`}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
@@ -217,7 +230,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
-                         <NavLink className="h3 underline" to="/news">Показать все</NavLink>
+                        <NavLink className="h3 underline" to="/news">Все новости</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
                         <div className="home-event small-12 columns">
@@ -256,7 +269,7 @@ class HomePage extends Component {
                                 работодатель сможет посмотреть
                             </p>
                         </div>
-                         <NavLink className="h3 underline" to="/events">Показать все</NavLink>
+                        <NavLink className="h3 underline" to="/events">Все мероприятия</NavLink>
                     </div>
 
                 </div>
@@ -307,4 +320,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

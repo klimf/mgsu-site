@@ -28,9 +28,9 @@ class Header extends Component {
         this.isSponsor = this.props.user.data && this.props.user.data.role != 1;
         this.isNotSign = !this.props.user.data;
 
-        if (this.state.headerIsWhite !== (this.props.location.pathname === '/')) {
+        if (this.state.headerIsWhite !== (this.props.location.pathname == '/')) {
             this.setState({
-                headerIsWhite: this.props.location.pathname === '/'
+                headerIsWhite: this.props.location.pathname == '/'
             });
         }
     }

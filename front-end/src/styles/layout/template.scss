@@ -65,7 +65,8 @@ footer {
 }
 
 .bg-img {
-  
+  @extend .cover;
+  background: no-repeat center center;
   position: absolute;
   width: 100%;
   height: 100%;
