@@ -92,9 +92,8 @@ export class ApiAction extends AsyncAction {
 
             _options.headers = {
                      'Content-Type': 'application/json',
-                     'Authorization': 'Basic bWV0YWxsaWM6bWV0YWxsaWM='
                     };
-            // _options.creditionals = 'same-origin';
+             _options.creditionals = 'same-origin';
 
             return new Promise((resolve, reject) => {
                 fetch(apiQuery, _options).then((response) => {
