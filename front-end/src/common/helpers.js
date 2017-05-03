@@ -16,12 +16,14 @@ export function formatMoney(value) {
     }
 }
 
-export const apiUrl = 'http://185.189.13.148/api';
+export const apiUrl = 'http://185.189.13.148:4000/api';
 // export const apiUrl = 'http://localhost:4000/api';
 
 export const resolveStatic = (path) => {
     return 'http://185.189.13.148' + path;
 }
+
+export const credOptions = 'include';
 
 export function resolveApi({path, action, query}) {
     const haveQuery = (query && query !== {});
@@ -92,9 +94,8 @@ export class ApiAction extends AsyncAction {
 
             _options.headers = {
                      'Content-Type': 'application/json',
-                     'Authorization': 'Basic bWV0YWxsaWM6bWV0YWxsaWM='
                     };
-            // _options.creditionals = 'same-origin';
+             _options.credentials = 'include';
 
             return new Promise((resolve, reject) => {
                 fetch(apiQuery, _options).then((response) => {

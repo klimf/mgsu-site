@@ -50,7 +50,6 @@ export const ProjectList = (props) => (
             <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}}
                          label="Нужно собрать"/>
             <TextField source="direction" label="Направление"/>
-            <NumberField source="_v" label="версия"/>
             <BooleanField source="public" label="публичный"/>
             <EditButton  />
         </Datagrid>

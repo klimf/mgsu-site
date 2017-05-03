@@ -5,9 +5,11 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import efRestClient from "./efRestClient";
 import {ProjectList, ProjectEdit, ProjectCreate} from "./resources/projects";
-import mgsuTheme from "./components/mgsuTheme";
-import {contentsCategories} from "./resources/contents";
-import {peopleTeams} from "./resources/team.js";
+import {DontaionList, DontaionEdit, DontaionCreate} from "./resources/donations";
+import mgsuTheme from './components/mgsuTheme'
+import {contentsCategories} from "./resources/contents"
+import {peopleTeams} from "./resources/team.js"
+import ResourcesSet from './components/ResourcesSet';
 
 
 const messages = {
@@ -22,7 +24,6 @@ class AdminSection extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.props);
     }
 
     render() {
@@ -31,6 +32,7 @@ class AdminSection extends Component {
             <Admin theme={mgsuTheme}
                    locale='ru' messages={messages}
                    title={`Кабинет администратора ${this.props.user.data.firstName} ${this.props.user.data.lastName}`}
+                   authClient={authClient(this.getUserState.bind(this), this.props.UserManager)}
                    restClient={efRestClient}>
                 <Resource name="projects"
                           options={{label: 'Проекты'}}
