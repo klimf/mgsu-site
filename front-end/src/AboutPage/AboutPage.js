@@ -2,8 +2,9 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withRouter, NavLink} from "react-router-dom";
 import {AboutContentManager} from "../common/reducers/ContentState";
+import {OurTeamManager} from "../common/reducers/PeopleState";
 import {Route} from "react-router";
-import sanitizeHtml from 'sanitize-html';
+import sanitizeHtml from "sanitize-html";
 
 
 const defaultProps = {
@@ -20,27 +21,13 @@ const defaultProps = {
 };
 
 class AboutPage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {
-            content: ''
-        }
     }
 
     componentWillMount() {
         this.props.AboutContentManager.get();
-        console.log(this.props.about)
-    }
-
-    componentDidMount() {
-        console.log(this.props)
-    }
-
-    changeDirection(item){
-        this.props.history.push('/about/' + item.title);
-        this.setState({
-            content: this.props.about.data[this.props.about.data.indexOf(item)].content
-        });
+        this.props.OurTeamManager.get();
     }
 
     render() {
@@ -49,11 +36,13 @@ class AboutPage extends Component {
                 <div className="small-12 space-3 columns"/>
                 <div className="content small-12 row">
                     <div className="projects-navigation">
-                        {console.log(this.props.about)}
+                        <NavLink to={`/about/Наша команда`} className="projects-nav-item">
+                            Наша команда
+                        </NavLink>
                         {
                             this.props.about.data && this.props.about.data.map((item, index) =>
                                 <NavLink to={`/about/${item.title}`} className="projects-nav-item"
-                                     key={index}>
+                                         key={index}>
                                     {item.title}
                                 </NavLink>
                             )
@@ -72,6 +61,23 @@ class AboutPage extends Component {
                             </div>
                         )
                     }
+                    <Route path={`/about/Наша команда`}
+                           render={() =>
+                               <div>
+                                   {
+                                       this.props.team.data &&
+                                       this.props.team.data.map((person, index) =>
+                                           <div key={index}>
+                                               <div>
+                                                   ФИО: {person.firstName + ' ' + person.lastName + ' ' + person.middleName}</div>
+                                               <div></div>
+                                               <div>Описание: {person.description}</div>
+                                           </div>
+                                       )
+                                   }
+                               </div>
+                           }
+                    />
                 </div>
             </div>
         )
@@ -82,13 +88,15 @@ AboutPage.defaultProps = defaultProps;
 
 const mapStateToProps = state => {
     return {
-        about: state.ContentState.About
+        about: state.ContentState.About,
+        team: state.PeopleState.OurTeam
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        AboutContentManager: AboutContentManager.bindTo(dispatch)
+        AboutContentManager: AboutContentManager.bindTo(dispatch),
+        OurTeamManager: OurTeamManager.bindTo(dispatch)
     }
 };
 
