@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import ReactSlider from "react-slick";
 import Admin from "../../AdminSection/components/AdminWrapper";
+import PropTypes from 'prop-types';
 
 class Slider extends Component {
     constructor(props) {
@@ -48,4 +49,8 @@ class Slider extends Component {
         );
     }
 }
+
+Slider.propTypes = {
+    sponsors: PropTypes.object.isRequired
+};
 export default Slider;
