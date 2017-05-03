@@ -137,7 +137,7 @@ const uploadFile = (file) => {
         const options = {
             method: 'POST',
             body: formdata,
-            creditionals: credOptions
+            credentials: 'include'
         }
         return fetchUtils.fetchJson(url, options).then((response) => {
             return Promise.resolve(response.json);
@@ -149,7 +149,7 @@ export default (type, resource, params) => {
 
     options.headers = new Headers({'Content-Type': 'application/json'});
 
-    options.credentials = credOptions;
+    options.credentials = 'include';
 
   
 
