@@ -1,13 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {bindAll} from "redux-act";
 import Slider from "./components/Slider";
 import {formatMoney} from "../common/helpers";
-import {headerActions} from "../common/components/state";
 import {FundDetailManager} from "../common/reducers/ProjectsState";
 import {NewsManager, EventsManager, PartnersManager} from "../common/reducers/ContentState";
 import {VipSponsorsManager} from "../common/reducers/PeopleState";
-import {NavLink, withRouter} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 
 class HomePage extends Component {
@@ -100,6 +98,47 @@ class HomePage extends Component {
                 }, 400)
             }, 200)
         });
+    }
+
+    getMonth(value) {
+        switch (value) {
+            case 0:
+                return 'Января';
+                break;
+            case 1:
+                return 'Февраля';
+                break;
+            case 2:
+                return 'Марта';
+                break;
+            case 3:
+                return 'Апреля';
+                break;
+            case 4:
+                return 'Мая';
+                break;
+            case 5:
+                return 'Июня';
+                break;
+            case 6:
+                return 'Июля';
+                break;
+            case 7:
+                return 'Августа';
+                break;
+            case 8:
+                return 'Сентября';
+                break;
+            case 9:
+                return 'Октября';
+                break;
+            case 10:
+                return 'Ноября';
+                break;
+            case 11:
+                return 'Декабря';
+                break;
+        }
     }
 
     render() {
@@ -195,7 +234,7 @@ class HomePage extends Component {
                 <div className="content small-12 row">
                     <div className="small-12 medium-12 large-7 columns padding-left m-b-3">
                         {
-                            this.props.news.data && this.props.news.data.slice(0, 4).map((item, index)=>
+                            this.props.news.data && this.props.news.data.slice(0, 4).map((item, index) =>
                                 <div key={index} className="home-news small-12 columns">
                                     <div className="bg-img"/>
                                     <div className="blackout"/>
@@ -209,42 +248,21 @@ class HomePage extends Component {
                         <NavLink className="h3 underline" to="/news">Все новости</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
-                        <div className="home-event small-12 columns">
-                            <div className="bg-border"/>
-                            <h1>19</h1>
-                            <h2>Апреля</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-event small-12 columns">
-                            <div className="bg-border"/>
-                            <h1>23</h1>
-                            <h2>Апреля</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-event small-12 columns">
-                            <div className="bg-border"/>
-                            <h1>27</h1>
-                            <h2>Апреля</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-event small-12 columns">
-                            <div className="bg-border"/>
-                            <h1>29</h1>
-                            <h2>Апреля</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
+                        {
+                            this.props.events.data && this.props.events.data.slice(0, 4).map((event, index) => {
+                                let date = new Date(event.date);
+                                return (
+                                    <div key={index} className="home-event small-12 columns">
+                                        <div className="bg-border"/>
+                                        <h1>{date.getDate()}</h1>
+                                        <h2>{this.getMonth(date.getMonth())}</h2>
+                                        <p>
+                                            {event.title}
+                                        </p>
+                                    </div>
+                                )
+                            })
+                        }
                         <NavLink className="h3 underline" to="/events">Все мероприятия</NavLink>
                     </div>
 
