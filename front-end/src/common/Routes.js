@@ -23,7 +23,7 @@ const Routes = (props) => (
         <Route exact path="/sponsors" component={SponsorsPage}/>
         <Route exact path="/news" component={NewsPage}/>
         <Route exact path="/events" component={EventsPage}/>
-        <Route path="/admin"  render={() =>   <AdminSection {...props}/>}/>
+        <Route path="/admin" render={() => <AdminSection {...props}/>}/>
         <Route component={NotFound}/>
     </Switch>
 );
