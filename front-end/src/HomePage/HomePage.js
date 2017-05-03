@@ -101,47 +101,6 @@ class HomePage extends Component {
         });
     }
 
-    getMonth(value) {
-        switch (value) {
-            case 0:
-                return 'Января';
-                break;
-            case 1:
-                return 'Февраля';
-                break;
-            case 2:
-                return 'Марта';
-                break;
-            case 3:
-                return 'Апреля';
-                break;
-            case 4:
-                return 'Мая';
-                break;
-            case 5:
-                return 'Июня';
-                break;
-            case 6:
-                return 'Июля';
-                break;
-            case 7:
-                return 'Августа';
-                break;
-            case 8:
-                return 'Сентября';
-                break;
-            case 9:
-                return 'Октября';
-                break;
-            case 10:
-                return 'Ноября';
-                break;
-            case 11:
-                return 'Декабря';
-                break;
-        }
-    }
-
     render() {
 
         return (
@@ -234,8 +193,8 @@ class HomePage extends Component {
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <div className="small-12 medium-12 large-7 columns padding-left m-b-3">
-                        {this.getNews(5).map(({img, title, description}) =>
-                            < div className="home-news small-12 columns">
+                        {this.getNews(5).map(({img, title, description}, index) =>
+                            <div key={index} className="home-news small-12 columns">
                                 <div className="bg-img placeholder-img"
                                      style={img && {backgroundImage: "url(" + resolveStatic(img.small) + ")"}}
                                 />
@@ -250,8 +209,8 @@ class HomePage extends Component {
                         <NavLink className="h3 underline" to="/news">Все новости</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
-                        {this.getEvents(5).map(({date, title, description}) =>
-                            <div className="home-event small-12 columns">
+                        {this.getEvents(5).map(({date, title, description}, index) =>
+                            <div key={index} className="home-event small-12 columns">
                                 <div className="bg-border"/>
                                 <h1>{formatEventDate(date).day}</h1>
                                 <h2>{formatEventDate(date).month}</h2>

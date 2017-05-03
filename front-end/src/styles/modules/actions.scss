@@ -489,29 +489,37 @@
 }
 
 
+.admin-toolbar__item-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
 
 .toolbar-btn {
   @extend .inline,
+  .bg-white,
+  .transition-3,
   .cover;
   height: $o*3;
   width: $o*3;
-  margin-left: $o;
+  margin: 0 0 0 $o;
 }
 
 .add-btn {
   @extend .border-small,
   .hover-primary-invert;
-  background: url($image + "add-btn.png") no-repeat;
+  background: url($image + "icon-add-small.png") no-repeat;
 }
 
 .delete-btn {
    @extend .border-small,
   .hover-primary-invert;
-  background: url($image + "icon-close.png") no-repeat;
+  background: url($image + "icon-close-small.png") no-repeat;
 }
 
 .edit-btn {
   @extend .border-small,
   .hover-primary-invert;
-   background: url($image + "edit-btn.png") no-repeat;
+   background: url($image + "icon-edit-small.png") no-repeat;
 }

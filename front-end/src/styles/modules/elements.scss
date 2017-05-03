@@ -329,6 +329,11 @@
   margin: 0.6*$o 0 $o 0;
 }
 
+.project-item span {
+  width: 100%;
+  height: 100%;
+}
+
 .project-text {
   overflow: hidden;
   height: 108px;

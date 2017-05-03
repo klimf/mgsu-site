@@ -5,29 +5,40 @@ import {connect} from "react-redux";
 
 
 const actions = {
-    create: (props) => ( <Link to={`/admin#/${props.type}/create`} className="toolbar-btn create-btn"></Link>),
-    edit: (props) => (<Link to={`/admin#/${props.type}/${props.id}`} className="toolbar-btn edit-btn"></Link>),
-    delete: (props) => (<Link to={`/admin#/${props.type}/${props.id}/delete`} className="toolbar-btn delete-btn"></Link>)
-}
+    create: (props) => ({
+        link: `/admin#/${props.type}/create`,
+        class: 'create-btn'
+    }),
+    edit: (props) => ({
+        link: `/admin#/${props.type}/${props.id}`,
+        class: 'edit-btn'
+    }),
+    delete: (props) => ({
+        link: `/admin#/${props.type}/${props.id}/delete`,
+        class: 'delete-btn'
+    })
+};
 
 class _EditableItem extends Component {
     render() {
         return (
-            <span className="relative">
+            <div className="relative">
                 {
                     this.props.user.data.role && this.props.user.data.role === 1 ?
                         (<div className="admin-toolbar__item-wrap">
-                            {this.props.actions.map((action, index) =>
-                                <div key={index}>
-                                    {actions[action](this.props)}
-                                </div>)
+                            {
+                                this.props.actions.map((action, index) => (
+                                    <Link key={index} to={actions[action](this.props).link}
+                                          className={`toolbar-btn ${actions[action](this.props).class}`}/>
+                                    )
+                                )
                             }
                         </div>)
                         :
                         null
                 }
                 {this.props.children}
-            </span>
+            </div>
         )
     }
 }
@@ -35,20 +46,21 @@ class _EditableItem extends Component {
 class _ActionBar extends Component {
     render() {
         return (
-            <span>
+            <div>
                 {
                     this.props.user.data && this.props.user.data.role === 1 ?
                         (<div className="admin-toolbar__actions-bar">
-                             {this.props.actions.map(action => (
-                                 actions[action](this.props)
-                                ))
-                             }
+                            {this.props.actions.map((action, index) => (
+                                <Link key={index} to={actions[action](this.props).link}
+                                className={`toolbar-btn ${actions[action](this.props).class}`}/>
+                            ))
+                            }
                         </div>)
                         :
                         null
                 }
                 {this.props.children}
-            </span>
+            </div>
         )
     }
 }
