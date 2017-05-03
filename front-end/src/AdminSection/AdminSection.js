@@ -10,6 +10,7 @@ import mgsuTheme from './components/mgsuTheme'
 import {contentsCategories} from "./resources/contents"
 import {peopleTeams} from "./resources/team.js"
 import ResourcesSet from './components/ResourcesSet';
+import authClient from './authClient';
 
 
 const messages = {
