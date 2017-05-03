@@ -301,6 +301,19 @@
   color: $dark;
 }
 
+.corps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.corps-grid img {
+  margin: $o 2*$o;
+  height: 60px;
+  width: auto;
+}
+
 .project-item {
   height: 510px;
   margin-bottom: 2*$o;
