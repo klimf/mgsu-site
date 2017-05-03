@@ -503,10 +503,10 @@
   .cover;
   height: $o*3;
   width: $o*3;
-  margin: 0 0 0 $o;
+  margin: 0 0  0.9375rem 0.9375rem;
 }
 
-.add-btn {
+.create-btn {
   @extend .border-small,
   .hover-primary-invert;
   background: url($image + "icon-add-small.png") no-repeat;
