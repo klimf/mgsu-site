@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import DonationForm from "./components/DonationForm"
 import { ProjectDetailManager} from '../common/reducers/ProjectsState'
 import {formatMoney} from '../common/helpers';
-
+import sanitizeHtml from 'sanitize-html';
 
 class ProjectDetail extends Component {
 
@@ -86,7 +86,7 @@ class ProjectDetail extends Component {
                              <h1 className="small-12 uppercase center columns">О проекте</h1>
                          }
                         <p className="small-12 columns">
-                            {this.props.project.data.content}
+                            <div dangerouslySetInnerHTML={{__html: sanitizeHtml(this.props.project.data.content)}}/>
                             {/*Задача старшего поколения - сохранить память об одном из самых важных
                             исторических событий нашей страны среди молодого поколения, которое знает
                             о войне только лишь по рассказам ветеранов и подвержены влиянию людей,
