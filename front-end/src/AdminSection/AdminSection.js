@@ -25,7 +25,6 @@ class AdminSection extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.props);
     }
 
     render() {

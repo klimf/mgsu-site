@@ -95,7 +95,7 @@ export class ApiAction extends AsyncAction {
             _options.headers = {
                      'Content-Type': 'application/json',
                     };
-             _options.creditionals = credOptions;
+             _options.credentials = 'include';
 
             return new Promise((resolve, reject) => {
                 fetch(apiQuery, _options).then((response) => {
