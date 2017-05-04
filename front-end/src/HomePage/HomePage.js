@@ -5,7 +5,7 @@ import {formatMoney} from "../common/helpers";
 import {FundDetailManager} from "../common/reducers/ProjectsState";
 import {NewsManager, EventsManager, PartnersManager} from "../common/reducers/ContentState";
 import {VipSponsorsManager} from "../common/reducers/PeopleState";
-import {NavLink, withRouter} from "react-router-dom";
+import {NavLink, withRouter, Link} from "react-router-dom";
 import {resolveStatic, formatEventDate} from "../common/helpers";
 
 
@@ -193,8 +193,8 @@ class HomePage extends Component {
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <div className="small-12 medium-12 large-7 columns padding-left m-b-3">
-                        {this.getNews(5).map(({img, title, description}, index) =>
-                            <div key={index} className="home-news small-12 columns">
+                        {this.getNews(5).map(({img, title, description, _id}, index) =>
+                            <Link to={`/news/${_id}`} key={index} className="home-news small-12 columns">
                                 <div className="bg-img placeholder-img"
                                      style={img && {backgroundImage: "url(" + resolveStatic(img.small) + ")"}}
                                 />
@@ -203,21 +203,21 @@ class HomePage extends Component {
                                 <p>
                                     {description}
                                 </p>
-                            </div>
+                            </Link>
                         )
                         }
                         <NavLink className="h3 underline" to="/news">Все новости</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
-                        {this.getEvents(5).map(({date, title, description}, index) =>
-                            <div key={index} className="home-event small-12 columns">
+                        {this.getEvents(5).map(({date, title, description, _id}, index) =>
+                            <Link  to={`/events/${_id}`} key={index} className="home-event small-12 columns">
                                 <div className="bg-border"/>
                                 <h1>{formatEventDate(date).day}</h1>
                                 <h2>{formatEventDate(date).month}</h2>
                                 <p>
                                     {title}
                                 </p>
-                            </div>
+                            </Link>
                         )}
                         <NavLink className="h3 underline" to="/events">Все мероприятия</NavLink>
                     </div>
@@ -225,21 +225,15 @@ class HomePage extends Component {
                 </div>
                 <div className="space-2"/>
                 <div className="content small-12 row">
-                    <h1 className="uppercase center">Спонсоры</h1>
+                    <h1 className="uppercase center underline"><Link to='/sponsors'>Спонсоры</Link></h1>
                     <Slider sponsors={this.props.vipSponsors}/>
                 </div>
                 <div className="space-4"/>
                 <div className="content small-12 row">
                     <div className="corps-grid small-12 columns">
-                        <img src={require("../media/images/corps/1.png")} alt=""/>
-                        <img src={require("../media/images/corps/2.png")} alt=""/>
-                        <img src={require("../media/images/corps/3.png")} alt=""/>
-                        <img src={require("../media/images/corps/4.png")} alt=""/>
-                        <img src={require("../media/images/corps/5.png")} alt=""/>
-                        <img src={require("../media/images/corps/6.png")} alt=""/>
-                        <img src={require("../media/images/corps/7.png")} alt=""/>
-                        <img src={require("../media/images/corps/8.png")} alt=""/>
-                        <img src={require("../media/images/corps/9.png")} alt=""/>
+                        {this.props.partners.data && this.props.partners.data.map(({img, title}) => 
+                            <img src={resolveStatic(img)} alt={title}/>
+                        )}
                     </div>
                     {/*<img alt="pic" src={require("../media/images/corps.png")}*/}
                          {/*className="small-12 small-0 medium-0 hover-opacity columns"/>*/}

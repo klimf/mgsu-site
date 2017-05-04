@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {NavLink, withRouter} from "react-router-dom";
 import NewsItem from "./components/NewsItem";
 import EventItem from "./components/EventItem";
+import {ActionBar} from '../AdminSection/components/AdminToolbar'
+
 
 class EventsPage extends Component {
 
@@ -25,6 +27,7 @@ class EventsPage extends Component {
                     </div>
                     <div className="small-12 space-3 columns"/>
                     <div className="small-12 columns m-b-3">
+                    <ActionBar type="events" actions={['create']} />
                     {this.props.events.data  && this.props.events.data.map((item) =>   
                          <EventItem item={item} ></EventItem>
                     )}
@@ -36,8 +39,5 @@ class EventsPage extends Component {
 
 
 }
-
-
-
 
 export default EventsPage;
