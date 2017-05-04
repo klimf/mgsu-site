@@ -162,7 +162,7 @@
 }
 
 .hexagon-bg-container {
-  height: 2040px;
+  height: 2000px;
 }
 
 .hexagon-bg:nth-child(1) {
@@ -232,7 +232,7 @@
 
 .home-event p {
   margin: 0.8*$o 0 0 0;
-  height: 8*$o;
+  height: 7*$o;
   overflow: hidden;
 }
 
@@ -301,19 +301,6 @@
   color: $dark;
 }
 
-.corps-grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.corps-grid img {
-  margin: $o 2*$o;
-  height: 60px;
-  width: auto;
-}
-
 .project-item {
   height: 510px;
   margin-bottom: 2*$o;
@@ -327,11 +314,6 @@
 
 .project-item p {
   margin: 0.6*$o 0 $o 0;
-}
-
-.project-item span {
-  width: 100%;
-  height: 100%;
 }
 
 .project-text {
@@ -367,7 +349,7 @@
   width: 100%;
   max-width: 100%;
   height: $o;
-  bottom: 6*$o;
+  bottom: 0;
   left: 0;
   background-color: $disabled;
 }
@@ -412,10 +394,13 @@ table.donations-table td {
   .space-element;
   padding-left: 2*$o;
 }
+
 table.donations-table tr:nth-child(2n+1) {
   background-color: $semi-disabled;
 }
-table.donations-table tr:first-child {
+table.donations-table th {
+  @extend .h3,
+  .space-element;
   background-color: $primary;
   font-weight: 500;
   color: $white;
@@ -482,3 +467,11 @@ table.donations-table tr:first-child {
 
 }
 
+.admin-toolbar__actions-bar {
+  
+}
+
+.admin-toolbar__item-wrap {
+  position: absolute;
+  
+}

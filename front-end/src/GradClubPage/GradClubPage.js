@@ -8,11 +8,13 @@ import sanitizeHtml from "sanitize-html";
 
 
 class GradClubPage extends Component {
+    constructor(props) {
+        super(props);
+    }
 
     componentWillMount() {
         this.props.GradClubManager.get();
     }
-
 
     render() {
         return (
@@ -74,10 +76,20 @@ class GradClubPage extends Component {
             </div>
         )
     }
-
-
 }
 
+
+const mapStateToProps = state => {
+    return {
+        club: state.ContentState.GradClub
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        GradClubManager: AboutContentManager.bindTo(dispatch)
+    }
+};
 
 const mapStateToProps = state => {
     return {

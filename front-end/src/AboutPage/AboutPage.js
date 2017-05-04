@@ -5,6 +5,7 @@ import {AboutContentManager} from "../common/reducers/ContentState";
 import {OurTeamManager} from "../common/reducers/PeopleState";
 import {Route} from "react-router";
 import sanitizeHtml from "sanitize-html";
+import {resolveStatic} from '../common/helpers';
 
 
 const defaultProps = {
@@ -58,22 +59,36 @@ class AboutPage extends Component {
                                            />
                                        }
                                 />
+
+                                {/*this.props.team.data &&*/}
+                                {/*this.props.team.data.map((person, index) =>*/}
+                                {/*<div key={index} className="sponsor small-6 medium-4 large-3 columns">*/}
+                                {/*<div className="small-12 sponsor-img columns" style={{*/}
+                                {/*background: `url(${person.img.small ? resolveStatic(person.img.small) : require('../media/images/placeholder.png')})`*/}
+                                {/*}}/>*/}
+                                {/*<h2 className="small-12">{person.lastName + ' ' + person.firstName + ' ' + person.middleName}</h2>*/}
+                                {/*<p className="small-12">{person.description}</p>*/}
+                                {/*</div>*/}
+                                {/*)*/}
                             </div>
                         )
                     }
                     <Route path={`/about/Наша команда`}
                            render={() =>
                                <div>
+                                   <div className="small-12 space-3 columns"/>
                                    {
                                        this.props.team.data &&
                                        this.props.team.data.map((person, index) =>
-                                           <div key={index}>
-                                               <div>
-                                                   ФИО: {person.firstName + ' ' + person.lastName + ' ' + person.middleName}</div>
-                                               <div></div>
-                                               <div>Описание: {person.description}</div>
+                                           <div key={index} className="sponsor small-6 medium-4 large-3 columns end">
+                                               <div className="small-12 sponsor-img columns placeholder-img" style={{
+                                               background: `url(${person.img && resolveStatic(person.img.small)})`
+                                               }}/>
+                                               <h2 className="small-12">{person.firstName + ' ' + person.lastName + ' ' + person.middleName}</h2>
+                                               <p className="small-12">Описание: {person.description}</p>
                                            </div>
                                        )
+
                                    }
                                </div>
                            }
