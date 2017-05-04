@@ -5,7 +5,7 @@ import {formatMoney} from "../common/helpers";
 import {FundDetailManager} from "../common/reducers/ProjectsState";
 import {NewsManager, EventsManager, PartnersManager} from "../common/reducers/ContentState";
 import {VipSponsorsManager} from "../common/reducers/PeopleState";
-import {NavLink, withRouter} from "react-router-dom";
+import {Link, NavLink, withRouter} from "react-router-dom";
 import {resolveStatic, formatEventDate} from "../common/helpers";
 
 
@@ -193,24 +193,27 @@ class HomePage extends Component {
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <div className="small-12 medium-12 large-7 columns padding-left m-b-3">
-                        {this.getNews(5).map(({img, title, description}, index) =>
-                            <div key={index} className="home-news small-12 columns">
-                                <div className="bg-img placeholder-img"
-                                     style={img && {backgroundImage: "url(" + resolveStatic(img.small) + ")"}}
-                                />
-                                <div className="blackout"/>
-                                <h2>{title}</h2>
-                                <p>
-                                    {description}
-                                </p>
-                            </div>
+                        {this.getNews(5).map(({_id, img, title, description}, index) =>
+                            <Link key={index} to={`/news/${_id}`}>
+                                <div className="home-news small-12 columns">
+                                    <div className="bg-img placeholder-img"
+                                         style={img && {backgroundImage: "url(" + resolveStatic(img.small) + ")"}}
+                                    />
+                                    <div className="blackout"/>
+                                    <h2>{title}</h2>
+                                    <p>
+                                        {description}
+                                    </p>
+                                </div>
+                            </Link>
                         )
                         }
                         <NavLink className="h3 underline" to="/news">Все новости</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
-                        {this.getEvents(5).map(({date, title, description}, index) =>
-                            <div key={index} className="home-event small-12 columns">
+                        {this.getEvents(5).map(({_id, date, title, description}, index) =>
+                            <Link key={index} to={`/events/${_id}`}>
+                            <div className="home-event small-12 columns">
                                 <div className="bg-border"/>
                                 <h1>{formatEventDate(date).day}</h1>
                                 <h2>{formatEventDate(date).month}</h2>
@@ -218,6 +221,7 @@ class HomePage extends Component {
                                     {title}
                                 </p>
                             </div>
+                            </Link>
                         )}
                         <NavLink className="h3 underline" to="/events">Все мероприятия</NavLink>
                     </div>
@@ -242,9 +246,9 @@ class HomePage extends Component {
                         <img src={require("../media/images/corps/9.png")} alt=""/>
                     </div>
                     {/*<img alt="pic" src={require("../media/images/corps.png")}*/}
-                         {/*className="small-12 small-0 medium-0 hover-opacity columns"/>*/}
+                    {/*className="small-12 small-0 medium-0 hover-opacity columns"/>*/}
                     {/*<img alt="pic" src={require("../media/images/corps-mobile.png")}*/}
-                         {/*className="small-12 large-0 hover-opacity columns"/>*/}
+                    {/*className="small-12 large-0 hover-opacity columns"/>*/}
                 </div>
                 <div className="space-4"/>
             </div>

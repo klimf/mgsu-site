@@ -39,12 +39,12 @@ class ProjectsList extends Component {
         };
     }
 
-     componentWillMount() {
+    componentWillMount() {
         this.changeDirection(this.props.match.params.direction || null);
     }
 
     componentDidMount() {
-        setTimeout(() => this.setState({isLoaded:true}),100);
+        setTimeout(() => this.setState({isLoaded:true}), 100);
     }
 
     changeDirection(direction) {
@@ -75,6 +75,7 @@ class ProjectsList extends Component {
                     </div>
                     <div className="space-3"/>
                     <ActionBar type="projects" actions={['create']} />
+                    <div className={`fade-in ${!this.props.projects.loaded && "active"}`}>
                     {
                         this.props.projects.data && this.props.projects.data.length > 0  ?
                         this.props.projects.data.map((project, index) =>
@@ -83,6 +84,7 @@ class ProjectsList extends Component {
                         )
                         : <h2 className="center">К сожалению, проектов в этом направлении пока нет</h2>
                     }
+                    </div>
                 </div>
                 <div className="space-3"/>
             </div>
