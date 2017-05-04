@@ -286,6 +286,8 @@
 }
 
 .form-tab {
+  @extend .transition-3;
+  bottom: 0;
   background-color: $semi-dark;
 }
 

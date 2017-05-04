@@ -12,18 +12,17 @@ export default class Registration extends Component {
 
 
     handleTabClick(bool) {
-        console.log(bool);
         this.setState({toggleTab: bool});
     }
 
     render() {
         return <Validation.components.Form>
             <div className="donation-form small-12 bg-primary columns no-padding">
-                <div className="form-tab small-6 space-3 h3 white uppercase center columns active"
+                <div className={`form-tab small-6 space-3 h3 white uppercase center columns ${this.state.toggleTab && "active"}`}
                      onClick={this.handleTabClick.bind(this, true)}>
                     Банковской картой
                 </div>
-                <div className="form-tab small-6 space-3 h3 white uppercase center columns"
+                <div className={`form-tab small-6 space-3 h3 white uppercase center columns ${!this.state.toggleTab && "active"}`}
                      onClick={this.handleTabClick.bind(this, false)}>
                     По почте
                 </div>
