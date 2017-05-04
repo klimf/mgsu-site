@@ -349,7 +349,7 @@
   width: 100%;
   max-width: 100%;
   height: $o;
-  bottom: 0;
+  bottom: $o*6;
   left: 0;
   background-color: $disabled;
 }
