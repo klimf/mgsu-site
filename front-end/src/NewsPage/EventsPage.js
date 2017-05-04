@@ -26,7 +26,7 @@ class EventsPage extends Component {
                     <div className="small-12 space-3 columns"/>
                     <div className="small-12 columns m-b-3">
                     {this.props.events.data  && this.props.events.data.map((item) =>   
-                         <EventItem item={item} ></EventItem>
+                         <EventItem item={item} />
                     )}
                     </div>
                 </div>
