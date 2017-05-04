@@ -25,8 +25,7 @@ class NewsPage extends Component {
                     </div>
                     <div className="small-12 space-3 columns"/>
                     <div className="small-12 columns m-b-3">
-                    <ActionBar type="news" actions={['create']} />
-                    {this.props.news.data  && this.props.news.data.map((item) =>   
+                     {this.props.news.data  && this.props.news.data.map((item, index) =>   
                          <NewsItem key={index} item={item} />
                     )}
                     </div>

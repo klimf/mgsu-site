@@ -231,8 +231,8 @@ class HomePage extends Component {
                 <div className="space-4"/>
                 <div className="content small-12 row">
                     <div className="corps-grid hover-opacity small-12 columns">
-                        {this.props.partners.data && this.props.partners.data.map(({img, title}) => 
-                            <img src={resolveStatic(img)} alt={title}/>
+                        {this.props.partners.data && this.props.partners.data.map(({img, title}, index) => 
+                            <img key={index} src={resolveStatic(img)} alt={title}/>
                         )}
                     </div>
                     {/*<img alt="pic" src={require("../media/images/corps.png")}*/}
