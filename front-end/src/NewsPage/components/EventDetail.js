@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
+import {withRouter} from 'react-router'
 
 class NewsDetail extends Component {
 
     componentWillMount() {
-        this.props.EventsManager.getDetail(this.props.match.params.eventId);
+        this.props.EventsDetailManager.getDetail(this.props.match.params.eventId);
     }
 
     componentDidUpdate() {
-        if (this.props.events.error) {
+        if (this.props.eventDetail.error) {
             this.props.history.push('/404');
         }
     }
@@ -15,11 +16,11 @@ class NewsDetail extends Component {
     render() {
         return (
             <div>
-                <h1>{this.props.events.title}</h1>
+                <h1>{this.props.eventDetail.data.title}</h1>
             </div>
         )
     }
 }
 
 
-export default NewsDetail
+export default withRouter(NewsDetail);
