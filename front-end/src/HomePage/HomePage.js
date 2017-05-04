@@ -40,8 +40,8 @@ class HomePage extends Component {
     scrollFunc() {
         this.setState({
             scrollTop: window.pageYOffset
-        })
-    };
+        });
+    }
 
     componentWillMount() {
         this.props.FundDetailManager.getDetail();
@@ -120,7 +120,7 @@ class HomePage extends Component {
                             </div>
                             }
 
-                            <div className="bar-fact primary" style={{width: `${this.fundValue()}%`}}></div>
+                            <div className="bar-fact bg-primary" style={{width: `${this.fundValue()}%`}}></div>
 
                         </div>
 

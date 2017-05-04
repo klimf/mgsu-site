@@ -232,7 +232,7 @@
 
 .home-event p {
   margin: 0.8*$o 0 0 0;
-  height: 7*$o;
+  height: 8*$o;
   overflow: hidden;
 }
 
@@ -367,7 +367,7 @@
   width: 100%;
   max-width: 100%;
   height: $o;
-  bottom: 0;
+  bottom: 6*$o;
   left: 0;
   background-color: $disabled;
 }
