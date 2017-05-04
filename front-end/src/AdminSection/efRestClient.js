@@ -118,7 +118,9 @@ const createRequest = (type, resource, params) => {
 const formatResponse = (response, type, resource, params) => {
     if(response.status == 200 || response.status ==304 ) {
         console.log(response);
+
         const mapId = (x) => {x.id = x._id; return x};
+        
         const {json} = response;
         switch (type) {
             case CREATE:
@@ -130,8 +132,10 @@ const formatResponse = (response, type, resource, params) => {
                     };
             return data;
             break;
+            case GET_ONE:
+                return {data: mapId(json)}
             default:
-                return {data: (json.docs ? json.docs.map(mapId) : json.map(mapId))};
+                return {data: mapId(json)}
         }
 
     } else {
@@ -180,7 +184,7 @@ export default (type, resource, params) => {
           const {fetchJson} = fetchUtils;
             return fetchJson(url, options)
                 .then(response =>  {return formatResponse(response, type, resource, params)})
-                .catch((reject) => Promise.reject(reject))
+                // .catch((reject) => Promise.reject(reject))
     }
   
 }

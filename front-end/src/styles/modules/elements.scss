@@ -262,6 +262,19 @@
   color: $dark;
 }
 
+.corps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.corps-grid img {
+  margin: $o 2*$o;
+  height: 60px;
+  width: auto;
+}
+
 .contacts {
   min-height: 5*$o;
   padding: 0;
@@ -349,7 +362,7 @@
   width: 100%;
   max-width: 100%;
   height: $o;
-  bottom: 0;
+  bottom: $o*6;
   left: 0;
   background-color: $disabled;
 }
