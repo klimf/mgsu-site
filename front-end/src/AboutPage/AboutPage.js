@@ -1,8 +1,12 @@
 import React, {Component} from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { DonationsListManager, VipSponsorsManager} from '../common/reducers/PeopleState'
-import { PartnersManager} from '../common/reducers/ContentState'
+import {connect} from "react-redux";
+import {withRouter, NavLink} from "react-router-dom";
+import {AboutContentManager} from "../common/reducers/ContentState";
+import {OurTeamManager} from "../common/reducers/PeopleState";
+import {Route} from "react-router";
+import sanitizeHtml from "sanitize-html";
+import {resolveStatic} from '../common/helpers';
+
 
 const defaultProps = {
     directions: [
@@ -18,43 +22,14 @@ const defaultProps = {
 };
 
 class AboutPage extends Component {
-    componentDidMount() {
-        /////////////////////////////////////////////////
-        // ФОРМАТ this.props.about.data
-        ////////////////////////////////////////////////
-        //
-        // _id,
-        // title,
-        // content
-        // ...
-        // 
-
-        /////////////////////////////////////////////////
-        // ФОРМАТ this.props.aboutTeam.data
-        ////////////////////////////////////////////////
-        //
-        // _id,
-        // firstName,
-        // lastName,
-        // middleName,
-        // description
-        // ...
-        // 
-
-        /////////////////////////////////////////////////
-        // ФОРМАТ this.props.about.targets.data
-        ////////////////////////////////////////////////
-        //
-        // _id,
-        // firstName,
-        // lastName,
-        // middleName,
-        // description
-        // content
-        // ...
-        //
+    constructor(props) {
+        super(props);
     }
 
+    componentWillMount() {
+        this.props.AboutContentManager.get();
+        this.props.OurTeamManager.get();
+    }
 
     render() {
         return (
@@ -62,15 +37,62 @@ class AboutPage extends Component {
                 <div className="small-12 space-3 columns"/>
                 <div className="content small-12 row">
                     <div className="projects-navigation">
+                        <NavLink to={`/about/Наша команда`} className="projects-nav-item">
+                            Наша команда
+                        </NavLink>
                         {
-                            this.props.directions.map((filter, index) =>
-                                <div className="projects-nav-item"
-                                     key={index}>
-                                    {filter}
-                                </div>
+                            this.props.about.data && this.props.about.data.map((item, index) =>
+                                <NavLink to={`/about/${item.title}`} className="projects-nav-item"
+                                         key={index}>
+                                    {item.title}
+                                </NavLink>
                             )
                         }
                     </div>
+                    {
+                        this.props.about.data && this.props.about.data.map((item, index) =>
+                            <div key={index}>
+                                <Route path={`/about/${item.title}`}
+                                       render={() =>
+                                           <div className="small-12 columns"
+                                                dangerouslySetInnerHTML={{__html: sanitizeHtml(item.content)}}
+                                           />
+                                       }
+                                />
+
+                                {/*this.props.team.data &&*/}
+                                {/*this.props.team.data.map((person, index) =>*/}
+                                {/*<div key={index} className="sponsor small-6 medium-4 large-3 columns">*/}
+                                {/*<div className="small-12 sponsor-img columns" style={{*/}
+                                {/*background: `url(${person.img.small ? resolveStatic(person.img.small) : require('../media/images/placeholder.png')})`*/}
+                                {/*}}/>*/}
+                                {/*<h2 className="small-12">{person.lastName + ' ' + person.firstName + ' ' + person.middleName}</h2>*/}
+                                {/*<p className="small-12">{person.description}</p>*/}
+                                {/*</div>*/}
+                                {/*)*/}
+                            </div>
+                        )
+                    }
+                    <Route path={`/about/Наша команда`}
+                           render={() =>
+                               <div>
+                                   <div className="small-12 space-3 columns"/>
+                                   {
+                                       this.props.team.data &&
+                                       this.props.team.data.map((person, index) =>
+                                           <div key={index} className="sponsor small-6 medium-4 large-3 columns end">
+                                               <div className="small-12 sponsor-img columns placeholder-img" style={{
+                                               background: `url(${person.img && resolveStatic(person.img.small)})`
+                                               }}/>
+                                               <h2 className="small-12">{person.firstName + ' ' + person.lastName + ' ' + person.middleName}</h2>
+                                               <p className="small-12">Описание: {person.description}</p>
+                                           </div>
+                                       )
+
+                                   }
+                               </div>
+                           }
+                    />
                 </div>
             </div>
         )
@@ -81,18 +103,15 @@ AboutPage.defaultProps = defaultProps;
 
 const mapStateToProps = state => {
     return {
-        donations: state.PeopleState.DonationsList,
-        partners: state.ContentState.Partners,
-        vipSpinsors: state.PeopleState.VipSpinsors
+        about: state.ContentState.About,
+        team: state.PeopleState.OurTeam
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        DonationsListManager: DonationsListManager.bindTo(dispatch),
-        VipSponsorsManager: VipSponsorsManager.bindTo(dispatch),
-        PartnersManager: PartnersManager.bindTo(dispatch),
-
+        AboutContentManager: AboutContentManager.bindTo(dispatch),
+        OurTeamManager: OurTeamManager.bindTo(dispatch)
     }
 };
 

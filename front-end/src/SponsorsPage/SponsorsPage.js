@@ -32,11 +32,11 @@ class SponsorsPage extends Component {
         // value - сколько пожертвовал
         // recursive - ежемесясно или нет
         // date - дата
-        // 
-        // 
+        //
+        //
         this.props.VipSponsorsManager.get();
         /////////////////////////////////////////////////
-        // ФОРМАТ this.props.vipSponsors 
+        // ФОРМАТ this.props.vipSponsors
         ////////////////////////////////////////////////
         //
         // _id,
@@ -48,7 +48,7 @@ class SponsorsPage extends Component {
         //     original,
         //     small
         // },
-        // 
+        //
         this.props.PartnersManager.get();
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.partners.data
@@ -61,7 +61,7 @@ class SponsorsPage extends Component {
         // },
         // title
         // ...
-        // 
+        //
     }
 
 
