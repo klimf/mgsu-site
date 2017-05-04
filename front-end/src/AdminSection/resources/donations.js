@@ -16,23 +16,21 @@ import {
     DateInput,
     NumberInput,
     ReferenceInput,
-    SelectInput
+    SelectInput,
+    FunctionField
 } from "admin-on-rest";
 
 export const DontaionList = (props) => (
     <List title="Донаты" {...props}>
         <Datagrid>
-            <ReferenceField label="Проект" source="name" reference="projects">
-                <TextField source="project"/>
-            </ReferenceField>
-            <TextField source="user.firstName" label="Имя"/>
-            <TextField source="user.lastName" label="Фамилия"/>
-            <TextField source="user.middleName" label="Отчество"/>
+            <FunctionField label="Имя" render={record => `${record.user.lastName} ${record.user.firstName} ${record.user.middleName}`}></FunctionField>
+            <TextField source="user.email" label="Почта"/>
+            <TextField source="project.name" label="Проект"/>
             <NumberField source="value" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}}
-                         label="Пожертвовал"/>
+                         label="Пожертвование"/>
             <BooleanField source="recursive" label="Ежемесячно"/>
-            <BooleanField source="confirm" label="Подтвержден"/>
             <DateField source="date" label="Дата"/>
+            <BooleanField source="confirm" label="Подтвержден"/>
             <EditButton />
         </Datagrid>
     </List>
@@ -44,12 +42,12 @@ export const DontaionEdit = (props) => (
             <ReferenceInput label="Проект" source="name" reference="projects" allowEmpty>
                 <SelectInput optionText="project"/>
             </ReferenceInput>
-            <TextInput source="user.firstName" label="Имя"/>
-            <TextInput source="user.lastName" label="Фамилия"/>
-            <TextInput source="user.middleName" label="Отчество"/>
-            <NumberInput source="value" label="Пожертвовал"/>
+            <TextInput source="firstName" label="Имя"/>
+            <TextInput source="lastName" label="Фамилия"/>
+            <TextInput source="middleName" label="Отчество"/>
+            <TextInput source="email" label="Почта"/>
+            <NumberInput source="value" label="Пожертвование"/>
             <BooleanInput source="recursive" label="Ежемесячно"/>
-            <BooleanInput source="confirm" label="Подтвержден"/>
             <DateInput source="date" label="Дата"/>
         </SimpleForm>
     </Edit>
@@ -57,16 +55,16 @@ export const DontaionEdit = (props) => (
 
 export const DontaionCreate = (props) => (
     <Create {...props}>
-        <SimpleForm>
-            <ReferenceInput label="Проект" source="project" reference="projects" allowEmpty>
-                <SelectInput optionText="name"/>
+       <SimpleForm>
+            <ReferenceInput label="Проект" source="name" reference="projects" allowEmpty>
+                <SelectInput optionText="project"/>
             </ReferenceInput>
-            <TextInput source="user.firstName" label="Имя"/>
-            <TextInput source="user.lastName" label="Фамилия"/>
-            <TextInput source="user.middleName" label="Отчество"/>
-            <NumberInput source="value" label="Пожертвовал"/>
+            <TextInput source="firstName" label="Имя"/>
+            <TextInput source="lastName" label="Фамилия"/>
+            <TextInput source="middleName" label="Отчество"/>
+            <TextInput source="email" label="Почта"/>
+            <NumberInput source="value" label="Пожертвование"/>
             <BooleanInput source="recursive" label="Ежемесячно"/>
-            <BooleanInput source="confirm" label="Подтвержден"/>
             <DateInput source="date" label="Дата"/>
         </SimpleForm>
     </Create>

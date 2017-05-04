@@ -38,6 +38,10 @@ const createRequest = (type, resource, params) => {
         resource = 'posts';
     }
 
+    if(resource == 'donations' && type == CREATE) {
+        resource = '/donation/registration'
+    }
+
         const _typesHandlers = {
             GET_LIST: () => {
                 apiQuery.url = resolveApi(
@@ -145,13 +149,12 @@ const uploadFile = (file) => {
 }
 
 export default (type, resource, params) => {
+
     const {url, options} = createRequest(type, resource, params)
 
     options.headers = new Headers({'Content-Type': 'application/json'});
 
     options.credentials = 'include';
-
-  
 
     if(options.body && options.body.picture) {
       return uploadFile(options.body.picture[0]).then((response) => {
@@ -173,3 +176,4 @@ export default (type, resource, params) => {
     }
   
 }
+
