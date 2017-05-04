@@ -6,7 +6,6 @@ import {Route} from "react-router";
 import sanitizeHtml from "sanitize-html";
 
 
-
 class GradClubPage extends Component {
     constructor(props) {
         super(props);
@@ -77,19 +76,6 @@ class GradClubPage extends Component {
         )
     }
 }
-
-
-const mapStateToProps = state => {
-    return {
-        club: state.ContentState.GradClub
-    }
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        GradClubManager: AboutContentManager.bindTo(dispatch)
-    }
-};
 
 const mapStateToProps = state => {
     return {
