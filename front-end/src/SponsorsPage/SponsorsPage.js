@@ -74,12 +74,14 @@ class SponsorsPage extends Component {
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Компании - партнеры</h1>
                     <div className="space-2"/>
-                     <ActionBar type='partners' actions={['create']}></ActionBar>
-                     {this.props.partners.data && this.props.partners.data.map(({img, title, _id}, index) => 
-                         <EditableItem key={index} type='partners' id={_id} actions={['edit', 'delete']}>
-                            <img  src={resolveStatic(img.small)} alt={title}/>
-                         </EditableItem>
+                     <ActionBar type='partners' actions={['create']}/>
+                    <div className="corps-grid hover-opacity small-12 columns">
+                        {this.props.partners.data && this.props.partners.data.map(({_id, img, title}, index) =>
+                            <EditableItem key={index} type='partners' id={_id} actions={['edit', 'delete']}>
+                                <img className="placeholder-img" key={index} src={img && resolveStatic(img.small)} alt={title}/>
+                            </EditableItem>
                         )}
+                    </div>
                     {/*<img alt="pic" src={require("../media/images/corps.png")}
                          className="small-12 small-0 medium-0 columns"/>
                     <img alt="pic" src={require("../media/images/corps-mobile.png")}
@@ -87,13 +89,13 @@ class SponsorsPage extends Component {
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
-                     <ActionBar type='vip' actions={['create']}></ActionBar>
+                     <ActionBar type='vip' actions={['create']}/>
                     <h1 className="uppercase center">Спонсоры</h1>
                     <Slider sponsors={this.props.vipSponsors}/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
-                     <ActionBar type='donation' actions={['create']}></ActionBar>
+                     <ActionBar type='donation' actions={['create']}/>
                     <h1 className="uppercase center">Благотворители</h1>
                     <div className="donations-table-container">
                         <table className="donations-table small-12 columns">
