@@ -40,8 +40,8 @@ class HomePage extends Component {
     scrollFunc() {
         this.setState({
             scrollTop: window.pageYOffset
-        })
-    };
+        });
+    }
 
     componentWillMount() {
         this.props.FundDetailManager.getDetail();
