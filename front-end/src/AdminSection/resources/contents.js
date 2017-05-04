@@ -31,7 +31,7 @@ export const Content = {
         <List title="Разделы" {...props} perPage={100}>
             <Datagrid >
                 <TextField source="title" label="Название"/>
-                <TextField source="content" label="Содержание"/>
+                {/*<TextField source="content" label="Содержание"/>*/}
                 <EditButton  />
             </Datagrid>
         </List>
@@ -62,7 +62,7 @@ export const News = {
                 <StaticImage source="img" label="Изображение"></StaticImage>
                 <TextField source="title" label="Заголовок"/>
                 <TextField source="description" label="Короткое описание"/>
-                <TextField source="content" label="Содержание"/>
+                {/*<TextField source="content" label="Содержание"/>*/}
                 <DateField source="creatingDate" label="Создано"/>
                 <EditButton  />
             </Datagrid>
@@ -101,7 +101,7 @@ export const Events = {
                 <StaticImage source="img" label="Изображение"></StaticImage>
                 <TextField source="title" label="Заголовок"/>
                 <TextField source="description" label="Короткое описание"/>
-                <TextField source="content" label="Содержание"/>
+                {/*<TextField source="content" label="Содержание"/>*/}
                 <DateField source="creatingDate" label="Создано"/>
                 <DateField source="date" label="Дата проведения"/>
                 <EditButton  />

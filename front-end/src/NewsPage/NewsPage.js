@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {NavLink, withRouter} from "react-router-dom";
 import NewsItem from "./components/NewsItem";
 import EventItem from "./components/EventItem";
-
+import {ActionBar} from '../AdminSection/components/AdminToolbar';
 class NewsPage extends Component {
 
     componentWillMount(nextProps, nextState) {
@@ -25,7 +25,7 @@ class NewsPage extends Component {
                     </div>
                     <div className="small-12 space-3 columns"/>
                     <div className="small-12 columns m-b-3">
-                    {this.props.news.data  && this.props.news.data.map((item, index) =>
+                     {this.props.news.data  && this.props.news.data.map((item, index) =>   
                          <NewsItem key={index} item={item} />
                     )}
                     </div>

@@ -32,7 +32,6 @@ class AdminSection extends Component {
         return (
             <Admin theme={mgsuTheme}
                    locale='ru' messages={messages}
-                   title={`Кабинет администратора ${this.props.user.data.firstName} ${this.props.user.data.lastName}`}
                    authClient={authClient(this.getUserState.bind(this), this.props.UserManager)}
                    restClient={efRestClient}>
                 <Resource name="projects"

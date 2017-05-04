@@ -1,53 +1,53 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
+import {withRouter} from 'react-router';
+import {formatEventDate} from '../../common/helpers';
+import sanitizeHtml from 'sanitize-html';
+import {resolveStatic} from '../../common/helpers';
+
 
 class NewsDetail extends Component {
 
     componentWillMount() {
-        this.props.EventsManager.getDetail(this.props.match.params.eventId);
+        this.props.EventsDetailManager.getDetail(this.props.match.params.eventId);
     }
 
     componentDidUpdate() {
-        if (this.props.events.error) {
+        if (this.props.eventDetail.error) {
             this.props.history.push('/404');
         }
     }
 
     render() {
+        var date = this.props.eventDetail.data ?  formatEventDate(this.props.eventDetail.data.date) : null;
         return (
+        <div>
+            {this.props.eventDetail.data && 
             <div className="page row expanded">
-                <div className="small-12 space-3 columns"/>
-                <div className="content small-12 row">
-                    <div className="small-12 columns">
-                        <h1 className="uppercase left">Заголовок который иногда длинный</h1>
-                        <h2 className="uppercase right m-t-3 primary"> Апреля</h2>
-                        <h1 className="uppercase right primary">31 </h1>
-                        <p className="left">
-                            Краткое описание может быть и побольше
-                            Краткое описание может быть и побольше
+                    <div className="small-12 space-3 columns"/>
+                    <div className="content small-12 row">
+                        <div className="small-12 columns">
+                            <h1 className="uppercase left">{this.props.eventDetail.data.title}</h1>
+                            <h2 className="uppercase right m-t-3 primary">{date.month}</h2>
+                            <h1 className="uppercase right primary">{date.day}</h1>
+                            <p className="left" >
+                                {this.props.eventDetail.data.description}
+                            </p>
+                        </div>
+                        <div className="small-12 columns">
+                           {this.props.eventDetail.data.img &&
+                            <img src={resolveStatic(this.props.eventDetail.data.img.original)} alt=""/>
+                         }
+                        </div>
+                        <p className="small-12 center columns" dangerouslySetInnerHTML={{__html: sanitizeHtml(this.props.eventDetail.data.content)}}>
                         </p>
                     </div>
-                    <div className="small-12 columns">
-                        <img src={require("../../media/images/placeholder.png")} alt=""/>
-                    </div>
-                    <p className="small-12 center columns">
-                        Полное описание может быть очень длинным
-                        описание может быть очень длинным
-                        Полное может быть очень длинным
-                        Полное описание может очень длинным
-                        Полное описание может быть очень длинным
-                        Полное описание может быть длинным
-                        Полное описание может быть очень
-                        Полное описание может быть очень длинным
-                        Полное описание может быть очень длинным
-                        Полное описание может быть очень длинным
-                        Полное описание может быть очень длинным
-                    </p>
-                </div>
-                <div className="small-12 space-3 columns"/>
+                    <div className="small-12 space-3 columns"/>
             </div>
+            }
+        </div>
         )
     }
 }
 
 
-export default NewsDetail
+export default withRouter(NewsDetail);

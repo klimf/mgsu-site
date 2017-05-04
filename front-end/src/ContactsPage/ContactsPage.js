@@ -1,10 +1,15 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
+import {ContactsManager} from '../common/reducers/PeopleState';
+import {resolveStatic} from '../common/helpers';
+import {ActionBar, EditableItem} from '../AdminSection/components/AdminToolbar'
+
+
 
 
 class ContactsPage extends Component {
-    componentDidMount() {
+    componentWillMount() {
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.contacts.data
         ////////////////////////////////////////////////
@@ -14,7 +19,7 @@ class ContactsPage extends Component {
         // lastName,
         // middleName,
         // description
-        // ...
+        // ...  
         // 
     }
 
@@ -26,46 +31,19 @@ class ContactsPage extends Component {
                     <h1 className="uppercase center small-12 columns">Наша команда</h1>
                     <div className="small-12 space-2 columns"/>
                     <div className="team-grid small-12 columns">
-                        <div className="sponsor small-6 medium-4 large-3 columns end">
-                            <div className="small-12 sponsor-img columns"/>
-                            <h2 className="small-12">Паша Техник</h2>
-                            <p className="small-12">Программист</p>
+                    <ActionBar type='contacts' actions={['create']}></ActionBar>
+                    {this.props.contacts.data && this.props.contacts.data.map(({img, firstName, lastName, description, _id}, index) =>
+                        <EditableItem key={index} type='contacts' id={_id} actions={['edit, delete']}>
+                        <div  className="sponsor small-6 medium-4 large-3 columns end">
+                            <div className="small-12 sponsor-img columns" style={{
+                                        background: `url(${img.small ? resolveStatic(img.small) : require('../media/images/placeholder.png')})`
+                                    }}/>
+                            <h2 className="small-12">{`${firstName} ${lastName}`}</h2>
+                            <p className="small-12">{description}</p>
                         </div>
-                        <div className="sponsor small-6 medium-4 large-3 columns end">
-                            <div className="small-12 sponsor-img columns"/>
-                            <h2 className="small-12">Паша Техник</h2>
-                            <p className="small-12">Спонсор</p>
-                        </div>
-                        <div className="sponsor small-6 medium-4 large-3 columns end">
-                            <div className="small-12 sponsor-img columns"/>
-                            <h2 className="small-12">Паша Техник</h2>
-                            <p className="small-12">Спонсор</p>
-                        </div>
-                        <div className="sponsor small-6 medium-4 large-3 columns end">
-                            <div className="small-12 sponsor-img columns"/>
-                            <h2 className="small-12">Паша Техник</h2>
-                            <p className="small-12">Спонсор</p>
-                        </div>
-                        <div className="sponsor small-6 medium-4 large-3 columns end">
-                            <div className="small-12 sponsor-img columns"/>
-                            <h2 className="small-12">Паша Техник</h2>
-                            <p className="small-12">Спонсор</p>
-                        </div>
-                        <div className="sponsor small-6 medium-4 large-3 columns end">
-                            <div className="small-12 sponsor-img columns"/>
-                            <h2 className="small-12">Паша Техник</h2>
-                            <p className="small-12">Спонсор</p>
-                        </div>
-                        <div className="sponsor small-6 medium-4 large-3 columns end">
-                            <div className="small-12 sponsor-img columns"/>
-                            <h2 className="small-12">Паша Техник</h2>
-                            <p className="small-12">Спонсор</p>
-                        </div>
-                        <div className="sponsor small-6 medium-4 large-3 columns end">
-                            <div className="small-12 sponsor-img columns"/>
-                            <h2 className="small-12">Паша Техник</h2>
-                            <p className="small-12">Спонсор</p>
-                        </div>
+                        </EditableItem>
+                    )}
+                        
                     </div>
                 </div>
                 <div className="content small-12 row">
@@ -108,12 +86,14 @@ class ContactsPage extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-
+    return {
+        ContactsManager: ContactsManager.bindTo(dispatch)
+    }
 };
 
 const mapStateToProps = state => {
-    const {key} = state;
-    return {key}
+    const {Contacts} = state.PeopleState;
+    return {contacts: Contacts}
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactsPage));
