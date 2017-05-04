@@ -332,8 +332,6 @@
 
 .donation-form label {
   color: $white;
-  top: 4px;
-  left: 24px;
 }
 
 .donation-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -390,12 +388,18 @@
   background-color: $semi-dark;
 }
 
-/*.donation-form input[type="checkbox"] + label div {
-  @extend .cover;
-  width: $o;
-  height: $o;
-  background: url($image + "icon-check.png") no-repeat; //fixme
-}*/
+.donation-form input[type="checkbox"] + label div {
+  @extend .cover,
+  .inline;
+  margin: 0 $o 0 0;
+  border: 1px solid $white;
+  width: 14px;
+  height: 14px;
+  background: $semi-light;
+}
+  .donation-form input[type="checkbox"]:checked + label div {
+    background: $semi-dark url($image + "icon-check.png") no-repeat;
+  }
 
 .donation-form-btn {
   @extend .transition-3,

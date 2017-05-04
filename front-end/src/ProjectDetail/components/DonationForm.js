@@ -26,11 +26,11 @@ export default class Registration extends Component {
                      onClick={this.handleTabClick.bind(this, false)}>
                     По почте
                 </div>
-                <div className="small-12 space-1 columns"/>
-                <div className="small-12 space-2 columns"/>
                 {this.state.toggleTab ?
                     (
                         <div>
+                            <div className="small-12 space-1 columns"/>
+                            <div className="small-12 space-2 columns"/>
                             <div className="form-hideable small-12 columns">
                                 <div className="small-12 medium-6 large-4 m-b-2 columns end">
                                     <Validation.components.Input className="small-12 columns end" value=''
@@ -69,11 +69,17 @@ export default class Registration extends Component {
                             </div>
                             <div className="small-12 columns">
                                 <div className="small-12  columns">
-                                    <input className="left" type="checkbox" id="check-graduate"/>
+                                    <input className="remove" type="checkbox" id="check-graduate"/>
+                                    <label htmlFor="check-graduate">
+                                        <div />
+                                    </label>
                                     <label htmlFor="check-graduate">Я выпускник МГСУ</label>
                                 </div>
                                 <div className="small-12 columns">
-                                    <input className="left" type="checkbox" id="check-rules"/>
+                                    <input className="remove" type="checkbox" id="check-rules"/>
+                                    <label htmlFor="check-rules">
+                                        <div />
+                                    </label>
                                     <label htmlFor="check-rules">Согласен(а) c условиями оплаты,
                                         обработки персональных данных и офертой</label>
                                 </div>
@@ -148,10 +154,10 @@ export default class Registration extends Component {
                     :
                     (
                         <div>
+                            <div className="small-12 space-1 columns"/>
                             <h2 className="small-12 white uppercase center columns">Напишитенам на почту или оставьте
                                 свою</h2>
-                            <div className="small-12 space-1 columns"/>
-                            <div className="small-12 space-2 columns"/>
+                            <div className="small-12 space-7 columns"/>
                         </div>
                     )
                 }
