@@ -17,7 +17,8 @@ import {
     NumberInput,
     ReferenceInput,
     SelectInput,
-    FunctionField
+    FunctionField,
+    DeleteButton
 } from "admin-on-rest";
 
 export const DontaionList = (props) => (
@@ -30,8 +31,8 @@ export const DontaionList = (props) => (
                          label="Пожертвование"/>
             <BooleanField source="recursive" label="Ежемесячно"/>
             <DateField source="date" label="Дата"/>
-            <BooleanField source="confirm" label="Подтвержден"/>
-            <EditButton />
+            <BooleanField source="confirmed" label="Подтвержден"/>
+            {/*<DeleteButton />*/}
         </Datagrid>
     </List>
 );
@@ -39,8 +40,8 @@ export const DontaionList = (props) => (
 export const DontaionEdit = (props) => (
     <Edit title="Изменение пользователя" {...props}>
         <SimpleForm>
-            <ReferenceInput label="Проект" source="name" reference="projects" allowEmpty>
-                <SelectInput optionText="project"/>
+            <ReferenceInput label="Проект" source="projectId" reference="projects" allowEmpty>
+                <SelectInput optionText="name"/>
             </ReferenceInput>
             <TextInput source="firstName" label="Имя"/>
             <TextInput source="lastName" label="Фамилия"/>
@@ -56,8 +57,8 @@ export const DontaionEdit = (props) => (
 export const DontaionCreate = (props) => (
     <Create {...props}>
        <SimpleForm>
-            <ReferenceInput label="Проект" source="name" reference="projects" allowEmpty>
-                <SelectInput optionText="project"/>
+            <ReferenceInput label="Проект" source="projectId" reference="projects" allowEmpty>
+                <SelectInput optionText="name"/>
             </ReferenceInput>
             <TextInput source="firstName" label="Имя"/>
             <TextInput source="lastName" label="Фамилия"/>

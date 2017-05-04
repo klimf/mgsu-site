@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {resolveStatic} from '../../common/helpers';
 
 
+
 class Slider extends Component {
     constructor(props) {
         super(props);
@@ -37,9 +38,7 @@ class Slider extends Component {
                     {
                         this.props.sponsors.data.map((sponsor, index) =>
                             <div key={index} className="sponsor small-6 medium-4 large-3 columns">
-                                    <div className="small-12 sponsor-img columns" style={{
-                                        background: `url(${sponsor.img.small ? resolveStatic(sponsor.img.small) : require('../../media/images/placeholder.png')})`
-                                    }}/>
+                                    <div className="small-12 sponsor-img columns placeholder-img" style={sponsor.img && {backgroundImage: "url(" + resolveStatic(sponsor.img.small) + ")"}}/>
                                     <h2 className="small-12">{sponsor.lastName + ' ' + sponsor.firstName}</h2>
                                     <p className="small-12">{sponsor.description}</p>
                             </div>

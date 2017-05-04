@@ -64,6 +64,13 @@ class AdminSection extends Component {
 
                 }
 
+                <Resource name='donation'
+                               options={{label: 'Пожертвования'}}
+                               list={DontaionList}
+                               edit={DontaionEdit}
+                               create={DontaionCreate}
+                               remove={Delete}/>
+
             </Admin>
         )
     }
