@@ -38,7 +38,7 @@ const createRequest = (type, resource, params) => {
         resource = 'posts';
     }
 
-    if(resource == 'donations' && type == CREATE) {
+    if(resource == 'donation' && type == CREATE) {
         resource = '/donation/registration'
     }
 
@@ -116,21 +116,28 @@ const createRequest = (type, resource, params) => {
 };
 
 const formatResponse = (response, type, resource, params) => {
-    const mapId = (x) => {x.id = x._id; return x};
-    const {json} = response;
-    switch (type) {
-        case CREATE:
-            return {data: {...params.data, id: json}}
-        case GET_LIST:
-        const data = { 
-                 data:  (json.docs ? json.docs.map(mapId) : json.map(mapId)),
-                 total: json.total || 1000
-                };
-        return data;
-        break;
-        default:
-            return {data: mapId(json)};
+    if(response.status == 200 || response.status ==304 ) {
+        console.log(response);
+        const mapId = (x) => {x.id = x._id; return x};
+        const {json} = response;
+        switch (type) {
+            case CREATE:
+                return {data: {...params.data, id: json}}
+            case GET_LIST:
+            const data = { 
+                    data:  (json.docs ? json.docs.map(mapId) : json.map(mapId)),
+                    total: json.total || 1000
+                    };
+            return data;
+            break;
+            default:
+                return {data: (json.docs ? json.docs.map(mapId) : json.map(mapId))};
+        }
+
+    } else {
+      
     }
+    
 };
 
 const uploadFile = (file) => {
@@ -149,7 +156,7 @@ const uploadFile = (file) => {
 }
 
 export default (type, resource, params) => {
-
+    
     const {url, options} = createRequest(type, resource, params)
 
     options.headers = new Headers({'Content-Type': 'application/json'});
@@ -172,7 +179,8 @@ export default (type, resource, params) => {
             }
           const {fetchJson} = fetchUtils;
             return fetchJson(url, options)
-                .then(response => (formatResponse(response, type, resource, params)));
+                .then(response =>  {return formatResponse(response, type, resource, params)})
+                .catch((reject) => Promise.reject(reject))
     }
   
 }

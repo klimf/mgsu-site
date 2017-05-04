@@ -5,12 +5,14 @@ import {DonationsListManager, VipSponsorsManager} from "../common/reducers/Peopl
 import {PartnersManager} from "../common/reducers/ContentState";
 import Slider from "../HomePage/components/Slider";
 import {resolveStatic} from '../common/helpers';
+import {ActionBar, EditableItem} from '../AdminSection/components/AdminToolbar'
+
 
 
 class SponsorsPage extends Component {
 
-    componentDidMount() {
-        this.props.DonationsListManager.get();
+    componentWillMount() {
+        //this.props.DonationsListManager.get();
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.donations обычные спонсоры в таблицу
         ////////////////////////////////////////////////
@@ -70,8 +72,11 @@ class SponsorsPage extends Component {
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Компании - партнеры</h1>
                     <div className="space-2"/>
-                     {this.props.partners.data && this.props.partners.data.map(({img, title}, index) => 
-                            <img key={index} src={resolveStatic(img)} alt={title}/>
+                     <ActionBar type='partners' actions={['create']}></ActionBar>
+                     {this.props.partners.data && this.props.partners.data.map(({img, title, _id}, index) => 
+                         <EditableItem key={index} type='partners' id={_id} actions={['edit, delete']}>
+                            <img  src={resolveStatic(img)} alt={title}/>
+                         </EditableItem>
                         )}
                     {/*<img alt="pic" src={require("../media/images/corps.png")}
                          className="small-12 small-0 medium-0 columns"/>
@@ -81,7 +86,8 @@ class SponsorsPage extends Component {
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Спонсоры</h1>
-                    <Slider sponsors={this.props.vipSponsors.data || []}/>
+                     <ActionBar type='partners' actions={['create, edit']}></ActionBar>
+                    <Slider sponsors={this.props.vipSponsors}/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
@@ -167,7 +173,6 @@ const mapDispatchToProps = dispatch => {
         DonationsListManager: DonationsListManager.bindTo(dispatch),
         VipSponsorsManager: VipSponsorsManager.bindTo(dispatch),
         PartnersManager: PartnersManager.bindTo(dispatch),
-
     }
 }
 
