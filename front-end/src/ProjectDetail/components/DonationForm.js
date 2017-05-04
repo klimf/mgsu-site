@@ -123,7 +123,6 @@ export default class Registration extends Component {
                                                                  validations={['required', 'currency']}/>
                                 </div>
                             </div>
-                            <div className="small-12 space-2 columns"/>
                             <div className="small-12 columns">
                                 <div className="small-12 medium-6 columns no-padding">
                                     <div className="small-6 columns">
