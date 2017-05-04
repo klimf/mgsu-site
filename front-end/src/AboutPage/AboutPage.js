@@ -5,7 +5,7 @@ import {AboutContentManager} from "../common/reducers/ContentState";
 import {OurTeamManager} from "../common/reducers/PeopleState";
 import {Route} from "react-router";
 import sanitizeHtml from "sanitize-html";
-import {resolveStatic} from '../common/helpers';
+import {resolveStatic} from "../common/helpers";
 
 
 const defaultProps = {
@@ -59,17 +59,6 @@ class AboutPage extends Component {
                                            />
                                        }
                                 />
-
-                                {/*this.props.team.data &&*/}
-                                {/*this.props.team.data.map((person, index) =>*/}
-                                {/*<div key={index} className="sponsor small-6 medium-4 large-3 columns">*/}
-                                {/*<div className="small-12 sponsor-img columns" style={{*/}
-                                {/*background: `url(${person.img.small ? resolveStatic(person.img.small) : require('../media/images/placeholder.png')})`*/}
-                                {/*}}/>*/}
-                                {/*<h2 className="small-12">{person.lastName + ' ' + person.firstName + ' ' + person.middleName}</h2>*/}
-                                {/*<p className="small-12">{person.description}</p>*/}
-                                {/*</div>*/}
-                                {/*)*/}
                             </div>
                         )
                     }
@@ -82,7 +71,7 @@ class AboutPage extends Component {
                                        this.props.team.data.map((person, index) =>
                                            <div key={index} className="sponsor small-6 medium-4 large-3 columns end">
                                                <div className="small-12 sponsor-img columns placeholder-img" style={{
-                                               background: `url(${person.img && resolveStatic(person.img.small)})`
+                                                   background: `url(${person.img && resolveStatic(person.img.small)})`
                                                }}/>
                                                <h2 className="small-12">{person.firstName + ' ' + person.lastName + ' ' + person.middleName}</h2>
                                                <p className="small-12">Описание: {person.description}</p>
@@ -90,6 +79,19 @@ class AboutPage extends Component {
                                        )
 
                                    }
+                               </div>
+                           }
+                    />
+                    <Route exact path={`/about`}
+                           render={() =>
+                               <div className="small-12 columns">
+                                   <h1 className="small-12 uppercase center columns">Что-то о фонде</h1>
+                                   <p>
+                                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda
+                                       consectetur corporis dolores doloribus, enim est eum excepturi obcaecati
+                                       perferendis provident quae quisquam ratione, veritatis voluptatum. Commodi
+                                       inventore libero natus!
+                                   </p>
                                </div>
                            }
                     />
