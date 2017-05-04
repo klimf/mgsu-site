@@ -1,8 +1,11 @@
 import React, {Component} from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { DonationsListManager, VipSponsorsManager} from '../common/reducers/PeopleState'
-import { PartnersManager} from '../common/reducers/ContentState'
+import {connect} from "react-redux";
+import {withRouter, NavLink} from "react-router-dom";
+import {AboutContentManager} from "../common/reducers/ContentState";
+import {OurTeamManager} from "../common/reducers/PeopleState";
+import {Route} from "react-router";
+import sanitizeHtml from "sanitize-html";
+
 
 const defaultProps = {
     directions: [
@@ -18,43 +21,14 @@ const defaultProps = {
 };
 
 class AboutPage extends Component {
-    componentDidMount() {
-        /////////////////////////////////////////////////
-        // ФОРМАТ this.props.about.data
-        ////////////////////////////////////////////////
-        //
-        // _id,
-        // title,
-        // content
-        // ...
-        // 
-
-        /////////////////////////////////////////////////
-        // ФОРМАТ this.props.aboutTeam.data
-        ////////////////////////////////////////////////
-        //
-        // _id,
-        // firstName,
-        // lastName,
-        // middleName,
-        // description
-        // ...
-        // 
-
-        /////////////////////////////////////////////////
-        // ФОРМАТ this.props.about.targets.data
-        ////////////////////////////////////////////////
-        //
-        // _id,
-        // firstName,
-        // lastName,
-        // middleName,
-        // description
-        // content
-        // ...
-        //
+    constructor(props) {
+        super(props);
     }
 
+    componentWillMount() {
+        this.props.AboutContentManager.get();
+        this.props.OurTeamManager.get();
+    }
 
     render() {
         return (
@@ -62,15 +36,48 @@ class AboutPage extends Component {
                 <div className="small-12 space-3 columns"/>
                 <div className="content small-12 row">
                     <div className="projects-navigation">
+                        <NavLink to={`/about/Наша команда`} className="projects-nav-item">
+                            Наша команда
+                        </NavLink>
                         {
-                            this.props.directions.map((filter, index) =>
-                                <div className="projects-nav-item"
-                                     key={index}>
-                                    {filter}
-                                </div>
+                            this.props.about.data && this.props.about.data.map((item, index) =>
+                                <NavLink to={`/about/${item.title}`} className="projects-nav-item"
+                                         key={index}>
+                                    {item.title}
+                                </NavLink>
                             )
                         }
                     </div>
+                    {
+                        this.props.about.data && this.props.about.data.map((item, index) =>
+                            <div key={index}>
+                                <Route path={`/about/${item.title}`}
+                                       render={() =>
+                                           <div className="small-12 columns"
+                                                dangerouslySetInnerHTML={{__html: sanitizeHtml(item.content)}}
+                                           />
+                                       }
+                                />
+                            </div>
+                        )
+                    }
+                    <Route path={`/about/Наша команда`}
+                           render={() =>
+                               <div>
+                                   {
+                                       this.props.team.data &&
+                                       this.props.team.data.map((person, index) =>
+                                           <div key={index}>
+                                               <div>
+                                                   ФИО: {person.firstName + ' ' + person.lastName + ' ' + person.middleName}</div>
+                                               <div></div>
+                                               <div>Описание: {person.description}</div>
+                                           </div>
+                                       )
+                                   }
+                               </div>
+                           }
+                    />
                 </div>
             </div>
         )
@@ -81,18 +88,15 @@ AboutPage.defaultProps = defaultProps;
 
 const mapStateToProps = state => {
     return {
-        donations: state.PeopleState.DonationsList,
-        partners: state.ContentState.Partners,
-        vipSpinsors: state.PeopleState.VipSpinsors
+        about: state.ContentState.About,
+        team: state.PeopleState.OurTeam
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        DonationsListManager: DonationsListManager.bindTo(dispatch),
-        VipSponsorsManager: VipSponsorsManager.bindTo(dispatch),
-        PartnersManager: PartnersManager.bindTo(dispatch),
-
+        AboutContentManager: AboutContentManager.bindTo(dispatch),
+        OurTeamManager: OurTeamManager.bindTo(dispatch)
     }
 };
 
