@@ -26,7 +26,7 @@ class NewsPage extends Component {
                     <div className="small-12 space-3 columns"/>
                     <div className="small-12 columns m-b-3">
                     {this.props.news.data  && this.props.news.data.map((item) =>   
-                         <NewsItem item={item} ></NewsItem>
+                         <NewsItem item={item} />
                     )}
                     </div>
                 </div>

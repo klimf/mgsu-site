@@ -120,7 +120,7 @@ class HomePage extends Component {
                             </div>
                             }
 
-                            <div className="bar-fact primary" style={{width: `${this.fundValue()}%`}}></div>
+                            <div className="bar-fact bg-primary" style={{width: `${this.fundValue()}%`}}></div>
 
                         </div>
 

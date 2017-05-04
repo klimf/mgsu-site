@@ -29,7 +29,7 @@ const ProjectItem = (props) => (
                         <h3 className="black center">{formatMoney(props.project.need)} ₽</h3>
                     </div>
                     <div className="project-bar"></div>
-                    <div className="project-bar primary"
+                    <div className="project-bar bg-primary"
                          style={{"width": (props.project.given / props.project.need) * 100 + "%"}}></div>
                     <div className="small-12 space-2 columns"></div>
                     <button className="small-12 pointer primary-btn">Сделай вклад</button>

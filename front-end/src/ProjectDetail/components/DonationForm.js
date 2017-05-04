@@ -4,7 +4,7 @@ import React, {Component} from "react";
 export default class Registration extends Component {
     render() {
         return <Validation.components.Form>
-            <div className="donation-form small-12 primary columns no-padding">
+            <div className="donation-form small-12 bg-primary columns no-padding">
                 <div className="form-tab small-6 space-3 h3 white uppercase center columns active">
                     Банковской картой
                 </div>
