@@ -32,14 +32,14 @@ class AboutPage extends Component {
     }
 
     render() {
+        if(this.props.location.pathname === '/about' && this.props.about.data){
+            this.props.history.push(`/about/${this.props.about.data[0].title}`);
+        }
         return (
             <div className="page row expanded">
                 <div className="small-12 space-3 columns"/>
                 <div className="content small-12 row">
                     <div className="projects-navigation">
-                        <NavLink to={`/about/Наша команда`} className="projects-nav-item">
-                            Наша команда
-                        </NavLink>
                         {
                             this.props.about.data && this.props.about.data.map((item, index) =>
                                 <NavLink to={`/about/${item.title}`} className="projects-nav-item"
@@ -48,6 +48,9 @@ class AboutPage extends Component {
                                 </NavLink>
                             )
                         }
+                        <NavLink to={`/about/Наша команда`} className="projects-nav-item">
+                            Наша команда
+                        </NavLink>
                     </div>
                     {
                         this.props.about.data && this.props.about.data.map((item, index) =>
