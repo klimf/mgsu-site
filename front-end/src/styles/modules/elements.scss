@@ -48,7 +48,8 @@
   overflow: hidden;
   position: relative;
   background: url($image + "home-bg.jpg") no-repeat center center fixed;
-  margin-top: -8*$o;
+  top: -8*$o;
+  margin-bottom: -8*$o;
   padding: 8*$o 0 14*$o 0;
 }
 
