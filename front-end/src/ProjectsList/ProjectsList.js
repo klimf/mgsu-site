@@ -34,10 +34,17 @@ class ProjectsList extends Component {
     constructor(props) {
         super(props);
         this.currentDirection = this.props.directions[1];
+        this.state = {
+            isLoaded: false
+        };
     }
 
      componentWillMount() {
         this.changeDirection(this.props.match.params.direction || null);
+    }
+
+    componentDidMount() {
+        setTimeout(() => this.setState({isLoaded:true}),100);
     }
 
     changeDirection(direction) {
@@ -50,7 +57,7 @@ class ProjectsList extends Component {
    
     render() {
         return (
-            <div className="page row expanded">
+            <div className={`page row expanded fade-in ${this.state.isLoaded && "active"}`}>
                 <div className="content small-12 row">
                     <div className="space-3"/>
                     <div className="projects-icon small-0"
