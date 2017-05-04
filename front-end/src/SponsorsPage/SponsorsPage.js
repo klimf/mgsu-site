@@ -70,13 +70,13 @@ class SponsorsPage extends Component {
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Компании - партнеры</h1>
                     <div className="space-2"/>
-                     {this.props.partners.data && this.props.partners.data.map(({img, title}, index) => 
-                            <img key={index} src={resolveStatic(img)} alt={title}/>
-                        )}
-                    {/*<img alt="pic" src={require("../media/images/corps.png")}
+                     {/*{this.props.partners.data && this.props.partners.data.map(({img, title}, index) => */}
+                            {/*<img key={index} src={resolveStatic(img)} alt={title}/>*/}
+                        {/*)}*/}
+                    <img alt="pic" src={require("../media/images/corps.png")}
                          className="small-12 small-0 medium-0 columns"/>
                     <img alt="pic" src={require("../media/images/corps-mobile.png")}
-                         className="small-12 large-0 columns"/>*/}
+                         className="small-12 large-0 columns"/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
