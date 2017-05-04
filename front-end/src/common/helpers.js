@@ -16,6 +16,12 @@ export function formatMoney(value) {
     }
 }
 
+export function formatDate(date) {
+                var d = new Date();
+                d.setTime(Date.parse(date));
+                 return d.getDate() + '.' + (d.getMonth()+1) + '.' + d.getFullYear();
+            };
+
 export function formatEventDate(date) {
 
     let d = new Date();
@@ -47,7 +53,7 @@ export const apiUrl = 'http://185.189.13.148:4000/api';
 // export const apiUrl = 'http://localhost:4000/api';
 
 export const resolveStatic = (path) => {
-    return 'http://185.189.13.148' + path;
+    return 'http://185.189.13.148:4000' + path;
 };
 
 export const credOptions = 'include';
