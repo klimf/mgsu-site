@@ -4,12 +4,13 @@ import {withRouter} from "react-router-dom";
 import {DonationsListManager, VipSponsorsManager} from "../common/reducers/PeopleState";
 import {PartnersManager} from "../common/reducers/ContentState";
 import Slider from "../HomePage/components/Slider";
+import {resolveStatic} from '../common/helpers';
 
 
 class SponsorsPage extends Component {
 
-    componentWillMount() {
-        // this.props.DonationsListManager.get();
+    componentDidMount() {
+        this.props.DonationsListManager.get();
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.donations обычные спонсоры в таблицу
         ////////////////////////////////////////////////
@@ -30,7 +31,7 @@ class SponsorsPage extends Component {
         // recursive - ежемесясно или нет
         // date - дата
         // 
-        //
+        // 
         this.props.VipSponsorsManager.get();
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.vipSponsors 
@@ -48,7 +49,7 @@ class SponsorsPage extends Component {
         // 
         this.props.PartnersManager.get();
         /////////////////////////////////////////////////
-        // ФОРМАТ this.props.vipSponsors 
+        // ФОРМАТ this.props.partners.data
         ////////////////////////////////////////////////
         //
         // _id,
@@ -56,7 +57,7 @@ class SponsorsPage extends Component {
         //     original,
         //     small
         // },
-        // s
+        // title
         // ...
         // 
     }
@@ -65,20 +66,22 @@ class SponsorsPage extends Component {
     render() {
         return (
             <div className="page row expanded">
-                {console.log(this.props)}
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Компании - партнеры</h1>
                     <div className="space-2"/>
-                    <img alt="pic" src={require("../media/images/corps.png")}
+                     {this.props.partners.data && this.props.partners.data.map(({img, title}, index) => 
+                            <img key={index} src={resolveStatic(img)} alt={title}/>
+                        )}
+                    {/*<img alt="pic" src={require("../media/images/corps.png")}
                          className="small-12 small-0 medium-0 columns"/>
                     <img alt="pic" src={require("../media/images/corps-mobile.png")}
-                         className="small-12 large-0 columns"/>
+                         className="small-12 large-0 columns"/>*/}
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Спонсоры</h1>
-                    <Slider sponsors={this.props.vipSponsors}/>
+                    <Slider sponsors={this.props.vipSponsors.data || []}/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
