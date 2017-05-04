@@ -164,19 +164,19 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="hexagon-bg-container small-12 row expanded absolute no-overflow">
-                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                    <svg className="hexagon-bg" viewBox="-24 -24 278 311" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
                          style={{top: -500, transform: `translateY(${ this.state.scrollTop / 5 }px)`}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
-                    <svg className="hexagon-bg small-0 medium-0" viewBox="-24 -24 254 287" version="1.1"
+                    <svg className="hexagon-bg small-0 medium-0" viewBox="-24 -24 278 311" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
                          style={{top: 0, transform: `translateY(${ this.state.scrollTop / 3 }px)`}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
-                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                    <svg className="hexagon-bg" viewBox="-24 -24 278 311" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
                          style={{top: 600, transform: `translateY(${ this.state.scrollTop / 4 }px)`}}>
                         <polygon
@@ -230,7 +230,7 @@ class HomePage extends Component {
                 </div>
                 <div className="space-4"/>
                 <div className="content small-12 row">
-                    <div className="corps-grid small-12 columns">
+                    <div className="corps-grid hover-opacity small-12 columns">
                         {this.props.partners.data && this.props.partners.data.map(({img, title}) => 
                             <img src={resolveStatic(img)} alt={title}/>
                         )}

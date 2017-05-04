@@ -136,6 +136,15 @@ img.block {
   opacity: 1;
 }
 
+.fade-in {
+  @extend .transition-3;
+  opacity: 0;
+}
+
+.fade-in.active {
+  opacity: 1;
+}
+
 .bg-primary {
   background-color: $primary !important;
 }

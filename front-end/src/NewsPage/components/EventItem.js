@@ -7,7 +7,7 @@ export default (props) => {
 
 const date = formatEventDate(props.item.date)
 
-return( <div className="small-12 medium-12 large-6 columns">
+return( <div className="small-12 medium-12 large-6 columns end">
         <EditableItem type='news' id={props.item._id} actions={['edit', 'delete']}>
             <Link to={`/events/${props.item._id}`}>
                 <div className="home-event small-12 columns">
