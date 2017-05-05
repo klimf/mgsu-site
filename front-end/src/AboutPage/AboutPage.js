@@ -4,7 +4,6 @@ import {withRouter, NavLink} from "react-router-dom";
 import {AboutContentManager} from "../common/reducers/ContentState";
 import {OurTeamManager} from "../common/reducers/PeopleState";
 import {Route} from "react-router";
-import sanitizeHtml from "sanitize-html";
 import {resolveStatic} from "../common/helpers";
 
 
@@ -58,7 +57,7 @@ class AboutPage extends Component {
                                 <Route path={`/about/${item.title}`}
                                        render={() =>
                                            <div className="small-12 columns"
-                                                dangerouslySetInnerHTML={{__html: sanitizeHtml(item.content)}}
+                                                dangerouslySetInnerHTML={{__html: item.content}}
                                            />
                                        }
                                 />

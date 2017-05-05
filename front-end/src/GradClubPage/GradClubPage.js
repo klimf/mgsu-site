@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import {GradClubManager} from "../common/reducers/ContentState";
 import {withRouter, NavLink} from "react-router-dom";
 import {Route} from "react-router";
-import sanitizeHtml from "sanitize-html";
 
 class GradClubPage extends Component {
     constructor(props) {
@@ -38,7 +37,7 @@ class GradClubPage extends Component {
                                 <Route path={`/alumni/${item.title}`}
                                        render={() =>
                                            <div className="small-12 columns"
-                                                dangerouslySetInnerHTML={{__html: sanitizeHtml(item.content)}}
+                                                dangerouslySetInnerHTML={{__html: item.content}}
                                            />
                                        }
                                 />

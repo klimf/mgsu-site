@@ -30,7 +30,7 @@ import {resolveStatic} from "../../common/helpers";
 
 export const People = {
     list:  (props) => (
-        <List {...props} perPage={100}>
+        <List {...props} pagination={null} perPage={100}>
             <Datagrid >
                 <StaticImage source="img" label="Фотография"></StaticImage>
                 <FunctionField label="Полное имя" render={record => `${record.lastName} ${record.firstName} ${record.middleName}`}></FunctionField>

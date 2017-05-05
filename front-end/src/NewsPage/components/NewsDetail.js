@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import {withRouter} from 'react-router';
-import sanitizeHtml from 'sanitize-html';
 import {resolveStatic} from '../../common/helpers'
 
 
@@ -33,7 +32,7 @@ class NewsDetail extends Component {
                         <img src={resolveStatic(this.props.newsDetail.data.img.original)} alt=""/>
                         }
                     </div>
-                    <p className="small-12 center columns" dangerouslySetInnerHTML={{__html: sanitizeHtml(this.props.newsDetail.data.content)}}>
+                    <p className="small-12 center columns" dangerouslySetInnerHTML={{__html: this.props.newsDetail.data.content}}>
                     </p>
                 </div>
                 <div className="small-12 space-3 columns"/>

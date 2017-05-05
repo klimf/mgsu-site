@@ -39,15 +39,15 @@ const directions = [
 
 
 export const ProjectList = (props) => (
-    <List title="Список проектов" {...props} perPage={100}>
+    <List title="Список проектов" {...props} pagination={null} >
         <Datagrid >
             <StaticImage source="img" label="Изображение"></StaticImage>
             <TextField source="name" label="Название"/>
             <TextField source="shortDescription" label="Короткое описание"/>
             <DateField source="creatingDate" label="Создан"/>
-            <NumberField source="given" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}}
+            <NumberField source="given" options={{style: 'currency', currency: 'RUB'}}
                          label="Собрано"/>
-            <NumberField source="need" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}}
+            <NumberField source="need" options={{style: 'currency', currency: 'RUB'}}
                          label="Нужно собрать"/>
             <TextField source="direction" label="Направление"/>
             <BooleanField source="public" label="публичный"/>
@@ -70,7 +70,7 @@ export const ProjectEdit = (props) => (
             </FormTab>
             <FormTab label="Содержание">
                 <LongTextInput source="shortDescription" label="Короткое описание"/>
-                <RichTextInput source="content" label="Полное описание"/>
+                <RichTextInput source="content" label="Полное описание" toolbar={[ [{ 'header': [1, 2, 3, false] }], [ 'bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], [{ 'direction': 'rtl' }],  [ 'link', 'image', ] ]}/>
             </FormTab>
         </TabbedForm>
     </Edit>
@@ -90,7 +90,7 @@ export const ProjectCreate = (props) => (
             </FormTab>
             <FormTab label="Содержание">
                 <LongTextInput source="shortDescription" label="Короткое описание"/>
-                <RichTextInput source="content" label="Полное описание"/>
+                <RichTextInput source="content" label="Полное описание" toolbar={[ [{ 'header': [1, 2, 3, false] }], [ 'bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], [{ 'direction': 'rtl' }],  [ 'link', 'image', ] ]}/>
             </FormTab>
         </TabbedForm>
     </Create>

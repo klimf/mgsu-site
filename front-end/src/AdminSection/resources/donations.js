@@ -23,7 +23,7 @@ import {
 import {required, isStr, currency} from '../validationRules';
 
 export const DontaionList = (props) => (
-    <List title="Донаты" {...props}>
+    <List title="Донаты" {...props} pagination={null}>
         <Datagrid>
             <FunctionField label="Имя" render={record => `${record.user.lastName} ${record.user.firstName} ${record.user.middleName}`}></FunctionField>
             <TextField source="user.email" label="Почта"/>

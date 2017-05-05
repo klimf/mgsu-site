@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {withRouter} from 'react-router';
 import {formatEventDate} from '../../common/helpers';
-import sanitizeHtml from 'sanitize-html';
 import {resolveStatic} from '../../common/helpers';
 
 
@@ -38,7 +37,7 @@ class NewsDetail extends Component {
                             <img src={resolveStatic(this.props.eventDetail.data.img.original)} alt=""/>
                          }
                         </div>
-                        <p className="small-12 center columns" dangerouslySetInnerHTML={{__html: sanitizeHtml(this.props.eventDetail.data.content)}}>
+                        <p className="small-12 center columns" dangerouslySetInnerHTML={{__html: this.props.eventDetail.data.content}}>
                         </p>
                     </div>
                     <div className="small-12 space-3 columns"/>

@@ -10,6 +10,7 @@ import {ActionBar, EditableItem} from '../AdminSection/components/AdminToolbar'
 
 class ContactsPage extends Component {
     componentWillMount() {
+        this.props.ContactsManager.get()
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.contacts.data
         ////////////////////////////////////////////////
@@ -28,7 +29,7 @@ class ContactsPage extends Component {
             <div className="page row expanded">
                 <div className="small-12 space-3 columns"/>
                 <div className="content small-12 row">
-                    <h1 className="uppercase center small-12 columns">Наша команда</h1>
+                    <h1 className="uppercase center small-12 columns">Наши контакты</h1>
                     <div className="small-12 space-2 columns"/>
                     <div className="team-grid small-12 columns">
                     <ActionBar type='contacts' actions={['create']}></ActionBar>
@@ -36,7 +37,7 @@ class ContactsPage extends Component {
                         <EditableItem key={index} type='contacts' id={_id} actions={['edit, delete']}>
                         <div  className="sponsor small-6 medium-4 large-3 columns end">
                             <div className="small-12 sponsor-img columns" style={{
-                                        background: `url(${img.small ? resolveStatic(img.small) : require('../media/images/placeholder.png')})`
+                                        background: `url(${img ? resolveStatic(img.small) : require('../media/images/placeholder.png')})`
                                     }}/>
                             <h2 className="small-12">{`${firstName} ${lastName}`}</h2>
                             <p className="small-12">{description}</p>
@@ -49,7 +50,7 @@ class ContactsPage extends Component {
                 <div className="content small-12 row">
                     <div className="small-12 space-3 columns"/>
                     <div className="huge-text uppercase center small-6 small-0 columns">
-                        Карта
+                        КАРТА
                     </div>
                     <div className="contacts-block small-12 medium-6 columns">
                         <div className="small-12 columns">
