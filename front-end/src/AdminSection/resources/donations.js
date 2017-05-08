@@ -16,24 +16,24 @@ import {
     DateInput,
     NumberInput,
     ReferenceInput,
-    SelectInput
+    SelectInput,
+    FunctionField,
+    DeleteButton
 } from "admin-on-rest";
+import {required, isStr, currency} from '../validationRules';
 
 export const DontaionList = (props) => (
-    <List title="Донаты" {...props}>
+    <List title="Донаты" {...props} pagination={null}>
         <Datagrid>
-            <ReferenceField label="Проект" source="name" reference="projects">
-                <TextField source="project"/>
-            </ReferenceField>
-            <TextField source="user.firstName" label="Имя"/>
-            <TextField source="user.lastName" label="Фамилия"/>
-            <TextField source="user.middleName" label="Отчество"/>
+            <FunctionField label="Имя" render={record => `${record.user.lastName} ${record.user.firstName} ${record.user.middleName}`}></FunctionField>
+            <TextField source="user.email" label="Почта"/>
+            <TextField source="project.name" label="Проект"/>
             <NumberField source="value" options={{style: 'currency', currency: 'RUB', maximumFractionDigits: 0}}
-                         label="Пожертвовал"/>
+                         label="Пожертвование"/>
             <BooleanField source="recursive" label="Ежемесячно"/>
-            <BooleanField source="confirm" label="Подтвержден"/>
-            <DateField source="date" label="Дата"/>
-            <EditButton />
+            <DateField source="date" label="Дата" />
+            <BooleanField source="confirmed" label="Подтвержден"/>
+            <DeleteButton />
         </Datagrid>
     </List>
 );
@@ -41,15 +41,15 @@ export const DontaionList = (props) => (
 export const DontaionEdit = (props) => (
     <Edit title="Изменение пользователя" {...props}>
         <SimpleForm>
-            <ReferenceInput label="Проект" source="name" reference="projects" allowEmpty>
-                <SelectInput optionText="project"/>
+            <ReferenceInput label="Проект" source="projectId" reference="projects" allowEmpty validate={[required]}>
+                <SelectInput optionText="name"/>
             </ReferenceInput>
-            <TextInput source="user.firstName" label="Имя"/>
-            <TextInput source="user.lastName" label="Фамилия"/>
-            <TextInput source="user.middleName" label="Отчество"/>
-            <NumberInput source="value" label="Пожертвовал"/>
-            <BooleanInput source="recursive" label="Ежемесячно"/>
-            <BooleanInput source="confirm" label="Подтвержден"/>
+            <TextInput source="firstName" label="Имя" validate={[required]}/>
+            <TextInput source="lastName" label="Фамилия" validate={[required]}/>
+            <TextInput source="middleName" label="Отчество" validate={[required]}/>
+            <TextInput source="email" label="Почта"/>
+            <NumberInput source="value" label="Пожертвование" validate={[required]}/>
+            <BooleanInput source="recursive" label="Ежемесячно" validate={[required]}/>
             <DateInput source="date" label="Дата"/>
         </SimpleForm>
     </Edit>
@@ -57,16 +57,16 @@ export const DontaionEdit = (props) => (
 
 export const DontaionCreate = (props) => (
     <Create {...props}>
-        <SimpleForm>
-            <ReferenceInput label="Проект" source="project" reference="projects" allowEmpty>
+       <SimpleForm>
+            <ReferenceInput label="Проект" source="projectId" reference="projects" allowEmpty>
                 <SelectInput optionText="name"/>
             </ReferenceInput>
-            <TextInput source="user.firstName" label="Имя"/>
-            <TextInput source="user.lastName" label="Фамилия"/>
-            <TextInput source="user.middleName" label="Отчество"/>
-            <NumberInput source="value" label="Пожертвовал"/>
+            <TextInput source="firstName" label="Имя"/>
+            <TextInput source="lastName" label="Фамилия"/>
+            <TextInput source="middleName" label="Отчество"/>
+            <TextInput source="email" label="Почта"/>
+            <NumberInput source="value" label="Пожертвование"/>
             <BooleanInput source="recursive" label="Ежемесячно"/>
-            <BooleanInput source="confirm" label="Подтвержден"/>
             <DateInput source="date" label="Дата"/>
         </SimpleForm>
     </Create>

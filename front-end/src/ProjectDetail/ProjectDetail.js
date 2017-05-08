@@ -4,7 +4,7 @@ import {withRouter} from "react-router-dom";
 import DonationForm from "./components/DonationForm"
 import { ProjectDetailManager} from '../common/reducers/ProjectsState'
 import {formatMoney, resolveStatic} from '../common/helpers';
-import sanitizeHtml from 'sanitize-html';
+
 
 class ProjectDetail extends Component {
 
@@ -60,8 +60,8 @@ class ProjectDetail extends Component {
                             <div className="small-12 space-3 columns"/>
                             <div className="small-12 columns">
                                 <div className="small-12 columns no-padding">
-                                    <div className="absolute w-100 disabled space-base"></div>
-                                    <div className="absolute w-100 primary space-base"
+                                    <div className="absolute w-100 bg-disabled space-base"></div>
+                                    <div className="absolute w-100 bg-primary space-base"
                                          style={{"width": `${(this.props.project.data.given / this.props.project.data.need * 100)}%`}}></div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@ class ProjectDetail extends Component {
                          }
 
                           { (this.props.project.data.content && this.props.project.data.content.length > 0) && 
-                         <div className="small-12 columns" dangerouslySetInnerHTML={{__html: sanitizeHtml(this.props.project.data.content)}}/>
+                         <div className="small-12 columns" dangerouslySetInnerHTML={{__html: this.props.project.data.content}}/>
                             
                         }
                             {/*Задача старшего поколения - сохранить память об одном из самых важных

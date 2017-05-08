@@ -6,7 +6,9 @@ import Footer from "./components/Footer";
 import {User} from "./reducers/UserState";
 import {connect} from 'react-redux';
 import {withRouter} from "react-router-dom";
-import ScrollFix from "./components/ScrollFix"
+import ScrollFix from "./components/ScrollFix";
+import {NewsManager, EventsManager, AboutContentManager, GradClubManager, NewsDetailManager, EventsDetailManager} from './reducers/ContentState';
+import {VipSponsorsManager, OurTeamManager, ContactsManager} from './reducers/PeopleState';
 
 class App extends Component {
 
@@ -29,12 +31,21 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-    const user = state.UserState
-    return {user: user}
+    return {
+        user: state.UserState,
+        news: state.NewsState,
+        events: state.EventsState,
+        newsDetail: state.NewsDetail,
+        eventDetail: state.EventDetail
+    }
 };
 
 const mapDispatchToProps = dispatch => ({
-    UserManager: User.bindTo(dispatch)
+    UserManager: User.bindTo(dispatch),
+    NewsManager: NewsManager.bindTo(dispatch),
+    EventsManager: EventsManager.bindTo(dispatch),
+    EventsDetailManager: EventsDetailManager.bindTo(dispatch),
+    NewsDetailManager: NewsDetailManager.bindTo(dispatch),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

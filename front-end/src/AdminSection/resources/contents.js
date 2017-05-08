@@ -28,10 +28,10 @@ import {resolveStatic} from "../../common/helpers";
 
 export const Content = {
     list: (props) => (
-        <List title="Разделы" {...props} perPage={100}>
+        <List title="Разделы" {...props} pagination={null} perPage={100}>
             <Datagrid >
                 <TextField source="title" label="Название"/>
-                <TextField source="content" label="Содержание"/>
+                {/*<TextField source="content" label="Содержание"/>*/}
                 <EditButton  />
             </Datagrid>
         </List>
@@ -40,7 +40,7 @@ export const Content = {
         <Edit title="Изменение раздела" {...props}>
             <SimpleForm>
                 <TextInput source="title" label="Название раздела" validate={[required]}/>
-                <RichTextInput source="content" label="Содержание" validate={[required]}/>
+                <RichTextInput source="content" label="Содержание" validate={[required]} toolbar={[ [{ 'header': [1, 2, 3, false] }], [ 'bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], [{ 'direction': 'rtl' }],  [ 'link', 'image', ] ]}/>
             </SimpleForm>
         </Edit>
     ),
@@ -48,21 +48,21 @@ export const Content = {
         <Create title={'Добавить раздел'} {...props}>
             <SimpleForm>
                 <TextInput source="title" label="Название раздела" validate={[required]}/>
-                <RichTextInput source="content" label="Содержание" validate={[required]}/>
+                <RichTextInput source="content" label="Содержание" validate={[required]} toolbar={[ [{ 'header': [1, 2, 3, false] }], [ 'bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], [{ 'direction': 'rtl' }],  [ 'link', 'image', ] ]}/>
             </SimpleForm>
         </Create>
     )
-}
+};
 
 
 export const News = {
     list: (props) => (
-        <List title="Новости" {...props} perPage={100}>
+        <List title="Новости" {...props} pagination={null}>
             <Datagrid >
                 <StaticImage source="img" label="Изображение"></StaticImage>
                 <TextField source="title" label="Заголовок"/>
                 <TextField source="description" label="Короткое описание"/>
-                <TextField source="content" label="Содержание"/>
+                {/*<TextField source="content" label="Содержание"/>*/}
                 <DateField source="creatingDate" label="Создано"/>
                 <EditButton  />
             </Datagrid>
@@ -76,7 +76,7 @@ export const News = {
                 </ImageInput>
                 <TextInput source="title" label="Заголовок" validate={[required]}/>
                 <TextInput source="description" label="Короткое описание" validate={[required]}/>
-                <RichTextInput source="content" label="Содержание" validate={[required]}/>
+                <RichTextInput source="content" label="Содержание" validate={[required]} toolbar={[ [{ 'header': [1, 2, 3, false] }], [ 'bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], [{ 'direction': 'rtl' }],  [ 'link', 'image', ] ]}/>
             </SimpleForm>
         </Edit>
     ),
@@ -88,20 +88,20 @@ export const News = {
                 </ImageInput>
                 <TextInput source="title" label="Заголовок" validate={[required]}/>
                 <TextInput source="description" label="Короткое описание" validate={[required]}/>
-                <RichTextInput source="content" label="Содержание" validate={[required]}/>
+                <RichTextInput source="content" label="Содержание" validate={[required]} toolbar={[ [{ 'header': [1, 2, 3, false] }], [ 'bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], [{ 'direction': 'rtl' }],  [ 'link', 'image', ] ]}/>
             </SimpleForm>
         </Create>
     )
-}
+};
 
 export const Events = {
     list: (props) => (
-        <List title="События" {...props} perPage={100}>
+        <List title="События" {...props} pagination={null}>
             <Datagrid >
                 <StaticImage source="img" label="Изображение"></StaticImage>
                 <TextField source="title" label="Заголовок"/>
                 <TextField source="description" label="Короткое описание"/>
-                <TextField source="content" label="Содержание"/>
+                {/*<TextField source="content" label="Содержание"/>*/}
                 <DateField source="creatingDate" label="Создано"/>
                 <DateField source="date" label="Дата проведения"/>
                 <EditButton  />
@@ -117,7 +117,7 @@ export const Events = {
                 <TextInput source="title" label="Заголовок" validate={[required]}/>
                 <TextInput source="description" label="Короткое описание" validate={[required]}/>
                 <DateInput source="date" label="Дата проведения" validate={[required]}/>
-                <RichTextInput source="content" label="Содержание" validate={[required]}/>
+                <RichTextInput source="content" label="Содержание" validate={[required]} toolbar={[ [{ 'header': [1, 2, 3, false] }], [ 'bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], [{ 'direction': 'rtl' }],  [ 'link', 'image', ] ]}/>
             </SimpleForm>
         </Edit>
     ),
@@ -130,16 +130,16 @@ export const Events = {
                 <TextInput source="title" label="Заголовок" validate={[required]}/>
                 <TextInput source="description" label="Короткое описание" validate={[required]}/>
                 <DateInput source="date" label="Дата проведения" validate={[required]}/>
-                <RichTextInput source="content" label="Содержание" validate={[required]}/>
+                <RichTextInput source="content" label="Содержание" validate={[required]} toolbar={[ [{ 'header': [1, 2, 3, false] }], [ 'bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], [{ 'direction': 'rtl' }],  [ 'link', 'image', ] ]}/>
             </SimpleForm>
         </Create>
     )
-}
+};
 
 
 export const Partners = {
     list: (props) => (
-        <List title="Партнеры" {...props} perPage={100}>
+        <List title="Партнеры" {...props} pagination={null}>
             <Datagrid >
                 <StaticImage source="img" label="Логотип"></StaticImage>
                 <TextField source="title" label="Название"/>
@@ -158,7 +158,7 @@ export const Partners = {
         </Edit>
     ),
     create: (props) => (
-        <Create title={'Дабавить партнера'} {...props}>
+        <Create title={'Добавить партнера'} {...props}>
             <SimpleForm>
                 <ImageInput source="picture" label="Фотография" accept="image/*">
                     <ImageField source="img.small"/>
@@ -167,11 +167,11 @@ export const Partners = {
             </SimpleForm>
         </Create>
     )
-}
+};
 
 const Options = {
     list: (props) => (props) => (
-        <List title="Опции" {...props} perPage={100}>
+        <List title="Опции" {...props} pagination={null}>
             <Datagrid >
                 <TextField source="title" label="Название"/>
                 <TextField source="content" label="Значение"/>
@@ -195,7 +195,7 @@ const Options = {
             </SimpleForm>
         </Create>
     )
-}
+};
 
 
 export const contentsCategories = {

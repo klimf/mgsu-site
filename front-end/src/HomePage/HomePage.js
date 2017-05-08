@@ -1,13 +1,12 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {bindAll} from "redux-act";
 import Slider from "./components/Slider";
 import {formatMoney} from "../common/helpers";
-import {headerActions} from "../common/components/state";
 import {FundDetailManager} from "../common/reducers/ProjectsState";
 import {NewsManager, EventsManager, PartnersManager} from "../common/reducers/ContentState";
 import {VipSponsorsManager} from "../common/reducers/PeopleState";
-import {NavLink, withRouter} from "react-router-dom";
+import {Link, NavLink, withRouter} from "react-router-dom";
+import {resolveStatic, formatEventDate} from "../common/helpers";
 
 
 class HomePage extends Component {
@@ -41,8 +40,8 @@ class HomePage extends Component {
     scrollFunc() {
         this.setState({
             scrollTop: window.pageYOffset
-        })
-    };
+        });
+    }
 
     componentWillMount() {
         this.props.FundDetailManager.getDetail();
@@ -121,7 +120,7 @@ class HomePage extends Component {
                             </div>
                             }
 
-                            <div className="bar-fact primary" style={{width: `${this.fundValue()}%`}}></div>
+                            <div className="bar-fact bg-primary" style={{width: `${this.fundValue()}%`}}></div>
 
                         </div>
 
@@ -165,19 +164,19 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="hexagon-bg-container small-12 row expanded absolute no-overflow">
-                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                    <svg className="hexagon-bg" viewBox="-24 -24 278 311" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
                          style={{top: -500, transform: `translateY(${ this.state.scrollTop / 5 }px)`}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
-                    <svg className="hexagon-bg small-0 medium-0" viewBox="-24 -24 254 287" version="1.1"
+                    <svg className="hexagon-bg small-0 medium-0" viewBox="-24 -24 278 311" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
                          style={{top: 0, transform: `translateY(${ this.state.scrollTop / 3 }px)`}}>
                         <polygon
                             points="220 189.919571 220 63.1099196 110 0 0 63.1099196 0 189.919571 110 253.029491"/>
                     </svg>
-                    <svg className="hexagon-bg" viewBox="-24 -24 254 287" version="1.1"
+                    <svg className="hexagon-bg" viewBox="-24 -24 278 311" version="1.1"
                          xmlns="http://www.w3.org/2000/svg"
                          style={{top: 600, transform: `translateY(${ this.state.scrollTop / 4 }px)`}}>
                         <polygon
@@ -194,96 +193,56 @@ class HomePage extends Component {
                 <div className="space-3"/>
                 <div className="content small-12 row">
                     <div className="small-12 medium-12 large-7 columns padding-left m-b-3">
-                        <div className="home-news small-12 columns">
-                            <div className="bg-img"/>
-                            <div className="blackout"/>
-                            <h2>Альбом выпускников</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-news small-12 columns">
-                            <div className="bg-img"/>
-                            <div className="blackout"/>
-                            <h2>Альбом выпускников</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-news small-12 columns">
-                            <div className="bg-img"/>
-                            <div className="blackout"/>
-                            <h2>Альбом выпускников</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-news small-12 columns">
-                            <div className="bg-img"/>
-                            <div className="blackout"/>
-                            <h2>Альбом выпускников</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
+                        {this.getNews(5).map(({_id, img, title, description}, index) =>
+                            <Link key={index} to={`/news/${_id}`}>
+                                <div className="home-news small-12 columns">
+                                    <div className="bg-img placeholder-img"
+                                         style={img && {backgroundImage: "url(" + resolveStatic(img.small) + ")"}}
+                                    />
+                                    <div className="blackout"/>
+                                    <h2>{title}</h2>
+                                    <p>
+                                        {description}
+                                    </p>
+                                </div>
+                            </Link>
+                        )
+                        }
                         <NavLink className="h3 underline" to="/news">Все новости</NavLink>
                     </div>
                     <div className="small-12 medium-12 large-5 columns padding-right m-b-3">
-                        <div className="home-event small-12 columns">
-                            <div className="bg-border"/>
-                            <h1>19</h1>
-                            <h2>Апреля</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-event small-12 columns">
-                            <div className="bg-border"/>
-                            <h1>23</h1>
-                            <h2>Апреля</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-event small-12 columns">
-                            <div className="bg-border"/>
-                            <h1>27</h1>
-                            <h2>Апреля</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
-                        <div className="home-event small-12 columns">
-                            <div className="bg-border"/>
-                            <h1>29</h1>
-                            <h2>Апреля</h2>
-                            <p>
-                                В июле 2017 года будет подготовлен необычный альбом выпускников — CV-book, в котором
-                                работодатель сможет посмотреть
-                            </p>
-                        </div>
+                        {this.getEvents(5).map(({_id, date, title, description}, index) =>
+                            <Link key={index} to={`/events/${_id}`}>
+                            <div className="home-event small-12 columns">
+                                <div className="bg-border"/>
+                                <h1>{formatEventDate(date).day}</h1>
+                                <h2>{formatEventDate(date).month}</h2>
+                                <p>
+                                    {title}
+                                </p>
+                            </div>
+                            </Link>
+                        )}
                         <NavLink className="h3 underline" to="/events">Все мероприятия</NavLink>
                     </div>
 
                 </div>
                 <div className="space-2"/>
                 <div className="content small-12 row">
-                    <h1 className="uppercase center">Спонсоры</h1>
-                    <Slider/>
+                    <h1 className="uppercase center underline"><Link to='/sponsors'>Спонсоры</Link></h1>
+                    <Slider sponsors={this.props.vipSponsors}/>
                 </div>
                 <div className="space-4"/>
                 <div className="content small-12 row">
-                    <img alt="pic" src={require("../media/images/corps.png")}
-                         className="small-12 small-0 medium-0 hover-opacity columns"/>
-                    <img alt="pic" src={require("../media/images/corps-mobile.png")}
-                         className="small-12 large-0 hover-opacity columns"/>
+                    <div className="corps-grid hover-opacity small-12 columns">
+                        {this.props.partners.data && this.props.partners.data.map(({img, title}, index) =>
+                            <img key={index} src={img ? resolveStatic(img.small) : require("../media/images/placeholder.png")} alt={title}/>
+                        )}
+                    </div>
+                    {/*<img alt="pic" src={require("../media/images/corps.png")}*/}
+                    {/*className="small-12 small-0 medium-0 hover-opacity columns"/>*/}
+                    {/*<img alt="pic" src={require("../media/images/corps-mobile.png")}*/}
+                    {/*className="small-12 large-0 hover-opacity columns"/>*/}
                 </div>
                 <div className="space-4"/>
             </div>
@@ -303,10 +262,11 @@ class HomePage extends Component {
 const mapStateToProps = state => {
     return {
         partners: state.ContentState.Partners,
-        vipSpinsors: state.PeopleState.VipSpinsors,
+        vipSponsors: state.PeopleState.VipSponsors,
         fundDetail: state.ProjectsState.fundDetail,
         events: state.EventsState,
-        news: state.NewsState
+        news: state.NewsState,
+        state: state
     }
 };
 
@@ -318,6 +278,6 @@ const mapDispatchToProps = dispatch => {
         NewsManager: NewsManager.bindTo(dispatch),
         EventsManager: EventsManager.bindTo(dispatch)
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

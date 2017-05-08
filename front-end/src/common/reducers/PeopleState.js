@@ -21,11 +21,11 @@ class _PeopleListModel extends StateModel {
 class _DonationsListModel extends StateModel {
 
     constructor() {
-        super(new ApiAction({TYPE: 'SPONSORS_LIST_CHANGE', model: 'donators'}));
+        super(new ApiAction({TYPE: 'DONATIONS_LIST_CHANGE', model: 'donation'}));
     }
 
     get() {
-        this._apiAction.perform()
+        this._apiAction.perform({})
     }
 }
 

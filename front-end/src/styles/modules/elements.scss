@@ -238,6 +238,7 @@
 
 .sponsor-img {
   @include image("placeholder.png");
+  background-position: center center !important;
   width: 80%;
   margin: 0 10% $o 10%;
   padding: calc(40% - 4px) 0;
@@ -260,6 +261,19 @@
   margin: 0 0  2*$o 0;
   font-weight: 400;
   color: $dark;
+}
+
+.corps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.corps-grid img {
+  margin: $o 2*$o;
+  height: 60px;
+  width: auto;
 }
 
 .contacts {
@@ -349,7 +363,7 @@
   width: 100%;
   max-width: 100%;
   height: $o;
-  bottom: 0;
+  bottom: $o*6;
   left: 0;
   background-color: $disabled;
 }
@@ -394,10 +408,13 @@ table.donations-table td {
   .space-element;
   padding-left: 2*$o;
 }
+
 table.donations-table tr:nth-child(2n+1) {
   background-color: $semi-disabled;
 }
-table.donations-table tr:first-child {
+table.donations-table th {
+  @extend .h3,
+  .space-element;
   background-color: $primary;
   font-weight: 500;
   color: $white;
@@ -464,3 +481,11 @@ table.donations-table tr:first-child {
 
 }
 
+.admin-toolbar__actions-bar {
+  
+}
+
+.admin-toolbar__item-wrap {
+  position: absolute;
+  
+}

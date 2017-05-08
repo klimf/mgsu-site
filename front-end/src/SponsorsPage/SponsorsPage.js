@@ -1,14 +1,19 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {DonationsListManager, VipSponsorsManager} from "../common/reducers/PeopleState";
+import {VipSponsorsManager, DonationsListManager} from "../common/reducers/PeopleState";
 import {PartnersManager} from "../common/reducers/ContentState";
 import Slider from "../HomePage/components/Slider";
+import {resolveStatic} from '../common/helpers';
+import {ActionBar, EditableItem} from '../AdminSection/components/AdminToolbar';
+import {formatMoney, formatDate} from '../common/helpers';
+
+
 
 
 class SponsorsPage extends Component {
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.DonationsListManager.get();
         /////////////////////////////////////////////////
         // ФОРМАТ this.props.donations обычные спонсоры в таблицу
@@ -29,11 +34,11 @@ class SponsorsPage extends Component {
         // value - сколько пожертвовал
         // recursive - ежемесясно или нет
         // date - дата
-        // 
-        // 
+        //
+        //
         this.props.VipSponsorsManager.get();
         /////////////////////////////////////////////////
-        // ФОРМАТ this.props.vipSponsors 
+        // ФОРМАТ this.props.vipSponsors
         ////////////////////////////////////////////////
         //
         // _id,
@@ -45,10 +50,10 @@ class SponsorsPage extends Component {
         //     original,
         //     small
         // },
-        // 
+        //
         this.props.PartnersManager.get();
         /////////////////////////////////////////////////
-        // ФОРМАТ this.props.vipSponsors 
+        // ФОРМАТ this.props.partners.data
         ////////////////////////////////////////////////
         //
         // _id,
@@ -56,9 +61,9 @@ class SponsorsPage extends Component {
         //     original,
         //     small
         // },
-        // s
+        // title
         // ...
-        // 
+        //
     }
 
 
@@ -69,75 +74,50 @@ class SponsorsPage extends Component {
                 <div className="content small-12 row">
                     <h1 className="uppercase center">Компании - партнеры</h1>
                     <div className="space-2"/>
-                    <img alt="pic" src={require("../media/images/corps.png")}
+                     <ActionBar type='partners' actions={['create']}/>
+                    <div className="corps-grid hover-opacity small-12 columns">
+                        {this.props.partners.data && this.props.partners.data.map(({_id, img, title}, index) =>
+                            <EditableItem key={index} type='partners' id={_id} actions={['edit', 'delete']}>
+                                <img className="placeholder-img" key={index} src={img && resolveStatic(img.small)} alt={title}/>
+                            </EditableItem>
+                        )}
+                    </div>
+                    {/*<img alt="pic" src={require("../media/images/corps.png")}
                          className="small-12 small-0 medium-0 columns"/>
                     <img alt="pic" src={require("../media/images/corps-mobile.png")}
-                         className="small-12 large-0 columns"/>
+                         className="small-12 large-0 columns"/>*/}
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
+                     <ActionBar type='vip' actions={['create']}/>
                     <h1 className="uppercase center">Спонсоры</h1>
-                    <Slider/>
+                    <Slider sponsors={this.props.vipSponsors}/>
                 </div>
                 <div className="space-3"/>
                 <div className="content small-12 row">
+                     <ActionBar type='donation' actions={['create']}/>
                     <h1 className="uppercase center">Благотворители</h1>
                     <div className="donations-table-container">
                         <table className="donations-table small-12 columns">
+                            <thead>
                             <tr>
-                                <td>Имя</td>
-                                <td>Проект</td>
-                                <td>Сумма</td>
-                                <td>Время</td>
+                                <th>Имя</th>
+                                <th>Проект</th>
+                                <th>Сумма</th>
+                                <th>Время</th>
                             </tr>
-                            <tr>
-                                <td>Имя</td>
-                                <td>Проект</td>
-                                <td>Сумма</td>
-                                <td>Время</td>
-                            </tr>
-                            <tr>
-                                <td>Имя</td>
-                                <td>Проект</td>
-                                <td>Сумма</td>
-                                <td>Время</td>
-                            </tr>
-                            <tr>
-                                <td>Имя</td>
-                                <td>Проект</td>
-                                <td>Сумма</td>
-                                <td>Время</td>
-                            </tr>
-                            <tr>
-                                <td>Имя</td>
-                                <td>Проект</td>
-                                <td>Сумма</td>
-                                <td>Время</td>
-                            </tr>
-                            <tr>
-                                <td>Имя</td>
-                                <td>Проект</td>
-                                <td>Сумма</td>
-                                <td>Время</td>
-                            </tr>
-                            <tr>
-                                <td>Имя</td>
-                                <td>Проект</td>
-                                <td>Сумма</td>
-                                <td>Время</td>
-                            </tr>
-                            <tr>
-                                <td>Имя</td>
-                                <td>Проект</td>
-                                <td>Сумма</td>
-                                <td>Время</td>
-                            </tr>
-                            <tr>
-                                <td>Имя</td>
-                                <td>Проект</td>
-                                <td>Сумма</td>
-                                <td>Время</td>
-                            </tr>
+                            </thead>
+                            <tbody>
+                           {this.props.donations.data && this.props.donations.data.map((item, index) =>
+                                <tr key={index}>
+                                    <td>{`${item.user.firstName} ${item.user.lastName} ${item.user.middleName}`}</td>
+                                    <td>{item.project.name}</td>
+                                    <td>{`${formatMoney(item.value)} ${item.recursive && 'в месяц'}`}</td>
+                                    <td>{formatDate(item.date)}</td>
+                                </tr>
+                            )}
+                            
+                           </tbody>
                         </table>
                     </div>
                 </div>
@@ -154,7 +134,7 @@ const mapStateToProps = state => {
     return {
         donations: state.PeopleState.DonationsList,
         partners: state.ContentState.Partners,
-        vipSpinsors: state.PeopleState.VipSpinsors
+        vipSponsors: state.PeopleState.VipSponsors
     }
 };
 
@@ -163,7 +143,6 @@ const mapDispatchToProps = dispatch => {
         DonationsListManager: DonationsListManager.bindTo(dispatch),
         VipSponsorsManager: VipSponsorsManager.bindTo(dispatch),
         PartnersManager: PartnersManager.bindTo(dispatch),
-
     }
 }
 

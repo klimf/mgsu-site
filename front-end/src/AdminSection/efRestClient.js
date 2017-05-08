@@ -38,6 +38,10 @@ const createRequest = (type, resource, params) => {
         resource = 'posts';
     }
 
+    if(resource == 'donation' && type == CREATE) {
+        resource = '/donation/registration'
+    }
+
         const _typesHandlers = {
             GET_LIST: () => {
                 apiQuery.url = resolveApi(
@@ -112,21 +116,32 @@ const createRequest = (type, resource, params) => {
 };
 
 const formatResponse = (response, type, resource, params) => {
-    const mapId = (x) => {x.id = x._id; return x};
-    const {json} = response;
-    switch (type) {
-        case CREATE:
-            return {data: {...params.data, id: json}}
-        case GET_LIST:
-        const data = { 
-                 data:  (json.docs ? json.docs.map(mapId) : json.map(mapId)),
-                 total: json.total || 1000
-                };
-        return data;
-        break;
-        default:
-            return {data: mapId(json)};
+    if(response.status == 200 || response.status ==304 ) {
+        console.log(response);
+
+        const mapId = (x) => {x.id = x._id; return x};
+        
+        const {json} = response;
+        switch (type) {
+            case CREATE:
+                return {data: {...params.data, id: json}}
+            case GET_LIST:
+            const data = { 
+                    data:  (json.docs ? json.docs.map(mapId) : json.map(mapId)),
+                    total: json.total || 1000
+                    };
+            return data;
+            break;
+            case GET_ONE:
+                return {data: mapId(json)}
+            default:
+                return {data: mapId(json)}
+        }
+
+    } else {
+      
     }
+    
 };
 
 const uploadFile = (file) => {
@@ -145,13 +160,12 @@ const uploadFile = (file) => {
 }
 
 export default (type, resource, params) => {
+    
     const {url, options} = createRequest(type, resource, params)
 
     options.headers = new Headers({'Content-Type': 'application/json'});
 
     options.credentials = 'include';
-
-  
 
     if(options.body && options.body.picture) {
       return uploadFile(options.body.picture[0]).then((response) => {
@@ -169,7 +183,9 @@ export default (type, resource, params) => {
             }
           const {fetchJson} = fetchUtils;
             return fetchJson(url, options)
-                .then(response => (formatResponse(response, type, resource, params)));
+                .then(response =>  {return formatResponse(response, type, resource, params)})
+                // .catch((reject) => Promise.reject(reject))
     }
   
 }
+

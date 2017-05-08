@@ -2,7 +2,7 @@ import {combineReducers} from "redux";
 
 import { ProjectsState } from "./ProjectsState";
 import {UserState} from "./UserState";
-import {ContentState, NewsState, EventsState} from "./ContentState";
+import {ContentState, NewsState, EventsState, NewsDetail, EventDetail} from "./ContentState";
 import {PeopleState} from "./PeopleState";
 import {HeaderReducer as Header} from "../components/state";
 
@@ -15,5 +15,7 @@ export default combineReducers({
     EventsState,
     PeopleState,
     Header,
-    ProjectsState
+    ProjectsState,
+    NewsDetail,
+    EventDetail
 })

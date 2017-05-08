@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import ProjectItem from "./components/ProjectItem";
-import { ProjectsListManager } from "../common/reducers/ProjectsState"
+import { ProjectsListManager } from "../common/reducers/ProjectsState";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
+import {EditableItem, ActionBar} from '../AdminSection/components/AdminToolbar';
 
 const defaultProps = {
     filters: [
@@ -33,10 +34,17 @@ class ProjectsList extends Component {
     constructor(props) {
         super(props);
         this.currentDirection = this.props.directions[1];
+        this.state = {
+            isLoaded: false
+        };
     }
 
-     componentWillMount() {
+    componentWillMount() {
         this.changeDirection(this.props.match.params.direction || null);
+    }
+
+    componentDidMount() {
+        setTimeout(() => this.setState({isLoaded:true}), 100);
     }
 
     changeDirection(direction) {
@@ -49,7 +57,7 @@ class ProjectsList extends Component {
    
     render() {
         return (
-            <div className="page row expanded">
+            <div className={`page row expanded fade-in ${this.state.isLoaded && "active"}`}>
                 <div className="content small-12 row">
                     <div className="space-3"/>
                     <div className="projects-icon small-0"
@@ -66,13 +74,17 @@ class ProjectsList extends Component {
                         }
                     </div>
                     <div className="space-3"/>
+                    <ActionBar type="projects" actions={['create']} />
+                    <div className={`fade-in ${!this.props.projects.loaded && "active"}`}>
                     {
-                        this.props.projects.data && this.props.projects.data.length > 0  ? 
+                        this.props.projects.data && this.props.projects.data.length > 0  ?
                         this.props.projects.data.map((project, index) =>
-                            <ProjectItem key={index} project={project}/>
-                        ) 
+                           
+                                <ProjectItem key={index} project={project}/>
+                        )
                         : <h2 className="center">К сожалению, проектов в этом направлении пока нет</h2>
                     }
+                    </div>
                 </div>
                 <div className="space-3"/>
             </div>

@@ -10,7 +10,9 @@ import AboutPage from "../AboutPage/AboutPage";
 import GradClubPage from "../GradClubPage/GradClubPage";
 import SponsorsPage from "../SponsorsPage/SponsorsPage";
 import NewsPage from "../NewsPage/NewsPage";
-import EventsPage from "../EventsPage/EventsPage";
+import EventsPage from "../NewsPage/EventsPage";
+import NewsDetail from '../NewsPage/components/NewsDetail'
+import EventDetail from '../NewsPage/components/EventDetail'
 
 const Routes = (props) => (
     <Switch>
@@ -21,9 +23,11 @@ const Routes = (props) => (
         <Route path="/about/:department?" component={AboutPage}/>
         <Route exact path="/alumni/:department?" component={GradClubPage}/>
         <Route exact path="/sponsors" component={SponsorsPage}/>
-        <Route exact path="/news" component={NewsPage}/>
-        <Route exact path="/events" component={EventsPage}/>
-        <Route path="/admin"  render={() =>   <AdminSection {...props}/>}/>
+        <Route exact path="/news" render={() =>   <NewsPage {...props}/>} />
+        <Route exact path="/events" render={() =>   <EventsPage {...props}/>} />
+        <Route exact path="/news/:newsId" render={() =>   <NewsDetail {...props}/>} />
+        <Route exact path="/events/:eventId" render={() =>   <EventDetail {...props}/>} />
+        <Route path="/admin"  render={() =>   <AdminSection {...props}/>} />
         <Route component={NotFound}/>
     </Switch>
 );

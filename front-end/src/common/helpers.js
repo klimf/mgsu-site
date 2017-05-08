@@ -16,12 +16,45 @@ export function formatMoney(value) {
     }
 }
 
+export function formatDate(date) {
+                var d = new Date();
+                d.setTime(Date.parse(date));
+                 return d.getDate() + '.' + (d.getMonth()+1) + '.' + d.getFullYear();
+            };
+
+export function formatEventDate(date) {
+
+    let d = new Date();
+    d.setTime(Date.parse(date));
+    let month = [];
+
+    month[0]="Января";
+    month[1]="Февраля";
+    month[2]="Марта";
+    month[3]="Апреля";
+    month[4]="Мая";
+    month[5]="Июня";
+    month[6]="Июля";
+    month[7]="Августа";
+    month[8]="Сентября";
+    month[9]="Октября";
+    month[10]="Ноября";
+    month[11]="Декабря";
+
+    return {
+        day: d.getDate(),
+        month: month[d.getMonth()],
+        year: d.getFullYear(),
+        old: d.getTime() < new Date().getTime()
+    }
+}
+
 export const apiUrl = 'http://185.189.13.148:4000/api';
 // export const apiUrl = 'http://localhost:4000/api';
 
 export const resolveStatic = (path) => {
-    return 'http://185.189.13.148' + path;
-}
+    return 'http://185.189.13.148:4000' + path;
+};
 
 export const credOptions = 'include';
 

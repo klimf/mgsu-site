@@ -136,11 +136,20 @@ img.block {
   opacity: 1;
 }
 
-.primary {
+.fade-in {
+  @extend .transition-3;
+  opacity: 0;
+}
+
+.fade-in.active {
+  opacity: 1;
+}
+
+.bg-primary {
   background-color: $primary !important;
 }
 
-.disabled {
+.bg-disabled {
   background-color: $disabled !important;
 }
 

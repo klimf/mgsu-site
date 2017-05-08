@@ -111,6 +111,7 @@
   .m-b-2;
   height: 4*$o;
 }
+
 .login-input:focus {
   padding-left: 2*$o;
   border: $small-border solid $dark;
@@ -259,7 +260,6 @@
   border-bottom: $border solid $primary;
 }
 
-
 .slick-arrow:before {
   border-top: 4px solid black;
   border-left: 4px solid black;
@@ -285,8 +285,9 @@
   top: 2*$o;
 }
 
-
 .form-tab {
+  @extend .transition-3;
+  bottom: 0;
   background-color: $semi-dark;
 }
 
@@ -331,8 +332,6 @@
 
 .donation-form label {
   color: $white;
-  top: 4px;
-  left: 24px;
 }
 
 .donation-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -388,6 +387,19 @@
 .donation-form input[type="radio"]:checked + label div {
   background-color: $semi-dark;
 }
+
+.donation-form input[type="checkbox"] + label div {
+  @extend .cover,
+  .inline;
+  margin: 0 $o 0 0;
+  border: 1px solid $white;
+  width: 14px;
+  height: 14px;
+  background: $semi-light;
+}
+  .donation-form input[type="checkbox"]:checked + label div {
+    background: $semi-dark url($image + "icon-check.png") no-repeat;
+  }
 
 .donation-form-btn {
   @extend .transition-3,
@@ -480,4 +492,40 @@
   .navigation, .navigation-white {
     justify-content: space-around;
   }
+}
+
+
+.admin-toolbar__item-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.toolbar-btn {
+  @extend .inline,
+  .bg-white,
+  .transition-3,
+  .cover;
+  height: $o*3;
+  width: $o*3;
+  margin: 0 0  0.9375rem 0.9375rem;
+}
+
+.create-btn {
+  @extend .border-small,
+  .hover-primary-invert;
+  background: url($image + "icon-add-small.png") no-repeat;
+}
+
+.delete-btn {
+   @extend .border-small,
+  .hover-primary-invert;
+  background: url($image + "icon-close-small.png") no-repeat;
+}
+
+.edit-btn {
+  @extend .border-small,
+  .hover-primary-invert;
+   background: url($image + "icon-edit-small.png") no-repeat;
 }

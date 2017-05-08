@@ -1,5 +1,10 @@
 import React, {Component} from "react";
 import ReactSlider from "react-slick";
+import {EditableItem} from "../../AdminSection/components/AdminToolbar";
+import PropTypes from 'prop-types';
+import {resolveStatic} from '../../common/helpers';
+
+
 
 class Slider extends Component {
     constructor(props) {
@@ -29,36 +34,24 @@ class Slider extends Component {
                 width: '100%',
                 background: 'transparent'
             }}>
-                <ReactSlider {...this.sliderSetings}>
-                    <div className="sponsor small-6 medium-4 large-3 columns">
-                        <div className="small-12 sponsor-img columns"/>
-                        <h2 className="small-12">Паша Техник</h2>
-                        <p className="small-12">Спонсор</p>
-                    </div>
-                    <div className="sponsor small-6 medium-4 large-3 columns">
-                        <div className="small-12 sponsor-img columns"/>
-                        <h2 className="small-12">Паша Техник</h2>
-                        <p className="small-12">Спонсор</p>
-                    </div>
-                    <div className="sponsor small-6 medium-4 large-3 columns">
-                        <div className="small-12 sponsor-img columns"/>
-                        <h2 className="small-12">Паша Техник</h2>
-                        <p className="small-12">Спонсор</p>
-                    </div>
-                    <div className="sponsor small-6 medium-4 large-3 columns">
-                        <div className="small-12 sponsor-img columns"/>
-                        <h2 className="small-12">Паша Техник</h2>
-                        <p className="small-12">Спонсор</p>
-                    </div>
-                    <div className="sponsor small-6 medium-4 large-3 columns">
-                        <div className="small-12 sponsor-img columns"/>
-                        <h2 className="small-12">Паша Техник</h2>
-                        <p className="small-12">Спонсор</p>
-                    </div>
+                {this.props.sponsors.data && <ReactSlider {...this.sliderSetings}>
+                    {
+                        this.props.sponsors.data.map((sponsor, index) =>
+                            <div key={index} className="sponsor small-6 medium-4 large-3 columns">
+                                    <div className="small-12 sponsor-img columns placeholder-img" style={sponsor.img && {backgroundImage: "url(" + resolveStatic(sponsor.img.small) + ")"}}/>
+                                    <h2 className="small-12">{sponsor.lastName + ' ' + sponsor.firstName}</h2>
+                                    <p className="small-12">{sponsor.description}</p>
+                            </div>
+                        )
+                    }
                 </ReactSlider>
+                }
             </div>
         );
     }
 }
 
+Slider.propTypes = {
+    sponsors: PropTypes.object.isRequired
+};
 export default Slider;
