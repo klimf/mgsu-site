@@ -238,6 +238,7 @@
 
 .sponsor-img {
   @include image("placeholder.png");
+  background-position: center center !important;
   width: 80%;
   margin: 0 10% $o 10%;
   padding: calc(40% - 4px) 0;
