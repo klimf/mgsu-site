@@ -22,6 +22,7 @@ import {
 } from "admin-on-rest";
 import {required, isStr, currency} from '../validationRules';
 
+
 export const DontaionList = (props) => (
     <List title="Донаты" {...props} pagination={null}>
         <Datagrid>

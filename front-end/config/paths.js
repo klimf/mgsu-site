@@ -65,7 +65,7 @@ function getServedPath(appPackageJson) {
 
 // config after eject: we're in ./config/
 module.exports = {
-  appBuild: resolveApp('../efDev/build'),
+  appBuild: resolveApp('./build'),
   appPublic: resolveApp('public'),
   indexTemplate: resolveApp('./isomorphic/views/index.html'),
   appHtml: resolveApp('public/index.html'),

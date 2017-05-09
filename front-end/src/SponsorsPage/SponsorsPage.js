@@ -9,8 +9,6 @@ import {ActionBar, EditableItem} from '../AdminSection/components/AdminToolbar';
 import {formatMoney, formatDate} from '../common/helpers';
 
 
-
-
 class SponsorsPage extends Component {
 
     componentWillMount() {

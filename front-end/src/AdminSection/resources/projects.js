@@ -37,7 +37,6 @@ const directions = [
     {id: 'Проффессора и преподаватели', name: 'Проффессора и преподаватели'}
 ];
 
-
 export const ProjectList = (props) => (
     <List title="Список проектов" {...props} pagination={null} >
         <Datagrid >

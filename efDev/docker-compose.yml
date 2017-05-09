@@ -1,22 +1,27 @@
 
 version: '2'
 
+volumes:
+  buildstatic:
+    driver: local
+
 services:
   application:
-    image: ilyazubkov/mgsu_site
+    build: .
     container_name:
       application
-    ports:
-      - 4000:4000
     environment:
       DB: "efsite"
       DB_USER: 'admin'
       DB_PASS: "metallic"
       VIRTUAL_HOST: application
+    depends_on:
+      [wait, imagemagick, front-end]
+    volumes: 
+      - buildstatic:/usr/src/app/build
+      - /Users/ilya/Desktop/storage:/usr/src/app/storage
   store:
     image: tutum/mongodb
-    ports:
-      - 27017:27017
     environment:
       MONGODB_USER: "admin"
       MONGODB_PASS: "metallic"
@@ -38,3 +43,7 @@ services:
       - imagemagick
   imagemagick:
    image:  acleancoder/imagemagick-full
+  front-end:
+    build: ../front-end
+    volumes:
+      - buildstatic:/usr/src/build
