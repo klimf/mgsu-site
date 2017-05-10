@@ -7,7 +7,7 @@ volumes:
 
 services:
   application:
-    image: ilyazubkov/mgsu-node-back-end
+    build: ./efDev
     container_name:
       application
     environment:
@@ -43,6 +43,6 @@ services:
   imagemagick:
    image:  acleancoder/imagemagick-full
   front-end:
-    image: ilyazubkov/mgsu-front-end-spa
+    build: ./front-end/
     volumes:
       - buildstatic:/usr/src/build
