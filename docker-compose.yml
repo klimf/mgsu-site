@@ -34,7 +34,6 @@ services:
        store:27017
     links:
       - store
-      - imagemagick
   # imagemagick:
   #  image:  acleancoder/imagemagick-full
   front-end:
