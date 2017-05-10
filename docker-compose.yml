@@ -14,7 +14,7 @@ services:
       DB_HOST: store
       VIRTUAL_HOST: application
     depends_on:
-      [wait, imagemagick, front-end]
+      [wait, front-end]
     volumes: 
       - buildstatic:/usr/src/app/build
       - ~/www/back-end:/usr/src/app
