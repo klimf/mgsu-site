@@ -6,7 +6,7 @@ services:
 script:
   - docker build ./efDev
   - docker build ./front-end
-  - docker-compose up --build -d
+  - docker-compose up -d
   - curl localhost | grep html
 
 after_success:
