@@ -11,24 +11,19 @@ services:
     container_name:
       application
     environment:
-      DB: "efsite"
-      DB_USER: 'admin'
-      DB_PASS: "metallic"
+      DB_HOST: store
       VIRTUAL_HOST: application
     depends_on:
       [wait, imagemagick, front-end]
     volumes: 
       - buildstatic:/usr/src/app/build
+      - ~/www/back-end:/usr/src/app
   store:
-    image: tutum/mongodb
-    environment:
-      MONGODB_USER: "admin"
-      MONGODB_PASS: "metallic"
-      MONGODB_DATABASE: "efsite"
+    image: mongo
   proxy:
     image: jwilder/nginx-proxy
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     environment:
@@ -46,3 +41,4 @@ services:
     build: ./front-end/
     volumes:
       - buildstatic:/usr/src/build
+      - ~/www/build:/usr/src/build

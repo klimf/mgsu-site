@@ -1,7 +1,7 @@
 module.exports.indexPage = 'public/index.html';
 
 module.exports.db = {
-    string: `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@store/` + process.env.DB,
+    string: `mongodb://${process.env.DB_USER + ':'|| ''}${process.env.DB_PASS + '@' || ''}${process.env.DB_HOST || 'localhost'}/` + (process.env.DB || 'efsite'),
     testDb: 'mongodb://localhost/eftest',
     commonProps: {
         removed: {

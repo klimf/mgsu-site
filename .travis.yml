@@ -4,4 +4,13 @@ services:
   - docker
 
 script:
-  - docker-compose up --build
+  - docker build ./efDev
+  - docker build ./front-end
+  - docker-compose -up --build -d
+  - curl localhost | grep html
+
+after_success:
+    if [ "$TRAVIS_BRANCH" == "master" ]; then
+     "curl  -T ./efDev -u $FTP_USER:$FTP_PASSWORD sftp://185.189.13.148/home/admin/www/back-end"
+     "curl  -T ./front-end/build -u $FTP_USER:$FTP_PASSWORD sftp://185.189.13.148/home/admin/www/build"
+    fi
