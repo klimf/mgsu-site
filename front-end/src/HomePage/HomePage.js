@@ -143,7 +143,7 @@ class HomePage extends Component {
 
                     </div>
                     <div className="content small-12 row">
-                        <h1 className="small-12 white uppercase center columns">Направления для поддержки</h1>
+                        <h1 className="small-12 white uppercase center columns">ления для поддержки</h1>
                         <div className="hexagon-grid small-12 columns">
                             {
                                 this.hexaNames.map((name, index) =>
