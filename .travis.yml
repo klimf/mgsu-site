@@ -7,7 +7,7 @@ services:
   - docker
 
 script:
-  - cd ./front-end && npm i --production
+  - cd ./front-end && npm i --dev
   - npm run build
   - cd - && docker-compose up -d
   - curl localhost | grep html
