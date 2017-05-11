@@ -7,9 +7,18 @@ services:
 before_script:
   - docker info
   - docker-compose --version
-  
+stages:
+    - build
+    - deploy
+    
 build:
   stage: build
   script:
     - docker-compose up --build -d
-    - curl localhost | grep 'html'
+
+deploy:
+  stage: deploy
+  environment:
+    name: klim
+  only:
+  - master
