@@ -1,14 +1,19 @@
 sudo: required
+language: node_js
+node_js: '6'
+cache: yarn
 
 services:
   - docker
 
 script:
+  - ./front-end npm run build
   - docker-compose up -d
   - curl localhost | grep html
 
 after_success:
     if [ "$TRAVIS_BRANCH" == "master" ]; then
-     "curl  -T ./efDev -u $FTP_USER:$FTP_PASSWORD sftp://185.189.13.148/home/admin/www/back-end"
-     "curl  -T ./front-end/build -u $FTP_USER:$FTP_PASSWORD sftp://185.189.13.148/home/admin/www/build"
+    "find ./efDev -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://185.189.13.148/home/admin/www/back-end/{}"
+    "find ./front-end/build -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://185.189.13.148/home/admin/www/back-end/build/{}"
     fi
+

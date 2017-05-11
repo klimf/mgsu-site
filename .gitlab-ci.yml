@@ -1,6 +1,0 @@
-before_srcipts:
-    docker info
-
-build:
-    srcipts:
-        docker-compose up --build
