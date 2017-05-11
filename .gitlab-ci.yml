@@ -8,4 +8,7 @@ services:
 build:
   stage: build
   script:
-    - dcoker-compose up --build
+    - cd ./efDev
+    - docker build
+    - docker run -it -p 80:4000
+    - curl localhost | grep html
