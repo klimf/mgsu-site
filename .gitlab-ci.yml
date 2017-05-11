@@ -11,5 +11,5 @@ before_script:
 build:
   stage: build
   script:
-    docker-compose up --build -d
-    curl localhost | grep 'html'
+    - docker-compose up --build -d
+    - curl localhost | grep 'html'
