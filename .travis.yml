@@ -9,10 +9,10 @@ services:
 script:
   - docker-compose up -d
   - curl localhost | grep html
+  - apt-get install wput
 
 after_success:
     if [ "$TRAVIS_BRANCH" == "master" ]; then
-    "find ./efDev -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://185.189.13.148/home/admin/www/back-end/{}"
+    "find ./efDev -type f -exec curl -u admin:metallic --ftp-create-dirs -T {} sftp://185.189.13.148/home/admin/www/back-end/{} \;"
     "find ./front-end/build -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://185.189.13.148/home/admin/www/back-end/build/{}"
     fi
-
