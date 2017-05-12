@@ -1,0 +1,33 @@
+app:
+  build:
+    image: ilyazubkov/mgsu-node-back-end
+    dockerfile_path: efDev/Dockerfile
+  environment:
+    DB_HOST: store
+    VIRTUAL_HOST: application
+  links:
+    - proxy
+    - imagemagick
+    - store
+    - wait
+  cached: true
+  volumes: 
+      - ~/www/build:/usr/src/app/build
+proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    environment:
+      DEFAULT_HOST: application
+imagemagick:
+   image:  acleancoder/imagemagick-full
+store:
+  image: mongo
+wait: 
+  image: dadarek/wait-for-dependencies
+  command:
+      store:27017
+  links:
+     - store
