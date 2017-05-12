@@ -1,7 +1,5 @@
 app:
-  build:
-    image: ilyazubkov/mgsu-node-back-end
-    dockerfile_path: efDev/Dockerfile
+  build: efDev/Dockerfile
   environment:
     DB_HOST: store
     VIRTUAL_HOST: application
