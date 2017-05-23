@@ -76,7 +76,7 @@ class AboutPage extends Component {
                                                    background: `url(${person.img && resolveStatic(person.img.small)})`
                                                }}/>
                                                <h2 className="small-12">{person.lastName + ' ' + person.firstName + ' ' + person.middleName}</h2>
-                                               <p className="small-12">Описание: {person.description}</p>
+                                               <p className="small-12">{person.description}</p>
                                            </div>
                                        )
 
