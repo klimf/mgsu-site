@@ -75,8 +75,8 @@ class AboutPage extends Component {
                                                <div className="small-12 sponsor-img columns placeholder-img" style={{
                                                    background: `url(${person.img && resolveStatic(person.img.small)})`
                                                }}/>
-                                               <h2 className="small-12">{person.firstName + ' ' + person.lastName + ' ' + person.middleName}</h2>
-                                               <p className="small-12">Описание: {person.description}</p>
+                                               <h2 className="small-12">{person.lastName + ' ' + person.firstName + ' ' + person.middleName}</h2>
+                                               <p className="small-12">{person.description}</p>
                                            </div>
                                        )
 
